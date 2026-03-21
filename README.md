@@ -147,3 +147,9 @@ GPL v3 — ver [LICENSE](LICENSE)
 Copyright © 2026 Albert (ha-king)
 # toporeveal
 # toporeveal
+
+## Screenshots
+
+![Topología de red](screenshots/captura1.png)
+![Panel de alertas](screenshots/captura2.png)
+![WiFi Scope](screenshots/captura3.png)
