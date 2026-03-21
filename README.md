@@ -153,3 +153,11 @@ Copyright © 2026 Albert (ha-king)
 ![Topología de red](screenshots/captura1.png)
 ![Panel de alertas](screenshots/captura2.png)
 ![WiFi Scope](screenshots/captura3.png)
+
+## Screenshots
+
+### Topología de Red
+![Topología principal](screenshots/topologia_principal.png)
+
+### Tráfico de Red y WiFi
+![Tráfico WiFi](screenshots/trafico_wifi.png)
