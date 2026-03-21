@@ -145,3 +145,4 @@ TopoReveal es una herramienta de auditoría de seguridad diseñada para administ
 GPL v3 — ver [LICENSE](LICENSE)
 
 Copyright © 2026 Albert (ha-king)
+# toporeveal
