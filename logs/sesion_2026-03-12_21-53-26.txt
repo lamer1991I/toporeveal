@@ -1,0 +1,115 @@
+TopoReveal — Log de sesion
+Generado: 2026-03-12 21:53:26
+Total lineas de evento: 87
+============================================================
+
+RESUMEN DE RED — 6 hosts activos, 0 en lobby
+Gateway: 192.168.1.254 | Subred: 192.168.1.x
+ARP Scanners detectados: 0
+------------------------------------------------------------
+
+HOSTS ACTIVOS:
+  IP                 MAC                  TIPO           OS           ESTADO         PKTs  PROTOCOLOS
+  ------------------------------------------------------------------------------------------
+  192.168.1.1        ba:ab:9f:a5:6b:16    pc             Linux/Mac    confirmado       46  ARP,ICMP,TCP
+  192.168.1.4        de:74:97:35:72:82    pc             Linux/Mac    fantasma         62  ARP,ICMP,TCP
+  192.168.1.5        d2:91:cd:60:e8:dc    pc             Linux/Mac    fantasma         62  ARP,ICMP,TCP
+  192.168.1.6        94:08:53:53:98:43    desconocido    Linux/Mac    confirmado     1948  ARP,ICMP,TCP,UDP
+  192.168.1.252      00:00:ca:01:02:03    wired_generic  Linux/Mac    fantasma         62  ARP,ICMP,TCP
+  192.168.1.254      c0:89:ab:e9:9c:46    router         Linux/Mac    confirmado      160  ARP,ICMP,TCP
+
+CONEXIONES EXTERNAS POR HOST:
+  192.168.1.1 → 224.0.0.251
+  192.168.1.6 → 190.240.115.151, 200.24.51.144, 200.25.3.17
+
+============================================================
+
+LOG DE EVENTOS:
+
+[21:50:27] [APP] Arranque automático en wlan0
+[21:50:27] [APP] Gateway: 192.168.1.254 | Subred: 192.168.1.x
+[21:50:27] [APP] Iniciando escaneo en wlan0
+[21:50:27] [SCANNER] Pipeline de 3 Fases activo en wlan0 (5 hilos workers)
+[21:50:29] [RED] Nuevo host: 192.168.1.254 | MAC: c0:89:ab:e9:9c:46 | via ARP
+[21:50:29] [FLUJO] 192.168.1.254 → 192.168.1.6 [ARP]
+[21:50:29] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[21:50:29] [FLUJO] 192.168.1.6 → 192.168.1.254 [ARP]
+[21:50:29] [EXTERNO] 192.168.1.6 → 190.240.115.151 [UDP]
+[21:50:29] [EXTERNO] 192.168.1.6 → 200.24.51.144 [UDP]
+[21:50:30] [FLUJO] 192.168.1.6 → 192.168.1.254 [TCP]
+[21:50:30] [FLUJO] 192.168.1.254 → 192.168.1.6 [TCP]
+[21:50:30] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.4...
+[21:50:30] [SCANNER] Fase 1 (ARP) completado en 3s
+[21:50:30] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.1...
+[21:50:30] [FLUJO] 192.168.1.6 → 192.168.1.1 [ARP]
+[21:50:30] [FLUJO] 192.168.1.6 → 192.168.1.4 [ARP]
+[21:50:30] [FLUJO] 192.168.1.6 → 192.168.1.5 [ARP]
+[21:50:31] [FLUJO] 192.168.1.4 → 192.168.1.6 [ARP]
+[21:50:31] [FLUJO] 192.168.1.6 → 192.168.1.4 [UDP]
+[21:50:31] [FLUJO] 192.168.1.1 → 192.168.1.6 [ARP]
+[21:50:31] [FLUJO] 192.168.1.6 → 192.168.1.1 [UDP]
+[21:50:31] [FLUJO] 192.168.1.5 → 192.168.1.6 [ARP]
+[21:50:31] [FLUJO] 192.168.1.6 → 192.168.1.5 [UDP]
+[21:50:31] [FLUJO] 192.168.1.1 → 192.168.1.6 [ICMP]
+[21:50:31] [FLUJO] 192.168.1.5 → 192.168.1.6 [ICMP]
+[21:50:31] [FLUJO] 192.168.1.6 → 192.168.1.1 [TCP]
+[21:50:31] [FLUJO] 192.168.1.1 → 192.168.1.6 [TCP]
+[21:50:31] [FLUJO] 192.168.1.6 → 192.168.1.4 [TCP]
+[21:50:32] [FLUJO] 192.168.1.4 → 192.168.1.6 [TCP]
+[21:50:32] [FLUJO] 192.168.1.6 → 192.168.1.1 [ICMP]
+[21:50:32] [EXTERNO] 192.168.1.1 → 224.0.0.251 [UDP]
+[21:50:33] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.5...
+[21:50:33] [FLUJO] 192.168.1.6 → 192.168.1.4 [ICMP]
+[21:50:33] [FLUJO] 192.168.1.4 → 192.168.1.6 [ICMP]
+[21:50:34] [FLUJO] 192.168.1.6 → 192.168.1.5 [TCP]
+[21:50:34] [FLUJO] 192.168.1.5 → 192.168.1.6 [TCP]
+[21:50:35] [FLUJO] 192.168.1.6 → 192.168.1.5 [ICMP]
+[21:50:35] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.252...
+[21:50:35] [FLUJO] 192.168.1.6 → 192.168.1.252 [ARP]
+[21:50:35] [FLUJO] 192.168.1.252 → 192.168.1.6 [ARP]
+[21:50:36] [FLUJO] 192.168.1.6 → 192.168.1.252 [TCP]
+[21:50:36] [FLUJO] 192.168.1.252 → 192.168.1.6 [TCP]
+[21:50:36] [FLUJO] 192.168.1.6 → 192.168.1.252 [ICMP]
+[21:50:36] [FLUJO] 192.168.1.252 → 192.168.1.6 [ICMP]
+[21:50:36] [FLUJO] 192.168.1.6 → 192.168.1.252 [UDP]
+[21:50:36] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.6...
+[21:50:37] [FLUJO] 192.168.1.6 → 192.168.1.254 [UDP]
+[21:50:37] [FLUJO] 192.168.1.254 → 192.168.1.6 [ICMP]
+[21:50:42] [STATS] Recálculo: 6 nodos | alertas: 0
+[21:50:43] [FLUJO] 192.168.1.6 → 192.168.1.254 [ICMP]
+[21:50:57] [STATS] Recálculo: 6 nodos | alertas: 0
+[21:50:57] [SCANNER] Re-escaneo profundo masivo de 192.168.1.6/24...
+[21:50:59] [EXTERNO] 192.168.1.6 → 200.25.3.17 [UDP]
+[21:51:00] [FLUJO] 192.168.1.6 → 192.168.1.254 [TCP]
+[21:51:00] [FLUJO] 192.168.1.254 → 192.168.1.6 [TCP]
+[21:51:01] [FLUJO] 192.168.1.6 → 192.168.1.4 [TCP]
+[21:51:06] [FLUJO] 192.168.1.252 → 192.168.1.6 [ARP]
+[21:51:06] [FLUJO] 192.168.1.6 → 192.168.1.252 [ARP]
+[21:51:06] [FLUJO] 192.168.1.4 → 192.168.1.6 [ARP]
+[21:51:06] [FLUJO] 192.168.1.6 → 192.168.1.4 [ARP]
+[21:51:06] [FLUJO] 192.168.1.5 → 192.168.1.6 [ARP]
+[21:51:06] [FLUJO] 192.168.1.6 → 192.168.1.5 [ARP]
+[21:51:07] [SCANNER] Re-escaneo masivo completado
+[21:51:07] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[21:51:12] [STATS] Recálculo: 6 nodos | alertas: 0
+[21:51:21] [FLUJO] 192.168.1.6 → 192.168.1.254 [ICMP]
+[21:51:21] [FLUJO] 192.168.1.254 → 192.168.1.6 [ICMP]
+[21:51:21] [FLUJO] 192.168.1.6 → 192.168.1.254 [UDP]
+[21:51:27] [STATS] Recálculo: 6 nodos | alertas: 0
+[21:51:42] [STATS] Recálculo: 6 nodos | alertas: 0
+[21:51:44] [EXTERNO] 192.168.1.1 → 224.0.0.251 [UDP]
+[21:51:56] [FLUJO] 192.168.1.254 → 192.168.1.6 [ARP]
+[21:51:56] [FLUJO] 192.168.1.6 → 192.168.1.254 [ARP]
+[21:51:57] [STATS] Recálculo: 6 nodos | alertas: 0
+[21:52:04] [EXTERNO] 192.168.1.6 → 200.25.3.17 [UDP]
+[21:52:12] [STATS] Recálculo: 6 nodos | alertas: 0
+[21:52:27] [STATS] Recálculo: 6 nodos | alertas: 0
+[21:52:31] [FLUJO] 192.168.1.254 → 192.168.1.6 [ARP]
+[21:52:31] [FLUJO] 192.168.1.6 → 192.168.1.254 [ARP]
+[21:52:42] [STATS] Recálculo: 6 nodos | alertas: 0
+[21:52:57] [STATS] Recálculo: 6 nodos | alertas: 0
+[21:53:07] [FLUJO] 192.168.1.254 → 192.168.1.6 [ARP]
+[21:53:07] [FLUJO] 192.168.1.6 → 192.168.1.254 [ARP]
+[21:53:12] [STATS] Recálculo: 6 nodos | alertas: 0
+[21:53:23] [EXTERNO] 192.168.1.6 → 200.25.3.17 [UDP]
+[21:53:26] [APP] Botón Salir presionado — cerrando...

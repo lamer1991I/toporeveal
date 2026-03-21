@@ -1,0 +1,67 @@
+TopoReveal — Log de sesion
+Generado: 2026-03-18 21:39:46
+Total lineas de evento: 49
+============================================================
+
+RESUMEN DE RED — 0 hosts activos, 0 en lobby
+Gateway: 192.168.1.254 | Subred: 192.168.1.x
+ARP Scanners detectados: 0
+------------------------------------------------------------
+
+HOSTS ACTIVOS:
+  IP                 MAC                  TIPO           OS           ESTADO         PKTs  PROTOCOLOS
+  ------------------------------------------------------------------------------------------
+
+============================================================
+
+LOG DE EVENTOS:
+
+[21:37:44] [APP] Arranque automático en wlan0
+[21:37:44] [APP] Sin gateway en wlan0
+[21:37:44] [APP] Iniciando escaneo en wlan0
+[21:37:44] [SCANNER] Pipeline de 3 Fases activo en wlan0 (5 hilos workers)
+[21:37:44] [SCANNER] Sin red (1), reintento en 30s
+[21:37:44] [CAPTURE] Modo promiscuo activado en wlan0
+[21:37:44] [CAPTURE] Hilo iniciado (id=1)
+[21:37:44] [CAPTURE] Iniciado en wlan0 (promiscuo + watchdog)
+[21:37:58] [STATS] Recálculo: 0 nodos | alertas: 0
+[21:37:59] [APP] Sin gateway — interceptor no puede iniciar
+[21:38:13] [STATS] Recálculo: 0 nodos | alertas: 0
+[21:38:14] [SCANNER] Sin red (2), reintento en 60s
+[21:38:28] [STATS] Recálculo: 0 nodos | alertas: 0
+[21:38:43] [STATS] Recálculo: 0 nodos | alertas: 0
+[21:38:46] [APP] Botón Detener presionado
+[21:38:46] [CAPTURE] Detenido
+[21:38:47] [CAPTURE] Hilo terminado (id=1)
+[21:38:48] [APP] Botón Escanear presionado — interfaz: wlan0
+[21:38:48] [APP] Sin gateway en wlan0
+[21:38:48] [SCANNER] Ya en curso
+[21:38:48] [CAPTURE] Modo promiscuo activado en wlan0
+[21:38:48] [CAPTURE] Hilo iniciado (id=2)
+[21:38:48] [CAPTURE] Iniciado en wlan0 (promiscuo + watchdog)
+[21:38:58] [STATS] Recálculo: 0 nodos | alertas: 0
+[21:39:03] [APP] Sin gateway — interceptor no puede iniciar
+[21:39:13] [STATS] Recálculo: 0 nodos | alertas: 0
+[21:39:14] [SCANNER] Sin red (3), reintento en 90s
+[21:39:28] [STATS] Recálculo: 0 nodos | alertas: 0
+[21:39:38] [APP] Botón Limpiar presionado
+[21:39:38] [CAPTURE] Detenido
+[21:39:38] [APP] Gateway: 192.168.1.254 | Subred: 192.168.1.x
+[21:39:38] [CAPTURE] Watchdog terminado
+[21:39:39] [CAPTURE] Watchdog terminado
+[21:39:39] [SCANNER] Ya en curso
+[21:39:39] [CAPTURE] Modo promiscuo activado en wlan0
+[21:39:39] [CAPTURE] Hilo iniciado (id=3)
+[21:39:39] [CAPTURE] Iniciado en wlan0 (promiscuo + watchdog)
+[21:39:43] [APP] Botón Limpiar presionado
+[21:39:43] [CAPTURE] Detenido
+[21:39:43] [APP] Gateway: 192.168.1.254 | Subred: 192.168.1.x
+[21:39:43] [CAPTURE] Hilo terminado (id=3)
+[21:39:43] [STATS] Recálculo: 0 nodos | alertas: 0
+[21:39:43] [SCANNER] Ya en curso
+[21:39:43] [CAPTURE] Modo promiscuo activado en wlan0
+[21:39:43] [CAPTURE] Hilo iniciado (id=4)
+[21:39:43] [CAPTURE] Iniciado en wlan0 (promiscuo + watchdog)
+[21:39:46] [APP] Botón Salir presionado — cerrando...
+[21:39:46] [CAPTURE] Detenido
+[21:39:46] [SCANNER] Hilos detenidos

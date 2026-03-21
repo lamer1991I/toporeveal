@@ -1,0 +1,187 @@
+TopoReveal
+TECHNICAL HANDOVER — Entrega a Cursor / VSCode
+Pegar este documento completo en el chat de Cursor
+Generado: Marzo 2026  |  Desarrollado con Claude Sonnet 4.6
+
+0. CONTEXTO DEL PROYECTO
+TopoReveal es un visualizador de topologia de red en tiempo real. Detecta, fingerprinta y visualiza todos los dispositivos de una red local combinando captura pasiva (scapy) y escaneo activo (nmap). UI con tema oscuro GitHub, construido en Python + tkinter. Probado en red universitaria con 181 hosts activos.
+Ruta del proyecto: ~/Proyectos/toporeveal/
+Estructura de directorios
+~/Proyectos/toporeveal/
+├── assets/icons/          (21 PNG neon — router/pc/smartphone/switch/etc)
+├── core/
+│   ├── nodes.py           (Nodo dataclass + timers + risk score + hallazgos)
+│   └── topology.py        (Topologia class: nodos, enlaces, alertas, lock)
+├── tools/
+│   ├── capture.py         (Scapy passive capture + watchdog thread)
+│   ├── scanner.py         (Scanner adaptativo multi-hilo)
+│   ├── arsenal.py         (Arsenal: 8 tipos de escaneo nmap)
+│   ├── exportar.py        (Export PNG/JSON/CSV)
+│   └── fingerprint.py     (OS detection por TTL + MAC OUI)
+├── ui/
+│   ├── app.py             (App class: controlador principal)
+│   ├── canvas.py          (Canvas topologia: zoom, tooltips, click derecho)
+│   ├── panel.py           (Panel derecho: detalle nodo, busqueda)
+│   ├── panel_alertas.py   (Panel izquierdo: semaforo, tipos clicables, alertas)
+│   └── ventana_arsenal.py (Ventana flotante resultados nmap)
+└── main.py
+
+1. ESTADO ACTUAL — QUE ESTA TERMINADO Y QUE NO
+Completado al 100%
+    • Scanner multi-hilo con escala adaptativa: 2 workers (<20 hosts), 3 workers (20-80), 5 workers (>80 hosts). El monitor de escala corre cada 60s y lanza workers adicionales si la red crece.
+    • Intervalos adaptativos: ARP cada 5-8 min segun escala, re-scan profundo cada 8-20 min.
+    • 27 puertos escaneados: criticos (23/Telnet, 5900/VNC, 445/SMB, 3389/RDP), servicios (22/80/443/8080), IoT/OT (502/Modbus, 102/S7, 1883/MQTT), BD (3306/5432/1433/27017).
+    • Captura pasiva scapy con watchdog thread (auto-restart hasta 10 veces si cae).
+    • Topologia visual en arbol: Internet → Gateway → Switches → Hosts.
+    • Estados con timers balanceados: 2 min→sospechoso, 5 min→fantasma, 10 min→lobby.
+    • FIX lobby timer: trafico dirigido HACIA un nodo (solo_destino=True) NO resetea su timer de inactividad. Solo el trafico FROM el nodo resetea el timer.
+    • FIX NoneType: stats_hash en panel_alertas.py usa str(n.tipo or "") para evitar comparar None con str en sorted().
+    • 21 iconos PNG neon por tipo de dispositivo en assets/icons/.
+    • Sistema hallazgos con risk score 0-100 + acciones sugeridas por servicio.
+    • Panel alertas izquierdo con semaforo por max(severidad), no promedio.
+    • Filtro por tipo: click en tipo en panel izquierdo → esos nodos se iluminan rojo en canvas, el resto se atenua.
+    • Arsenal: click derecho en cualquier nodo → menu contextual → 8 tipos de escaneo → ventana flotante con output nmap coloreado.
+Parcialmente implementado
+    • Fingerprinting OS (82%): TTL funciona bien para Linux/Windows/iOS. MAC OUI tiene cobertura parcial. Falta ampliar la base de prefijos OUI.
+    • Export (85%): PNG y JSON funcionan. CSV exporta pero falta llamar a makedirs() antes de crear el archivo. Bug activo que hace fallar el export si la carpeta exports/ no existe.
+    • Scanner logging (90%): log() imprime en consola. set_log_callback() existe pero a veces el callback se ignora en ramas de error del scanner.
+No implementado (0%)
+    • SQLite historial diferencial entre sesiones
+    • Dashboard de estadisticas con graficas matplotlib
+    • GeoIP para conexiones externas
+    • Multi-subnet / VLAN detection
+    • Informe PDF profesional
+    • IPv6
+
+2. ARQUITECTURA DE DATOS — FLUJO COMPLETO
+Pipeline principal
+[RED FISICA]
+    |
+    +-- scapy sniffer (capture.py)
+    |      callback → app._on_paquete_capturado(datos)
+    |          ip_origen  → topology.agregar_o_actualizar(ip)
+    |                         → nodo.actualizar_actividad()   ← RESETEA timer
+    |          ip_destino → topology.agregar_o_actualizar(ip, solo_destino=True)
+    |                         → nodo.registrar_paquete_destino()  ← NO resetea
+    |
+    +-- nmap ARP sweep (scanner.py hilo 1, cada 5-8 min)
+    |      _parsear_resultado() → callback → app._on_dispositivo_encontrado()
+    |          → topology.agregar_o_actualizar(ip, mac=X)
+    |          → scanner.encolar_nodo(ip)  ← para escaneo individual
+    |
+    +-- nmap por nodo (scanner.py hilos 2-6, cola)
+           _parsear_resultado() → callback → app._on_dispositivo_encontrado()
+               → nodo.puertos_abiertos += nuevos_puertos
+               → evaluar_puertos() → nodo.hallazgos[]
+               → calcular_risk_score() → nodo.risk_score
+               → detectar_perfil_especial() → nodo.perfiles[]
+Ciclo de actualizacion UI — cada 2 segundos
+app._ciclo_actualizacion()   [ventana.after(2000, ...)]
+    +-- topologia.limpiar_inactivos()
+    |       nodo.actualizar_estado() para cada nodo
+    |       timers: 2min→sospechoso, 5min→fantasma, 10min→lobby
+    +-- canvas.redibujar()
+    |       _dibujar_nodo(nodo, x, y)
+    |       tipo_resaltado != None → borde rojo / resto atenuado
+    +-- panel.actualizar(nodos_visibles)
+    +-- panel_alertas.actualizar()
+            hash-based: solo redibuja si stats_hash o alertas_hash cambio
+            stats_hash = (n_nodos, n_alertas, tuple(sorted(tipos_str)))
+Stats loop — cada 15 segundos (hilo separado)
+app._loop_stats()   [hilo daemon independiente]
+    Para cada nodo:
+        nodo.hallazgos = evaluar_puertos(nodo.puertos_abiertos)
+        nodo.risk_score = calcular_risk_score(nodo.puertos_abiertos)
+        nodo.severidad_max = severidad_maxima(nodo.hallazgos)
+        nodo.perfiles = detectar_perfil_especial(nodo.puertos_abiertos)
+Clase Nodo — campos criticos
+CAMPO	TIPO	DESCRIPCION
+ip	str	IP del nodo (clave primaria)
+mac	str|None	MAC address (puede llegar tarde via ARP)
+tipo	str	router/pc/smartphone/switch/servidor/arp-scanner/...
+estado	str	confirmado / sospechoso / fantasma
+en_lobby	bool	True = invisible en canvas (>10 min inactivo)
+ultimo_visto	float	time.time() — SOLO actualiza si es ORIGEN del trafico
+puertos_abiertos	list[int]	Puertos TCP detectados por nmap
+hallazgos	list[Hallazgo]	Vulnerabilidades/servicios detectados
+risk_score	int 0-100	Calculado por calcular_risk_score()
+severidad_max	str|None	info/medio/alto/critico o None si sin hallazgos
+protegido	bool	True = IP local, nunca va a lobby
+perfiles	list	Roles: [(nombre, severidad)] — ej: ("Posible DC", "critico")
+
+3. DEPENDENCIAS CRITICAS
+Python — librerias
+LIBRERIA	INSTALACION	USO EN EL PROYECTO
+scapy	pip install scapy	Captura pasiva de paquetes en capture.py
+Pillow (PIL)	pip install Pillow	Carga y redimensiona iconos PNG en canvas.py
+tkinter	incluida en Python	Toda la interfaz grafica (UI)
+subprocess	stdlib	Ejecutar comandos nmap desde scanner.py y arsenal.py
+threading	stdlib	Todos los hilos: scanner, capture, stats, watchdog
+re / time / json / os	stdlib	Parseo nmap, timestamps, export JSON
+Sistema — herramientas externas
+HERRAMIENTA	NIVEL	INSTALACION Y NOTAS
+nmap	CRITICO	sudo apt install nmap — sin nmap el scanner no funciona
+Python 3.8+	CRITICO	f-strings, dataclasses, walrus operator
+sudo / root	CRITICO	Scapy necesita privilegios para captura raw. Arrancar con sudo python3 main.py
+Linux Ubuntu/Debian	RECOMENDADO	Probado en Ubuntu 24. macOS sin garantia. Windows no soportado.
+Interfaz de red activa	NECESARIO	wlan0, eth0, etc. El programa la detecta automaticamente
+Comando de arranque
+sudo python3 main.py
+El programa detecta la interfaz de red automaticamente al iniciar. Si tiene varias, muestra un dropdown para elegir.
+
+4. BUGS CONOCIDOS
+Bugs corregidos en la ultima sesion
+BUG	ARCHIVO	FIX APLICADO
+NoneType en ciclo alertas: "<" not supported between NoneType and str	panel_alertas.py	stats_hash usa str(n.tipo or "") y str(getattr(n,"severidad_max","") or "")
+Lobby timer: gateway ARP queries resetean timer de todos los nodos	topology.py + nodes.py	agregar_o_actualizar acepta solo_destino=True. Llama registrar_paquete_destino() en vez de actualizar_actividad()
+Arsenal: parametro callback con nombre incorrecto	arsenal.py	callback= en lugar de callback_resultado=
+Bugs pendientes (no corregidos aun)
+BUG	ARCHIVO	DESCRIPCION Y FIX SUGERIDO
+Export folder creation	exportar.py	makedirs() nunca se llama. Falla si exports/ no existe. Fix: os.makedirs(carpeta, exist_ok=True) al inicio de cada funcion de export.
+Scanner log no escribe a sesion	scanner.py	log() imprime en consola pero no llama al archivo de sesion. Fix: verificar que _log_fn no sea None antes del try en la funcion log().
+SUDO_USER path incorrecto	exportar.py	Con sudo, HOME apunta a /root en vez del usuario real. Fix: os.path.expanduser("~") o usar SUDO_USER env var.
+Comportamientos esperados que parecen bugs pero NO lo son
+    • Nodos pasan a lobby rapido en universidad: ESPERADO. Con 180+ hosts y ARP masivo los timers se comportan diferente. El timer de 10 min ya lo mitiga.
+    • 10 ARP scanners detectados: CORRECTO. Varios estudiantes con Kali/nmap en la misma red.
+    • "Posible autenticacion masiva" a las 14:59: CORRECTO. 40+ hosts conectando a 10.11.11.65 en 2 segundos = servidor RADIUS/portal captivo universitario.
+
+5. PROXIMOS PASOS — QUE PROGRAMAR AHORA
+PASO 1 — Fix export (15 minutos, bug critico)
+En exportar.py, al inicio de cada funcion exportar_png/json/csv:
+import os
+BASE = os.path.join(os.path.expanduser("~"), "Proyectos", "toporeveal")
+carpeta = os.path.join(BASE, "exports")
+os.makedirs(carpeta, exist_ok=True)
+PASO 2 — SQLite historial diferencial (alta prioridad)
+Crear tools/historial.py con estas funciones:
+    • guardar_sesion(topologia) → inserta snapshot en SQLite al cerrar la sesion
+    • cargar_ultima_sesion() → retorna dict {ip: {mac, tipo, puertos, risk_score}}
+    • diff_sesion(actual, anterior) → lista de {ip, cambio: "nuevo"|"cambio"|"perdido", detalle}
+En panel.py mostrar badge [NUEVO] o [CAMBIO] junto a la IP de cada nodo en la lista.
+PASO 3 — Badge NUEVO en canvas (30 minutos, quick win)
+En canvas._dibujar_nodo(), si time.time() - nodo.visto_en < 30, dibujar un circulo verde pequeno con "N" en la esquina superior derecha del nodo. Implementar parpadeo con after() toggle.
+PASO 4 — Dashboard graficas (impacto alto)
+Crear ui/ventana_stats.py. Usar FigureCanvasTkAgg de matplotlib para embeber graficas en tkinter. Abrir desde boton en barra superior. Actualizar cada 10s con ventana.after().
+    • pip install matplotlib
+    • from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+    • 4 graficas: pie tipos, bar riesgo, line hosts activos por tiempo, bar puertos top-10
+
+6. REGLAS DE ARQUITECTURA — NUNCA ROMPER
+    • NUNCA actualizar la UI desde un hilo secundario. Usar ventana.after(0, lambda: fn()) desde todos los callbacks de scanner y capture.
+    • nodo.actualizar_actividad() SOLO cuando el nodo es ORIGEN del trafico. Para destino usar registrar_paquete_destino(). Si no se respeta esto, todos los nodos se mantienen "activos" porque el gateway hace ARP a todos constantemente.
+    • El hash-based rendering en panel_alertas.py es INTENCIONAL. No eliminarlo. Sin el, en redes de 180+ hosts el panel parpadea cada 2 segundos y se vuelve inutilizable.
+    • El stats_hash DEBE usar str() sobre tipo y severidad_max para evitar el NoneType bug que aparece cuando hay nodos recien descubiertos sin hallazgos aun.
+    • Los iconos PNG deben estar en assets/icons/{tipo}.png. Si falta el PNG el canvas tiene fallback con emoji de texto — no crashea.
+    • El Arsenal usa multi-listener: cada VentanaArsenal se registra con arsenal.anadir_listener() y se desregistra al cerrarse. No reemplazar por un callback unico global.
+Patron correcto de comunicacion UI <-> Backend
+# CORRECTO — desde hilo secundario:
+def _callback_scanner(self, datos):
+    self.ventana.after(0, lambda: self._procesar_en_ui(datos))
+
+# INCORRECTO — crashea o bloquea tkinter:
+def _callback_scanner(self, datos):
+    self._procesar_en_ui(datos)  # <- NUNCA hacer esto desde otro hilo
+
+Technical Handover generado por Claude Sonnet 4.6 — Proyecto TopoReveal — Marzo 2026
+
+

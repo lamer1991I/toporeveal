@@ -1,0 +1,143 @@
+TopoReveal — Log de sesion
+Generado: 2026-03-20 14:36:34
+Total lineas de evento: 111
+============================================================
+
+RESUMEN DE RED — 5 hosts activos, 1 en lobby
+Gateway: 192.168.1.254 | Subred: 192.168.1.x
+ARP Scanners detectados: 0
+------------------------------------------------------------
+
+HOSTS ACTIVOS:
+  IP                 MAC                  TIPO           OS           ESTADO         PKTs  PROTOCOLOS
+  ------------------------------------------------------------------------------------------
+  192.168.1.1        DA:58:3D:72:C5:E4    smartphone     Linux/Mac    confirmado      102  HTTPS
+  192.168.1.3        66:07:9D:FE:1A:73    smartphone     Linux/Mac    confirmado       29  HTTPS,UDP
+  192.168.1.4        68:6D:BC:D4:6B:8A    servidor       Linux        confirmado      121  DNS,TCP,UDP
+  192.168.1.7        94:08:53:53:98:43    pc             Linux        confirmado        3  —
+  192.168.1.254      60:D2:48:7A:A3:2C    router         Ubiquiti     confirmado       10  IGMP
+
+HOSTS EN LOBBY (sin actividad reciente):
+  192.168.1.252      00:00:CA:01:02:03
+
+CONEXIONES EXTERNAS POR HOST:
+  192.168.1.1 → 47.88.251.189, 34.110.173.122, 47.74.138.66, 23.218.213.73, 47.88.128.4, 47.88.198.68, 47.88.198.69, 34.128.182.103, 3.163.60.71, 52.70.84.75
+  192.168.1.254 → 224.0.0.1
+  192.168.1.3 → 224.0.0.251, 172.217.30.170, 239.255.255.250
+  192.168.1.4 → 1.178.33.175, 1.178.32.127, 1.178.32.230, 200.24.51.144, 1.178.33.219
+
+============================================================
+
+LOG DE EVENTOS:
+
+[14:32:17] [APP] GeoIP disponible — base de datos local cargada
+[14:32:18] [APP] Arranque automático en wlan0
+[14:32:18] [APP] Gateway: 192.168.1.254 | Subred: 192.168.1.x
+[14:32:18] [APP] Nodo propio: 192.168.1.7 | MAC: 94:08:53:53:98:43
+[14:32:18] [APP] Iniciando escaneo en wlan0
+[14:32:18] [SCANNER] Pipeline de 3 Fases activo en wlan0 (5 hilos workers)
+[14:32:18] [CAPTURE] Modo promiscuo activado en wlan0
+[14:32:18] [CAPTURE] Hilo iniciado (id=1)
+[14:32:18] [CAPTURE] Iniciado en wlan0 (promiscuo + watchdog)
+[14:32:22] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.1...
+[14:32:22] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.3...
+[14:32:22] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.4...
+[14:32:22] [DNS] 192.168.1.254 → _gateway
+[14:32:22] [SCANNER] Fase 1 (ARP) completado en 3s
+[14:32:23] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.252...
+[14:32:24] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[14:32:25] [HALLAZGO] 192.168.1.4:80 HTTP [INFO]
+[14:32:25] [HALLAZGO] 192.168.1.4:554 RTSP [MEDIO]
+[14:32:25] [HALLAZGO] 192.168.1.4:8000 Hikvision [MEDIO]
+[14:32:25] [HALLAZGO] 192.168.1.4:9010 Hikvision-SDR [MEDIO]
+[14:32:25] [HALLAZGO] 192.168.1.4:0 Cámara IP [MEDIO]
+[14:32:25] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.7...
+[14:32:25] [SCANNER] Fase 3: Analizando web en 192.168.1.4
+[14:32:27] [HALLAZGO] 192.168.1.254:80 HTTP [INFO]
+[14:32:27] [HALLAZGO] 192.168.1.254:443 HTTPS [INFO]
+[14:32:27] [SCANNER] Fase 3: Analizando web en 192.168.1.254
+[14:32:29] [SCANNER] Fase 3: SSL/TLS en 192.168.1.254
+[14:32:33] [STATS] Recálculo: 6 nodos | alertas: 11
+[14:32:33] [APP] Lanzando interceptor | gateway: 192.168.1.254 (60:D2:48:7A:A3:2C) | 4 hosts
+[14:32:33] [INTERCEPTOR] Iniciando | iface: wlan0 | gateway: 192.168.1.254 | 4 hosts | BSSID: 60:D2:48:7A:A3:2C
+[14:32:33] [SPOOFER] IP forwarding activado
+[14:32:33] [SPOOFER] Sniff MITM iniciado
+[14:32:33] [SPOOFER] Activo | Mi MAC: 94:08:53:53:98:43 | Gateway: 192.168.1.254 | Hosts: 4
+[14:32:33] [INTERCEPTOR] Una tarjeta (wlan0) — modo monitor no disponible, captura virtual activa
+[14:32:33] [MONITOR] Captura virtual (macvlan) en wlan0_mitm
+[14:32:37] [EXTERNO] 192.168.1.4 → 1.178.33.175 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[14:32:44] [HALLAZGO] 192.168.1.254:443 SSL/TLS [INFO] — Emisor: ?
+[14:32:44] [SCANNER] SSL 192.168.1.254: OK — Emisor: ?
+[14:32:48] [STATS] Recálculo: 6 nodos | alertas: 11
+[14:32:48] [SCANNER] Re-escaneo profundo masivo de 192.168.1.7/24...
+[14:32:49] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[14:32:49] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[14:32:52] [EXTERNO] 192.168.1.3 → 224.0.0.251 [UDP]
+[14:33:03] [STATS] Recálculo: 6 nodos | alertas: 11
+[14:33:03] [SCANNER] Re-escaneo masivo completado
+[14:33:03] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[14:33:03] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.4...
+[14:33:06] [SCANNER] Fase 3: Analizando web en 192.168.1.4
+[14:33:08] [SCANNER] Fase 3: Analizando web en 192.168.1.254
+[14:33:10] [SCANNER] Fase 3: SSL/TLS en 192.168.1.254
+[14:33:13] [EXTERNO] 192.168.1.3 → 172.217.30.170 [HTTPS] [US] Google LLC · USA
+[14:33:18] [STATS] Recálculo: 6 nodos | alertas: 11
+[14:33:26] [SCANNER] SSL 192.168.1.254: OK — Emisor: ?
+[14:33:33] [STATS] Recálculo: 6 nodos | alertas: 11
+[14:33:38] [EXTERNO] 192.168.1.4 → 1.178.33.175 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[14:33:46] [EXTERNO] 192.168.1.254 → 224.0.0.1 [IGMP]
+[14:33:48] [STATS] Recálculo: 6 nodos | alertas: 11
+[14:34:03] [STATS] Recálculo: 6 nodos | alertas: 11
+[14:34:05] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[14:34:05] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[14:34:12] [EXTERNO] 192.168.1.3 → 224.0.0.251 [UDP]
+[14:34:17] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[14:34:18] [STATS] Recálculo: 6 nodos | alertas: 11
+[14:34:22] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[14:34:33] [STATS] Recálculo: 6 nodos | alertas: 11
+[14:34:38] [EXTERNO] 192.168.1.3 → 239.255.255.250 [UDP]
+[14:34:48] [STATS] Recálculo: 6 nodos | alertas: 11
+[14:35:03] [STATS] Recálculo: 6 nodos | alertas: 11
+[14:35:12] [EXTERNO] 192.168.1.3 → 224.0.0.251 [UDP]
+[14:35:18] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[14:35:18] [STATS] Recálculo: 6 nodos | alertas: 11
+[14:35:20] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[14:35:20] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[14:35:23] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[14:35:33] [STATS] Recálculo: 6 nodos | alertas: 11
+[14:35:38] [EXTERNO] 192.168.1.3 → 239.255.255.250 [UDP]
+[14:35:47] [EXTERNO] 192.168.1.1 → 47.88.251.189 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[14:35:48] [STATS] Recálculo: 6 nodos | alertas: 11
+[14:35:51] [EXTERNO] 192.168.1.1 → 34.110.173.122 [HTTPS] [US] Google LLC · Kansas City
+[14:35:51] [EXTERNO] 192.168.1.254 → 224.0.0.1 [IGMP]
+[14:35:52] [EXTERNO] 192.168.1.1 → 47.74.138.66 [HTTPS] [SG] Alibaba US Technol… · Singapore
+[14:35:52] [EXTERNO] 192.168.1.1 → 23.218.213.73 [HTTPS] [CO] Akamai Internation… · Bogotá
+[14:35:55] [EXTERNO] 192.168.1.1 → 47.88.128.4 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[14:35:56] [EXTERNO] 192.168.1.1 → 47.88.198.68 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[14:35:57] [EXTERNO] 192.168.1.1 → 47.88.198.69 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[14:36:00] [EXTERNO] 192.168.1.1 → 34.128.182.103 [HTTPS] [US] Google LLC · Kansas City
+[14:36:01] [EXTERNO] 192.168.1.1 → 3.163.60.71 [HTTPS] [US] Amazon.com, Inc. · USA
+[14:36:03] [EXTERNO] 192.168.1.1 → 52.70.84.75 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[14:36:03] [STATS] Recálculo: 6 nodos | alertas: 11
+[14:36:04] [EXTERNO] 192.168.1.1 → 163.181.204.178 [HTTPS] [US] Zhejiang Taobao Ne… · USA
+[14:36:07] [EXTERNO] 192.168.1.1 → 3.163.60.82 [HTTPS] [US] Amazon.com, Inc. · USA
+[14:36:11] [EXTERNO] 192.168.1.1 → 163.181.204.179 [HTTPS] [US] Zhejiang Taobao Ne… · USA
+[14:36:12] [EXTERNO] 192.168.1.3 → 224.0.0.251 [UDP]
+[14:36:14] [EXTERNO] 192.168.1.1 → 2.22.20.154 [HTTPS] [CO] Akamai Internation… · Bogotá
+[14:36:14] [EXTERNO] 192.168.1.1 → 54.144.240.178 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[14:36:18] [STATS] Recálculo: 6 nodos | alertas: 11
+[14:36:18] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[14:36:23] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[14:36:24] [EXTERNO] 192.168.1.1 → 23.218.213.70 [HTTPS] [CO] Akamai Internation… · Bogotá
+[14:36:33] [STATS] Recálculo: 6 nodos | alertas: 11
+[14:36:33] [APP] Botón Salir presionado — cerrando...
+[14:36:33] [CAPTURE] Detenido
+[14:36:33] [SCANNER] Hilos detenidos
+[14:36:33] [INTERCEPTOR] Deteniendo...
+[14:36:33] [SPOOFER] Restaurando ARP para 4 hosts...
+[14:36:33] [INTERCEPTOR] Hilo despacho terminado
+[14:36:33] [CAPTURE] Watchdog terminado
+[14:36:34] [SPOOFER] IP forwarding restaurado a 1
+[14:36:34] [SPOOFER] ARP restaurado — tráfico normal
+[14:36:34] [MONITOR] Detenido — wlan0 restaurada
+[14:36:34] [INTERCEPTOR] Detenido — red restaurada

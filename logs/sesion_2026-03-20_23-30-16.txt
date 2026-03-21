@@ -1,0 +1,97 @@
+TopoReveal — Log de sesion
+Generado: 2026-03-20 23:30:16
+Total lineas de evento: 16
+============================================================
+
+RESUMEN DE RED — 5 hosts activos, 0 en lobby
+Gateway: 192.168.1.254 | Subred: 192.168.1.x
+ARP Scanners detectados: 0
+------------------------------------------------------------
+
+HOSTS ACTIVOS:
+  IP                 MAC                  TIPO           OS           ESTADO         PKTs  PROTOCOLOS
+  ------------------------------------------------------------------------------------------
+  192.168.1.1        DA:58:3D:72:C5:E4    smartphone     Desconocido  sospechoso        1  —
+  192.168.1.4        68:6D:BC:D4:6B:8A    camara         Desconocido  sospechoso        1  —
+  192.168.1.7        94:08:53:53:98:43    pc             Linux        confirmado        2  —
+  192.168.1.252      00:00:CA:01:02:03    wired_generic  Desconocido  sospechoso        1  —
+  192.168.1.254      60:D2:48:7A:A3:2C    router         Desconocido  sospechoso        1  —
+
+============================================================
+
+RESUMEN DE CAPACIDADES — QUÉ DETECTÓ ESTA SESIÓN:
+------------------------------------------------------------
+
+[DESCUBRIMIENTO]
+  ✓  Hosts descubiertos (ARP)  →  5 hosts activos
+  ✓  Gateway identificado  →  192.168.1.254
+  ○  Puertos TCP escaneados  →  0 puertos abiertos en total
+  ○  Tráfico externo capturado  →  0 hosts con conexiones externas
+  ○  Flujos internos detectados
+
+[ANÁLISIS DE PROTOCOLOS]
+  ○  HTTP detectado
+  ○  SSL/TLS analizado  →  OK
+  ○  DHCP capturado
+  ○  DNS interno
+  ○  Protocolos aplicación (XMPP/QUIC)
+  ○  IGMP/multicast
+  ○  NTP detectado
+  ○  RTSP (cámara/stream)
+
+[FINGERPRINTING E IDENTIFICACIÓN]
+  ✓  Tipos de dispositivo identificados  →  camara, pc, router, smartphone, wired_generic
+  ✓  Fabricantes identificados  →  Tenda, Hikvision, Attachmate, Samsung
+  ✓  OS detectados  →  Linux
+  ○  Perfiles especiales detectados
+
+[HALLAZGOS DE SEGURIDAD]
+  ○  Hallazgos CRÍTICOS  →  0
+  ○  Hallazgos ALTOS  →  0
+  ○  Hallazgos MEDIOS  →  0
+  ○  Certificados SSL autofirmados
+  ○  Beacon C2 detectado
+  ○  Anomalías vs baseline
+  ○  DHCP Rogue detectado
+  ○  UPnP descubierto
+  ○  Domain Controller detectado
+  ○  Network Shares encontrados
+  ○  LDAP enumerado
+
+[DETECCIÓN AVANZADA]
+  ○  Análisis de beacons C2
+  ○  Escaneo IPv6  →  sin hosts IPv6
+  ○  CDP/LLDP detectado
+  ○  Análisis de anomalías vs baseline
+  ○  Monitor 802.11 activo
+  ○  Detector de beacons activo
+  ○  Subredes secundarias detectadas
+
+[HERRAMIENTAS NO DISPARADAS (red no las tiene)]
+  -  CDP/LLDP (no hay switches Cisco/LLDP en la red)
+  -  Beacon C2 (no hay tráfico periódico sospechoso)
+  -  DHCP Rogue (un solo servidor DHCP en la red)
+  -  IPv6 hosts (red sin IPv6 activo o sin hosts duales)
+  -  AD/DC (no hay controlador de dominio)
+  -  SMB Shares (no hay shares accesibles)
+
+============================================================
+
+LOG DE EVENTOS:
+
+[23:30:04] [APP] GeoIP disponible — base de datos local cargada
+[23:30:11] [APP] Arranque automático en wlan0
+[23:30:11] [APP] Gateway: 192.168.1.254 | Subred: 192.168.1.x
+[23:30:11] [APP] Nodo propio: 192.168.1.7 | MAC: 94:08:53:53:98:43
+[23:30:11] [APP] Iniciando escaneo en wlan0
+[23:30:11] [SCANNER] Pipeline de 3 Fases activo en wlan0 (5 hilos workers)
+[23:30:11] [CAPTURE] Modo promiscuo activado en wlan0
+[23:30:11] [CAPTURE] Hilo iniciado (id=1)
+[23:30:11] [CAPTURE] Iniciado en wlan0 (promiscuo + watchdog)
+[23:30:13] [APP] Botón Salir presionado — cerrando...
+[23:30:15] [SCANNER] Fase 1 (ARP) completado en 3s
+[23:30:15] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.1...
+[23:30:15] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.4...
+[23:30:15] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.252...
+[23:30:16] [CAPTURE] Detenido
+[23:30:16] [SCANNER] Hilos detenidos

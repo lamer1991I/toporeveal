@@ -1,0 +1,135 @@
+TopoReveal — Log de sesion
+Generado: 2026-03-20 21:58:03
+Total lineas de evento: 111
+============================================================
+
+RESUMEN DE RED — 6 hosts activos, 0 en lobby
+Gateway: 192.168.1.254 | Subred: 192.168.1.x
+ARP Scanners detectados: 0
+------------------------------------------------------------
+
+HOSTS ACTIVOS:
+  IP                 MAC                  TIPO           OS           ESTADO         PKTs  PROTOCOLOS
+  ------------------------------------------------------------------------------------------
+  192.168.1.1        DA:58:3D:72:C5:E4    smartphone     Linux/Mac    confirmado      930  —
+  192.168.1.3        66:07:9D:FE:1A:73    desconocido    Desconocido  fantasma          3  —
+  192.168.1.4        68:6D:BC:D4:6B:8A    servidor       Linux        confirmado      243  —
+  192.168.1.7        94:08:53:53:98:43    pc             Linux        confirmado        5  —
+  192.168.1.252      00:00:CA:01:02:03    wired_generic  Desconocido  fantasma          5  —
+  192.168.1.254      60:D2:48:7A:A3:2C    router         Linux        confirmado       18  —
+
+============================================================
+
+LOG DE EVENTOS:
+
+[21:49:26] [APP] GeoIP disponible — base de datos local cargada
+[21:49:33] [APP] Arranque automático en wlan0
+[21:49:33] [APP] Gateway: 192.168.1.254 | Subred: 192.168.1.x
+[21:49:33] [APP] Nodo propio: 192.168.1.7 | MAC: 94:08:53:53:98:43
+[21:49:33] [APP] Iniciando escaneo en wlan0
+[21:49:33] [SCANNER] Pipeline de 3 Fases activo en wlan0 (5 hilos workers)
+[21:49:33] [CAPTURE] Modo promiscuo activado en wlan0
+[21:49:33] [CAPTURE] Hilo iniciado (id=1)
+[21:49:33] [CAPTURE] Iniciado en wlan0 (promiscuo + watchdog)
+[21:49:37] [SCANNER] Fase 1 (ARP) completado en 3s
+[21:49:37] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.1...
+[21:49:37] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.4...
+[21:49:37] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.3...
+[21:49:38] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.252...
+[21:49:38] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[21:49:38] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.7...
+[21:49:40] [HALLAZGO] 192.168.1.4:80 HTTP [INFO]
+[21:49:40] [HALLAZGO] 192.168.1.4:554 RTSP [MEDIO]
+[21:49:40] [HALLAZGO] 192.168.1.4:8000 Hikvision [MEDIO]
+[21:49:40] [HALLAZGO] 192.168.1.4:9010 Hikvision-SDR [MEDIO]
+[21:49:40] [HALLAZGO] 192.168.1.4:0 Cámara IP [MEDIO]
+[21:49:40] [SCANNER] Fase 3: Analizando web en 192.168.1.4
+[21:49:40] [SCANNER] Fase 3: SSL/TLS en 192.168.1.4:8000
+[21:49:40] [SCANNER] SSL 192.168.1.4:8000 [MEDIO] Cert autofirmado — emisor: ?
+[21:49:40] [HALLAZGO] 192.168.1.4:8000 SSL Autofirmado [MEDIO] — Cert autofirmado — emisor: ?
+[21:49:42] [STATS] Recálculo: 6 nodos | alertas: 6
+[21:49:43] [HALLAZGO] 192.168.1.254:80 HTTP [INFO]
+[21:49:43] [HALLAZGO] 192.168.1.254:443 HTTPS [INFO]
+[21:49:43] [SCANNER] Fase 3: Analizando web en 192.168.1.254
+[21:49:43] [SCANNER] Fase 3: SSL/TLS en 192.168.1.254:443
+[21:49:48] [APP] Lanzando interceptor | gateway: 192.168.1.254 (60:D2:48:7A:A3:2C) | 4 hosts
+[21:49:48] [INTERCEPTOR] Iniciando | iface: wlan0 | gateway: 192.168.1.254 | 4 hosts | BSSID: 60:D2:48:7A:A3:2C
+[21:49:48] [SPOOFER] IP forwarding activado
+[21:49:48] [SPOOFER] Sniff MITM iniciado
+[21:49:48] [SPOOFER] Activo | Mi MAC: 94:08:53:53:98:43 | Gateway: 192.168.1.254 | Hosts: 4
+[21:49:48] [INTERCEPTOR] Una tarjeta (wlan0) — modo monitor no disponible, captura virtual activa
+[21:49:48] [MONITOR] Captura virtual (macvlan) en wlan0_mitm
+[21:49:55] [SCANNER] SSL 192.168.1.254:443 [MEDIO] Cert autofirmado — emisor: localhost.localdomain
+[21:49:55] [HALLAZGO] 192.168.1.254:443 SSL Autofirmado [MEDIO] — Cert autofirmado — emisor: localhost.localdomain
+[21:49:57] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:50:03] [SCANNER] Re-escaneo profundo masivo de 192.168.1.7/24...
+[21:50:12] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:50:14] [SCANNER] Re-escaneo masivo completado
+[21:50:14] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.4...
+[21:50:14] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[21:50:17] [SCANNER] Fase 3: SSL/TLS en 192.168.1.4:8000
+[21:50:17] [SCANNER] Fase 3: Analizando web en 192.168.1.4
+[21:50:18] [SCANNER] SSL 192.168.1.4:8000 [MEDIO] Cert autofirmado — emisor: ?
+[21:50:20] [SCANNER] Fase 3: Analizando web en 192.168.1.254
+[21:50:21] [SCANNER] Fase 3: SSL/TLS en 192.168.1.254:443
+[21:50:27] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:50:33] [SCANNER] SSL 192.168.1.254:443 [MEDIO] Cert autofirmado — emisor: localhost.localdomain
+[21:50:42] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:50:57] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:51:12] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:51:27] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:51:42] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:51:57] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:52:12] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:52:27] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:52:42] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:52:57] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:53:12] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:53:27] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:53:42] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:53:57] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:54:12] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:54:15] [APP] Abriendo análisis de tráfico...
+[21:54:27] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:54:42] [LOBBY] 192.168.1.3 lleva 5min inactivo — verificando...
+[21:54:42] [LOBBY] 192.168.1.252 lleva 5min inactivo — verificando...
+[21:54:42] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:54:42] [LOBBY] 192.168.1.252: responde → vuelve a activo
+[21:54:42] [LOBBY] 192.168.1.3: responde → vuelve a activo
+[21:54:50] [SCANNER] Fase 1 (ARP) completado en 6s
+[21:54:50] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.252...
+[21:54:50] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.1...
+[21:54:50] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.7...
+[21:54:57] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:55:12] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:55:14] [SCANNER] Re-escaneo profundo masivo de 192.168.1.7/24...
+[21:55:25] [SCANNER] Re-escaneo masivo completado
+[21:55:25] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[21:55:25] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.4...
+[21:55:27] [STATS] Recálculo: 6 nodos | alertas: 11
+[21:55:28] [SCANNER] Fase 3: Analizando web en 192.168.1.254
+[21:55:28] [SCANNER] Fase 3: SSL/TLS en 192.168.1.254:443
+[21:55:33] [SCANNER] Fase 3: Analizando web en 192.168.1.4
+[21:55:37] [SCANNER] Fase 3: SSL/TLS en 192.168.1.4:8000
+[21:55:38] [SCANNER] SSL 192.168.1.4:8000 [MEDIO] Cert autofirmado — emisor: ?
+[21:55:39] [SCANNER] SSL 192.168.1.254:443 [MEDIO] Cert autofirmado — emisor: localhost.localdomain
+[21:55:42] [STATS] Recálculo: 6 nodos | alertas: 12
+[21:55:57] [STATS] Recálculo: 6 nodos | alertas: 12
+[21:56:12] [STATS] Recálculo: 6 nodos | alertas: 12
+[21:56:27] [STATS] Recálculo: 6 nodos | alertas: 12
+[21:56:42] [STATS] Recálculo: 6 nodos | alertas: 12
+[21:56:57] [STATS] Recálculo: 6 nodos | alertas: 12
+[21:57:12] [STATS] Recálculo: 6 nodos | alertas: 12
+[21:57:27] [STATS] Recálculo: 6 nodos | alertas: 12
+[21:57:42] [STATS] Recálculo: 6 nodos | alertas: 12
+[21:57:57] [STATS] Recálculo: 6 nodos | alertas: 12
+[21:58:00] [APP] Botón Salir presionado — cerrando...
+[21:58:02] [CAPTURE] Detenido
+[21:58:02] [SCANNER] Hilos detenidos
+[21:58:02] [INTERCEPTOR] Deteniendo...
+[21:58:02] [SPOOFER] Restaurando ARP para 4 hosts...
+[21:58:03] [SPOOFER] IP forwarding restaurado a 1
+[21:58:03] [SPOOFER] ARP restaurado — tráfico normal
+[21:58:03] [SPOOFER] Loop spoof terminado
+[21:58:03] [MONITOR] Detenido — wlan0 restaurada
+[21:58:03] [INTERCEPTOR] Detenido — red restaurada

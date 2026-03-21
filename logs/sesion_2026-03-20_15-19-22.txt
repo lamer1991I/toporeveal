@@ -1,0 +1,51 @@
+TopoReveal — Log de sesion
+Generado: 2026-03-20 15:19:22
+Total lineas de evento: 27
+============================================================
+
+RESUMEN DE RED — 6 hosts activos, 0 en lobby
+Gateway: 192.168.1.254 | Subred: 192.168.1.x
+ARP Scanners detectados: 0
+------------------------------------------------------------
+
+HOSTS ACTIVOS:
+  IP                 MAC                  TIPO           OS           ESTADO         PKTs  PROTOCOLOS
+  ------------------------------------------------------------------------------------------
+  192.168.1.1        DA:58:3D:72:C5:E4    desconocido    Desconocido  confirmado        2  —
+  192.168.1.3        66:07:9D:FE:1A:73    desconocido    Desconocido  confirmado        2  —
+  192.168.1.4        68:6D:BC:D4:6B:8A    servidor       Linux        confirmado        2  —
+  192.168.1.7        94:08:53:53:98:43    pc             Linux        confirmado        2  —
+  192.168.1.252      00:00:CA:01:02:03    wired_generic  Desconocido  confirmado        2  —
+  192.168.1.254      60:D2:48:7A:A3:2C    router         Desconocido  sospechoso        1  —
+
+============================================================
+
+LOG DE EVENTOS:
+
+[15:19:06] [APP] GeoIP disponible — base de datos local cargada
+[15:19:13] [APP] Arranque automático en wlan0
+[15:19:13] [APP] Gateway: 192.168.1.254 | Subred: 192.168.1.x
+[15:19:13] [APP] Nodo propio: 192.168.1.7 | MAC: 94:08:53:53:98:43
+[15:19:13] [APP] Iniciando escaneo en wlan0
+[15:19:13] [SCANNER] Pipeline de 3 Fases activo en wlan0 (5 hilos workers)
+[15:19:13] [CAPTURE] Modo promiscuo activado en wlan0
+[15:19:13] [CAPTURE] Hilo iniciado (id=1)
+[15:19:13] [CAPTURE] Iniciado en wlan0 (promiscuo + watchdog)
+[15:19:17] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.1...
+[15:19:17] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.3...
+[15:19:17] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.4...
+[15:19:17] [DNS] 192.168.1.254 → _gateway
+[15:19:17] [SCANNER] Fase 1 (ARP) completado en 4s
+[15:19:18] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.252...
+[15:19:19] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[15:19:19] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.7...
+[15:19:20] [APP] Botón Salir presionado — cerrando...
+[15:19:20] [HALLAZGO] 192.168.1.4:80 HTTP [INFO]
+[15:19:20] [HALLAZGO] 192.168.1.4:554 RTSP [MEDIO]
+[15:19:20] [HALLAZGO] 192.168.1.4:8000 Hikvision [MEDIO]
+[15:19:20] [HALLAZGO] 192.168.1.4:9010 Hikvision-SDR [MEDIO]
+[15:19:20] [HALLAZGO] 192.168.1.4:0 Cámara IP [MEDIO]
+[15:19:20] [SCANNER] Fase 3: Analizando web en 192.168.1.4
+[15:19:21] [STATS] Recálculo: 6 nodos | alertas: 6
+[15:19:22] [CAPTURE] Detenido
+[15:19:22] [SCANNER] Hilos detenidos

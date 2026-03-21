@@ -1,0 +1,687 @@
+TopoReveal — Log de sesion
+Generado: 2026-03-13 19:35:28
+Total lineas de evento: 658
+============================================================
+
+RESUMEN DE RED — 6 hosts activos, 0 en lobby
+Gateway: 192.168.1.254 | Subred: 192.168.1.x
+ARP Scanners detectados: 0
+------------------------------------------------------------
+
+HOSTS ACTIVOS:
+  IP                 MAC                  TIPO           OS           ESTADO         PKTs  PROTOCOLOS
+  ------------------------------------------------------------------------------------------
+  192.168.1.1        68:6d:bc:d4:6b:8a    camara         Linux/Mac    confirmado       85  ARP,ICMP,TCP
+  192.168.1.2        da:58:3d:72:c5:e4    smartphone     Linux/Mac    fantasma         59  ARP,ICMP,TCP
+  192.168.1.3        66:07:9d:fe:1a:73    smartphone     Linux/Mac    fantasma         61  ARP,ICMP,TCP
+  192.168.1.7        94:08:53:53:98:43    smartphone     Linux/Mac    confirmado     9766  ARP,ICMP,TCP,UDP
+  192.168.1.252      00:00:ca:01:02:03    wired_generic  Android      confirmado       64  ARP,ICMP,TCP
+  192.168.1.254      60:d2:48:7a:a3:2c    router         Ubiquiti webcam (Linux 2.6.38) confirmado     1312  ARP,ICMP,TCP,UDP
+
+CONEXIONES EXTERNAS POR HOST:
+  192.168.1.1 → 255.255.255.255
+  192.168.1.254 → 255.255.255.255
+  192.168.1.7 → 54.240.184.3, 20.57.85.160, 34.36.57.103, 190.240.115.151, 200.24.51.144, 199.232.176.176, 3.163.60.66, 54.200.241.81, 18.155.252.129, 18.97.36.67
+
+============================================================
+
+LOG DE EVENTOS:
+
+[19:16:36] [APP] Arranque automático en wlan0
+[19:16:36] [APP] Gateway: 192.168.1.254 | Subred: 192.168.1.x
+[19:16:36] [APP] Iniciando escaneo en wlan0
+[19:16:36] [SCANNER] Pipeline de 3 Fases activo en wlan0 (5 hilos workers)
+[19:16:37] [EXTERNO] 192.168.1.7 → 54.240.184.3 [TCP]
+[19:16:37] [EXTERNO] 192.168.1.7 → 20.57.85.160 [TCP]
+[19:16:37] [RED] Nuevo host: 192.168.1.254 | MAC: 60:d2:48:7a:a3:2c | via ARP
+[19:16:37] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:16:37] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[19:16:37] [EXTERNO] 192.168.1.7 → 34.36.57.103 [TCP]
+[19:16:37] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:16:38] [EXTERNO] 192.168.1.7 → 190.240.115.151 [UDP]
+[19:16:38] [EXTERNO] 192.168.1.7 → 200.24.51.144 [UDP]
+[19:16:38] [FLUJO] 192.168.1.7 → 192.168.1.254 [TCP]
+[19:16:38] [FLUJO] 192.168.1.254 → 192.168.1.7 [TCP]
+[19:16:39] [HISTORIAL] Nuevo host detectado en red: 192.168.1.1
+[19:16:39] [HISTORIAL] Nuevo host detectado en red: 192.168.1.2
+[19:16:39] [HISTORIAL] Nuevo host detectado en red: 192.168.1.3
+[19:16:39] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.1...
+[19:16:39] [HISTORIAL] Nuevo host detectado en red: 192.168.1.252
+[19:16:39] [HISTORIAL] Nuevo host detectado en red: 192.168.1.254
+[19:16:39] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.2...
+[19:16:39] [HISTORIAL] Nuevo host detectado en red: 192.168.1.7
+[19:16:39] [SCANNER] Fase 1 (ARP) completado en 3s
+[19:16:39] [FLUJO] 192.168.1.7 → 192.168.1.1 [ARP]
+[19:16:39] [FLUJO] 192.168.1.7 → 192.168.1.2 [ARP]
+[19:16:39] [FLUJO] 192.168.1.7 → 192.168.1.3 [ARP]
+[19:16:39] [FLUJO] 192.168.1.1 → 192.168.1.7 [ARP]
+[19:16:39] [FLUJO] 192.168.1.7 → 192.168.1.1 [UDP]
+[19:16:39] [FLUJO] 192.168.1.1 → 192.168.1.7 [ICMP]
+[19:16:39] [FLUJO] 192.168.1.2 → 192.168.1.7 [ARP]
+[19:16:39] [FLUJO] 192.168.1.7 → 192.168.1.2 [UDP]
+[19:16:39] [FLUJO] 192.168.1.3 → 192.168.1.7 [ARP]
+[19:16:39] [FLUJO] 192.168.1.7 → 192.168.1.3 [UDP]
+[19:16:39] [FLUJO] 192.168.1.2 → 192.168.1.7 [ICMP]
+[19:16:40] [FLUJO] 192.168.1.7 → 192.168.1.1 [TCP]
+[19:16:40] [FLUJO] 192.168.1.1 → 192.168.1.7 [TCP]
+[19:16:40] [FLUJO] 192.168.1.7 → 192.168.1.2 [TCP]
+[19:16:41] [FLUJO] 192.168.1.2 → 192.168.1.7 [TCP]
+[19:16:41] [FLUJO] 192.168.1.7 → 192.168.1.2 [ICMP]
+[19:16:44] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.3...
+[19:16:45] [FLUJO] 192.168.1.7 → 192.168.1.3 [TCP]
+[19:16:45] [FLUJO] 192.168.1.7 → 192.168.1.252 [ARP]
+[19:16:45] [FLUJO] 192.168.1.7 → 192.168.1.254 [UDP]
+[19:16:45] [FLUJO] 192.168.1.252 → 192.168.1.7 [ARP]
+[19:16:45] [FLUJO] 192.168.1.7 → 192.168.1.252 [UDP]
+[19:16:45] [FLUJO] 192.168.1.254 → 192.168.1.7 [ICMP]
+[19:16:45] [FLUJO] 192.168.1.252 → 192.168.1.7 [ICMP]
+[19:16:48] [FLUJO] 192.168.1.7 → 192.168.1.3 [ICMP]
+[19:16:48] [EXTERNO] 192.168.1.7 → 199.232.176.176 [TCP]
+[19:16:50] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:16:51] [FLUJO] 192.168.1.7 → 192.168.1.254 [ICMP]
+[19:16:52] [EXTERNO] 192.168.1.7 → 3.163.60.66 [TCP]
+[19:16:52] [EXTERNO] 192.168.1.7 → 54.200.241.81 [TCP]
+[19:16:52] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.252...
+[19:16:53] [FLUJO] 192.168.1.7 → 192.168.1.252 [TCP]
+[19:16:53] [FLUJO] 192.168.1.252 → 192.168.1.7 [TCP]
+[19:16:53] [FLUJO] 192.168.1.7 → 192.168.1.252 [ICMP]
+[19:16:54] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.7...
+[19:17:02] [EXTERNO] 192.168.1.7 → 18.155.252.129 [TCP]
+[19:17:04] [EXTERNO] 192.168.1.7 → 18.97.36.67 [TCP]
+[19:17:05] [EXTERNO] 192.168.1.7 → 3.163.60.113 [TCP]
+[19:17:05] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:17:06] [SCANNER] Re-escaneo profundo masivo de 192.168.1.7/24...
+[19:17:06] [EXTERNO] 192.168.1.7 → 34.120.108.227 [TCP]
+[19:17:07] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:17:08] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:17:08] [EXTERNO] 192.168.1.7 → 34.95.0.29 [TCP]
+[19:17:09] [FLUJO] 192.168.1.7 → 192.168.1.254 [TCP]
+[19:17:09] [FLUJO] 192.168.1.254 → 192.168.1.7 [TCP]
+[19:17:10] [EXTERNO] 192.168.1.7 → 3.174.238.18 [TCP]
+[19:17:13] [EXTERNO] 192.168.1.7 → 200.25.3.17 [UDP]
+[19:17:14] [SCANNER] Re-escaneo masivo completado
+[19:17:14] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.1...
+[19:17:14] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[19:17:14] [FLUJO] 192.168.1.7 → 192.168.1.1 [ARP]
+[19:17:14] [FLUJO] 192.168.1.1 → 192.168.1.7 [ARP]
+[19:17:15] [FLUJO] 192.168.1.7 → 192.168.1.1 [TCP]
+[19:17:15] [FLUJO] 192.168.1.1 → 192.168.1.7 [TCP]
+[19:17:20] [EXTERNO] 192.168.1.7 → 18.155.252.87 [TCP]
+[19:17:20] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:17:28] [FLUJO] 192.168.1.7 → 192.168.1.254 [ICMP]
+[19:17:28] [FLUJO] 192.168.1.254 → 192.168.1.7 [ICMP]
+[19:17:28] [FLUJO] 192.168.1.7 → 192.168.1.254 [UDP]
+[19:17:31] [APP] Abriendo dashboard de analíticas...
+[19:17:35] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:17:37] [EXTERNO] 192.168.1.7 → 54.240.184.3 [TCP]
+[19:17:40] [EXTERNO] 192.168.1.7 → 200.24.51.144 [UDP]
+[19:17:40] [EXTERNO] 192.168.1.7 → 20.57.85.160 [TCP]
+[19:17:50] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:18:05] [EXTERNO] 192.168.1.7 → 18.97.36.67 [TCP]
+[19:18:05] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:18:07] [EXTERNO] 192.168.1.7 → 34.36.57.103 [TCP]
+[19:18:13] [EXTERNO] 192.168.1.7 → 3.163.60.113 [TCP]
+[19:18:13] [APP] Abriendo dashboard de analíticas...
+[19:18:20] [EXTERNO] 192.168.1.7 → 199.232.176.176 [TCP]
+[19:18:20] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:18:22] [APP] Tráfico lateral: activado
+[19:18:34] [EXTERNO] 192.168.1.7 → 190.240.115.151 [UDP]
+[19:18:34] [EXTERNO] 192.168.1.7 → 18.155.252.129 [TCP]
+[19:18:34] [EXTERNO] 192.168.1.7 → 136.110.170.103 [UDP]
+[19:18:34] [EXTERNO] 192.168.1.7 → 34.160.213.244 [UDP]
+[19:18:35] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:18:37] [EXTERNO] 192.168.1.7 → 54.240.184.3 [TCP]
+[19:18:38] [EXTERNO] 192.168.1.7 → 34.95.0.29 [TCP]
+[19:18:38] [EXTERNO] 192.168.1.7 → 34.120.108.227 [TCP]
+[19:18:40] [EXTERNO] 192.168.1.7 → 3.174.238.18 [TCP]
+[19:18:50] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:18:50] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:18:50] [EXTERNO] 192.168.1.7 → 200.25.3.17 [UDP]
+[19:18:50] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:18:50] [EXTERNO] 192.168.1.7 → 18.155.252.87 [TCP]
+[19:18:53] [EXTERNO] 192.168.1.7 → 20.57.85.160 [TCP]
+[19:18:56] [EXTERNO] 192.168.1.7 → 200.24.51.144 [UDP]
+[19:19:05] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:19:20] [EXTERNO] 192.168.1.7 → 3.163.60.113 [TCP]
+[19:19:20] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:19:30] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:19:30] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:19:35] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:19:35] [EXTERNO] 192.168.1.7 → 18.97.36.67 [TCP]
+[19:19:35] [EXTERNO] 192.168.1.1 → 255.255.255.255 [UDP]
+[19:19:37] [EXTERNO] 192.168.1.7 → 54.240.184.3 [TCP]
+[19:19:40] [EXTERNO] 192.168.1.7 → 34.36.57.103 [TCP]
+[19:19:50] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:19:52] [EXTERNO] 192.168.1.7 → 199.232.176.176 [TCP]
+[19:20:03] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:20:03] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:20:05] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:20:06] [EXTERNO] 192.168.1.7 → 34.160.213.244 [TCP]
+[19:20:06] [EXTERNO] 192.168.1.7 → 136.110.170.103 [TCP]
+[19:20:08] [EXTERNO] 192.168.1.7 → 34.120.108.227 [TCP]
+[19:20:10] [ARSENAL] CMD: nmap -sn -Pn --host-timeout 3s 192.168.1.1
+[19:20:10] [ARSENAL] Iniciando 🟢 Ping Check en 192.168.1.1...
+[19:20:11] [ARSENAL] 🟢 Ping Check en 192.168.1.1 completado (4 líneas)
+[19:20:11] [ARSENAL] Resultado: 🟢 Ping Check en 192.168.1.1
+[19:20:11] [ARSENAL] Ping 192.168.1.1: ACTIVO → confirmado
+[19:20:12] [EXTERNO] 192.168.1.7 → 34.95.0.29 [TCP]
+[19:20:12] [EXTERNO] 192.168.1.7 → 3.174.238.18 [TCP]
+[19:20:20] [EXTERNO] 192.168.1.7 → 200.24.51.144 [UDP]
+[19:20:20] [EXTERNO] 192.168.1.7 → 3.163.60.113 [TCP]
+[19:20:20] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:20:25] [EXTERNO] 192.168.1.7 → 20.57.85.160 [TCP]
+[19:20:27] [EXTERNO] 192.168.1.7 → 200.25.3.17 [UDP]
+[19:20:35] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:20:37] [EXTERNO] 192.168.1.7 → 54.240.184.3 [TCP]
+[19:20:42] [ARSENAL] CMD: nmap -sn -Pn --host-timeout 3s 192.168.1.2
+[19:20:42] [ARSENAL] Iniciando 🟢 Ping Check en 192.168.1.2...
+[19:20:42] [ARSENAL] 🟢 Ping Check en 192.168.1.2 completado (4 líneas)
+[19:20:42] [ARSENAL] Resultado: 🟢 Ping Check en 192.168.1.2
+[19:20:42] [ARSENAL] Ping 192.168.1.2: ACTIVO → confirmado
+[19:20:50] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:20:54] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:20:54] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:21:04] [EXTERNO] 192.168.1.7 → 18.97.36.67 [TCP]
+[19:21:05] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:21:12] [EXTERNO] 192.168.1.7 → 34.36.57.103 [TCP]
+[19:21:20] [EXTERNO] 192.168.1.7 → 3.163.60.113 [TCP]
+[19:21:20] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:21:22] [EXTERNO] 192.168.1.7 → 199.232.176.176 [TCP]
+[19:21:35] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:21:37] [EXTERNO] 192.168.1.7 → 54.240.184.3 [TCP]
+[19:21:38] [EXTERNO] 192.168.1.7 → 34.95.0.29 [TCP]
+[19:21:38] [EXTERNO] 192.168.1.7 → 136.110.170.103 [TCP]
+[19:21:38] [EXTERNO] 192.168.1.7 → 34.160.213.244 [TCP]
+[19:21:39] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:21:39] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:21:40] [EXTERNO] 192.168.1.7 → 34.120.108.227 [TCP]
+[19:21:46] [FLUJO] 192.168.1.7 → 192.168.1.1 [ARP]
+[19:21:46] [FLUJO] 192.168.1.7 → 192.168.1.2 [ARP]
+[19:21:46] [FLUJO] 192.168.1.7 → 192.168.1.3 [ARP]
+[19:21:46] [FLUJO] 192.168.1.1 → 192.168.1.7 [ARP]
+[19:21:47] [FLUJO] 192.168.1.7 → 192.168.1.252 [ARP]
+[19:21:47] [FLUJO] 192.168.1.252 → 192.168.1.7 [ARP]
+[19:21:47] [FLUJO] 192.168.1.2 → 192.168.1.7 [ARP]
+[19:21:50] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:21:51] [EXTERNO] 192.168.1.7 → 190.240.115.151 [UDP]
+[19:21:51] [EXTERNO] 192.168.1.7 → 200.24.51.144 [UDP]
+[19:21:52] [SCANNER] Fase 1 (ARP) completado en 5s
+[19:21:52] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.252...
+[19:21:52] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.7...
+[19:21:52] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.2...
+[19:21:52] [FLUJO] 192.168.1.7 → 192.168.1.1 [UDP]
+[19:21:52] [FLUJO] 192.168.1.7 → 192.168.1.2 [UDP]
+[19:21:52] [FLUJO] 192.168.1.7 → 192.168.1.3 [UDP]
+[19:21:52] [FLUJO] 192.168.1.1 → 192.168.1.7 [ICMP]
+[19:21:52] [FLUJO] 192.168.1.2 → 192.168.1.7 [ICMP]
+[19:21:53] [FLUJO] 192.168.1.3 → 192.168.1.7 [ICMP]
+[19:21:53] [FLUJO] 192.168.1.7 → 192.168.1.252 [TCP]
+[19:21:53] [FLUJO] 192.168.1.252 → 192.168.1.7 [TCP]
+[19:21:54] [FLUJO] 192.168.1.7 → 192.168.1.252 [ICMP]
+[19:21:54] [FLUJO] 192.168.1.252 → 192.168.1.7 [ICMP]
+[19:21:54] [FLUJO] 192.168.1.7 → 192.168.1.252 [UDP]
+[19:21:58] [FLUJO] 192.168.1.3 → 192.168.1.7 [ARP]
+[19:21:58] [FLUJO] 192.168.1.7 → 192.168.1.254 [UDP]
+[19:21:58] [FLUJO] 192.168.1.254 → 192.168.1.7 [ICMP]
+[19:22:05] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:22:14] [SCANNER] Re-escaneo profundo masivo de 192.168.1.7/24...
+[19:22:15] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:22:15] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:22:16] [EXTERNO] 192.168.1.7 → 3.174.238.108 [TCP]
+[19:22:17] [FLUJO] 192.168.1.7 → 192.168.1.2 [TCP]
+[19:22:17] [FLUJO] 192.168.1.7 → 192.168.1.254 [TCP]
+[19:22:17] [FLUJO] 192.168.1.7 → 192.168.1.1 [TCP]
+[19:22:17] [FLUJO] 192.168.1.254 → 192.168.1.7 [TCP]
+[19:22:17] [FLUJO] 192.168.1.1 → 192.168.1.7 [TCP]
+[19:22:17] [FLUJO] 192.168.1.2 → 192.168.1.7 [TCP]
+[19:22:20] [EXTERNO] 192.168.1.7 → 52.203.240.142 [TCP]
+[19:22:20] [EXTERNO] 192.168.1.7 → 18.155.252.17 [TCP]
+[19:22:20] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:22:20] [EXTERNO] 192.168.1.7 → 3.163.60.55 [TCP]
+[19:22:21] [EXTERNO] 192.168.1.7 → 3.174.238.119 [TCP]
+[19:22:21] [EXTERNO] 192.168.1.7 → 2.20.111.17 [TCP]
+[19:22:21] [EXTERNO] 192.168.1.7 → 23.7.1.74 [TCP]
+[19:22:21] [EXTERNO] 192.168.1.7 → 54.230.144.18 [TCP]
+[19:22:21] [EXTERNO] 192.168.1.7 → 34.98.83.88 [UDP]
+[19:22:21] [EXTERNO] 192.168.1.7 → 68.67.179.87 [TCP]
+[19:22:21] [EXTERNO] 192.168.1.7 → 34.102.240.186 [UDP]
+[19:22:22] [EXTERNO] 192.168.1.7 → 4.153.187.221 [TCP]
+[19:22:22] [FLUJO] 192.168.1.1 → 192.168.1.7 [ARP]
+[19:22:22] [FLUJO] 192.168.1.7 → 192.168.1.1 [ARP]
+[19:22:22] [FLUJO] 192.168.1.252 → 192.168.1.7 [ARP]
+[19:22:22] [FLUJO] 192.168.1.7 → 192.168.1.252 [ARP]
+[19:22:23] [ARSENAL] CMD: nmap -Pn --script=vuln --host-timeout 20s --open -p 21,22,23,25,80,110,143,443,445,3306,3389,5432,5900,8080,8443 192.168.1.3
+[19:22:23] [ARSENAL] Iniciando 🔴 Vuln Scan en 192.168.1.3...
+[19:22:23] [SCANNER] Re-escaneo masivo completado
+[19:22:23] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.1...
+[19:22:23] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[19:22:24] [EXTERNO] 192.168.1.7 → 224.0.0.251 [UDP]
+[19:22:25] [EXTERNO] 192.168.1.7 → 3.222.212.147 [TCP]
+[19:22:26] [EXTERNO] 192.168.1.7 → 20.57.85.160 [TCP]
+[19:22:26] [EXTERNO] 192.168.1.7 → 3.163.60.49 [UDP]
+[19:22:26] [EXTERNO] 192.168.1.7 → 34.117.162.98 [UDP]
+[19:22:26] [EXTERNO] 192.168.1.7 → 43.152.185.204 [TCP]
+[19:22:26] [EXTERNO] 192.168.1.7 → 2.20.111.225 [TCP]
+[19:22:26] [EXTERNO] 192.168.1.7 → 54.230.144.93 [UDP]
+[19:22:26] [EXTERNO] 192.168.1.7 → 54.230.144.111 [TCP]
+[19:22:26] [EXTERNO] 192.168.1.7 → 3.174.238.64 [TCP]
+[19:22:27] [EXTERNO] 192.168.1.7 → 54.230.144.26 [UDP]
+[19:22:28] [EXTERNO] 192.168.1.7 → 2.22.20.175 [UDP]
+[19:22:28] [EXTERNO] 192.168.1.7 → 34.36.216.150 [UDP]
+[19:22:28] [EXTERNO] 192.168.1.7 → 216.157.106.133 [TCP]
+[19:22:28] [EXTERNO] 192.168.1.7 → 54.230.144.95 [TCP]
+[19:22:29] [EXTERNO] 192.168.1.7 → 3.163.60.113 [TCP]
+[19:22:31] [EXTERNO] 192.168.1.7 → 54.159.138.55 [TCP]
+[19:22:31] [EXTERNO] 192.168.1.7 → 3.33.220.150 [TCP]
+[19:22:31] [EXTERNO] 192.168.1.7 → 32.192.12.216 [TCP]
+[19:22:31] [EXTERNO] 192.168.1.7 → 54.146.219.79 [TCP]
+[19:22:34] [EXTERNO] 192.168.1.7 → 54.240.184.113 [TCP]
+[19:22:34] [EXTERNO] 192.168.1.7 → 18.158.100.159 [TCP]
+[19:22:34] [FLUJO] 192.168.1.7 → 192.168.1.3 [ARP]
+[19:22:35] [EXTERNO] 192.168.1.7 → 200.25.3.17 [UDP]
+[19:22:35] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:22:36] [ARSENAL] 🔴 Vuln Scan en 192.168.1.3 completado (2 líneas)
+[19:22:36] [ARSENAL] Resultado: 🔴 Vuln Scan en 192.168.1.3
+[19:22:36] [ARSENAL] Vuln scan 192.168.1.3: sin vulnerabilidades críticas detectadas
+[19:22:36] [EXTERNO] 192.168.1.7 → 18.97.36.67 [TCP]
+[19:22:36] [EXTERNO] 192.168.1.1 → 255.255.255.255 [UDP]
+[19:22:38] [FLUJO] 192.168.1.7 → 192.168.1.254 [ICMP]
+[19:22:38] [FLUJO] 192.168.1.254 → 192.168.1.7 [ICMP]
+[19:22:38] [FLUJO] 192.168.1.7 → 192.168.1.254 [UDP]
+[19:22:42] [EXTERNO] 192.168.1.7 → 34.36.57.103 [TCP]
+[19:22:50] [STATS] Recálculo: 6 nodos | alertas: 1
+[19:22:52] [EXTERNO] 192.168.1.7 → 199.232.176.176 [TCP]
+[19:22:56] [EXTERNO] 192.168.1.7 → 200.24.51.144 [UDP]
+[19:23:05] [STATS] Recálculo: 6 nodos | alertas: 1
+[19:23:10] [EXTERNO] 192.168.1.7 → 34.160.213.244 [TCP]
+[19:23:13] [EXTERNO] 192.168.1.7 → 34.120.108.227 [TCP]
+[19:23:16] [ARSENAL] CMD: nmap -sn -Pn --host-timeout 3s 192.168.1.3
+[19:23:16] [ARSENAL] Iniciando 🟢 Ping Check en 192.168.1.3...
+[19:23:16] [ARSENAL] 🟢 Ping Check en 192.168.1.3 completado (4 líneas)
+[19:23:16] [ARSENAL] Resultado: 🟢 Ping Check en 192.168.1.3
+[19:23:16] [ARSENAL] Ping 192.168.1.3: ACTIVO → confirmado
+[19:23:17] [EXTERNO] 192.168.1.7 → 34.95.0.29 [TCP]
+[19:23:20] [STATS] Recálculo: 6 nodos | alertas: 1
+[19:23:22] [EXTERNO] 192.168.1.7 → 52.203.240.142 [TCP]
+[19:23:25] [EXTERNO] 192.168.1.7 → 18.155.252.17 [TCP]
+[19:23:25] [EXTERNO] 192.168.1.7 → 34.98.83.88 [TCP]
+[19:23:25] [EXTERNO] 192.168.1.7 → 54.230.144.18 [TCP]
+[19:23:25] [EXTERNO] 192.168.1.7 → 3.174.238.119 [TCP]
+[19:23:25] [EXTERNO] 192.168.1.7 → 3.163.60.55 [TCP]
+[19:23:25] [EXTERNO] 192.168.1.7 → 35.213.232.93 [TCP]
+[19:23:25] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:23:25] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:23:27] [EXTERNO] 192.168.1.7 → 2.20.111.225 [TCP]
+[19:23:31] [EXTERNO] 192.168.1.7 → 32.192.12.216 [TCP]
+[19:23:31] [EXTERNO] 192.168.1.7 → 54.146.219.79 [TCP]
+[19:23:31] [EXTERNO] 192.168.1.7 → 3.33.220.150 [TCP]
+[19:23:31] [EXTERNO] 192.168.1.7 → 54.159.138.55 [TCP]
+[19:23:34] [EXTERNO] 192.168.1.7 → 54.240.184.113 [TCP]
+[19:23:35] [EXTERNO] 192.168.1.7 → 18.158.100.159 [TCP]
+[19:23:35] [STATS] Recálculo: 6 nodos | alertas: 1
+[19:23:36] [EXTERNO] 192.168.1.7 → 54.230.144.111 [TCP]
+[19:23:36] [EXTERNO] 192.168.1.7 → 34.117.162.98 [TCP]
+[19:23:36] [EXTERNO] 192.168.1.7 → 3.174.238.64 [TCP]
+[19:23:36] [EXTERNO] 192.168.1.7 → 20.57.85.160 [TCP]
+[19:23:37] [EXTERNO] 192.168.1.7 → 3.163.60.113 [TCP]
+[19:23:45] [EXTERNO] 192.168.1.7 → 34.36.57.103 [TCP]
+[19:23:50] [STATS] Recálculo: 6 nodos | alertas: 1
+[19:23:56] [EXTERNO] 192.168.1.7 → 200.24.51.144 [UDP]
+[19:23:57] [EXTERNO] 192.168.1.7 → 199.232.176.176 [TCP]
+[19:23:58] [EXTERNO] 192.168.1.7 → 3.174.238.108 [TCP]
+[19:24:00] [EXTERNO] 192.168.1.7 → 54.230.144.95 [TCP]
+[19:24:02] [EXTERNO] 192.168.1.7 → 23.7.1.74 [TCP]
+[19:24:05] [STATS] Recálculo: 6 nodos | alertas: 1
+[19:24:06] [EXTERNO] 192.168.1.7 → 18.97.36.67 [TCP]
+[19:24:10] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:24:10] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:24:16] [EXTERNO] 192.168.1.7 → 34.120.108.227 [TCP]
+[19:24:20] [STATS] Recálculo: 6 nodos | alertas: 1
+[19:24:34] [EXTERNO] 192.168.1.7 → 54.240.184.113 [TCP]
+[19:24:35] [STATS] Recálculo: 6 nodos | alertas: 1
+[19:24:37] [EXTERNO] 192.168.1.7 → 20.57.85.160 [TCP]
+[19:24:38] [EXTERNO] 192.168.1.7 → 34.95.0.29 [TCP]
+[19:24:39] [EXTERNO] 192.168.1.7 → 3.163.60.113 [TCP]
+[19:24:42] [EXTERNO] 192.168.1.7 → 2.20.111.225 [TCP]
+[19:24:50] [STATS] Recálculo: 6 nodos | alertas: 1
+[19:24:55] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:24:55] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:25:05] [STATS] Recálculo: 6 nodos | alertas: 1
+[19:25:08] [EXTERNO] 192.168.1.7 → 200.24.51.144 [UDP]
+[19:25:17] [APP] Botón Limpiar presionado
+[19:25:17] [APP] Gateway: 192.168.1.254 | Subred: 192.168.1.x
+[19:25:17] [RED] Nuevo host: 192.168.1.7 | MAC: 94:08:53:53:98:43 | via TCP
+[19:25:17] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.7...
+[19:25:17] [APP] Iniciando escaneo en wlan0
+[19:25:17] [SCANNER] Ya en curso
+[19:25:18] [RED] Nuevo host: 192.168.1.254 | MAC: 60:d2:48:7a:a3:2c | via ARP
+[19:25:20] [STATS] Recálculo: 2 nodos | alertas: 0
+[19:25:25] [HISTORIAL] Nuevo host detectado en red: 192.168.1.7
+[19:25:28] [EXTERNO] 192.168.1.7 → 3.174.238.108 [TCP]
+[19:25:29] [APP] Abriendo dashboard de analíticas...
+[19:25:32] [EXTERNO] 192.168.1.7 → 54.230.144.95 [TCP]
+[19:25:35] [EXTERNO] 192.168.1.7 → 54.240.184.113 [TCP]
+[19:25:35] [STATS] Recálculo: 2 nodos | alertas: 0
+[19:25:36] [EXTERNO] 192.168.1.7 → 18.97.36.67 [TCP]
+[19:25:37] [RED] Nuevo host: 192.168.1.1 | MAC: 68:6d:bc:d4:6b:8a | via UDP
+[19:25:37] [EXTERNO] 192.168.1.1 → 255.255.255.255 [UDP]
+[19:25:38] [EXTERNO] 192.168.1.7 → 20.57.85.160 [TCP]
+[19:25:40] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:25:40] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:25:50] [STATS] Recálculo: 3 nodos | alertas: 0
+[19:26:05] [STATS] Recálculo: 3 nodos | alertas: 0
+[19:26:07] [EXTERNO] 192.168.1.7 → 3.163.60.113 [TCP]
+[19:26:19] [EXTERNO] 192.168.1.7 → 34.95.0.29 [TCP]
+[19:26:20] [EXTERNO] 192.168.1.7 → 200.24.51.144 [UDP]
+[19:26:20] [STATS] Recálculo: 3 nodos | alertas: 0
+[19:26:25] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:26:25] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:26:35] [EXTERNO] 192.168.1.7 → 54.240.184.113 [TCP]
+[19:26:35] [STATS] Recálculo: 3 nodos | alertas: 0
+[19:26:40] [EXTERNO] 192.168.1.7 → 20.57.85.160 [TCP]
+[19:26:50] [STATS] Recálculo: 3 nodos | alertas: 0
+[19:26:51] [EXTERNO] 192.168.1.7 → 200.25.3.17 [UDP]
+[19:26:59] [FLUJO] 192.168.1.7 → 192.168.1.1 [ARP]
+[19:26:59] [FLUJO] 192.168.1.1 → 192.168.1.7 [ARP]
+[19:27:00] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:27:00] [RED] Nuevo host: 192.168.1.252 | MAC: 00:00:ca:01:02:03 | via ARP
+[19:27:00] [FLUJO] 192.168.1.252 → 192.168.1.7 [ARP]
+[19:27:00] [FLUJO] 192.168.1.7 → 192.168.1.252 [ARP]
+[19:27:00] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:27:00] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.252...
+[19:27:00] [RED] Nuevo host: 192.168.1.2 | MAC: da:58:3d:72:c5:e4 | via ARP
+[19:27:00] [FLUJO] 192.168.1.2 → 192.168.1.7 [ARP]
+[19:27:00] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.2...
+[19:27:01] [RED] Nuevo host: 192.168.1.3 | MAC: 66:07:9d:fe:1a:73 | via ARP
+[19:27:01] [FLUJO] 192.168.1.3 → 192.168.1.7 [ARP]
+[19:27:01] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.3...
+[19:27:01] [FLUJO] 192.168.1.7 → 192.168.1.2 [ARP]
+[19:27:01] [FLUJO] 192.168.1.7 → 192.168.1.252 [TCP]
+[19:27:01] [FLUJO] 192.168.1.252 → 192.168.1.7 [TCP]
+[19:27:01] [FLUJO] 192.168.1.7 → 192.168.1.3 [ARP]
+[19:27:01] [FLUJO] 192.168.1.7 → 192.168.1.252 [ICMP]
+[19:27:01] [FLUJO] 192.168.1.252 → 192.168.1.7 [ICMP]
+[19:27:01] [FLUJO] 192.168.1.7 → 192.168.1.252 [UDP]
+[19:27:01] [EXTERNO] 192.168.1.7 → 190.240.115.151 [UDP]
+[19:27:02] [FLUJO] 192.168.1.7 → 192.168.1.2 [TCP]
+[19:27:02] [FLUJO] 192.168.1.2 → 192.168.1.7 [TCP]
+[19:27:02] [FLUJO] 192.168.1.7 → 192.168.1.3 [TCP]
+[19:27:02] [FLUJO] 192.168.1.7 → 192.168.1.2 [ICMP]
+[19:27:02] [FLUJO] 192.168.1.7 → 192.168.1.2 [UDP]
+[19:27:02] [FLUJO] 192.168.1.2 → 192.168.1.7 [ICMP]
+[19:27:02] [FLUJO] 192.168.1.3 → 192.168.1.7 [TCP]
+[19:27:02] [HISTORIAL] Nuevo host detectado en red: 192.168.1.1
+[19:27:02] [HISTORIAL] Nuevo host detectado en red: 192.168.1.2
+[19:27:02] [HISTORIAL] Nuevo host detectado en red: 192.168.1.3
+[19:27:02] [HISTORIAL] Nuevo host detectado en red: 192.168.1.252
+[19:27:02] [HISTORIAL] Nuevo host detectado en red: 192.168.1.254
+[19:27:02] [SCANNER] Fase 1 (ARP) completado en 3s
+[19:27:02] [FLUJO] 192.168.1.7 → 192.168.1.1 [UDP]
+[19:27:02] [FLUJO] 192.168.1.7 → 192.168.1.3 [UDP]
+[19:27:02] [FLUJO] 192.168.1.1 → 192.168.1.7 [ICMP]
+[19:27:02] [FLUJO] 192.168.1.3 → 192.168.1.7 [ICMP]
+[19:27:03] [FLUJO] 192.168.1.7 → 192.168.1.3 [ICMP]
+[19:27:04] [EXTERNO] 192.168.1.7 → 18.97.36.67 [TCP]
+[19:27:05] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:27:08] [FLUJO] 192.168.1.7 → 192.168.1.254 [UDP]
+[19:27:09] [FLUJO] 192.168.1.254 → 192.168.1.7 [ICMP]
+[19:27:20] [EXTERNO] 192.168.1.7 → 3.163.60.113 [TCP]
+[19:27:20] [EXTERNO] 192.168.1.7 → 200.24.51.144 [UDP]
+[19:27:20] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:27:23] [SCANNER] Re-escaneo profundo masivo de 192.168.1.7/24...
+[19:27:25] [EXTERNO] 192.168.1.7 → 136.110.170.103 [UDP]
+[19:27:25] [EXTERNO] 192.168.1.7 → 34.160.213.244 [UDP]
+[19:27:27] [FLUJO] 192.168.1.7 → 192.168.1.254 [TCP]
+[19:27:27] [FLUJO] 192.168.1.7 → 192.168.1.1 [TCP]
+[19:27:27] [FLUJO] 192.168.1.1 → 192.168.1.7 [TCP]
+[19:27:27] [FLUJO] 192.168.1.254 → 192.168.1.7 [TCP]
+[19:27:32] [FLUJO] 192.168.1.1 → 192.168.1.7 [ARP]
+[19:27:32] [FLUJO] 192.168.1.7 → 192.168.1.1 [ARP]
+[19:27:32] [FLUJO] 192.168.1.252 → 192.168.1.7 [ARP]
+[19:27:32] [FLUJO] 192.168.1.7 → 192.168.1.252 [ARP]
+[19:27:33] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.1...
+[19:27:33] [SCANNER] Re-escaneo masivo completado
+[19:27:33] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[19:27:34] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:27:34] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:27:34] [EXTERNO] 192.168.1.7 → 3.174.238.79 [TCP]
+[19:27:35] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:27:36] [EXTERNO] 192.168.1.7 → 54.240.184.113 [TCP]
+[19:27:38] [EXTERNO] 192.168.1.7 → 34.95.0.29 [TCP]
+[19:27:46] [EXTERNO] 192.168.1.7 → 20.57.85.160 [TCP]
+[19:27:48] [FLUJO] 192.168.1.7 → 192.168.1.254 [ICMP]
+[19:27:48] [FLUJO] 192.168.1.254 → 192.168.1.7 [ICMP]
+[19:27:48] [FLUJO] 192.168.1.7 → 192.168.1.254 [UDP]
+[19:27:50] [APP] Botón Detener presionado
+[19:27:50] [STATS] Recálculo: 6 nodos | alertas: 0
+[19:28:00] [APP] Botón Limpiar presionado
+[19:28:00] [APP] Gateway: 192.168.1.254 | Subred: 192.168.1.x
+[19:28:01] [APP] Iniciando escaneo en wlan0
+[19:28:01] [SCANNER] Ya en curso
+[19:28:01] [RED] Nuevo host: 192.168.1.7 | MAC: 94:08:53:53:98:43 | via TCP
+[19:28:01] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.7...
+[19:28:05] [STATS] Recálculo: 1 nodos | alertas: 0
+[19:28:09] [HISTORIAL] Nuevo host detectado en red: 192.168.1.7
+[19:28:20] [EXTERNO] 192.168.1.7 → 3.163.60.113 [TCP]
+[19:28:20] [RED] Nuevo host: 192.168.1.254 | MAC: 60:d2:48:7a:a3:2c | via IP
+[19:28:20] [STATS] Recálculo: 2 nodos | alertas: 0
+[19:28:24] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:28:24] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:28:35] [STATS] Recálculo: 2 nodos | alertas: 0
+[19:28:36] [EXTERNO] 192.168.1.7 → 54.240.184.113 [TCP]
+[19:28:37] [EXTERNO] 192.168.1.7 → 18.97.36.67 [TCP]
+[19:28:38] [RED] Nuevo host: 192.168.1.1 | MAC: 68:6d:bc:d4:6b:8a | via UDP
+[19:28:38] [EXTERNO] 192.168.1.1 → 255.255.255.255 [UDP]
+[19:28:50] [STATS] Recálculo: 3 nodos | alertas: 0
+[19:28:55] [EXTERNO] 192.168.1.7 → 20.57.85.160 [TCP]
+[19:28:57] [EXTERNO] 192.168.1.7 → 34.160.213.244 [TCP]
+[19:28:57] [EXTERNO] 192.168.1.7 → 136.110.170.103 [TCP]
+[19:28:58] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:28:58] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:29:00] [EXTERNO] 192.168.1.7 → 200.25.3.17 [UDP]
+[19:29:05] [EXTERNO] 192.168.1.7 → 3.174.238.79 [TCP]
+[19:29:05] [STATS] Recálculo: 3 nodos | alertas: 0
+[19:29:20] [EXTERNO] 192.168.1.7 → 200.24.51.144 [UDP]
+[19:29:20] [EXTERNO] 192.168.1.7 → 3.163.60.113 [TCP]
+[19:29:20] [STATS] Recálculo: 3 nodos | alertas: 0
+[19:29:23] [EXTERNO] 192.168.1.7 → 34.95.0.29 [TCP]
+[19:29:30] [ARSENAL] CMD: nmap -sn -Pn --host-timeout 3s 192.168.1.254
+[19:29:30] [ARSENAL] Iniciando 🟢 Ping Check en 192.168.1.254...
+[19:29:31] [ARSENAL] 🟢 Ping Check en 192.168.1.254 completado (4 líneas)
+[19:29:31] [ARSENAL] Resultado: 🟢 Ping Check en 192.168.1.254
+[19:29:31] [ARSENAL] Ping 192.168.1.254: ACTIVO → confirmado
+[19:29:35] [STATS] Recálculo: 3 nodos | alertas: 0
+[19:29:36] [EXTERNO] 192.168.1.7 → 54.240.184.113 [TCP]
+[19:29:42] [ARSENAL] CMD: nmap -Pn --top-ports 20 --open --host-timeout 6s 192.168.1.254
+[19:29:42] [ARSENAL] Iniciando ⚡ Quick Ports en 192.168.1.254...
+[19:29:42] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:29:42] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:29:43] [FLUJO] 192.168.1.7 → 192.168.1.254 [TCP]
+[19:29:43] [FLUJO] 192.168.1.254 → 192.168.1.7 [TCP]
+[19:29:43] [ARSENAL] ⚡ Quick Ports en 192.168.1.254 completado (10 líneas)
+[19:29:43] [ARSENAL] Resultado: ⚡ Quick Ports en 192.168.1.254
+[19:29:43] [ARSENAL] 192.168.1.254: +2 puerto(s) TCP nuevo(s): 80, 443
+[19:29:50] [STATS] Recálculo: 3 nodos | alertas: 2
+[19:29:58] [ARSENAL] CMD: nmap -Pn --host-timeout 8s --open 192.168.1.254
+[19:29:58] [ARSENAL] Iniciando 🔍 Standard Scan en 192.168.1.254...
+[19:30:03] [ARSENAL] 🔍 Standard Scan en 192.168.1.254 completado (11 líneas)
+[19:30:03] [ARSENAL] Resultado: 🔍 Standard Scan en 192.168.1.254
+[19:30:04] [EXTERNO] 192.168.1.7 → 200.25.3.17 [UDP]
+[19:30:05] [STATS] Recálculo: 3 nodos | alertas: 2
+[19:30:07] [EXTERNO] 192.168.1.7 → 18.97.36.67 [TCP]
+[19:30:18] [ARSENAL] CMD: nmap -Pn -sV --version-intensity 5 --host-timeout 10s --open -p 21,22,23,25,53,80,110,143,443,445,554,3306,3389,5432,5900,6379,8000,8080,8443,8554,9010,9100,27017 192.168.1.254
+[19:30:18] [ARSENAL] Iniciando 🏷  Service Versions en 192.168.1.254...
+[19:30:18] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:30:18] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:30:18] [FLUJO] 192.168.1.7 → 192.168.1.254 [TCP]
+[19:30:18] [FLUJO] 192.168.1.254 → 192.168.1.7 [TCP]
+[19:30:20] [EXTERNO] 192.168.1.7 → 200.24.51.144 [UDP]
+[19:30:20] [EXTERNO] 192.168.1.7 → 3.163.60.113 [TCP]
+[19:30:20] [STATS] Recálculo: 3 nodos | alertas: 2
+[19:30:27] [EXTERNO] 192.168.1.7 → 34.160.213.244 [TCP]
+[19:30:27] [EXTERNO] 192.168.1.7 → 136.110.170.103 [TCP]
+[19:30:31] [ARSENAL] 🏷  Service Versions en 192.168.1.254 completado (6 líneas)
+[19:30:31] [ARSENAL] Resultado: 🏷  Service Versions en 192.168.1.254
+[19:30:35] [EXTERNO] 192.168.1.7 → 3.174.238.79 [TCP]
+[19:30:35] [STATS] Recálculo: 3 nodos | alertas: 2
+[19:30:37] [EXTERNO] 192.168.1.7 → 54.240.184.113 [TCP]
+[19:30:38] [EXTERNO] 192.168.1.7 → 34.95.0.29 [TCP]
+[19:30:39] [ARSENAL] CMD: nmap -Pn -O --osscan-guess --host-timeout 8s -p 22,80,443,445,3389 192.168.1.254
+[19:30:39] [ARSENAL] Iniciando 💻 OS Detection en 192.168.1.254...
+[19:30:40] [FLUJO] 192.168.1.7 → 192.168.1.254 [ICMP]
+[19:30:40] [FLUJO] 192.168.1.254 → 192.168.1.7 [ICMP]
+[19:30:40] [FLUJO] 192.168.1.7 → 192.168.1.254 [UDP]
+[19:30:41] [ARSENAL] 💻 OS Detection en 192.168.1.254 completado (19 líneas)
+[19:30:41] [ARSENAL] Resultado: 💻 OS Detection en 192.168.1.254
+[19:30:41] [ARSENAL] OS 192.168.1.254: Ubiquiti webcam (Linux 2.6.38)
+[19:30:50] [STATS] Recálculo: 3 nodos | alertas: 3
+[19:30:59] [ARSENAL] CMD: nmap -Pn -sC --script=safe --host-timeout 12s --open -p 22,23,25,80,110,143,443,445,554,3306,3389,5900,8080,8443 192.168.1.254
+[19:30:59] [ARSENAL] Iniciando 📜 Safe Scripts en 192.168.1.254...
+[19:30:59] [EXTERNO] 192.168.1.7 → 255.255.255.255 [UDP]
+[19:30:59] [EXTERNO] 192.168.1.7 → 239.255.255.250 [UDP]
+[19:30:59] [EXTERNO] 192.168.1.7 → 224.0.0.251 [UDP]
+[19:30:59] [EXTERNO] 192.168.1.7 → 224.0.0.9 [UDP]
+[19:30:59] [EXTERNO] 192.168.1.7 → 239.255.255.253 [UDP]
+[19:30:59] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:30:59] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:30:59] [FLUJO] 192.168.1.254 → 192.168.1.7 [UDP]
+[19:30:59] [EXTERNO] 192.168.1.254 → 255.255.255.255 [UDP]
+[19:31:00] [EXTERNO] 192.168.1.7 → 224.0.23.12 [UDP]
+[19:31:01] [RED] Nuevo host: 192.168.1.252 | MAC: 00:00:ca:01:02:03 | via IP
+[19:31:01] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.252...
+[19:31:01] [FLUJO] 192.168.1.7 → 192.168.1.252 [ARP]
+[19:31:01] [FLUJO] 192.168.1.252 → 192.168.1.7 [ARP]
+[19:31:02] [FLUJO] 192.168.1.7 → 192.168.1.252 [TCP]
+[19:31:02] [FLUJO] 192.168.1.252 → 192.168.1.7 [TCP]
+[19:31:02] [FLUJO] 192.168.1.7 → 192.168.1.252 [ICMP]
+[19:31:02] [FLUJO] 192.168.1.252 → 192.168.1.7 [ICMP]
+[19:31:02] [FLUJO] 192.168.1.7 → 192.168.1.252 [UDP]
+[19:31:03] [HISTORIAL] Nuevo host detectado en red: 192.168.1.252
+[19:31:05] [STATS] Recálculo: 4 nodos | alertas: 3
+[19:31:20] [STATS] Recálculo: 4 nodos | alertas: 3
+[19:31:35] [STATS] Recálculo: 4 nodos | alertas: 3
+[19:31:37] [EXTERNO] 192.168.1.7 → 54.240.184.113 [TCP]
+[19:31:38] [EXTERNO] 192.168.1.7 → 18.97.36.67 [TCP]
+[19:31:38] [EXTERNO] 192.168.1.1 → 255.255.255.255 [UDP]
+[19:31:39] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:31:39] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:31:40] [FLUJO] 192.168.1.7 → 192.168.1.254 [TCP]
+[19:31:40] [FLUJO] 192.168.1.254 → 192.168.1.7 [TCP]
+[19:31:40] [ARSENAL] 📜 Safe Scripts en 192.168.1.254 completado (102 líneas)
+[19:31:40] [ARSENAL] Resultado: 📜 Safe Scripts en 192.168.1.254
+[19:31:42] [EXTERNO] 192.168.1.7 → 34.95.0.29 [TCP]
+[19:31:50] [STATS] Recálculo: 4 nodos | alertas: 3
+[19:31:59] [EXTERNO] 192.168.1.7 → 136.110.170.103 [TCP]
+[19:31:59] [EXTERNO] 192.168.1.7 → 34.160.213.244 [TCP]
+[19:32:05] [EXTERNO] 192.168.1.7 → 3.163.60.113 [TCP]
+[19:32:05] [STATS] Recálculo: 4 nodos | alertas: 3
+[19:32:10] [FLUJO] 192.168.1.7 → 192.168.1.1 [ARP]
+[19:32:10] [FLUJO] 192.168.1.1 → 192.168.1.7 [ARP]
+[19:32:10] [FLUJO] 192.168.1.7 → 192.168.1.252 [ARP]
+[19:32:10] [FLUJO] 192.168.1.252 → 192.168.1.7 [ARP]
+[19:32:10] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:32:10] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:32:11] [RED] Nuevo host: 192.168.1.3 | MAC: 66:07:9d:fe:1a:73 | via ARP
+[19:32:11] [FLUJO] 192.168.1.3 → 192.168.1.7 [ARP]
+[19:32:11] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.3...
+[19:32:11] [FLUJO] 192.168.1.7 → 192.168.1.3 [ARP]
+[19:32:11] [EXTERNO] 192.168.1.7 → 190.240.115.151 [UDP]
+[19:32:11] [EXTERNO] 192.168.1.7 → 200.24.51.144 [UDP]
+[19:32:12] [FLUJO] 192.168.1.7 → 192.168.1.3 [TCP]
+[19:32:12] [FLUJO] 192.168.1.3 → 192.168.1.7 [TCP]
+[19:32:12] [EXTERNO] 192.168.1.7 → 200.25.3.17 [UDP]
+[19:32:12] [HISTORIAL] Nuevo host detectado en red: 192.168.1.1
+[19:32:12] [HISTORIAL] Nuevo host detectado en red: 192.168.1.3
+[19:32:12] [HISTORIAL] Nuevo host detectado en red: 192.168.1.254
+[19:32:12] [SCANNER] Fase 1 (ARP) completado en 2s
+[19:32:12] [FLUJO] 192.168.1.7 → 192.168.1.1 [UDP]
+[19:32:12] [FLUJO] 192.168.1.7 → 192.168.1.3 [UDP]
+[19:32:13] [FLUJO] 192.168.1.1 → 192.168.1.7 [ICMP]
+[19:32:13] [RED] Nuevo host: 192.168.1.2 | MAC: da:58:3d:72:c5:e4 | via ICMP
+[19:32:13] [FLUJO] 192.168.1.2 → 192.168.1.7 [ICMP]
+[19:32:13] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.2...
+[19:32:13] [FLUJO] 192.168.1.3 → 192.168.1.7 [ICMP]
+[19:32:13] [FLUJO] 192.168.1.7 → 192.168.1.2 [ARP]
+[19:32:13] [FLUJO] 192.168.1.7 → 192.168.1.3 [ICMP]
+[19:32:14] [FLUJO] 192.168.1.2 → 192.168.1.7 [ARP]
+[19:32:15] [FLUJO] 192.168.1.7 → 192.168.1.2 [TCP]
+[19:32:15] [FLUJO] 192.168.1.2 → 192.168.1.7 [TCP]
+[19:32:15] [FLUJO] 192.168.1.7 → 192.168.1.2 [ICMP]
+[19:32:15] [FLUJO] 192.168.1.7 → 192.168.1.2 [UDP]
+[19:32:17] [HISTORIAL] Nuevo host detectado en red: 192.168.1.2
+[19:32:19] [FLUJO] 192.168.1.7 → 192.168.1.252 [UDP]
+[19:32:19] [FLUJO] 192.168.1.7 → 192.168.1.254 [UDP]
+[19:32:19] [FLUJO] 192.168.1.252 → 192.168.1.7 [ICMP]
+[19:32:19] [FLUJO] 192.168.1.254 → 192.168.1.7 [ICMP]
+[19:32:20] [STATS] Recálculo: 6 nodos | alertas: 3
+[19:32:33] [SCANNER] Re-escaneo profundo masivo de 192.168.1.7/24...
+[19:32:35] [EXTERNO] 192.168.1.7 → 3.174.238.4 [TCP]
+[19:32:35] [STATS] Recálculo: 6 nodos | alertas: 3
+[19:32:37] [EXTERNO] 192.168.1.7 → 54.240.184.113 [TCP]
+[19:32:40] [FLUJO] 192.168.1.7 → 192.168.1.252 [TCP]
+[19:32:40] [FLUJO] 192.168.1.7 → 192.168.1.254 [TCP]
+[19:32:40] [FLUJO] 192.168.1.7 → 192.168.1.1 [TCP]
+[19:32:40] [FLUJO] 192.168.1.252 → 192.168.1.7 [TCP]
+[19:32:40] [FLUJO] 192.168.1.1 → 192.168.1.7 [TCP]
+[19:32:40] [FLUJO] 192.168.1.254 → 192.168.1.7 [TCP]
+[19:32:45] [FLUJO] 192.168.1.1 → 192.168.1.7 [ARP]
+[19:32:45] [FLUJO] 192.168.1.7 → 192.168.1.1 [ARP]
+[19:32:45] [FLUJO] 192.168.1.252 → 192.168.1.7 [ARP]
+[19:32:45] [FLUJO] 192.168.1.7 → 192.168.1.252 [ARP]
+[19:32:46] [FLUJO] 192.168.1.3 → 192.168.1.7 [ARP]
+[19:32:46] [FLUJO] 192.168.1.7 → 192.168.1.3 [ARP]
+[19:32:46] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.1...
+[19:32:46] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[19:32:46] [SCANNER] Re-escaneo masivo completado
+[19:32:46] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:32:46] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:32:46] [ARSENAL] CMD: nmap -Pn --script=vuln --host-timeout 20s --open -p 21,22,23,25,80,110,143,443,445,3306,3389,5432,5900,8080,8443 192.168.1.254
+[19:32:46] [ARSENAL] Iniciando 🔴 Vuln Scan en 192.168.1.254...
+[19:32:46] [EXTERNO] 192.168.1.7 → 224.0.0.251 [UDP]
+[19:32:50] [STATS] Recálculo: 6 nodos | alertas: 3
+[19:32:52] [FLUJO] 192.168.1.2 → 192.168.1.7 [ARP]
+[19:32:52] [FLUJO] 192.168.1.7 → 192.168.1.2 [ARP]
+[19:33:04] [EXTERNO] 192.168.1.7 → 18.97.36.67 [TCP]
+[19:33:05] [STATS] Recálculo: 6 nodos | alertas: 3
+[19:33:10] [FLUJO] 192.168.1.7 → 192.168.1.254 [TCP]
+[19:33:10] [FLUJO] 192.168.1.254 → 192.168.1.7 [TCP]
+[19:33:15] [EXTERNO] 192.168.1.7 → 34.95.0.29 [TCP]
+[19:33:17] [ARSENAL] 🔴 Vuln Scan en 192.168.1.254 completado (5 líneas)
+[19:33:17] [ARSENAL] Resultado: 🔴 Vuln Scan en 192.168.1.254
+[19:33:17] [ARSENAL] Vuln scan 192.168.1.254: sin vulnerabilidades críticas detectadas
+[19:33:20] [EXTERNO] 192.168.1.7 → 3.163.60.113 [TCP]
+[19:33:20] [EXTERNO] 192.168.1.7 → 200.24.51.144 [UDP]
+[19:33:20] [STATS] Recálculo: 6 nodos | alertas: 4
+[19:33:35] [STATS] Recálculo: 6 nodos | alertas: 4
+[19:33:37] [EXTERNO] 192.168.1.7 → 54.240.184.113 [TCP]
+[19:33:40] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:33:40] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:33:50] [STATS] Recálculo: 6 nodos | alertas: 4
+[19:34:05] [STATS] Recálculo: 6 nodos | alertas: 4
+[19:34:06] [EXTERNO] 192.168.1.7 → 3.174.238.4 [TCP]
+[19:34:08] [ARSENAL] CMD: nmap -sU --top-ports 20 --host-timeout 8s -Pn 192.168.1.254
+[19:34:08] [ARSENAL] Iniciando 📡 UDP Top Ports en 192.168.1.254...
+[19:34:09] [FLUJO] 192.168.1.7 → 192.168.1.254 [UDP]
+[19:34:09] [FLUJO] 192.168.1.254 → 192.168.1.7 [ICMP]
+[19:34:09] [FLUJO] 192.168.1.254 → 192.168.1.7 [UDP]
+[19:34:09] [FLUJO] 192.168.1.7 → 192.168.1.254 [ICMP]
+[19:34:17] [ARSENAL] 📡 UDP Top Ports en 192.168.1.254 completado (5 líneas)
+[19:34:17] [ARSENAL] Resultado: 📡 UDP Top Ports en 192.168.1.254
+[19:34:20] [EXTERNO] 192.168.1.7 → 3.163.60.113 [TCP]
+[19:34:20] [EXTERNO] 192.168.1.7 → 200.24.51.144 [UDP]
+[19:34:20] [STATS] Recálculo: 6 nodos | alertas: 4
+[19:34:21] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:34:21] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:34:35] [STATS] Recálculo: 6 nodos | alertas: 4
+[19:34:37] [EXTERNO] 192.168.1.7 → 54.240.184.113 [TCP]
+[19:34:38] [EXTERNO] 192.168.1.7 → 18.97.36.67 [TCP]
+[19:34:39] [EXTERNO] 192.168.1.1 → 255.255.255.255 [UDP]
+[19:34:45] [EXTERNO] 192.168.1.7 → 34.95.0.29 [TCP]
+[19:34:50] [STATS] Recálculo: 6 nodos | alertas: 4
+[19:35:03] [FLUJO] 192.168.1.254 → 192.168.1.7 [ARP]
+[19:35:03] [FLUJO] 192.168.1.7 → 192.168.1.254 [ARP]
+[19:35:05] [STATS] Recálculo: 6 nodos | alertas: 4
+[19:35:20] [EXTERNO] 192.168.1.7 → 3.163.60.113 [TCP]
+[19:35:20] [STATS] Recálculo: 6 nodos | alertas: 4
+[19:35:28] [APP] Botón Salir presionado — cerrando...
+[19:35:28] [SCANNER] Hilos detenidos

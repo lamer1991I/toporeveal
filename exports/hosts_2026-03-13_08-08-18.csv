@@ -1,0 +1,8 @@
+IP,MAC,Tipo,Fabricante,Sistema,Estado,Paquetes,Puertos,RiskScore,Severidad,Perfiles,Alertas
+192.168.1.1,68:6d:bc:d4:6b:8a,servidor,Hikvision,Linux/Mac,confirmado,7073,80 554 8000 9010,35,medio,Cámara IP,5
+192.168.1.2,DA:58:3D:72:C5:E4,pc,Privada/Aleatoria,Linux/Mac,fantasma,54,,0,—,,0
+192.168.1.3,66:07:9d:fe:1a:73,pc,Privada/Aleatoria,Linux/Mac,fantasma,122,,0,—,,0
+192.168.1.5,8e:63:f4:86:1e:ed,pc,Privada/Aleatoria,Linux/Mac,fantasma,163,,0,—,,0
+192.168.1.7,94:08:53:53:98:43,pc,Desconocido,Linux/Mac,confirmado,17833,,0,—,,0
+192.168.1.252,00:00:ca:01:02:03,wired_generic,Attachmate,Linux/Mac,fantasma,307,,0,—,,0
+192.168.1.254,60:d2:48:7a:a3:2c,router,Tenda,Desconocido,confirmado,758,,0,—,,0

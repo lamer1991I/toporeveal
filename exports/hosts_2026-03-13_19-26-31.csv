@@ -1,0 +1,4 @@
+IP,MAC,Tipo,Fabricante,Sistema,Estado,Paquetes,Puertos,RiskScore,Severidad,Perfiles,Alertas
+192.168.1.1,68:6d:bc:d4:6b:8a,camara,Hikvision,Linux/Mac,confirmado,2,,0,—,,0
+192.168.1.7,94:08:53:53:98:43,smartphone,Desconocido,Linux/Mac,confirmado,1411,,0,—,,0
+192.168.1.254,60:d2:48:7a:a3:2c,router,Tenda,Desconocido,confirmado,8,,0,—,,0

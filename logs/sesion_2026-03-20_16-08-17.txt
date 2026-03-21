@@ -1,0 +1,519 @@
+TopoReveal — Log de sesion
+Generado: 2026-03-20 16:08:17
+Total lineas de evento: 483
+============================================================
+
+RESUMEN DE RED — 7 hosts activos, 1 en lobby
+Gateway: 192.168.1.254 | Subred: 192.168.1.x
+ARP Scanners detectados: 0
+------------------------------------------------------------
+
+HOSTS ACTIVOS:
+  IP                 MAC                  TIPO           OS           ESTADO         PKTs  PROTOCOLOS
+  ------------------------------------------------------------------------------------------
+  192.168.1.1        DA:58:3D:72:C5:E4    smartphone     Linux/Mac    sospechoso     2091  HTTPS,ICMP-Echo,QUIC,UDP,XMPP
+  192.168.1.2        8E:63:F4:86:1E:ED    smartphone     Linux/Mac    confirmado      273  DNS,HTTP,HTTPS,QUIC,TCP,UDP,XMPP
+  192.168.1.3        66:07:9D:FE:1A:73    smartphone     Linux/Mac    fantasma         78  HTTPS,QUIC
+  192.168.1.4        68:6D:BC:D4:6B:8A    servidor       Linux        confirmado      348  DNS,TCP,UDP
+  192.168.1.7        94:08:53:53:98:43    pc             Linux        confirmado        7  —
+  192.168.1.252      00:00:CA:01:02:03    wired_generic  Desconocido  fantasma          6  —
+  192.168.1.254      60:D2:48:7A:A3:2C    router         Ubiquiti     sospechoso       59  HTTP,ICMP-Reply,IGMP
+
+HOSTS EN LOBBY (sin actividad reciente):
+  192.168.1.5        —
+
+CONEXIONES EXTERNAS POR HOST:
+  192.168.1.1 → 104.18.16.59, 104.18.34.93, 34.128.128.0, 47.236.202.132, 172.64.149.149, 104.16.123.74, 3.229.236.60, 104.18.7.168, 34.54.122.72, 34.128.182.103
+  192.168.1.2 → 163.70.152.40, 47.84.125.7, 192.178.213.188, 190.102.205.20, 57.144.114.192, 57.144.199.33, 8.8.4.4, 8.219.182.98, 200.24.51.144, 190.240.115.151
+  192.168.1.254 → 224.0.0.1
+  192.168.1.3 → 23.22.79.230, 34.149.73.26, 3.211.215.234, 57.144.114.8, 57.144.114.144, 57.144.115.32, 57.144.197.32, 57.144.114.5, 216.239.32.223
+  192.168.1.4 → 1.178.32.127, 1.178.32.230, 1.178.32.67, 255.255.255.255, 200.24.51.144, 1.178.33.219, 148.153.195.147
+  192.168.1.5 → 224.0.0.251
+
+============================================================
+
+LOG DE EVENTOS:
+
+[15:54:52] [APP] GeoIP disponible — base de datos local cargada
+[15:54:59] [APP] Arranque automático en wlan0
+[15:54:59] [APP] Gateway: 192.168.1.254 | Subred: 192.168.1.x
+[15:54:59] [APP] Nodo propio: 192.168.1.7 | MAC: 94:08:53:53:98:43
+[15:54:59] [APP] Iniciando escaneo en wlan0
+[15:54:59] [SCANNER] Pipeline de 3 Fases activo en wlan0 (5 hilos workers)
+[15:54:59] [CAPTURE] Modo promiscuo activado en wlan0
+[15:54:59] [CAPTURE] Hilo iniciado (id=1)
+[15:54:59] [CAPTURE] Iniciado en wlan0 (promiscuo + watchdog)
+[15:55:07] [STATS] Recálculo: 1 nodos | alertas: 0
+[15:55:14] [APP] Sin hosts con MAC conocida — reintentando en 15s
+[15:55:15] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.2...
+[15:55:15] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.3...
+[15:55:15] [SCANNER] Fase 1 (ARP) completado en 16s
+[15:55:15] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.4...
+[15:55:17] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.252...
+[15:55:17] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[15:55:18] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.7...
+[15:55:18] [HALLAZGO] 192.168.1.4:80 HTTP [INFO]
+[15:55:18] [HALLAZGO] 192.168.1.4:554 RTSP [MEDIO]
+[15:55:18] [HALLAZGO] 192.168.1.4:8000 Hikvision [MEDIO]
+[15:55:18] [HALLAZGO] 192.168.1.4:9010 Hikvision-SDR [MEDIO]
+[15:55:18] [HALLAZGO] 192.168.1.4:0 Cámara IP [MEDIO]
+[15:55:18] [SCANNER] Fase 3: Analizando web en 192.168.1.4
+[15:55:18] [SCANNER] Fase 3: SSL/TLS en 192.168.1.4:8000
+[15:55:19] [SCANNER] SSL 192.168.1.4:8000 [MEDIO] Cert autofirmado — emisor: ?
+[15:55:19] [HALLAZGO] 192.168.1.4:8000 SSL Autofirmado [MEDIO] — Cert autofirmado — emisor: ?
+[15:55:22] [STATS] Recálculo: 6 nodos | alertas: 7
+[15:55:23] [HALLAZGO] 192.168.1.254:80 HTTP [INFO]
+[15:55:23] [HALLAZGO] 192.168.1.254:443 HTTPS [INFO]
+[15:55:23] [SCANNER] Fase 3: Analizando web en 192.168.1.254
+[15:55:23] [SCANNER] Fase 3: SSL/TLS en 192.168.1.254:443
+[15:55:29] [SCANNER] Re-escaneo profundo masivo de 192.168.1.7/24...
+[15:55:29] [APP] Lanzando interceptor | gateway: 192.168.1.254 (60:D2:48:7A:A3:2C) | 4 hosts
+[15:55:29] [INTERCEPTOR] Iniciando | iface: wlan0 | gateway: 192.168.1.254 | 4 hosts | BSSID: 60:D2:48:7A:A3:2C
+[15:55:29] [SPOOFER] IP forwarding activado
+[15:55:29] [SPOOFER] Sniff MITM iniciado
+[15:55:29] [SPOOFER] Activo | Mi MAC: 94:08:53:53:98:43 | Gateway: 192.168.1.254 | Hosts: 4
+[15:55:29] [INTERCEPTOR] Una tarjeta (wlan0) — modo monitor no disponible, captura virtual activa
+[15:55:29] [MONITOR] Captura virtual (macvlan) en wlan0_mitm
+[15:55:35] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[15:55:35] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[15:55:35] [SCANNER] SSL 192.168.1.254:443 [MEDIO] Cert autofirmado — emisor: localhost.localdomain
+[15:55:35] [HALLAZGO] 192.168.1.254:443 SSL Autofirmado [MEDIO] — Cert autofirmado — emisor: localhost.localdomain
+[15:55:36] [EXTERNO] 192.168.1.2 → 163.70.152.40 [HTTPS] [CO] Facebook, Inc. · Bogotá
+[15:55:37] [STATS] Recálculo: 6 nodos | alertas: 10
+[15:55:37] [EXTERNO] 192.168.1.2 → 47.84.125.7 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[15:55:46] [EXTERNO] 192.168.1.4 → 1.178.32.67 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[15:55:47] [FLUJO] 192.168.1.254 → 192.168.1.2 [HTTP]
+[15:55:51] [EXTERNO] 192.168.1.4 → 255.255.255.255 [UDP]
+[15:55:52] [STATS] Recálculo: 6 nodos | alertas: 10
+[15:56:07] [STATS] Recálculo: 6 nodos | alertas: 10
+[15:56:15] [SCANNER] Re-escaneo masivo completado
+[15:56:15] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.4...
+[15:56:15] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[15:56:19] [SCANNER] Fase 3: Analizando web en 192.168.1.4
+[15:56:19] [SCANNER] Fase 3: SSL/TLS en 192.168.1.4:8000
+[15:56:20] [SCANNER] SSL 192.168.1.4:8000 [MEDIO] Cert autofirmado — emisor: ?
+[15:56:21] [SCANNER] Fase 3: Analizando web en 192.168.1.254
+[15:56:22] [STATS] Recálculo: 6 nodos | alertas: 10
+[15:56:22] [SCANNER] Fase 3: SSL/TLS en 192.168.1.254:443
+[15:56:34] [SCANNER] SSL 192.168.1.254:443 [MEDIO] Cert autofirmado — emisor: localhost.localdomain
+[15:56:37] [STATS] Recálculo: 6 nodos | alertas: 10
+[15:56:39] [EXTERNO] 192.168.1.3 → 23.22.79.230 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[15:56:39] [EXTERNO] 192.168.1.3 → 34.149.73.26 [HTTPS] [US] Google LLC · Kansas City
+[15:56:47] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[15:56:48] [EXTERNO] 192.168.1.4 → 1.178.32.67 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[15:56:49] [EXTERNO] 192.168.1.3 → 3.211.215.234 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[15:56:50] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[15:56:50] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[15:56:52] [STATS] Recálculo: 6 nodos | alertas: 10
+[15:56:52] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[15:56:57] [EXTERNO] 192.168.1.4 → 148.153.195.147 [UDP] [US] CDS Global Cloud C… · USA
+[15:57:06] [EXTERNO] 192.168.1.254 → 224.0.0.1 [IGMP]
+[15:57:07] [STATS] Recálculo: 6 nodos | alertas: 10
+[15:57:22] [STATS] Recálculo: 6 nodos | alertas: 10
+[15:57:23] [EXTERNO] 192.168.1.3 → 57.144.114.8 [HTTPS] [CO] Facebook, Inc. · Bogotá
+[15:57:24] [EXTERNO] 192.168.1.3 → 57.144.114.144 [HTTPS] [CO] Facebook, Inc. · Bogotá
+[15:57:37] [STATS] Recálculo: 6 nodos | alertas: 10
+[15:57:51] [EXTERNO] 192.168.1.3 → 57.144.115.32 [HTTPS] [CO] Facebook, Inc. · Bogotá
+[15:57:52] [STATS] Recálculo: 6 nodos | alertas: 10
+[15:57:53] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[15:57:57] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[15:58:05] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[15:58:05] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[15:58:07] [STATS] Recálculo: 6 nodos | alertas: 10
+[15:58:22] [STATS] Recálculo: 6 nodos | alertas: 10
+[15:58:37] [STATS] Recálculo: 6 nodos | alertas: 10
+[15:58:40] [ARSENAL] CMD: nmap -sn -Pn --host-timeout 3s 192.168.1.2
+[15:58:40] [ARSENAL] Iniciando 🟢 Ping Check en 192.168.1.2...
+[15:58:41] [ARSENAL] 🟢 Ping Check en 192.168.1.2 completado (4 líneas)
+[15:58:41] [ARSENAL] Resultado: 🟢 Ping Check en 192.168.1.2
+[15:58:41] [ARSENAL] Ping 192.168.1.2: ACTIVO → confirmado
+[15:58:51] [EXTERNO] 192.168.1.3 → 57.144.197.32 [HTTPS] [US] Facebook, Inc. · Miami
+[15:58:52] [EXTERNO] 192.168.1.4 → 255.255.255.255 [UDP]
+[15:58:52] [STATS] Recálculo: 6 nodos | alertas: 10
+[15:58:53] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[15:58:58] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[15:59:07] [STATS] Recálculo: 6 nodos | alertas: 10
+[15:59:20] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[15:59:20] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[15:59:22] [STATS] Recálculo: 6 nodos | alertas: 10
+[15:59:37] [STATS] Recálculo: 6 nodos | alertas: 10
+[15:59:38] [EXTERNO] 192.168.1.3 → 57.144.114.5 [QUIC] [CO] Facebook, Inc. · Bogotá
+[15:59:38] [EXTERNO] 192.168.1.3 → 34.149.73.26 [HTTPS] [US] Google LLC · Kansas City
+[15:59:38] [EXTERNO] 192.168.1.3 → 3.211.215.234 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[15:59:52] [STATS] Recálculo: 6 nodos | alertas: 10
+[15:59:54] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[15:59:58] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[16:00:01] [FLUJO] 192.168.1.254 → 192.168.1.2 [ICMP-Reply]
+[16:00:07] [STATS] Recálculo: 6 nodos | alertas: 10
+[16:00:22] [STATS] Recálculo: 6 nodos | alertas: 10
+[16:00:26] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.2...
+[16:00:26] [SCANNER] Fase 1 (ARP) completado en 3s
+[16:00:26] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.3...
+[16:00:26] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.1...
+[16:00:27] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.252...
+[16:00:28] [SPOOFER] Host agregado al pool: 192.168.1.1
+[16:00:28] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.7...
+[16:00:35] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[16:00:35] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[16:00:37] [STATS] Recálculo: 7 nodos | alertas: 10
+[16:00:52] [STATS] Recálculo: 7 nodos | alertas: 10
+[16:00:54] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[16:00:58] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[16:01:07] [STATS] Recálculo: 7 nodos | alertas: 10
+[16:01:08] [EXTERNO] 192.168.1.3 → 216.239.32.223 [HTTPS] [US] Google LLC · USA
+[16:01:15] [SCANNER] Re-escaneo profundo masivo de 192.168.1.7/24...
+[16:01:16] [EXTERNO] 192.168.1.254 → 224.0.0.1 [IGMP]
+[16:01:22] [STATS] Recálculo: 7 nodos | alertas: 10
+[16:01:28] [EXTERNO] 192.168.1.2 → 192.178.213.188 [TCP] [US] Google LLC · USA
+[16:01:28] [SCANNER] Re-escaneo masivo completado
+[16:01:28] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.4...
+[16:01:28] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[16:01:28] [EXTERNO] 192.168.1.2 → 190.102.205.20 [UDP] [CO] Colombia Movil · Colombia
+[16:01:31] [SCANNER] Fase 3: SSL/TLS en 192.168.1.4:8000
+[16:01:31] [SCANNER] Fase 3: Analizando web en 192.168.1.4
+[16:01:32] [SCANNER] SSL 192.168.1.4:8000 [MEDIO] Cert autofirmado — emisor: ?
+[16:01:32] [SCANNER] Fase 3: Analizando web en 192.168.1.254
+[16:01:33] [EXTERNO] 192.168.1.2 → 57.144.114.192 [QUIC] [CO] Facebook, Inc. · Bogotá
+[16:01:35] [SCANNER] Fase 3: SSL/TLS en 192.168.1.254:443
+[16:01:37] [STATS] Recálculo: 7 nodos | alertas: 11
+[16:01:37] [EXTERNO] 192.168.1.1 → 104.18.16.59 [HTTPS] [??] Cloudflare, Inc.
+[16:01:44] [EXTERNO] 192.168.1.1 → 104.18.34.93 [HTTPS] [??] Cloudflare, Inc.
+[16:01:44] [EXTERNO] 192.168.1.1 → 34.128.128.0 [HTTPS] [US] Google LLC · Kansas City
+[16:01:44] [EXTERNO] 192.168.1.1 → 47.236.202.132 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:01:45] [EXTERNO] 192.168.1.1 → 172.64.149.149 [HTTPS] [??] Cloudflare, Inc.
+[16:01:45] [EXTERNO] 192.168.1.1 → 104.16.123.74 [HTTPS] [??] Cloudflare, Inc.
+[16:01:46] [EXTERNO] 192.168.1.1 → 3.229.236.60 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[16:01:47] [SCANNER] SSL 192.168.1.254:443 [MEDIO] Cert autofirmado — emisor: localhost.localdomain
+[16:01:48] [EXTERNO] 192.168.1.2 → 57.144.199.33 [HTTP] [US] Facebook, Inc. · Miami
+[16:01:50] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[16:01:50] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[16:01:51] [EXTERNO] 192.168.1.1 → 104.18.7.168 [HTTPS] [??] Cloudflare, Inc.
+[16:01:52] [STATS] Recálculo: 7 nodos | alertas: 11
+[16:01:52] [EXTERNO] 192.168.1.4 → 255.255.255.255 [UDP]
+[16:01:54] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[16:01:59] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[16:02:03] [EXTERNO] 192.168.1.2 → 8.8.4.4 [HTTPS] [US] Google LLC · Westfield
+[16:02:03] [EXTERNO] 192.168.1.2 → 8.219.182.98 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:02:07] [STATS] Recálculo: 7 nodos | alertas: 11
+[16:02:07] [EXTERNO] 192.168.1.1 → 34.54.122.72 [HTTPS] [US] Google LLC · Kansas City
+[16:02:08] [EXTERNO] 192.168.1.2 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[16:02:08] [EXTERNO] 192.168.1.1 → 34.128.182.103 [HTTPS] [US] Google LLC · Kansas City
+[16:02:09] [EXTERNO] 192.168.1.2 → 190.240.115.151 [DNS] [CO] UNE EPM TELECOMUNI… · Ibagué
+[16:02:09] [EXTERNO] 192.168.1.1 → 3.163.60.82 [HTTPS] [US] Amazon.com, Inc. · USA
+[16:02:10] [EXTERNO] 192.168.1.1 → 34.110.173.122 [HTTPS] [US] Google LLC · Kansas City
+[16:02:10] [EXTERNO] 192.168.1.1 → 190.130.112.54 [UDP] [CO] COMUNICACION CELUL… · Colombia
+[16:02:12] [FLUJO] 192.168.1.254 → 192.168.1.2 [HTTP]
+[16:02:12] [EXTERNO] 192.168.1.1 → 34.231.2.128 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[16:02:13] [EXTERNO] 192.168.1.2 → 8.8.8.8 [HTTPS] [US] Google LLC · USA
+[16:02:14] [EXTERNO] 192.168.1.2 → 47.236.195.174 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:02:14] [EXTERNO] 192.168.1.1 → 57.144.115.32 [HTTPS] [CO] Facebook, Inc. · Bogotá
+[16:02:14] [EXTERNO] 192.168.1.1 → 47.237.22.143 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:02:14] [EXTERNO] 192.168.1.1 → 3.163.60.20 [HTTPS] [US] Amazon.com, Inc. · USA
+[16:02:18] [EXTERNO] 192.168.1.1 → 4.153.25.145 [HTTPS] [US] Microsoft Corporat… · Boydton
+[16:02:19] [RED] Nuevo host: 192.168.1.5 | MAC: d0:16:b4:a3:67:10 | via UDP
+[16:02:19] [EXTERNO] 192.168.1.5 → 224.0.0.251 [UDP]
+[16:02:19] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.5...
+[16:02:22] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:02:33] [EXTERNO] 192.168.1.2 → 57.144.114.192 [QUIC] [CO] Facebook, Inc. · Bogotá
+[16:02:37] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:02:44] [EXTERNO] 192.168.1.1 → 52.5.34.146 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[16:02:44] [EXTERNO] 192.168.1.1 → 34.128.128.0 [HTTPS] [US] Google LLC · Kansas City
+[16:02:44] [EXTERNO] 192.168.1.1 → 47.237.122.1 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:02:45] [EXTERNO] 192.168.1.1 → 57.144.197.32 [HTTPS] [US] Facebook, Inc. · Miami
+[16:02:51] [EXTERNO] 192.168.1.1 → 104.18.16.59 [HTTPS] [??] Cloudflare, Inc.
+[16:02:52] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:02:53] [EXTERNO] 192.168.1.1 → 104.16.123.74 [HTTPS] [??] Cloudflare, Inc.
+[16:02:55] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[16:02:59] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[16:02:59] [EXTERNO] 192.168.1.1 → 172.64.149.149 [HTTPS] [??] Cloudflare, Inc.
+[16:02:59] [EXTERNO] 192.168.1.1 → 104.18.34.93 [HTTPS] [??] Cloudflare, Inc.
+[16:03:05] [FLUJO] 192.168.1.254 → 192.168.1.2 [HTTP]
+[16:03:06] [FLUJO] 192.168.1.2 → 192.168.1.254 [HTTP]
+[16:03:07] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:03:13] [EXTERNO] 192.168.1.1 → 34.54.122.72 [HTTPS] [US] Google LLC · Kansas City
+[16:03:14] [EXTERNO] 192.168.1.1 → 47.237.174.0 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:03:16] [EXTERNO] 192.168.1.1 → 3.163.60.82 [HTTPS] [US] Amazon.com, Inc. · USA
+[16:03:16] [EXTERNO] 192.168.1.1 → 18.213.208.144 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[16:03:21] [EXTERNO] 192.168.1.254 → 224.0.0.1 [IGMP]
+[16:03:22] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:03:30] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[16:03:30] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[16:03:37] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:03:44] [EXTERNO] 192.168.1.1 → 47.237.175.22 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:03:47] [EXTERNO] 192.168.1.1 → 3.234.101.226 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[16:03:52] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:03:54] [EXTERNO] 192.168.1.1 → 47.241.179.111 [XMPP] [SG] Alibaba US Technol… · Singapur
+[16:04:00] [EXTERNO] 192.168.1.2 → 141.226.224.48 [HTTPS] [US] Taboola.com ltd · Newark
+[16:04:01] [FLUJO] 192.168.1.2 → 192.168.1.254 [HTTP]
+[16:04:02] [EXTERNO] 192.168.1.1 → 47.241.116.174 [XMPP] [SG] Alibaba US Technol… · Singapore
+[16:04:04] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[16:04:05] [EXTERNO] 192.168.1.1 → 34.128.128.0 [HTTPS] [US] Google LLC · Kansas City
+[16:04:07] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:04:09] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[16:04:14] [EXTERNO] 192.168.1.1 → 47.237.177.7 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:04:21] [EXTERNO] 192.168.1.1 → 47.241.106.243 [XMPP] [SG] Alibaba US Technol… · Singapore
+[16:04:22] [EXTERNO] 192.168.1.1 → 44.213.28.228 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[16:04:22] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:04:26] [EXTERNO] 192.168.1.1 → 47.241.106.64 [XMPP] [SG] Alibaba US Technol… · Singapore
+[16:04:30] [EXTERNO] 192.168.1.1 → 47.236.57.101 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:04:32] [EXTERNO] 192.168.1.1 → 2.20.111.212 [HTTPS] [CO] Akamai Internation… · Bogotá
+[16:04:32] [EXTERNO] 192.168.1.1 → 23.204.115.103 [QUIC] [US] Akamai Internation… · Miami
+[16:04:32] [EXTERNO] 192.168.1.1 → 104.86.190.203 [QUIC] [US] Akamai Internation… · Miami
+[16:04:32] [EXTERNO] 192.168.1.1 → 104.86.190.199 [QUIC] [US] Akamai Internation… · Miami
+[16:04:32] [EXTERNO] 192.168.1.1 → 151.101.54.73 [QUIC] [US] Fastly, Inc. · Atlanta
+[16:04:32] [EXTERNO] 192.168.1.1 → 104.86.190.204 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:32] [EXTERNO] 192.168.1.1 → 23.213.206.72 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:32] [EXTERNO] 192.168.1.1 → 104.86.190.213 [QUIC] [US] Akamai Internation… · Miami
+[16:04:33] [EXTERNO] 192.168.1.1 → 54.230.7.164 [HTTPS] [US] Amazon.com, Inc. · USA
+[16:04:33] [EXTERNO] 192.168.1.1 → 23.213.206.45 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:33] [EXTERNO] 192.168.1.1 → 23.213.206.111 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:33] [EXTERNO] 192.168.1.1 → 104.86.190.207 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:33] [EXTERNO] 192.168.1.1 → 104.86.190.208 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:33] [EXTERNO] 192.168.1.1 → 104.86.190.196 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:33] [EXTERNO] 192.168.1.1 → 23.223.194.238 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:33] [EXTERNO] 192.168.1.1 → 104.86.190.214 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:33] [EXTERNO] 192.168.1.1 → 23.213.206.138 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:34] [EXTERNO] 192.168.1.1 → 104.86.190.200 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:34] [EXTERNO] 192.168.1.1 → 104.86.190.206 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:34] [EXTERNO] 192.168.1.1 → 104.86.190.211 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:34] [EXTERNO] 192.168.1.1 → 104.86.190.205 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:34] [EXTERNO] 192.168.1.1 → 23.213.206.40 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:34] [EXTERNO] 192.168.1.1 → 104.86.190.198 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:34] [EXTERNO] 192.168.1.1 → 2.22.20.139 [HTTPS] [CO] Akamai Internation… · Bogotá
+[16:04:34] [EXTERNO] 192.168.1.1 → 104.86.190.197 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:34] [EXTERNO] 192.168.1.1 → 54.230.7.132 [HTTPS] [US] Amazon.com, Inc. · USA
+[16:04:34] [EXTERNO] 192.168.1.1 → 161.117.238.89 [XMPP] [SG] Alibaba US Technol… · Singapore
+[16:04:34] [EXTERNO] 192.168.1.1 → 104.86.190.209 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:34] [EXTERNO] 192.168.1.1 → 104.86.190.212 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:34] [EXTERNO] 192.168.1.1 → 23.223.194.236 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:34] [EXTERNO] 192.168.1.1 → 47.236.37.170 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:04:35] [EXTERNO] 192.168.1.1 → 2.22.20.152 [HTTPS] [CO] Akamai Internation… · Bogotá
+[16:04:35] [EXTERNO] 192.168.1.1 → 23.223.194.231 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:35] [EXTERNO] 192.168.1.1 → 23.213.206.4 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:35] [EXTERNO] 192.168.1.1 → 23.204.115.107 [QUIC] [US] Akamai Internation… · Miami
+[16:04:35] [EXTERNO] 192.168.1.1 → 151.101.15.51 [QUIC] [US] Fastly, Inc. · Atlanta
+[16:04:35] [EXTERNO] 192.168.1.1 → 190.248.95.139 [HTTPS] [CO] UNE EPM TELECOMUNI… · Medellín
+[16:04:36] [EXTERNO] 192.168.1.1 → 54.230.7.167 [HTTPS] [US] Amazon.com, Inc. · USA
+[16:04:36] [EXTERNO] 192.168.1.1 → 151.101.55.51 [QUIC] [US] Fastly, Inc. · Atlanta
+[16:04:36] [EXTERNO] 192.168.1.1 → 104.86.190.210 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:36] [EXTERNO] 192.168.1.1 → 23.213.206.36 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:36] [EXTERNO] 192.168.1.1 → 190.248.95.155 [HTTPS] [CO] UNE EPM TELECOMUNI… · Medellín
+[16:04:36] [EXTERNO] 192.168.1.1 → 104.86.190.201 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:36] [EXTERNO] 192.168.1.1 → 8.8.8.8 [ICMP-Echo] [US] Google LLC · USA
+[16:04:36] [EXTERNO] 192.168.1.1 → 35.244.141.111 [ICMP-Echo] [US] Google LLC · Kansas City
+[16:04:37] [EXTERNO] 192.168.1.2 → 8.219.172.121 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:04:37] [EXTERNO] 192.168.1.1 → 54.230.7.4 [HTTPS] [US] Amazon.com, Inc. · USA
+[16:04:37] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:04:42] [EXTERNO] 192.168.1.1 → 199.232.178.73 [HTTPS] [CO] Fastly, Inc. · Colombia
+[16:04:42] [EXTERNO] 192.168.1.1 → 47.84.82.146 [XMPP] [SG] Alibaba US Technol… · Singapur
+[16:04:45] [EXTERNO] 192.168.1.1 → 47.237.180.178 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:04:45] [EXTERNO] 192.168.1.1 → 47.236.231.113 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:04:45] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[16:04:45] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[16:04:50] [EXTERNO] 192.168.1.1 → 54.242.49.39 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[16:04:50] [EXTERNO] 192.168.1.1 → 161.117.251.225 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:04:52] [EXTERNO] 192.168.1.1 → 23.213.206.9 [HTTPS] [US] Akamai Internation… · Miami
+[16:04:52] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:04:52] [EXTERNO] 192.168.1.1 → 146.75.126.73 [HTTPS] [US] Fastly, Inc. · Miami
+[16:04:58] [EXTERNO] 192.168.1.1 → 47.241.35.89 [HTTPS] [SG] Alibaba US Technol… · Singapore
+[16:05:00] [EXTERNO] 192.168.1.1 → 47.237.24.60 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:05:02] [EXTERNO] 192.168.1.1 → 2.20.111.220 [HTTPS] [CO] Akamai Internation… · Bogotá
+[16:05:03] [EXTERNO] 192.168.1.1 → 3.163.58.107 [HTTPS] [US] Amazon.com, Inc. · USA
+[16:05:05] [EXTERNO] 192.168.1.1 → 47.236.82.106 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:05:05] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[16:05:06] [EXTERNO] 192.168.1.1 → 47.241.36.153 [HTTPS] [SG] Alibaba US Technol… · Singapore
+[16:05:07] [EXTERNO] 192.168.1.2 → 47.236.72.35 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:05:07] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:05:10] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[16:05:13] [EXTERNO] 192.168.1.1 → 52.22.70.16 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[16:05:14] [EXTERNO] 192.168.1.1 → 47.241.30.51 [HTTPS] [SG] Alibaba US Technol… · Singapore
+[16:05:15] [EXTERNO] 192.168.1.1 → 47.237.181.37 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:05:15] [EXTERNO] 192.168.1.1 → 8.219.186.54 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:05:16] [EXTERNO] 192.168.1.1 → 104.86.190.202 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:21] [EXTERNO] 192.168.1.1 → 34.239.219.9 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[16:05:22] [EXTERNO] 192.168.1.1 → 23.213.206.140 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:22] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:05:22] [EXTERNO] 192.168.1.1 → 47.241.72.88 [HTTPS] [SG] Alibaba US Technol… · Singapore
+[16:05:23] [EXTERNO] 192.168.1.1 → 34.236.94.57 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[16:05:26] [EXTERNO] 192.168.1.254 → 224.0.0.1 [IGMP]
+[16:05:30] [EXTERNO] 192.168.1.1 → 8.222.208.136 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:05:30] [EXTERNO] 192.168.1.1 → 47.236.146.115 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:05:31] [EXTERNO] 192.168.1.1 → 47.241.179.111 [XMPP] [SG] Alibaba US Technol… · Singapur
+[16:05:32] [EXTERNO] 192.168.1.1 → 23.192.36.9 [QUIC] [US] Akamai Internation… · Miami
+[16:05:33] [EXTERNO] 192.168.1.1 → 104.86.190.203 [QUIC] [US] Akamai Internation… · Miami
+[16:05:33] [EXTERNO] 192.168.1.1 → 104.86.190.199 [QUIC] [US] Akamai Internation… · Miami
+[16:05:33] [EXTERNO] 192.168.1.1 → 104.86.190.213 [QUIC] [US] Akamai Internation… · Miami
+[16:05:33] [EXTERNO] 192.168.1.1 → 104.86.190.204 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:33] [EXTERNO] 192.168.1.1 → 3.163.58.106 [HTTPS] [US] Amazon.com, Inc. · USA
+[16:05:33] [EXTERNO] 192.168.1.1 → 54.147.128.191 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[16:05:33] [EXTERNO] 192.168.1.1 → 2.20.111.204 [HTTPS] [CO] Akamai Internation… · Bogotá
+[16:05:34] [EXTERNO] 192.168.1.1 → 104.86.190.206 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:34] [EXTERNO] 192.168.1.1 → 104.86.190.211 [QUIC] [US] Akamai Internation… · Miami
+[16:05:34] [EXTERNO] 192.168.1.1 → 104.86.190.198 [QUIC] [US] Akamai Internation… · Miami
+[16:05:35] [EXTERNO] 192.168.1.1 → 47.236.98.34 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:05:35] [EXTERNO] 192.168.1.1 → 104.86.190.200 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:35] [EXTERNO] 192.168.1.1 → 104.86.190.196 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:35] [EXTERNO] 192.168.1.1 → 104.86.190.205 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:35] [EXTERNO] 192.168.1.1 → 104.86.190.212 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:36] [EXTERNO] 192.168.1.1 → 104.86.190.209 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:37] [EXTERNO] 192.168.1.2 → 47.236.106.70 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:05:37] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:05:38] [SCANNER] Fase 1 (ARP) completado en 5s
+[16:05:38] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.1...
+[16:05:38] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.3...
+[16:05:38] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.2...
+[16:05:39] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.252...
+[16:05:39] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.7...
+[16:05:42] [EXTERNO] 192.168.1.2 → 47.241.72.88 [XMPP] [SG] Alibaba US Technol… · Singapore
+[16:05:43] [EXTERNO] 192.168.1.1 → 35.169.196.232 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[16:05:43] [EXTERNO] 192.168.1.1 → 57.144.115.32 [HTTPS] [CO] Facebook, Inc. · Bogotá
+[16:05:45] [EXTERNO] 192.168.1.1 → 8.219.49.75 [HTTPS] [SG] Alibaba US Technol… · Singapore
+[16:05:45] [EXTERNO] 192.168.1.1 → 47.236.12.19 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:05:46] [EXTERNO] 192.168.1.1 → 47.74.170.157 [XMPP] [SG] Alibaba US Technol… · Singapore
+[16:05:50] [EXTERNO] 192.168.1.1 → 47.236.206.250 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:05:51] [EXTERNO] 192.168.1.1 → 2.20.111.210 [HTTPS] [CO] Akamai Internation… · Bogotá
+[16:05:52] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:05:52] [EXTERNO] 192.168.1.1 → 54.230.7.167 [HTTPS] [US] Amazon.com, Inc. · USA
+[16:05:52] [EXTERNO] 192.168.1.1 → 104.86.190.201 [QUIC] [US] Akamai Internation… · Miami
+[16:05:52] [EXTERNO] 192.168.1.1 → 151.101.54.73 [QUIC] [US] Fastly, Inc. · Atlanta
+[16:05:52] [EXTERNO] 192.168.1.1 → 23.213.206.16 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:52] [EXTERNO] 192.168.1.1 → 104.86.190.197 [QUIC] [US] Akamai Internation… · Miami
+[16:05:52] [EXTERNO] 192.168.1.1 → 104.86.190.210 [QUIC] [US] Akamai Internation… · Miami
+[16:05:53] [EXTERNO] 192.168.1.1 → 23.213.206.72 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:53] [EXTERNO] 192.168.1.1 → 104.86.190.208 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:53] [EXTERNO] 192.168.1.1 → 23.223.194.236 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:53] [EXTERNO] 192.168.1.1 → 52.55.246.96 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[16:05:53] [EXTERNO] 192.168.1.1 → 104.86.190.207 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:53] [EXTERNO] 192.168.1.1 → 23.213.206.45 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:54] [EXTERNO] 192.168.1.1 → 23.213.206.40 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:54] [EXTERNO] 192.168.1.1 → 2.22.20.139 [HTTPS] [CO] Akamai Internation… · Bogotá
+[16:05:54] [EXTERNO] 192.168.1.1 → 54.230.7.4 [HTTPS] [US] Amazon.com, Inc. · USA
+[16:05:54] [EXTERNO] 192.168.1.1 → 23.213.206.36 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:54] [EXTERNO] 192.168.1.1 → 2.22.20.152 [HTTPS] [CO] Akamai Internation… · Bogotá
+[16:05:54] [EXTERNO] 192.168.1.1 → 104.86.190.214 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:54] [EXTERNO] 192.168.1.1 → 23.213.206.107 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:54] [EXTERNO] 192.168.1.1 → 23.213.206.37 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:54] [EXTERNO] 192.168.1.1 → 47.241.67.137 [XMPP] [SG] Alibaba US Technol… · Singapore
+[16:05:55] [EXTERNO] 192.168.1.1 → 23.223.194.238 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:55] [EXTERNO] 192.168.1.1 → 23.213.206.10 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:55] [EXTERNO] 192.168.1.1 → 23.223.194.231 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:55] [EXTERNO] 192.168.1.1 → 151.101.55.51 [QUIC] [US] Fastly, Inc. · Atlanta
+[16:05:55] [EXTERNO] 192.168.1.1 → 146.75.127.51 [QUIC] [US] Fastly, Inc. · Miami
+[16:05:55] [EXTERNO] 192.168.1.1 → 54.230.7.164 [HTTPS] [US] Amazon.com, Inc. · USA
+[16:05:56] [EXTERNO] 192.168.1.1 → 8.8.8.8 [ICMP-Echo] [US] Google LLC · USA
+[16:05:56] [EXTERNO] 192.168.1.1 → 35.244.141.111 [ICMP-Echo] [US] Google LLC · Kansas City
+[16:05:56] [EXTERNO] 192.168.1.1 → 23.213.206.39 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:57] [EXTERNO] 192.168.1.1 → 54.230.7.132 [HTTPS] [US] Amazon.com, Inc. · USA
+[16:05:57] [EXTERNO] 192.168.1.1 → 23.213.206.14 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:57] [EXTERNO] 192.168.1.1 → 23.223.194.232 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:59] [EXTERNO] 192.168.1.1 → 23.223.194.229 [HTTPS] [US] Akamai Internation… · Miami
+[16:05:59] [EXTERNO] 192.168.1.1 → 23.213.206.142 [HTTPS] [US] Akamai Internation… · Miami
+[16:06:00] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[16:06:00] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[16:06:02] [EXTERNO] 192.168.1.2 → 47.236.90.155 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:06:05] [EXTERNO] 192.168.1.1 → 47.236.155.236 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:06:05] [EXTERNO] 192.168.1.1 → 47.236.234.76 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:06:05] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[16:06:07] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:06:08] [EXTERNO] 192.168.1.1 → 146.75.126.73 [HTTPS] [US] Fastly, Inc. · Miami
+[16:06:08] [EXTERNO] 192.168.1.2 → 47.241.213.210 [XMPP] [SG] Alibaba US Technol… · Singapur
+[16:06:10] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[16:06:11] [EXTERNO] 192.168.1.1 → 47.241.116.174 [XMPP] [SG] Alibaba US Technol… · Singapore
+[16:06:13] [EXTERNO] 192.168.1.2 → 47.236.200.121 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:06:13] [EXTERNO] 192.168.1.1 → 23.213.206.9 [HTTPS] [US] Akamai Internation… · Miami
+[16:06:15] [EXTERNO] 192.168.1.1 → 8.219.100.39 [HTTPS] [SG] Alibaba US Technol… · Singapore
+[16:06:16] [EXTERNO] 192.168.1.1 → 57.144.197.32 [HTTPS] [US] Facebook, Inc. · Miami
+[16:06:16] [EXTERNO] 192.168.1.2 → 47.241.16.242 [XMPP] [SG] Alibaba US Technol… · Singapore
+[16:06:17] [EXTERNO] 192.168.1.1 → 54.225.197.162 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[16:06:17] [EXTERNO] 192.168.1.1 → 34.128.182.103 [HTTPS] [US] Google LLC · Kansas City
+[16:06:19] [EXTERNO] 192.168.1.1 → 47.241.106.243 [XMPP] [SG] Alibaba US Technol… · Singapore
+[16:06:19] [EXTERNO] 192.168.1.1 → 3.163.60.82 [HTTPS] [US] Amazon.com, Inc. · USA
+[16:06:19] [EXTERNO] 192.168.1.2 → 57.144.114.145 [HTTPS] [CO] Facebook, Inc. · Bogotá
+[16:06:20] [EXTERNO] 192.168.1.1 → 47.237.12.161 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:06:20] [EXTERNO] 192.168.1.2 → 141.226.224.48 [HTTPS] [US] Taboola.com ltd · Newark
+[16:06:21] [EXTERNO] 192.168.1.1 → 151.101.14.73 [HTTPS] [US] Fastly, Inc. · Atlanta
+[16:06:21] [EXTERNO] 192.168.1.1 → 34.128.128.0 [HTTPS] [US] Google LLC · Kansas City
+[16:06:22] [EXTERNO] 192.168.1.1 → 2.20.111.223 [HTTPS] [CO] Akamai Internation… · Bogotá
+[16:06:22] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:06:22] [EXTERNO] 192.168.1.1 → 23.218.213.6 [HTTPS] [CO] Akamai Internation… · Bogotá
+[16:06:22] [EXTERNO] 192.168.1.1 → 143.204.19.36 [HTTPS] [US] Amazon.com, Inc. · USA
+[16:06:24] [EXTERNO] 192.168.1.1 → 104.86.190.202 [HTTPS] [US] Akamai Internation… · Miami
+[16:06:24] [EXTERNO] 192.168.1.2 → 47.241.35.73 [XMPP] [SG] Alibaba US Technol… · Singapore
+[16:06:27] [EXTERNO] 192.168.1.1 → 47.241.106.64 [XMPP] [SG] Alibaba US Technol… · Singapore
+[16:06:28] [SCANNER] Re-escaneo profundo masivo de 192.168.1.7/24...
+[16:06:28] [EXTERNO] 192.168.1.1 → 23.213.206.140 [HTTPS] [US] Akamai Internation… · Miami
+[16:06:32] [EXTERNO] 192.168.1.2 → 47.241.36.64 [XMPP] [SG] Alibaba US Technol… · Singapore
+[16:06:36] [EXTERNO] 192.168.1.2 → 47.236.99.77 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:06:37] [EXTERNO] 192.168.1.1 → 104.86.190.204 [HTTPS] [US] Akamai Internation… · Miami
+[16:06:37] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:06:37] [EXTERNO] 192.168.1.1 → 104.86.190.196 [HTTPS] [US] Akamai Internation… · Miami
+[16:06:38] [EXTERNO] 192.168.1.1 → 104.86.190.211 [HTTPS] [US] Akamai Internation… · Miami
+[16:06:39] [EXTERNO] 192.168.1.1 → 104.86.190.200 [HTTPS] [US] Akamai Internation… · Miami
+[16:06:39] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.4...
+[16:06:39] [SCANNER] Re-escaneo masivo completado
+[16:06:39] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[16:06:41] [EXTERNO] 192.168.1.2 → 47.84.82.146 [XMPP] [SG] Alibaba US Technol… · Singapur
+[16:06:43] [SCANNER] Fase 3: SSL/TLS en 192.168.1.4:8000
+[16:06:43] [SCANNER] Fase 3: Analizando web en 192.168.1.4
+[16:06:43] [EXTERNO] 192.168.1.2 → 47.236.202.132 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:06:44] [EXTERNO] 192.168.1.1 → 47.236.146.115 [XMPP] [SG] Alibaba US Technol… · Singapur
+[16:06:44] [SCANNER] SSL 192.168.1.4:8000 [MEDIO] Cert autofirmado — emisor: ?
+[16:06:45] [EXTERNO] 192.168.1.1 → 8.219.172.121 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:06:45] [SCANNER] Fase 3: Analizando web en 192.168.1.254
+[16:06:46] [SCANNER] Fase 3: SSL/TLS en 192.168.1.254:443
+[16:06:48] [EXTERNO] 192.168.1.2 → 47.241.36.153 [HTTPS] [SG] Alibaba US Technol… · Singapore
+[16:06:49] [EXTERNO] 192.168.1.1 → 52.207.200.25 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[16:06:51] [EXTERNO] 192.168.1.1 → 161.117.251.225 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:06:51] [EXTERNO] 192.168.1.1 → 47.237.111.174 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:06:52] [EXTERNO] 192.168.1.1 → 23.192.36.9 [QUIC] [US] Akamai Internation… · Miami
+[16:06:52] [EXTERNO] 192.168.1.1 → 104.86.190.203 [QUIC] [US] Akamai Internation… · Miami
+[16:06:52] [EXTERNO] 192.168.1.1 → 23.213.206.74 [QUIC] [US] Akamai Internation… · Miami
+[16:06:52] [EXTERNO] 192.168.1.1 → 23.218.213.7 [HTTPS] [CO] Akamai Internation… · Bogotá
+[16:06:52] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:06:55] [EXTERNO] 192.168.1.1 → 143.204.19.94 [HTTPS] [US] Amazon.com, Inc. · USA
+[16:06:55] [EXTERNO] 192.168.1.1 → 104.86.190.213 [HTTPS] [US] Akamai Internation… · Miami
+[16:06:55] [EXTERNO] 192.168.1.1 → 104.86.190.201 [HTTPS] [US] Akamai Internation… · Miami
+[16:06:56] [EXTERNO] 192.168.1.1 → 104.86.190.207 [HTTPS] [US] Akamai Internation… · Miami
+[16:06:56] [EXTERNO] 192.168.1.1 → 104.86.190.197 [HTTPS] [US] Akamai Internation… · Miami
+[16:06:56] [EXTERNO] 192.168.1.1 → 104.86.190.210 [QUIC] [US] Akamai Internation… · Miami
+[16:06:56] [EXTERNO] 192.168.1.1 → 23.213.206.36 [QUIC] [US] Akamai Internation… · Miami
+[16:06:56] [EXTERNO] 192.168.1.1 → 104.86.190.208 [HTTPS] [US] Akamai Internation… · Miami
+[16:06:56] [EXTERNO] 192.168.1.1 → 2.20.111.206 [HTTPS] [CO] Akamai Internation… · Bogotá
+[16:06:56] [EXTERNO] 192.168.1.2 → 47.241.179.111 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:06:58] [SCANNER] SSL 192.168.1.254:443 [MEDIO] Cert autofirmado — emisor: localhost.localdomain
+[16:07:03] [EXTERNO] 192.168.1.2 → 47.236.137.15 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:07:04] [EXTERNO] 192.168.1.2 → 161.117.251.70 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:07:04] [EXTERNO] 192.168.1.2 → 31.13.69.39 [HTTPS] [IT] Facebook, Inc. · Palermo
+[16:07:07] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:07:12] [EXTERNO] 192.168.1.2 → 161.117.251.225 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:07:14] [EXTERNO] 192.168.1.2 → 47.237.22.143 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:07:20] [EXTERNO] 192.168.1.2 → 47.241.16.242 [HTTPS] [SG] Alibaba US Technol… · Singapore
+[16:07:22] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:07:26] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[16:07:26] [EXTERNO] 192.168.1.2 → 47.241.72.88 [XMPP] [SG] Alibaba US Technol… · Singapore
+[16:07:33] [EXTERNO] 192.168.1.2 → 47.236.142.25 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:07:37] [EXTERNO] 192.168.1.2 → 47.241.105.43 [XMPP] [SG] Alibaba US Technol… · Singapore
+[16:07:37] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:07:46] [EXPORT] Generando informe PDF...
+[16:07:47] [EXPORT] PDF guardado: /home/ha-king/Proyectos/toporeveal/exports/informe_2026-03-20_16-07.pdf
+[16:07:47] [EXTERNO] 192.168.1.2 → 47.237.122.1 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:07:50] [EXTERNO] 192.168.1.2 → 47.74.170.157 [XMPP] [SG] Alibaba US Technol… · Singapore
+[16:07:52] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:07:54] [EXTERNO] 192.168.1.4 → 255.255.255.255 [UDP]
+[16:07:59] [EXTERNO] 192.168.1.2 → 47.241.67.137 [XMPP] [SG] Alibaba US Technol… · Singapore
+[16:08:01] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[16:08:06] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[16:08:06] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[16:08:07] [EXTERNO] 192.168.1.2 → 47.236.144.100 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[16:08:07] [STATS] Recálculo: 8 nodos | alertas: 11
+[16:08:15] [APP] Botón Salir presionado — cerrando...
+[16:08:17] [CAPTURE] Detenido
+[16:08:17] [SCANNER] Hilos detenidos
+[16:08:17] [INTERCEPTOR] Deteniendo...
+[16:08:17] [SPOOFER] Restaurando ARP para 5 hosts...
+[16:08:17] [INTERCEPTOR] Hilo despacho terminado
+[16:08:17] [SPOOFER] Sniff MITM terminado
+[16:08:17] [SPOOFER] IP forwarding restaurado a 1
+[16:08:17] [SPOOFER] ARP restaurado — tráfico normal
+[16:08:17] [MONITOR] Detenido — wlan0 restaurada
+[16:08:17] [INTERCEPTOR] Detenido — red restaurada

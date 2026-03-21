@@ -1,0 +1,1952 @@
+TopoReveal — Log de sesion
+Generado: 2026-03-11 15:03:51
+Total lineas de evento: 1583
+============================================================
+
+RESUMEN DE RED — 117 hosts activos, 64 en lobby
+Gateway: 10.11.8.1 | Subred: 10.11.8.x
+ARP Scanners detectados: 10
+------------------------------------------------------------
+
+HOSTS ACTIVOS:
+  IP                 MAC                  TIPO           OS           ESTADO         PKTs  PROTOCOLOS
+  ------------------------------------------------------------------------------------------
+  10.11.8.1          00:0c:29:cc:4d:2c    router         Desconocido  confirmado    10553  ARP
+  10.11.8.11         2e:12:77:af:78:3b    smartphone     Android      fantasma         19  —
+  10.11.8.13         3a:c8:fc:4e:08:c9    pc             Linux/Mac    fantasma         15  —
+  10.11.8.15         dc:62:79:8c:2d:3a    desconocido    Linux/Mac    fantasma         15  —
+  10.11.8.17         fe:ef:d0:8e:a9:2c    pc             Linux/Mac    fantasma         16  —
+  10.11.8.19         ba:1e:66:ae:27:69    smartphone     Android      fantasma         36  ARP
+  10.11.8.20         d4:84:57:4a:94:14    desconocido    Equipo de red fantasma         18  —
+  10.11.8.22         e6:bd:89:78:23:7f    smartphone     Android      fantasma         23  —
+  10.11.8.23         70:a6:cc:b1:ff:c6    desconocido    Windows      fantasma         23  —
+  10.11.8.24         34:6f:24:98:f1:05    desconocido    Android      confirmado       33  ARP
+  10.11.8.25         50:5a:65:c1:e6:8f    arp-scanner    Android      confirmado       70  ARP
+  10.11.8.26         22:8a:b9:00:8c:56    smartphone     Android      fantasma         65  ARP
+  10.11.8.27         a8:41:f4:c7:96:04    desconocido    Android      confirmado       46  ARP
+  10.11.8.31         1a:c3:3a:8c:75:31    pc             Linux/Mac    fantasma         47  ARP
+  10.11.8.35         5a:36:5a:8a:b4:8a    pc             Linux/Mac    fantasma         14  —
+  10.11.8.36         2c:3b:70:fb:ae:33    desconocido    Android      fantasma         13  ARP
+  10.11.8.39         ee:8c:2a:67:a5:dd    smartphone     Android      fantasma         38  —
+  10.11.8.41         3a:28:0b:07:83:6e    desconocido    Desconocido  fantasma          2  —
+  10.11.8.44         d2:cd:ff:d1:b8:e2    smartphone     Android      confirmado       70  —
+  10.11.8.45         62:61:f7:54:d9:4b    pc             Linux/Mac    fantasma         14  ARP
+  10.11.8.47         d8:80:83:b5:09:39    desconocido    Desconocido  fantasma          3  —
+  10.11.8.48         ce:9b:39:55:34:a1    smartphone     Android      sospechoso       19  —
+  10.11.8.51         d8:80:83:56:af:57    desconocido    Android      confirmado       14  —
+  10.11.8.53         5a:85:4b:f1:f7:b7    smartphone     Android      fantasma         14  —
+  10.11.8.57         72:52:fd:fa:7c:39    pc             Linux/Mac    fantasma         32  —
+  10.11.8.59         a6:1a:1b:d3:15:31    pc             Linux/Mac    confirmado       76  ARP
+  10.11.8.61         60:f2:62:70:f9:59    desconocido    Android      fantasma         30  ARP
+  10.11.8.62         14:b5:cd:22:32:59    arp-scanner    Desconocido  confirmado       34  ARP
+  10.11.8.63         a2:92:b6:f8:86:3d    smartphone     Android      confirmado       77  —
+  10.11.8.65         02:44:fe:81:93:f8    smartphone     Android      confirmado       14  —
+  10.11.8.66         b6:f0:f2:c6:76:03    pc             Linux/Mac    confirmado       40  ARP
+  10.11.8.67         8a:b7:4e:3c:74:d5    smartphone     Android      confirmado       27  —
+  10.11.8.71         e2:df:73:ab:f4:42    pc             Linux/Mac    confirmado       22  —
+  10.11.8.76         46:9c:13:1d:f8:67    desconocido    Desconocido  fantasma          8  —
+  10.11.8.77         d6:af:38:bf:70:76    smartphone     Android      confirmado       33  ARP
+  10.11.8.81         82:3b:14:87:6d:80    arp-scanner    Android      confirmado      142  ARP
+  10.11.8.84         98:43:fa:85:03:68    desconocido    Windows      confirmado       12  ARP
+  10.11.8.87         aa:b7:39:b8:29:a2    smartphone     Android      confirmado       48  ARP
+  10.11.8.91         5e:36:5d:f8:5c:03    switch         Linux/Mac    confirmado      176  ARP
+  10.11.8.92         4a:77:0a:0d:a3:2e    desconocido    Equipo de red confirmado       23  —
+  10.11.8.93         d6:95:1e:5f:3e:a2    pc             Linux/Mac    sospechoso       30  —
+  10.11.8.94         ae:e6:87:4a:5b:64    smartphone     Android      confirmado       23  —
+  10.11.8.102        b8:8a:60:09:6e:ac    desconocido    Android      confirmado       29  ARP
+  10.11.8.104        d8:f3:bc:36:c5:57    desconocido    Linux/Mac    fantasma         36  ARP
+  10.11.8.108        28:44:f4:b1:25:3e    desconocido    Linux/Mac    fantasma         17  ARP
+  10.11.8.109        9a:39:18:6f:02:d0    pc             Linux/Mac    fantasma         15  —
+  10.11.8.110        dc:45:b8:a9:f3:9a    desconocido    Android      confirmado       14  —
+  10.11.8.112        8e:90:3b:ec:e4:a6    smartphone     Android      confirmado       63  —
+  10.11.8.115        5a:bb:c7:10:7d:b4    desconocido    Desconocido  fantasma          5  —
+  10.11.8.119        6a:45:20:e0:90:4f    smartphone     Android      fantasma         12  —
+  10.11.8.120        0a:98:37:3f:47:13    arp-scanner    Linux/Mac    fantasma        133  ARP
+  10.11.8.123        e6:5f:b9:1a:a6:82    pc             Linux/Mac    confirmado       23  ARP
+  10.11.8.124        ea:58:63:b4:e0:93    pc             Linux/Mac    confirmado       23  —
+  10.11.8.125        06:57:90:87:d8:6c    pc             Linux/Mac    confirmado       51  ARP
+  10.11.8.126        3e:03:f7:75:4d:29    desconocido    Equipo de red confirmado        5  ARP
+  10.11.8.127        3c:91:80:4d:d4:d9    arp-scanner    Android      fantasma        175  —
+  10.11.8.129        8e:6d:70:51:bc:a6    pc             Linux/Mac    confirmado       30  ARP
+  10.11.8.130        ce:f6:e2:ca:a9:f5    pc             Linux/Mac    confirmado       70  ARP
+  10.11.8.136        c0:35:32:32:01:25    desconocido    Android      fantasma          6  —
+  10.11.8.138        fc:31:5d:9b:de:ab    desconocido    Android      sospechoso       24  ARP
+  10.11.8.144        34:6f:24:2d:6c:a1    desconocido    Android      confirmado       60  ARP
+  10.11.8.145        da:12:91:2c:97:45    smartphone     Android      confirmado       45  —
+  10.11.8.146        04:33:c2:c1:4c:3d    arp-scanner    Desconocido  sospechoso       34  ARP
+  10.11.8.147        5e:45:0d:d6:c0:04    desconocido    Desconocido  fantasma          1  —
+  10.11.8.148        cc:db:a7:33:24:60    desconocido    Desconocido  fantasma          6  —
+  10.11.8.149        96:bb:0a:fc:55:7d    desconocido    Equipo de red confirmado        8  ARP
+  10.11.8.154        e6:ac:33:f8:8a:d7    smartphone     Android      fantasma         19  —
+  10.11.8.155        a8:e2:91:60:12:d8    desconocido    Android      confirmado       31  —
+  10.11.8.156        dc:21:48:4b:9c:ea    desconocido    Desconocido  fantasma          4  —
+  10.11.8.158        5a:d7:47:7e:0f:e6    switch         Linux/Mac    confirmado      148  ARP
+  10.11.8.159        fe:ea:3e:b8:c1:3e    smartphone     Android      fantasma         57  ARP
+  10.11.8.160        38:d5:7a:97:ae:cd    desconocido    Android      sospechoso       29  —
+  10.11.8.162        d2:5b:54:04:91:ef    smartphone     Android      confirmado       35  ARP
+  10.11.8.165        26:62:d9:03:ea:27    pc             Linux/Mac    fantasma         21  —
+  10.11.8.166        94:08:53:6d:42:d9    desconocido    Android      fantasma         85  ARP
+  10.11.8.167        12:c5:0e:cf:5f:27    smartphone     Android      sospechoso       23  —
+  10.11.8.169        60:81:10:73:e4:57    desconocido    Android      sospechoso       18  ARP
+  10.11.8.170        80:30:49:03:9b:89    smartphone     Android      confirmado       23  —
+  10.11.8.175        98:46:0a:89:76:ec    desconocido    Linux/Mac    confirmado       51  —
+  10.11.8.177        1e:cf:82:a0:2d:e2    pc             Linux/Mac    confirmado       53  ARP
+  10.11.8.186        e0:73:e7:ea:b4:3e    servidor       Linux/Mac    confirmado       76  ARP
+  10.11.8.187        4a:75:5d:f9:e1:94    arp-scanner    Linux/Mac    sospechoso      112  ARP
+  10.11.8.188        00:bb:60:1e:64:73    desconocido    Android      fantasma          6  —
+  10.11.8.189        fa:f4:63:71:57:8c    smartphone     Android      confirmado       51  ARP
+  10.11.8.190        8e:f5:8c:6d:37:c0    smartphone     Android      confirmado      154  ARP
+  10.11.8.192        4e:e8:79:46:4d:24    arp-scanner    Equipo de red confirmado      115  ARP
+  10.11.8.194        8a:37:51:a3:16:ae    smartphone     Android      fantasma         27  ARP
+  10.11.8.195        e0:2b:e9:55:c6:1b    desconocido    Android      fantasma         10  —
+  10.11.8.199        82:9e:2d:0b:6e:8c    smartphone     Android      fantasma         75  ARP
+  10.11.8.200        4e:56:85:a0:2f:df    smartphone     Android      confirmado       32  ARP
+  10.11.8.201        64:6e:e0:96:c1:bb    desconocido    Android      confirmado       29  ARP
+  10.11.8.203        e4:aa:ea:68:5b:49    pc             Android      confirmado       58  ARP
+  10.11.8.207        62:2b:bf:15:49:ce    desconocido    Desconocido  fantasma          2  ARP
+  10.11.8.208        fc:03:9f:23:22:fe    desconocido    Linux/Mac    confirmado      275  —
+  10.11.8.211        9c:b6:d0:6d:b6:c3    arp-scanner    Android      confirmado      215  ARP
+  10.11.8.212        a6:fd:42:ac:2b:01    arp-scanner    Android      fantasma         41  ARP
+  10.11.8.213        58:cd:c9:75:80:cb    desconocido    Android      fantasma         62  ARP
+  10.11.8.214        7a:30:8a:97:54:a5    smartphone     Android      confirmado       33  ARP
+  10.11.8.219        02:41:c6:51:3f:d8    smartphone     Android      confirmado       37  ARP
+  10.11.8.221        c6:2b:1b:9e:20:67    pc             Linux/Mac    fantasma         44  —
+  10.11.8.224        9a:07:81:4e:8e:bf    pc             Linux/Mac    sospechoso       17  ARP
+  10.11.8.225        12:d0:63:74:5c:94    smartphone     Android      confirmado       29  ARP
+  10.11.8.226        5c:61:99:6a:7b:af    desconocido    Desconocido  fantasma          9  —
+  10.11.8.230        c2:1b:8e:54:de:96    smartphone     Android      fantasma         84  ARP
+  10.11.8.233        82:99:bb:98:68:53    smartphone     Android      confirmado       93  ARP
+  10.11.8.238        1e:50:49:64:53:1c    pc             Linux/Mac    confirmado       58  ARP
+  10.11.8.239        7a:37:f3:5e:4e:10    pc             Linux/Mac    sospechoso       11  —
+  10.11.8.240        28:f0:76:57:17:f0    desconocido    Linux/Mac    fantasma         12  —
+  10.11.8.241        de:9c:cc:f2:dd:9a    smartphone     Android      fantasma         14  ARP
+  10.11.8.242        7e:be:6f:e2:1d:5b    smartphone     Android      confirmado       55  ARP
+  10.11.8.243        56:55:c9:25:18:d4    smartphone     Android      sospechoso       19  ARP
+  10.11.8.244        ea:ba:25:c5:61:78    smartphone     Android      confirmado       45  ARP
+  10.11.8.245        f6:fb:e4:5f:ee:c5    smartphone     Android      fantasma         41  ARP
+  10.11.8.246        4e:2f:8a:92:45:5e    smartphone     Android      fantasma         22  ARP
+  10.11.8.247        16:f8:56:8a:de:87    smartphone     Android      fantasma         30  ARP
+  10.11.8.250        1a:a2:69:20:55:b9    pc             Linux/Mac    confirmado       86  —
+  10.11.8.251        80:30:49:1f:0c:79    pc             Desconocido  fantasma         11  ARP
+
+ARP SCANNERS DETECTADOS:
+  10.11.8.62         14:b5:cd:22:32:59    OS: Desconocido
+  10.11.8.120        0a:98:37:3f:47:13    OS: Linux/Mac
+  10.11.8.187        4a:75:5d:f9:e1:94    OS: Linux/Mac
+  10.11.8.81         82:3b:14:87:6d:80    OS: Android
+  10.11.8.192        4e:e8:79:46:4d:24    OS: Equipo de red
+  10.11.8.127        3c:91:80:4d:d4:d9    OS: Android
+  10.11.8.25         50:5a:65:c1:e6:8f    OS: Android
+  10.11.8.146        04:33:c2:c1:4c:3d    OS: Desconocido
+  10.11.8.211        9c:b6:d0:6d:b6:c3    OS: Android
+  10.11.8.212        a6:fd:42:ac:2b:01    OS: Android
+
+HOSTS EN LOBBY (sin actividad reciente):
+  10.11.8.98         dc:62:79:8c:33:b2
+  10.11.8.103        d8:f3:bc:c1:f3:01
+  10.11.8.106        66:04:1e:b1:18:14
+  10.11.8.101        b4:8c:9d:a5:a5:3f
+  10.11.8.99         68:34:21:c5:27:a9
+  10.11.8.128        60:e9:aa:3c:a8:d3
+  10.11.8.178        da:a8:7c:bf:cc:fb
+  10.11.8.182        0a:89:3f:eb:a3:db
+  10.11.8.153        72:33:b7:3f:a3:c4
+  10.11.8.122        28:d5:b1:cb:24:5d
+  10.11.8.191        7e:05:ef:44:7a:e7
+  10.11.8.105        72:f3:46:09:c9:3b
+  10.11.8.88         32:b7:2f:05:da:e3
+  10.11.8.193        4e:af:c9:7d:9b:44
+  10.11.8.100        62:90:19:3d:f8:f1
+  10.11.8.171        2e:4b:18:b0:16:a2
+  10.11.8.181        fa:d7:9a:89:41:13
+  10.11.8.133        36:a0:57:34:98:3d
+  10.11.8.185        b6:9a:aa:ce:54:0a
+  10.11.8.30         e2:86:cf:bd:90:7c
+  10.11.8.32         ee:d0:ee:ad:ee:d0
+  10.11.8.74         62:f8:24:76:8d:52
+  10.11.8.197        c6:0d:77:5d:81:36
+  10.11.8.198        f8:20:a9:b9:31:f7
+  10.11.8.172        86:db:61:7d:79:28
+  10.11.8.229        de:c7:5d:26:ad:12
+  10.11.8.60         72:5f:1c:87:ca:89
+  10.11.8.204        de:85:cf:92:84:97
+  10.11.8.121        6e:2c:ca:a5:ef:87
+  10.11.8.132        2a:43:d0:e0:58:99
+  10.11.8.137        80:b6:55:20:9d:fb
+  10.11.8.139        c8:9f:0c:5e:e8:b1
+  10.11.8.157        c0:35:32:43:a4:fb
+  10.11.8.176        06:5c:11:47:ea:80
+  10.11.8.205        6a:7a:59:06:fb:ec
+  10.11.8.184        6a:15:0a:0c:73:21
+  10.11.8.73         6e:cb:33:38:ba:af
+  10.11.8.97         ca:fd:38:0c:0e:83
+  10.11.8.216        3e:19:d1:fb:08:c9
+  10.11.8.217        b0:be:83:79:42:6d
+  10.11.8.218        ae:f1:00:ad:1e:8a
+  10.11.8.220        86:1e:c3:70:f1:ab
+  10.11.8.89         ee:96:a8:d6:7d:3a
+  10.11.8.107        e2:b2:22:27:88:2f
+  10.11.8.223        a6:ba:ce:88:e7:0f
+  10.11.8.114        06:ef:f6:c8:6f:29
+  10.11.8.90         7e:79:80:4f:47:da
+  10.11.8.72         32:da:0a:0f:54:b8
+  10.11.8.232        18:1d:ea:05:d2:32
+  10.11.8.231        c4:06:83:32:a4:be
+  10.11.8.210        d8:80:83:b5:0a:09
+  10.11.8.222        22:62:0b:0e:95:fd
+  10.11.8.235        22:55:a1:78:22:22
+  10.11.8.234        4c:02:20:f9:91:e6
+  10.11.8.236        e2:ee:58:af:d5:8c
+  10.11.8.237        92:71:72:e4:d1:b5
+  10.11.8.202        32:5c:84:77:42:52
+  10.11.8.215        ae:40:2a:c1:1b:9c
+  10.11.8.150        ee:69:4b:3d:1d:26
+  10.11.8.116        b0:fc:36:37:5f:a5
+  10.11.8.143        96:02:11:da:b3:03
+  10.11.8.252        3a:ab:e3:a7:87:48
+  10.11.8.253        3a:b8:21:31:e4:04
+  10.11.8.206        fa:5b:85:a1:86:55
+
+CONEXIONES EXTERNAS POR HOST:
+  10.11.8.1 → 255.255.255.255, 10.11.11.65
+  10.11.8.100 → 224.0.0.251
+  10.11.8.101 → 239.255.255.250
+  10.11.8.102 → 224.0.0.251, 239.255.255.250
+  10.11.8.103 → 239.255.255.250, 255.255.255.255
+  10.11.8.104 → 10.11.11.255, 239.255.255.250, 10.11.11.65
+  10.11.8.106 → 224.0.0.251, 10.11.11.65
+  10.11.8.107 → 10.11.11.65
+  10.11.8.108 → 10.11.11.65
+  10.11.8.109 → 10.11.11.65
+  10.11.8.11 → 224.0.0.251
+  10.11.8.110 → 224.0.0.251
+  10.11.8.112 → 224.0.0.251, 10.11.11.65
+  10.11.8.119 → 224.0.0.251
+  10.11.8.120 → 224.0.0.251, 10.11.11.255, 239.255.255.250
+  10.11.8.121 → 224.0.0.251
+  10.11.8.122 → 224.0.0.251
+  10.11.8.123 → 10.11.11.65
+  10.11.8.124 → 10.11.11.65, 224.0.0.251
+  10.11.8.125 → 224.0.0.251, 10.11.11.65
+  10.11.8.126 → 224.0.0.251
+  10.11.8.127 → 224.0.0.251, 224.0.0.252, 10.11.11.255
+  10.11.8.128 → 239.255.255.250, 224.0.0.252, 224.0.0.251
+  10.11.8.129 → 224.0.0.251, 239.255.255.250, 10.11.11.255, 10.11.11.65
+  10.11.8.13 → 224.0.0.251, 10.11.11.65
+  10.11.8.130 → 10.11.11.255, 224.0.0.251, 10.11.11.65, 239.255.255.250
+  10.11.8.132 → 239.255.255.250
+  10.11.8.137 → 239.255.255.250, 10.11.11.255, 10.11.11.65
+  10.11.8.138 → 224.0.0.251
+  10.11.8.139 → 10.11.11.65
+  10.11.8.143 → 10.11.11.65
+  10.11.8.144 → 239.255.255.250, 224.0.0.252, 224.0.0.251
+  10.11.8.145 → 224.0.0.251, 10.11.11.65
+  10.11.8.146 → 10.11.11.255
+  10.11.8.149 → 224.0.0.251
+  10.11.8.15 → 10.11.11.65
+  10.11.8.154 → 224.0.0.251, 10.11.11.65
+  10.11.8.155 → 224.0.0.251, 239.255.255.250, 10.11.11.255
+  10.11.8.158 → 224.0.0.251, 10.11.11.65
+  10.11.8.159 → 224.0.0.251, 10.11.11.65
+  10.11.8.160 → 224.0.0.251, 10.11.11.65
+  10.11.8.162 → 224.0.0.251
+  10.11.8.165 → 10.11.11.65
+  10.11.8.166 → 224.0.0.251, 224.0.0.252, 10.11.11.255, 239.255.255.250
+  10.11.8.167 → 224.0.0.251
+  10.11.8.169 → 224.0.0.251
+  10.11.8.17 → 224.0.0.251, 10.11.11.65
+  10.11.8.170 → 239.255.255.250, 10.11.11.65, 224.0.0.251, 10.11.11.255
+  10.11.8.171 → 10.11.11.65
+  10.11.8.172 → 224.0.0.251, 10.11.11.65
+  10.11.8.175 → 10.11.11.255, 224.0.0.251, 10.11.11.65
+  10.11.8.176 → 10.11.11.65
+  10.11.8.177 → 224.0.0.251, 10.11.11.65
+  10.11.8.181 → 224.0.0.251, 10.11.11.65
+  10.11.8.182 → 224.0.0.251
+  10.11.8.184 → 224.0.0.251
+  10.11.8.185 → 224.0.0.251
+  10.11.8.186 → 224.0.0.251, 10.11.11.65
+  10.11.8.187 → 224.0.0.251, 239.255.255.250, 10.11.11.65
+  10.11.8.188 → 239.255.255.250
+  10.11.8.189 → 224.0.0.251, 10.11.11.65
+  10.11.8.19 → 224.0.0.251, 239.255.255.250, 10.11.11.65
+  10.11.8.190 → 224.0.0.251, 10.11.11.65
+  10.11.8.191 → 224.0.0.251
+  10.11.8.192 → 224.0.0.251, 239.255.255.250, 10.11.11.65
+  10.11.8.193 → 239.255.255.250, 224.0.0.251
+  10.11.8.194 → 224.0.0.251
+  10.11.8.195 → 239.255.255.250
+  10.11.8.197 → 224.0.0.251
+  10.11.8.198 → 10.11.11.255
+  10.11.8.199 → 239.255.255.250, 224.0.0.251, 10.11.11.65
+  10.11.8.20 → 10.11.11.65
+  10.11.8.200 → 224.0.0.251
+  10.11.8.201 → 239.255.255.250, 10.11.11.255
+  10.11.8.202 → 224.0.0.251
+  10.11.8.203 → 224.0.0.252, 10.11.11.255, 239.255.255.250, 224.0.0.251, 10.11.11.65
+  10.11.8.205 → 224.0.0.251
+  10.11.8.206 → 239.255.255.250, 10.11.11.65
+  10.11.8.208 → 239.255.255.250, 224.0.0.7, 10.11.11.255
+  10.11.8.211 → 10.11.11.255, 239.255.255.250, 224.0.0.251
+  10.11.8.212 → 224.0.0.251
+  10.11.8.213 → 239.255.255.250, 224.0.0.252, 224.0.0.251
+  10.11.8.214 → 224.0.0.251, 10.11.11.65
+  10.11.8.215 → 10.11.11.65
+  10.11.8.216 → 224.0.0.251, 10.11.11.255
+  10.11.8.217 → 224.0.0.251, 10.11.11.255
+  10.11.8.218 → 224.0.0.251
+  10.11.8.219 → 224.0.0.251, 10.11.11.65
+  10.11.8.22 → 224.0.0.251, 10.11.11.65
+  10.11.8.220 → 10.11.11.65
+  10.11.8.221 → 10.11.11.65, 239.255.255.250, 224.0.0.251
+  10.11.8.222 → 10.11.11.65
+  10.11.8.223 → 239.255.255.250, 10.11.11.65
+  10.11.8.224 → 10.11.11.65
+  10.11.8.225 → 224.0.0.251
+  10.11.8.23 → 10.11.11.255, 10.11.11.65, 239.255.255.250
+  10.11.8.230 → 224.0.0.251, 239.255.255.250, 10.11.11.255, 10.11.11.65
+  10.11.8.232 → 224.0.0.252, 10.11.11.255
+  10.11.8.233 → 224.0.0.251, 239.255.255.250, 10.11.11.255, 10.11.11.65
+  10.11.8.234 → 224.0.0.251
+  10.11.8.235 → 224.0.0.251
+  10.11.8.236 → 10.11.11.65, 224.0.0.251
+  10.11.8.238 → 10.11.11.65, 10.11.11.255, 239.255.255.250, 224.0.0.251
+  10.11.8.239 → 10.11.11.65, 224.0.0.251
+  10.11.8.24 → 224.0.0.251
+  10.11.8.240 → 224.0.0.251, 10.11.11.65
+  10.11.8.241 → 224.0.0.251
+  10.11.8.242 → 239.255.255.250, 224.0.0.251, 10.11.11.65
+  10.11.8.243 → 224.0.0.251
+  10.11.8.244 → 224.0.0.251, 10.11.11.255, 10.11.11.65
+  10.11.8.245 → 224.0.0.251
+  10.11.8.246 → 224.0.0.251
+  10.11.8.247 → 224.0.0.251
+  10.11.8.25 → 239.255.255.250, 10.11.11.65, 224.0.0.252
+  10.11.8.250 → 224.0.0.251, 10.11.11.65, 239.255.255.250
+  10.11.8.252 → 224.0.0.251
+  10.11.8.253 → 10.11.11.65
+  10.11.8.26 → 224.0.0.251, 10.11.11.65, 239.255.255.250
+  10.11.8.27 → 239.255.255.250, 224.0.0.252, 224.0.0.251, 10.11.11.255
+  10.11.8.30 → 224.0.0.251, 10.11.11.65
+  10.11.8.31 → 224.0.0.251, 10.11.11.65
+  10.11.8.32 → 224.0.0.251, 10.11.11.65
+  10.11.8.35 → 10.11.11.65
+  10.11.8.39 → 224.0.0.251, 10.11.11.65
+  10.11.8.44 → 224.0.0.251, 10.11.11.65
+  10.11.8.45 → 10.11.11.65
+  10.11.8.48 → 224.0.0.251
+  10.11.8.51 → 224.0.0.252
+  10.11.8.53 → 224.0.0.251
+  10.11.8.57 → 224.0.0.251, 10.11.11.65
+  10.11.8.59 → 10.11.11.255, 224.0.0.251, 239.255.255.250, 10.11.11.65
+  10.11.8.60 → 10.11.11.65
+  10.11.8.61 → 239.255.255.250, 224.0.0.252, 10.11.11.255, 224.0.0.251
+  10.11.8.63 → 224.0.0.251, 239.255.255.250
+  10.11.8.65 → 224.0.0.251
+  10.11.8.66 → 224.0.0.251, 10.11.11.65
+  10.11.8.67 → 224.0.0.251, 10.11.11.65
+  10.11.8.71 → 10.11.11.65, 224.0.0.251
+  10.11.8.72 → 10.11.11.65
+  10.11.8.73 → 10.11.11.65
+  10.11.8.74 → 10.11.11.65
+  10.11.8.77 → 224.0.0.251, 10.11.11.65
+  10.11.8.81 → 224.0.0.251
+  10.11.8.84 → 10.11.11.65
+  10.11.8.87 → 224.0.0.251, 10.11.11.65
+  10.11.8.88 → 224.0.0.251, 10.11.11.65
+  10.11.8.89 → 224.0.0.251
+  10.11.8.90 → 224.0.0.251
+  10.11.8.91 → 224.0.0.251, 10.11.11.255
+  10.11.8.92 → 224.0.0.251
+  10.11.8.93 → 224.0.0.251, 10.11.11.65
+  10.11.8.94 → 224.0.0.251
+  10.11.8.97 → 224.0.0.251
+  10.11.8.98 → 10.11.11.65
+
+============================================================
+
+LOG DE EVENTOS:
+
+[14:54:21] [APP] Arranque automático en wlan0
+[14:54:21] [APP] Gateway: 10.11.8.1 | Subred: 10.11.8.x
+[14:54:21] [APP] Iniciando escaneo en wlan0
+[14:54:21] [SCANNER] 3 hilos activos en wlan0
+[14:54:22] [RED] Nuevo host: 10.11.8.158 | MAC: 5a:d7:47:7e:0f:e6 | via UDP
+[14:54:22] [EXTERNO] 10.11.8.158 → 224.0.0.251 [UDP]
+[14:54:22] [RED] Nuevo host: 10.11.8.91 | MAC: 5e:36:5d:f8:5c:03 | via UDP
+[14:54:22] [EXTERNO] 10.11.8.91 → 224.0.0.251 [UDP]
+[14:54:22] [RED] Nuevo host: 10.11.8.94 | MAC: ae:e6:87:4a:5b:64 | via UDP
+[14:54:22] [EXTERNO] 10.11.8.94 → 224.0.0.251 [UDP]
+[14:54:23] [ALERTA] 10.11.8.1 está haciendo ARP scan (≥20 ARPs a hosts desconocidos)
+[14:54:23] [SCANNER] Escaneando puertos de 10.11.8.158...
+[14:54:23] [EXTERNO] 10.11.8.59 → 10.11.11.255 [UDP]
+[14:54:23] [RED] Nuevo host: 10.11.8.208 | MAC: fc:03:9f:23:22:fe | via UDP
+[14:54:23] [EXTERNO] 10.11.8.208 → 239.255.255.250 [UDP]
+[14:54:23] [RED] Nuevo host: 10.11.8.128 | MAC: 60:e9:aa:3c:a8:d3 | via ARP
+[14:54:23] [FLUJO] 10.11.8.128 → 10.11.8.1 [ARP]
+[14:54:24] [EXTERNO] 10.11.8.128 → 239.255.255.250 [UDP]
+[14:54:25] [RED] Nuevo host: 10.11.8.26 | MAC: 22:8a:b9:00:8c:56 | via ARP
+[14:54:25] [FLUJO] 10.11.8.26 → 10.11.8.1 [ARP]
+[14:54:25] [RED] Nuevo host: 10.11.8.155 | MAC: a8:e2:91:60:12:d8 | via UDP
+[14:54:25] [EXTERNO] 10.11.8.155 → 224.0.0.251 [UDP]
+[14:54:25] [EXTERNO] 10.11.8.158 → 10.11.11.65 [TCP]
+[14:54:25] [RED] Nuevo host: 10.11.8.166 | MAC: 94:08:53:6d:42:d9 | via UDP
+[14:54:25] [EXTERNO] 10.11.8.166 → 224.0.0.251 [UDP]
+[14:54:25] [SCANNER] Escaneando puertos de 10.11.8.91...
+[14:54:26] [EXTERNO] 10.11.8.208 → 224.0.0.7 [UDP]
+[14:54:26] [SCANNER] Escaneando puertos de 10.11.8.94...
+[14:54:27] [RED] Nuevo host: 10.11.8.187 | MAC: 4a:75:5d:f9:e1:94 | via UDP
+[14:54:27] [EXTERNO] 10.11.8.187 → 224.0.0.251 [UDP]
+[14:54:27] [EXTERNO] 10.11.8.91 → 10.11.11.255 [UDP]
+[14:54:28] [SCANNER] Escaneando puertos de 10.11.8.208...
+[14:54:28] [RED] Nuevo host: 10.11.8.129 | MAC: 8e:6d:70:51:bc:a6 | via UDP
+[14:54:28] [EXTERNO] 10.11.8.129 → 224.0.0.251 [UDP]
+[14:54:28] [FLUJO] 10.11.8.81 → 10.11.8.1 [ARP]
+[14:54:29] [FLUJO] 10.11.8.81 → 10.11.8.91 [ARP]
+[14:54:29] [EXTERNO] 10.11.8.129 → 239.255.255.250 [UDP]
+[14:54:29] [EXTERNO] 10.11.8.26 → 224.0.0.251 [UDP]
+[14:54:29] [EXTERNO] 10.11.8.81 → 224.0.0.251 [UDP]
+[14:54:29] [EXTERNO] 10.11.8.1 → 255.255.255.255 [UDP]
+[14:54:30] [SCANNER] Escaneando puertos de 10.11.8.128...
+[14:54:31] [SCANNER] Escaneando puertos de 10.11.8.26...
+[14:54:31] [RED] Nuevo host: 10.11.8.123 | MAC: e6:5f:b9:1a:a6:82 | via ARP
+[14:54:31] [FLUJO] 10.11.8.123 → 10.11.8.1 [ARP]
+[14:54:31] [RED] Nuevo host: 10.11.8.189 | MAC: fa:f4:63:71:57:8c | via ARP
+[14:54:31] [FLUJO] 10.11.8.189 → 10.11.8.91 [ARP]
+[14:54:31] [FLUJO] 10.11.8.187 → 10.11.8.91 [ARP]
+[14:54:31] [RED] Nuevo host: 10.11.8.182 | MAC: 0a:89:3f:eb:a3:db | via ARP
+[14:54:31] [FLUJO] 10.11.8.182 → 10.11.8.91 [ARP]
+[14:54:31] [RED] Nuevo host: 10.11.8.250 | MAC: 1a:a2:69:20:55:b9 | via UDP
+[14:54:31] [EXTERNO] 10.11.8.250 → 224.0.0.251 [UDP]
+[14:54:32] [EXTERNO] 10.11.8.187 → 239.255.255.250 [UDP]
+[14:54:32] [EXTERNO] 10.11.8.208 → 10.11.11.255 [UDP]
+[14:54:34] [RED] Nuevo host: 10.11.8.122 | MAC: 28:d5:b1:cb:24:5d | via IP
+[14:54:34] [FLUJO] 10.11.8.122 → 10.11.8.91 [ARP]
+[14:54:34] [EXTERNO] 10.11.8.122 → 224.0.0.251 [UDP]
+[14:54:34] [EXTERNO] 10.11.8.26 → 10.11.11.65 [TCP]
+[14:54:34] [EXTERNO] 10.11.8.26 → 239.255.255.250 [UDP]
+[14:54:34] [SCANNER] Escaneando puertos de 10.11.8.155...
+[14:54:35] [STATS] Recálculo: 45 nodos | alertas: 0
+[14:54:37] [EXTERNO] 10.11.8.59 → 224.0.0.251 [UDP]
+[14:54:37] [SCANNER] Escaneando puertos de 10.11.8.166...
+[14:54:38] [RED] Nuevo host: 10.11.8.191 | MAC: 7e:05:ef:44:7a:e7 | via UDP
+[14:54:38] [EXTERNO] 10.11.8.191 → 224.0.0.251 [UDP]
+[14:54:38] [RED] Nuevo host: 10.11.8.77 | MAC: d6:af:38:bf:70:76 | via IP
+[14:54:39] [EXTERNO] 10.11.8.77 → 224.0.0.251 [UDP]
+[14:54:39] [FLUJO] 10.11.8.192 → 10.11.8.1 [ARP]
+[14:54:39] [EXTERNO] 10.11.8.192 → 224.0.0.251 [UDP]
+[14:54:39] [EXTERNO] 10.11.8.192 → 239.255.255.250 [UDP]
+[14:54:39] [SCANNER] Escaneando puertos de 10.11.8.187...
+[14:54:42] [RED] Nuevo host: 10.11.8.88 | MAC: 32:b7:2f:05:da:e3 | via IP
+[14:54:42] [EXTERNO] 10.11.8.88 → 224.0.0.251 [UDP]
+[14:54:42] [EXTERNO] 10.11.8.187 → 10.11.11.65 [TCP]
+[14:54:42] [RED] Nuevo host: 10.11.8.193 | MAC: 4e:af:c9:7d:9b:44 | via IP
+[14:54:42] [EXTERNO] 10.11.8.193 → 239.255.255.250 [UDP]
+[14:54:43] [SCANNER] Escaneando puertos de 10.11.8.129...
+[14:54:44] [FLUJO] 10.11.8.191 → 10.11.8.1 [ARP]
+[14:54:44] [EXTERNO] 10.11.8.193 → 224.0.0.251 [UDP]
+[14:54:44] [RED] Nuevo host: 10.11.8.100 | MAC: 62:90:19:3d:f8:f1 | via IP
+[14:54:45] [FLUJO] 10.11.8.1 → 10.11.8.128 [ARP]
+[14:54:46] [RED] Nuevo host: 10.11.8.63 | MAC: a2:92:b6:f8:86:3d | via UDP
+[14:54:46] [EXTERNO] 10.11.8.63 → 224.0.0.251 [UDP]
+[14:54:46] [EXTERNO] 10.11.8.120 → 224.0.0.251 [UDP]
+[14:54:47] [SCANNER] Escaneando puertos de 10.11.8.123...
+[14:54:47] [FLUJO] 10.11.8.1 → 10.11.8.192 [ARP]
+[14:54:49] [RED] Nuevo host: 10.11.8.119 | MAC: 6a:45:20:e0:90:4f | via IP
+[14:54:49] [EXTERNO] 10.11.8.119 → 224.0.0.251 [UDP]
+[14:54:49] [RED] Nuevo host: 10.11.8.186 | MAC: e0:73:e7:ea:b4:3e | via UDP
+[14:54:49] [EXTERNO] 10.11.8.186 → 224.0.0.251 [UDP]
+[14:54:49] [EXTERNO] 10.11.8.100 → 224.0.0.251 [UDP]
+[14:54:50] [FLUJO] 10.11.8.189 → 10.11.8.158 [ARP]
+[14:54:50] [EXTERNO] 10.11.8.189 → 224.0.0.251 [UDP]
+[14:54:50] [RED] Nuevo host: 10.11.8.30 | MAC: e2:86:cf:bd:90:7c | via UDP
+[14:54:50] [EXTERNO] 10.11.8.30 → 224.0.0.251 [UDP]
+[14:54:50] [FLUJO] 10.11.8.1 → 10.11.8.193 [ARP]
+[14:54:50] [STATS] Recálculo: 65 nodos | alertas: 0
+[14:54:50] [RED] Nuevo host: 10.11.8.130 | MAC: ce:f6:e2:ca:a9:f5 | via UDP
+[14:54:50] [EXTERNO] 10.11.8.130 → 10.11.11.255 [UDP]
+[14:54:50] [EXTERNO] 10.11.8.123 → 10.11.11.65 [TCP]
+[14:54:50] [SCANNER] Escaneando puertos de 10.11.8.189...
+[14:54:51] [SCANNER] Re-escaneo profundo de 10.11.11.65/22...
+[14:54:51] [RED] Nuevo host: 10.11.8.190 | MAC: 8e:f5:8c:6d:37:c0 | via UDP
+[14:54:51] [EXTERNO] 10.11.8.190 → 224.0.0.251 [UDP]
+[14:54:51] [FLUJO] 10.11.8.190 → 10.11.8.1 [ARP]
+[14:54:52] [EXTERNO] 10.11.8.189 → 10.11.11.65 [TCP]
+[14:54:52] [SCANNER] Escaneando puertos de 10.11.8.182...
+[14:54:53] [EXTERNO] 10.11.8.127 → 224.0.0.251 [UDP]
+[14:54:53] [EXTERNO] 10.11.8.127 → 224.0.0.252 [UDP]
+[14:54:54] [SCANNER] Escaneando puertos de 10.11.8.250...
+[14:54:57] [EXTERNO] 10.11.8.250 → 10.11.11.65 [TCP]
+[14:54:57] [FLUJO] 10.11.8.1 → 10.11.8.133 [ARP]
+[14:54:57] [RED] Nuevo host: 10.11.8.198 | MAC: f8:20:a9:b9:31:f7 | via ARP
+[14:54:57] [FLUJO] 10.11.8.198 → 10.11.8.1 [ARP]
+[14:54:57] [FLUJO] 10.11.8.197 → 10.11.8.1 [ARP]
+[14:54:57] [FLUJO] 10.11.8.172 → 10.11.8.1 [ARP]
+[14:54:57] [FLUJO] 10.11.8.172 → 10.11.8.91 [ARP]
+[14:54:57] [EXTERNO] 10.11.8.172 → 224.0.0.251 [UDP]
+[14:54:57] [FLUJO] 10.11.8.192 → 10.11.8.158 [ARP]
+[14:54:58] [EXTERNO] 10.11.8.129 → 10.11.11.255 [UDP]
+[14:54:59] [RED] Nuevo host: 10.11.8.199 | MAC: 82:9e:2d:0b:6e:8c | via ARP
+[14:54:59] [FLUJO] 10.11.8.199 → 10.11.8.1 [ARP]
+[14:54:59] [EXTERNO] 10.11.8.162 → 224.0.0.251 [UDP]
+[14:55:00] [ALERTA] 10.11.8.192 está haciendo ARP scan (≥20 ARPs a hosts desconocidos)
+[14:55:00] [EXTERNO] 10.11.8.112 → 224.0.0.251 [UDP]
+[14:55:00] [EXTERNO] 10.11.8.199 → 239.255.255.250 [UDP]
+[14:55:01] [EXTERNO] 10.11.8.199 → 224.0.0.251 [UDP]
+[14:55:01] [FLUJO] 10.11.8.1 → 10.11.8.187 [ARP]
+[14:55:01] [EXTERNO] 10.11.8.198 → 10.11.11.255 [UDP]
+[14:55:02] [SCANNER] Escaneando puertos de 10.11.8.122...
+[14:55:03] [SCANNER] Escaneando puertos de 10.11.8.191...
+[14:55:05] [SCANNER] Escaneando puertos de 10.11.8.77...
+[14:55:05] [FLUJO] 10.11.8.200 → 10.11.8.1 [ARP]
+[14:55:05] [STATS] Recálculo: 95 nodos | alertas: 0
+[14:55:06] [EXTERNO] 10.11.8.182 → 224.0.0.251 [UDP]
+[14:55:06] [RED] Nuevo host: 10.11.8.203 | MAC: e4:aa:ea:68:5b:49 | via ARP
+[14:55:06] [FLUJO] 10.11.8.203 → 10.11.8.1 [ARP]
+[14:55:06] [SCANNER] Escaneando puertos de 10.11.8.88...
+[14:55:07] [FLUJO] 10.11.8.84 → 10.11.8.203 [ARP]
+[14:55:07] [FLUJO] 10.11.8.172 → 10.11.8.158 [ARP]
+[14:55:07] [EXTERNO] 10.11.8.203 → 224.0.0.252 [UDP]
+[14:55:07] [EXTERNO] 10.11.8.203 → 10.11.11.255 [UDP]
+[14:55:08] [FLUJO] 10.11.8.144 → 10.11.8.203 [ARP]
+[14:55:08] [FLUJO] 10.11.8.251 → 10.11.8.203 [ARP]
+[14:55:08] [RED] Nuevo host: 10.11.8.225 | MAC: 12:d0:63:74:5c:94 | via IP
+[14:55:08] [FLUJO] 10.11.8.1 → 10.11.8.225 [ARP]
+[14:55:08] [EXTERNO] 10.11.8.225 → 224.0.0.251 [UDP]
+[14:55:09] [EXTERNO] 10.11.8.88 → 10.11.11.65 [TCP]
+[14:55:10] [EXTERNO] 10.11.8.203 → 239.255.255.250 [UDP]
+[14:55:11] [SCANNER] Escaneando puertos de 10.11.8.193...
+[14:55:12] [APP] Tráfico lateral: activado
+[14:55:12] [EXTERNO] 10.11.8.145 → 224.0.0.251 [UDP]
+[14:55:13] [SCANNER] Escaneando puertos de 10.11.8.100...
+[14:55:13] [RED] Nuevo host: 10.11.8.146 | MAC: 04:33:c2:c1:4c:3d | via ARP
+[14:55:13] [FLUJO] 10.11.8.146 → 10.11.8.203 [ARP]
+[14:55:13] [RED] Nuevo host: 10.11.8.121 | MAC: 6e:2c:ca:a5:ef:87 | via IP
+[14:55:13] [EXTERNO] 10.11.8.121 → 224.0.0.251 [UDP]
+[14:55:14] [SCANNER] Escaneando puertos de 10.11.8.63...
+[14:55:14] [EXTERNO] 10.11.8.203 → 224.0.0.251 [UDP]
+[14:55:15] [FLUJO] 10.11.8.1 → 10.11.8.128 [ARP]
+[14:55:16] [SCANNER] Escaneando puertos de 10.11.8.119...
+[14:55:17] [SCANNER] Escaneando puertos de 10.11.8.186...
+[14:55:19] [EXTERNO] 10.11.8.186 → 10.11.11.65 [TCP]
+[14:55:19] [HALLAZGO] 10.11.8.186:80 HTTP [INFO]
+[14:55:19] [HALLAZGO] 10.11.8.186:443 HTTPS [INFO]
+[14:55:19] [HALLAZGO] 10.11.8.186:8080 HTTP-Alt [INFO]
+[14:55:19] [HALLAZGO] 10.11.8.186:9100 Impresora [MEDIO]
+[14:55:19] [SCANNER] Escaneando puertos de 10.11.8.30...
+[14:55:20] [FLUJO] 10.11.8.1 → 10.11.8.162 [ARP]
+[14:55:20] [STATS] Recálculo: 109 nodos | alertas: 4
+[14:55:20] [EXTERNO] 10.11.8.30 → 10.11.11.65 [TCP]
+[14:55:20] [SCANNER] Escaneando puertos de 10.11.8.130...
+[14:55:21] [EXTERNO] 10.11.8.130 → 224.0.0.251 [UDP]
+[14:55:21] [SCANNER] ARP timeout
+[14:55:21] [EXTERNO] 10.11.8.93 → 224.0.0.251 [UDP]
+[14:55:21] [EXTERNO] 10.11.8.130 → 10.11.11.65 [TCP]
+[14:55:21] [SCANNER] Escaneando puertos de 10.11.8.190...
+[14:55:22] [RED] Nuevo host: 10.11.8.184 | MAC: 6a:15:0a:0c:73:21 | via IP
+[14:55:22] [FLUJO] 10.11.8.205 → 10.11.8.1 [ARP]
+[14:55:22] [EXTERNO] 10.11.8.205 → 224.0.0.251 [UDP]
+[14:55:22] [EXTERNO] 10.11.8.158 → 224.0.0.251 [UDP]
+[14:55:22] [EXTERNO] 10.11.8.250 → 239.255.255.250 [UDP]
+[14:55:23] [EXTERNO] 10.11.8.190 → 10.11.11.65 [TCP]
+[14:55:23] [SCANNER] Escaneando puertos de 10.11.8.198...
+[14:55:23] [EXTERNO] 10.11.8.130 → 239.255.255.250 [UDP]
+[14:55:24] [RED] Nuevo host: 10.11.8.66 | MAC: b6:f0:f2:c6:76:03 | via UDP
+[14:55:24] [EXTERNO] 10.11.8.66 → 224.0.0.251 [UDP]
+[14:55:24] [SCANNER] Escaneando puertos de 10.11.8.199...
+[14:55:25] [FLUJO] 10.11.8.191 → 10.11.8.1 [ARP]
+[14:55:26] [EXTERNO] 10.11.8.120 → 10.11.11.255 [UDP]
+[14:55:26] [FLUJO] 10.11.8.162 → 10.11.8.121 [ARP]
+[14:55:26] [EXTERNO] 10.11.8.208 → 224.0.0.7 [UDP]
+[14:55:29] [EXTERNO] 10.11.8.155 → 239.255.255.250 [UDP]
+[14:55:32] [EXTERNO] 10.11.8.184 → 224.0.0.251 [UDP]
+[14:55:32] [FLUJO] 10.11.8.36 → 10.11.8.1 [ARP]
+[14:55:33] [EXTERNO] 10.11.8.59 → 239.255.255.250 [UDP]
+[14:55:33] [FLUJO] 10.11.8.187 → 10.11.8.208 [ARP]
+[14:55:35] [STATS] Recálculo: 115 nodos | alertas: 4
+[14:55:36] [RED] Nuevo host: 10.11.8.48 | MAC: ce:9b:39:55:34:a1 | via IP
+[14:55:36] [EXTERNO] 10.11.8.48 → 224.0.0.251 [UDP]
+[14:55:36] [FLUJO] 10.11.8.189 → 10.11.8.121 [ARP]
+[14:55:37] [EXTERNO] 10.11.8.59 → 224.0.0.251 [UDP]
+[14:55:37] [SCANNER] Timeout en 10.11.8.199
+[14:55:37] [SCANNER] Escaneando puertos de 10.11.8.203...
+[14:55:39] [RED] Nuevo host: 10.11.8.211 | MAC: 9c:b6:d0:6d:b6:c3 | via IP
+[14:55:39] [FLUJO] 10.11.8.211 → 10.11.8.1 [ARP]
+[14:55:39] [EXTERNO] 10.11.8.211 → 10.11.11.255 [UDP]
+[14:55:39] [EXTERNO] 10.11.8.203 → 10.11.11.65 [TCP]
+[14:55:39] [FLUJO] 10.11.8.1 → 10.11.8.166 [ARP]
+[14:55:41] [EXTERNO] 10.11.8.104 → 10.11.11.255 [UDP]
+[14:55:41] [RED] Nuevo host: 10.11.8.23 | MAC: 70:a6:cc:b1:ff:c6 | via UDP
+[14:55:41] [EXTERNO] 10.11.8.23 → 10.11.11.255 [UDP]
+[14:55:41] [EXTERNO] 10.11.8.127 → 10.11.11.255 [UDP]
+[14:55:41] [EXTERNO] 10.11.8.87 → 224.0.0.251 [UDP]
+[14:55:41] [EXTERNO] 10.11.8.208 → 239.255.255.250 [UDP]
+[14:55:42] [EXTERNO] 10.11.8.187 → 239.255.255.250 [UDP]
+[14:55:42] [EXTERNO] 10.11.8.187 → 224.0.0.251 [UDP]
+[14:55:42] [EXTERNO] 10.11.8.211 → 239.255.255.250 [UDP]
+[14:55:42] [HALLAZGO] 10.11.8.203:445 SMB [ALTO]
+[14:55:42] [SCANNER] Escaneando puertos de 10.11.8.225...
+[14:55:43] [FLUJO] 10.11.8.187 → 10.11.8.1 [ARP]
+[14:55:44] [FLUJO] 10.11.8.130 → 10.11.8.1 [ARP]
+[14:55:44] [SCANNER] Escaneando puertos de 10.11.8.146...
+[14:55:44] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[14:55:44] [EXTERNO] 10.11.8.208 → 10.11.11.255 [UDP]
+[14:55:45] [RED] Nuevo host: 10.11.8.160 | MAC: 38:d5:7a:97:ae:cd | via IP
+[14:55:45] [EXTERNO] 10.11.8.160 → 224.0.0.251 [UDP]
+[14:55:45] [EXTERNO] 10.11.8.122 → 224.0.0.251 [UDP]
+[14:55:46] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[14:55:46] [EXTERNO] 10.11.8.120 → 224.0.0.251 [UDP]
+[14:55:47] [FLUJO] 10.11.8.204 → 10.11.8.1 [ARP]
+[14:55:48] [EXTERNO] 10.11.8.159 → 224.0.0.251 [UDP]
+[14:55:48] [EXTERNO] 10.11.8.201 → 239.255.255.250 [UDP]
+[14:55:48] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[14:55:50] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[14:55:50] [STATS] Recálculo: 119 nodos | alertas: 5
+[14:55:52] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[14:55:53] [SCANNER] Escaneando puertos de 10.11.8.121...
+[14:55:53] [RED] Nuevo host: 10.11.8.212 | MAC: a6:fd:42:ac:2b:01 | via UDP
+[14:55:53] [EXTERNO] 10.11.8.212 → 224.0.0.251 [UDP]
+[14:55:54] [EXTERNO] 10.11.8.185 → 224.0.0.251 [UDP]
+[14:55:54] [RED] Nuevo host: 10.11.8.31 | MAC: 1a:c3:3a:8c:75:31 | via UDP
+[14:55:54] [EXTERNO] 10.11.8.31 → 224.0.0.251 [UDP]
+[14:55:54] [EXTERNO] 10.11.8.26 → 224.0.0.251 [UDP]
+[14:55:54] [FLUJO] 10.11.8.97 → 10.11.8.121 [ARP]
+[14:55:54] [FLUJO] 10.11.8.97 → 10.11.8.81 [ARP]
+[14:55:54] [EXTERNO] 10.11.8.67 → 224.0.0.251 [UDP]
+[14:55:54] [FLUJO] 10.11.8.97 → 10.11.8.158 [ARP]
+[14:55:54] [FLUJO] 10.11.8.97 → 10.11.8.91 [ARP]
+[14:55:54] [EXTERNO] 10.11.8.97 → 224.0.0.251 [UDP]
+[14:55:54] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[14:55:54] [EXTERNO] 10.11.8.190 → 224.0.0.251 [UDP]
+[14:55:55] [SCANNER] Escaneando puertos de 10.11.8.184...
+[14:55:55] [FLUJO] 10.11.8.128 → 10.11.8.1 [ARP]
+[14:55:55] [FLUJO] 10.11.8.159 → 10.11.8.190 [ARP]
+[14:55:55] [RED] Nuevo host: 10.11.8.125 | MAC: 06:57:90:87:d8:6c | via UDP
+[14:55:55] [EXTERNO] 10.11.8.125 → 224.0.0.251 [UDP]
+[14:55:55] [EXTERNO] 10.11.8.213 → 239.255.255.250 [UDP]
+[14:55:56] [EXTERNO] 10.11.8.213 → 224.0.0.252 [UDP]
+[14:55:56] [SCANNER] Escaneando puertos de 10.11.8.66...
+[14:55:56] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[14:55:57] [FLUJO] 10.11.8.245 → 10.11.8.1 [ARP]
+[14:55:57] [EXTERNO] 10.11.8.128 → 224.0.0.252 [UDP]
+[14:55:57] [EXTERNO] 10.11.8.245 → 224.0.0.251 [UDP]
+[14:55:57] [FLUJO] 10.11.8.245 → 10.11.8.91 [ARP]
+[14:55:57] [FLUJO] 10.11.8.245 → 10.11.8.158 [ARP]
+[14:55:57] [EXTERNO] 10.11.8.128 → 239.255.255.250 [UDP]
+[14:55:57] [EXTERNO] 10.11.8.1 → 255.255.255.255 [UDP]
+[14:55:57] [EXTERNO] 10.11.8.137 → 239.255.255.250 [UDP]
+[14:55:57] [EXTERNO] 10.11.8.127 → 224.0.0.252 [UDP]
+[14:55:58] [FLUJO] 10.11.8.205 → 10.11.8.1 [ARP]
+[14:55:58] [EXTERNO] 10.11.8.127 → 224.0.0.251 [UDP]
+[14:55:58] [EXTERNO] 10.11.8.213 → 224.0.0.251 [UDP]
+[14:55:58] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[14:55:59] [FLUJO] 10.11.8.97 → 10.11.8.1 [ARP]
+[14:55:59] [EXTERNO] 10.11.8.66 → 10.11.11.65 [TCP]
+[14:55:59] [SCANNER] Escaneando puertos de 10.11.8.48...
+[14:56:00] [EXTERNO] 10.11.8.57 → 224.0.0.251 [UDP]
+[14:56:00] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[14:56:01] [FLUJO] 10.11.8.199 → 10.11.8.1 [ARP]
+[14:56:01] [EXTERNO] 10.11.8.112 → 224.0.0.251 [UDP]
+[14:56:01] [SCANNER] Escaneando puertos de 10.11.8.211...
+[14:56:01] [FLUJO] 10.11.8.1 → 10.11.8.63 [ARP]
+[14:56:02] [FLUJO] 10.11.8.132 → 10.11.8.1 [ARP]
+[14:56:02] [SCANNER] Escaneando puertos de 10.11.8.23...
+[14:56:02] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[14:56:03] [EXTERNO] 10.11.8.132 → 239.255.255.250 [UDP]
+[14:56:04] [SCANNER] Escaneando puertos de 10.11.8.160...
+[14:56:04] [EXTERNO] 10.11.8.186 → 224.0.0.251 [UDP]
+[14:56:04] [EXTERNO] 10.11.8.130 → 10.11.11.255 [UDP]
+[14:56:04] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[14:56:05] [STATS] Recálculo: 126 nodos | alertas: 5
+[14:56:05] [SCANNER] Escaneando puertos de 10.11.8.212...
+[14:56:06] [FLUJO] 10.11.8.1 → 10.11.8.191 [ARP]
+[14:56:06] [EXTERNO] 10.11.8.128 → 224.0.0.251 [UDP]
+[14:56:06] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[14:56:07] [FLUJO] 10.11.8.216 → 10.11.8.1 [ARP]
+[14:56:07] [EXTERNO] 10.11.8.216 → 224.0.0.251 [UDP]
+[14:56:07] [SCANNER] Escaneando puertos de 10.11.8.31...
+[14:56:08] [RED] Nuevo host: 10.11.8.27 | MAC: a8:41:f4:c7:96:04 | via UDP
+[14:56:08] [EXTERNO] 10.11.8.27 → 239.255.255.250 [UDP]
+[14:56:08] [EXTERNO] 10.11.8.199 → 224.0.0.251 [UDP]
+[14:56:08] [FLUJO] 10.11.8.217 → 10.11.8.1 [ARP]
+[14:56:08] [EXTERNO] 10.11.8.201 → 10.11.11.255 [UDP]
+[14:56:08] [EXTERNO] 10.11.8.217 → 224.0.0.251 [UDP]
+[14:56:08] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:09] [EXTERNO] 10.11.8.102 → 224.0.0.251 [UDP]
+[14:56:09] [EXTERNO] 10.11.8.182 → 224.0.0.251 [UDP]
+[14:56:09] [FLUJO] 10.11.8.1 → 10.11.8.166 [ARP]
+[14:56:09] [EXTERNO] 10.11.8.216 → 10.11.11.255 [UDP]
+[14:56:10] [EXTERNO] 10.11.8.181 → 224.0.0.251 [UDP]
+[14:56:11] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:11] [EXTERNO] 10.11.8.217 → 10.11.11.255 [UDP]
+[14:56:11] [EXTERNO] 10.11.8.53 → 224.0.0.251 [UDP]
+[14:56:12] [EXTERNO] 10.11.8.31 → 10.11.11.65 [TCP]
+[14:56:13] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:13] [SCANNER] Escaneando puertos de 10.11.8.125...
+[14:56:14] [EXTERNO] 10.11.8.145 → 224.0.0.251 [UDP]
+[14:56:14] [RED] Nuevo host: 10.11.8.138 | MAC: fc:31:5d:9b:de:ab | via ARP
+[14:56:14] [FLUJO] 10.11.8.138 → 10.11.8.158 [ARP]
+[14:56:14] [EXTERNO] 10.11.8.138 → 224.0.0.251 [UDP]
+[14:56:14] [FLUJO] 10.11.8.218 → 10.11.8.1 [ARP]
+[14:56:14] [EXTERNO] 10.11.8.218 → 224.0.0.251 [UDP]
+[14:56:15] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:17] [RED] Nuevo host: 10.11.8.11 | MAC: 2e:12:77:af:78:3b | via IP
+[14:56:17] [EXTERNO] 10.11.8.11 → 224.0.0.251 [UDP]
+[14:56:17] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:17] [EXTERNO] 10.11.8.155 → 10.11.11.255 [UDP]
+[14:56:18] [EXTERNO] 10.11.8.125 → 10.11.11.65 [TCP]
+[14:56:18] [EXTERNO] 10.11.8.63 → 224.0.0.251 [UDP]
+[14:56:18] [EXTERNO] 10.11.8.121 → 224.0.0.251 [UDP]
+[14:56:19] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:19] [FLUJO] 10.11.8.1 → 10.11.8.88 [ARP]
+[14:56:19] [FLUJO] 10.11.8.197 → 10.11.8.1 [ARP]
+[14:56:20] [SCANNER] Escaneando puertos de 10.11.8.27...
+[14:56:20] [STATS] Recálculo: 132 nodos | alertas: 5
+[14:56:21] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:21] [EXTERNO] 10.11.8.93 → 224.0.0.251 [UDP]
+[14:56:21] [SCANNER] Escaneando puertos de 10.11.8.138...
+[14:56:22] [EXTERNO] 10.11.8.197 → 224.0.0.251 [UDP]
+[14:56:23] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:23] [SCANNER] Escaneando puertos de 10.11.8.11...
+[14:56:25] [EXTERNO] 10.11.8.155 → 224.0.0.251 [UDP]
+[14:56:25] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:26] [EXTERNO] 10.11.8.158 → 224.0.0.251 [UDP]
+[14:56:26] [EXTERNO] 10.11.8.91 → 224.0.0.251 [UDP]
+[14:56:26] [EXTERNO] 10.11.8.91 → 10.11.11.255 [UDP]
+[14:56:26] [FLUJO] 10.11.8.91 → 10.11.8.127 [ARP]
+[14:56:26] [FLUJO] 10.11.8.91 → 10.11.8.1 [ARP]
+[14:56:26] [EXTERNO] 10.11.8.208 → 224.0.0.7 [UDP]
+[14:56:27] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:28] [EXTERNO] 10.11.8.44 → 224.0.0.251 [UDP]
+[14:56:28] [FLUJO] 10.11.8.1 → 10.11.8.198 [ARP]
+[14:56:29] [EXTERNO] 10.11.8.92 → 224.0.0.251 [UDP]
+[14:56:29] [EXTERNO] 10.11.8.129 → 239.255.255.250 [UDP]
+[14:56:29] [FLUJO] 10.11.8.121 → 10.11.8.92 [ARP]
+[14:56:29] [FLUJO] 10.11.8.218 → 10.11.8.158 [ARP]
+[14:56:29] [FLUJO] 10.11.8.218 → 10.11.8.121 [ARP]
+[14:56:29] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:29] [FLUJO] 10.11.8.91 → 10.11.8.92 [ARP]
+[14:56:29] [FLUJO] 10.11.8.121 → 10.11.8.218 [ARP]
+[14:56:30] [FLUJO] 10.11.8.219 → 10.11.8.1 [ARP]
+[14:56:30] [EXTERNO] 10.11.8.219 → 224.0.0.251 [UDP]
+[14:56:31] [FLUJO] 10.11.8.1 → 10.11.8.197 [ARP]
+[14:56:31] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:33] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:34] [EXTERNO] 10.11.8.19 → 224.0.0.251 [UDP]
+[14:56:35] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:35] [STATS] Recálculo: 134 nodos | alertas: 5
+[14:56:36] [FLUJO] 10.11.8.121 → 10.11.8.182 [ARP]
+[14:56:37] [FLUJO] 10.11.8.1 → 10.11.8.191 [ARP]
+[14:56:37] [FLUJO] 10.11.8.1 → 10.11.8.211 [ARP]
+[14:56:37] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:37] [EXTERNO] 10.11.8.59 → 224.0.0.251 [UDP]
+[14:56:39] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:39] [FLUJO] 10.11.8.1 → 10.11.8.166 [ARP]
+[14:56:41] [EXTERNO] 10.11.8.208 → 239.255.255.250 [UDP]
+[14:56:41] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:42] [RED] Nuevo host: 10.11.8.220 | MAC: 86:1e:c3:70:f1:ab | via ARP
+[14:56:42] [FLUJO] 10.11.8.220 → 10.11.8.1 [ARP]
+[14:56:42] [FLUJO] 10.11.8.36 → 10.11.8.1 [ARP]
+[14:56:42] [SCANNER] Escaneando puertos de 10.11.8.220...
+[14:56:42] [EXTERNO] 10.11.8.59 → 10.11.11.255 [UDP]
+[14:56:43] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:43] [FLUJO] 10.11.8.197 → 10.11.8.158 [ARP]
+[14:56:44] [RED] Nuevo host: 10.11.8.89 | MAC: ee:96:a8:d6:7d:3a | via ARP
+[14:56:44] [FLUJO] 10.11.8.89 → 10.11.8.158 [ARP]
+[14:56:44] [EXTERNO] 10.11.8.89 → 224.0.0.251 [UDP]
+[14:56:45] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:46] [FLUJO] 10.11.8.1 → 10.11.8.128 [ARP]
+[14:56:46] [EXTERNO] 10.11.8.120 → 224.0.0.251 [UDP]
+[14:56:47] [EXTERNO] 10.11.8.220 → 10.11.11.65 [TCP]
+[14:56:47] [SCANNER] Escaneando puertos de 10.11.8.89...
+[14:56:47] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:48] [EXTERNO] 10.11.8.192 → 224.0.0.251 [UDP]
+[14:56:48] [FLUJO] 10.11.8.212 → 10.11.8.158 [ARP]
+[14:56:48] [FLUJO] 10.11.8.121 → 10.11.8.212 [ARP]
+[14:56:48] [EXTERNO] 10.11.8.110 → 224.0.0.251 [UDP]
+[14:56:48] [EXTERNO] 10.11.8.192 → 239.255.255.250 [UDP]
+[14:56:49] [EXTERNO] 10.11.8.104 → 239.255.255.250 [UDP]
+[14:56:49] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:50] [STATS] Recálculo: 137 nodos | alertas: 5
+[14:56:51] [EXTERNO] 10.11.8.32 → 224.0.0.251 [UDP]
+[14:56:51] [FLUJO] 10.11.8.1 → 10.11.8.88 [ARP]
+[14:56:51] [FLUJO] 10.11.8.128 → 10.11.8.1 [ARP]
+[14:56:51] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:52] [FLUJO] 10.11.8.1 → 10.11.8.193 [ARP]
+[14:56:52] [EXTERNO] 10.11.8.48 → 224.0.0.251 [UDP]
+[14:56:53] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:55] [EXTERNO] 10.11.8.120 → 10.11.11.255 [UDP]
+[14:56:55] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:56] [EXTERNO] 10.11.8.122 → 224.0.0.251 [UDP]
+[14:56:56] [EXTERNO] 10.11.8.167 → 224.0.0.251 [UDP]
+[14:56:56] [FLUJO] 10.11.8.91 → 10.11.8.186 [ARP]
+[14:56:56] [EXTERNO] 10.11.8.190 → 224.0.0.251 [UDP]
+[14:56:57] [FLUJO] 10.11.8.91 → 10.11.8.1 [ARP]
+[14:56:57] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:57] [EXTERNO] 10.11.8.128 → 239.255.255.250 [UDP]
+[14:56:58] [FLUJO] 10.11.8.223 → 10.11.8.1 [ARP]
+[14:56:58] [EXTERNO] 10.11.8.26 → 224.0.0.251 [UDP]
+[14:56:59] [EXTERNO] 10.11.8.223 → 239.255.255.250 [UDP]
+[14:56:59] [FLUJO] 10.11.8.1 → 10.11.8.198 [ARP]
+[14:56:59] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:56:59] [FLUJO] 10.11.8.194 → 10.11.8.1 [ARP]
+[14:57:00] [EXTERNO] 10.11.8.194 → 224.0.0.251 [UDP]
+[14:57:00] [FLUJO] 10.11.8.106 → 10.11.8.121 [ARP]
+[14:57:00] [FLUJO] 10.11.8.1 → 10.11.8.199 [ARP]
+[14:57:01] [EXTERNO] 10.11.8.81 → 224.0.0.251 [UDP]
+[14:57:01] [EXTERNO] 10.11.8.211 → 239.255.255.250 [UDP]
+[14:57:01] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:02] [RED] Nuevo host: 10.11.8.224 | MAC: 9a:07:81:4e:8e:bf | via ARP
+[14:57:02] [FLUJO] 10.11.8.224 → 10.11.8.1 [ARP]
+[14:57:02] [RED] Nuevo host: 10.11.8.114 | MAC: 06:ef:f6:c8:6f:29 | via ARP
+[14:57:02] [FLUJO] 10.11.8.114 → 10.11.8.1 [ARP]
+[14:57:02] [FLUJO] 10.11.8.81 → 10.11.8.1 [ARP]
+[14:57:02] [EXTERNO] 10.11.8.208 → 10.11.11.255 [UDP]
+[14:57:03] [SCANNER] Escaneando puertos de 10.11.8.224...
+[14:57:03] [EXTERNO] 10.11.8.1 → 255.255.255.255 [UDP]
+[14:57:03] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:05] [RED] Nuevo host: 10.11.8.90 | MAC: 7e:79:80:4f:47:da | via IP
+[14:57:05] [EXTERNO] 10.11.8.90 → 224.0.0.251 [UDP]
+[14:57:05] [EXTERNO] 10.11.8.97 → 224.0.0.251 [UDP]
+[14:57:05] [FLUJO] 10.11.8.194 → 10.11.8.158 [ARP]
+[14:57:05] [STATS] Recálculo: 142 nodos | alertas: 5
+[14:57:05] [EXTERNO] 10.11.8.186 → 224.0.0.251 [UDP]
+[14:57:06] [FLUJO] 10.11.8.91 → 10.11.8.158 [ARP]
+[14:57:06] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:07] [FLUJO] 10.11.8.1 → 10.11.8.185 [ARP]
+[14:57:07] [FLUJO] 10.11.8.1 → 10.11.8.191 [ARP]
+[14:57:08] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:08] [FLUJO] 10.11.8.230 → 10.11.8.1 [ARP]
+[14:57:08] [EXTERNO] 10.11.8.129 → 10.11.11.255 [UDP]
+[14:57:08] [FLUJO] 10.11.8.106 → 10.11.8.91 [ARP]
+[14:57:09] [EXTERNO] 10.11.8.230 → 224.0.0.251 [UDP]
+[14:57:09] [EXTERNO] 10.11.8.128 → 224.0.0.251 [UDP]
+[14:57:10] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:10] [EXTERNO] 10.11.8.57 → 224.0.0.251 [UDP]
+[14:57:10] [FLUJO] 10.11.8.81 → 10.11.8.91 [ARP]
+[14:57:10] [EXTERNO] 10.11.8.230 → 239.255.255.250 [UDP]
+[14:57:11] [RED] Nuevo host: 10.11.8.232 | MAC: 18:1d:ea:05:d2:32 | via ARP
+[14:57:11] [FLUJO] 10.11.8.232 → 10.11.8.1 [ARP]
+[14:57:11] [RED] Nuevo host: 10.11.8.231 | MAC: c4:06:83:32:a4:be | via ARP
+[14:57:11] [FLUJO] 10.11.8.231 → 10.11.8.1 [ARP]
+[14:57:11] [EXTERNO] 10.11.8.232 → 224.0.0.252 [UDP]
+[14:57:11] [FLUJO] 10.11.8.199 → 10.11.8.1 [ARP]
+[14:57:12] [EXTERNO] 10.11.8.137 → 10.11.11.255 [UDP]
+[14:57:12] [EXTERNO] 10.11.8.199 → 224.0.0.251 [UDP]
+[14:57:12] [FLUJO] 10.11.8.1 → 10.11.8.166 [ARP]
+[14:57:12] [EXTERNO] 10.11.8.103 → 239.255.255.250 [UDP]
+[14:57:12] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:12] [EXTERNO] 10.11.8.230 → 10.11.11.255 [UDP]
+[14:57:12] [EXTERNO] 10.11.8.199 → 239.255.255.250 [UDP]
+[14:57:12] [RED] Nuevo host: 10.11.8.210 | MAC: d8:80:83:b5:0a:09 | via ARP
+[14:57:12] [FLUJO] 10.11.8.210 → 10.11.8.45 [ARP]
+[14:57:12] [FLUJO] 10.11.8.45 → 10.11.8.210 [ARP]
+[14:57:12] [EXTERNO] 10.11.8.232 → 10.11.11.255 [UDP]
+[14:57:12] [SCANNER] Escaneando puertos de 10.11.8.114...
+[14:57:12] [FLUJO] 10.11.8.1 → 10.11.8.217 [ARP]
+[14:57:14] [SCANNER] Escaneando puertos de 10.11.8.90...
+[14:57:14] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:15] [RED] Nuevo host: 10.11.8.233 | MAC: 82:99:bb:98:68:53 | via IP
+[14:57:15] [EXTERNO] 10.11.8.233 → 224.0.0.251 [UDP]
+[14:57:15] [EXTERNO] 10.11.8.103 → 255.255.255.255 [UDP]
+[14:57:15] [SCANNER] Escaneando puertos de 10.11.8.232...
+[14:57:16] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:17] [EXTERNO] 10.11.8.65 → 224.0.0.251 [UDP]
+[14:57:17] [SCANNER] Escaneando puertos de 10.11.8.231...
+[14:57:17] [FLUJO] 10.11.8.233 → 10.11.8.208 [ARP]
+[14:57:17] [FLUJO] 10.11.8.81 → 10.11.8.65 [ARP]
+[14:57:17] [EXTERNO] 10.11.8.67 → 224.0.0.251 [UDP]
+[14:57:17] [FLUJO] 10.11.8.1 → 10.11.8.114 [ARP]
+[14:57:18] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:18] [FLUJO] 10.11.8.1 → 10.11.8.91 [ARP]
+[14:57:18] [SCANNER] Escaneando puertos de 10.11.8.210...
+[14:57:18] [FLUJO] 10.11.8.60 → 10.11.8.1 [ARP]
+[14:57:19] [EXTERNO] 10.11.8.214 → 224.0.0.251 [UDP]
+[14:57:19] [EXTERNO] 10.11.8.250 → 224.0.0.251 [UDP]
+[14:57:19] [FLUJO] 10.11.8.1 → 10.11.8.231 [ARP]
+[14:57:19] [FLUJO] 10.11.8.120 → 10.11.8.208 [ARP]
+[14:57:19] [EXTERNO] 10.11.8.233 → 239.255.255.250 [UDP]
+[14:57:20] [EXTERNO] 10.11.8.112 → 224.0.0.251 [UDP]
+[14:57:20] [EXTERNO] 10.11.8.120 → 239.255.255.250 [UDP]
+[14:57:20] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:20] [STATS] Recálculo: 148 nodos | alertas: 5
+[14:57:21] [FLUJO] 10.11.8.77 → 10.11.8.201 [ARP]
+[14:57:21] [EXTERNO] 10.11.8.189 → 224.0.0.251 [UDP]
+[14:57:21] [FLUJO] 10.11.8.1 → 10.11.8.232 [ARP]
+[14:57:21] [EXTERNO] 10.11.8.93 → 224.0.0.251 [UDP]
+[14:57:22] [FLUJO] 10.11.8.1 → 10.11.8.88 [ARP]
+[14:57:22] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:22] [FLUJO] 10.11.8.235 → 10.11.8.1 [ARP]
+[14:57:22] [EXTERNO] 10.11.8.233 → 10.11.11.255 [UDP]
+[14:57:22] [EXTERNO] 10.11.8.235 → 224.0.0.251 [UDP]
+[14:57:22] [FLUJO] 10.11.8.235 → 10.11.8.217 [ARP]
+[14:57:22] [FLUJO] 10.11.8.235 → 10.11.8.132 [ARP]
+[14:57:22] [EXTERNO] 10.11.8.250 → 239.255.255.250 [UDP]
+[14:57:22] [EXTERNO] 10.11.8.197 → 224.0.0.251 [UDP]
+[14:57:24] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:24] [RED] Nuevo host: 10.11.8.234 | MAC: 4c:02:20:f9:91:e6 | via ARP
+[14:57:24] [FLUJO] 10.11.8.234 → 10.11.8.1 [ARP]
+[14:57:25] [EXTERNO] 10.11.8.234 → 224.0.0.251 [UDP]
+[14:57:25] [RED] Nuevo host: 10.11.8.236 | MAC: e2:ee:58:af:d5:8c | via ARP
+[14:57:25] [FLUJO] 10.11.8.236 → 10.11.8.1 [ARP]
+[14:57:26] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:26] [EXTERNO] 10.11.8.208 → 224.0.0.7 [UDP]
+[14:57:26] [EXTERNO] 10.11.8.158 → 224.0.0.251 [UDP]
+[14:57:27] [EXTERNO] 10.11.8.155 → 239.255.255.250 [UDP]
+[14:57:27] [FLUJO] 10.11.8.166 → 10.11.8.1 [ARP]
+[14:57:27] [EXTERNO] 10.11.8.166 → 224.0.0.252 [UDP]
+[14:57:28] [EXTERNO] 10.11.8.166 → 10.11.11.255 [UDP]
+[14:57:28] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:29] [EXTERNO] 10.11.8.166 → 239.255.255.250 [UDP]
+[14:57:29] [FLUJO] 10.11.8.1 → 10.11.8.198 [ARP]
+[14:57:29] [FLUJO] 10.11.8.1 → 10.11.8.197 [ARP]
+[14:57:29] [FLUJO] 10.11.8.81 → 10.11.8.197 [ARP]
+[14:57:30] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:31] [SCANNER] Timeout en 10.11.8.210
+[14:57:31] [SCANNER] Escaneando puertos de 10.11.8.233...
+[14:57:32] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:33] [EXTERNO] 10.11.8.59 → 239.255.255.250 [UDP]
+[14:57:33] [EXTERNO] 10.11.8.172 → 224.0.0.251 [UDP]
+[14:57:33] [SCANNER] Escaneando puertos de 10.11.8.234...
+[14:57:34] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:34] [APP] Tráfico lateral: desactivado
+[14:57:34] [EXTERNO] 10.11.8.211 → 10.11.11.255 [UDP]
+[14:57:34] [SCANNER] Escaneando puertos de 10.11.8.236...
+[14:57:35] [ALERTA] 10.11.8.212 está haciendo ARP scan (≥20 ARPs a hosts desconocidos)
+[14:57:35] [EXTERNO] 10.11.8.212 → 224.0.0.251 [UDP]
+[14:57:35] [STATS] Recálculo: 152 nodos | alertas: 5
+[14:57:35] [EXTERNO] 10.11.8.31 → 224.0.0.251 [UDP]
+[14:57:36] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:37] [FLUJO] 10.11.8.1 → 10.11.8.185 [ARP]
+[14:57:37] [FLUJO] 10.11.8.211 → 10.11.8.24 [ARP]
+[14:57:38] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:38] [FLUJO] 10.11.8.1 → 10.11.8.73 [ARP]
+[14:57:39] [EXTERNO] 10.11.8.216 → 224.0.0.251 [UDP]
+[14:57:39] [FLUJO] 10.11.8.186 → 10.11.8.216 [ARP]
+[14:57:39] [EXTERNO] 10.11.8.63 → 224.0.0.251 [UDP]
+[14:57:39] [FLUJO] 10.11.8.216 → 10.11.8.1 [ARP]
+[14:57:39] [FLUJO] 10.11.8.1 → 10.11.8.191 [ARP]
+[14:57:40] [EXTERNO] 10.11.8.211 → 224.0.0.251 [UDP]
+[14:57:40] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:40] [EXTERNO] 10.11.8.138 → 224.0.0.251 [UDP]
+[14:57:41] [EXTERNO] 10.11.8.208 → 239.255.255.250 [UDP]
+[14:57:41] [RED] Nuevo host: 10.11.8.237 | MAC: 92:71:72:e4:d1:b5 | via ARP
+[14:57:41] [FLUJO] 10.11.8.237 → 10.11.8.1 [ARP]
+[14:57:41] [FLUJO] 10.11.8.27 → 10.11.8.211 [ARP]
+[14:57:42] [EXTERNO] 10.11.8.216 → 10.11.11.255 [UDP]
+[14:57:42] [ALERTA] 10.11.8.127 está haciendo ARP scan (≥20 ARPs a hosts desconocidos)
+[14:57:42] [EXTERNO] 10.11.8.25 → 239.255.255.250 [UDP]
+[14:57:42] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:42] [EXTERNO] 10.11.8.170 → 239.255.255.250 [UDP]
+[14:57:42] [FLUJO] 10.11.8.1 → 10.11.8.213 [ARP]
+[14:57:42] [EXTERNO] 10.11.8.182 → 224.0.0.251 [UDP]
+[14:57:43] [FLUJO] 10.11.8.1 → 10.11.8.184 [ARP]
+[14:57:44] [ALERTA] 10.11.8.62 está haciendo ARP scan (≥20 ARPs a hosts desconocidos)
+[14:57:44] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:45] [EXTERNO] 10.11.8.91 → 224.0.0.251 [UDP]
+[14:57:46] [FLUJO] 10.11.8.91 → 10.11.8.1 [ARP]
+[14:57:46] [EXTERNO] 10.11.8.120 → 224.0.0.251 [UDP]
+[14:57:46] [EXTERNO] 10.11.8.201 → 10.11.11.255 [UDP]
+[14:57:46] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:47] [EXTERNO] 10.11.8.236 → 10.11.11.65 [TCP]
+[14:57:47] [EXTERNO] 10.11.8.181 → 224.0.0.251 [UDP]
+[14:57:47] [SCANNER] Escaneando puertos de 10.11.8.237...
+[14:57:47] [EXTERNO] 10.11.8.91 → 10.11.11.255 [UDP]
+[14:57:48] [RED] Nuevo host: 10.11.8.202 | MAC: 32:5c:84:77:42:52 | via UDP
+[14:57:48] [EXTERNO] 10.11.8.202 → 224.0.0.251 [UDP]
+[14:57:48] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:49] [FLUJO] 10.11.8.202 → 10.11.8.1 [ARP]
+[14:57:49] [SCANNER] Escaneando puertos de 10.11.8.202...
+[14:57:49] [EXTERNO] 10.11.8.130 → 10.11.11.255 [UDP]
+[14:57:49] [RED] Nuevo host: 10.11.8.238 | MAC: 1e:50:49:64:53:1c | via ARP
+[14:57:49] [FLUJO] 10.11.8.238 → 10.11.8.1 [ARP]
+[14:57:49] [EXTERNO] 10.11.8.201 → 239.255.255.250 [UDP]
+[14:57:49] [EXTERNO] 10.11.8.130 → 224.0.0.251 [UDP]
+[14:57:50] [SCANNER] Escaneando puertos de 10.11.8.238...
+[14:57:50] [STATS] Recálculo: 155 nodos | alertas: 5
+[14:57:50] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:51] [EXTERNO] 10.11.8.130 → 239.255.255.250 [UDP]
+[14:57:51] [FLUJO] 10.11.8.1 → 10.11.8.114 [ARP]
+[14:57:51] [FLUJO] 10.11.8.158 → 10.11.8.202 [ARP]
+[14:57:52] [ALERTA] 10.11.8.211 está haciendo ARP scan (≥20 ARPs a hosts desconocidos)
+[14:57:52] [RED] Nuevo host: 10.11.8.22 | MAC: e6:bd:89:78:23:7f | via IP
+[14:57:52] [FLUJO] 10.11.8.81 → 10.11.8.189 [ARP]
+[14:57:52] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:52] [EXTERNO] 10.11.8.102 → 239.255.255.250 [UDP]
+[14:57:52] [FLUJO] 10.11.8.1 → 10.11.8.88 [ARP]
+[14:57:53] [EXTERNO] 10.11.8.159 → 224.0.0.251 [UDP]
+[14:57:53] [SCANNER] Escaneando puertos de 10.11.8.22...
+[14:57:54] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:55] [EXTERNO] 10.11.8.238 → 10.11.11.65 [TCP]
+[14:57:56] [EXTERNO] 10.11.8.59 → 10.11.11.255 [UDP]
+[14:57:56] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:57:57] [EXTERNO] 10.11.8.190 → 224.0.0.251 [UDP]
+[14:57:58] [EXTERNO] 10.11.8.167 → 224.0.0.251 [UDP]
+[14:57:58] [FLUJO] 10.11.8.201 → 10.11.8.211 [ARP]
+[14:57:58] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:00] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:01] [FLUJO] 10.11.8.1 → 10.11.8.198 [ARP]
+[14:58:01] [FLUJO] 10.11.8.1 → 10.11.8.153 [ARP]
+[14:58:01] [FLUJO] 10.11.8.1 → 10.11.8.133 [ARP]
+[14:58:01] [FLUJO] 10.11.8.1 → 10.11.8.77 [ARP]
+[14:58:02] [FLUJO] 10.11.8.1 → 10.11.8.194 [ARP]
+[14:58:02] [EXTERNO] 10.11.8.208 → 10.11.11.255 [UDP]
+[14:58:02] [EXTERNO] 10.11.8.92 → 224.0.0.251 [UDP]
+[14:58:02] [EXTERNO] 10.11.8.194 → 224.0.0.251 [UDP]
+[14:58:02] [EXTERNO] 10.11.8.236 → 224.0.0.251 [UDP]
+[14:58:02] [EXTERNO] 10.11.8.101 → 239.255.255.250 [UDP]
+[14:58:02] [EXTERNO] 10.11.8.81 → 224.0.0.251 [UDP]
+[14:58:02] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:03] [EXTERNO] 10.11.8.211 → 239.255.255.250 [UDP]
+[14:58:03] [FLUJO] 10.11.8.241 → 10.11.8.1 [ARP]
+[14:58:04] [EXTERNO] 10.11.8.241 → 224.0.0.251 [UDP]
+[14:58:04] [FLUJO] 10.11.8.158 → 10.11.8.92 [ARP]
+[14:58:04] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:05] [EXTERNO] 10.11.8.11 → 224.0.0.251 [UDP]
+[14:58:05] [STATS] Recálculo: 158 nodos | alertas: 5
+[14:58:06] [FLUJO] 10.11.8.81 → 10.11.8.31 [ARP]
+[14:58:06] [RED] Nuevo host: 10.11.8.242 | MAC: 7e:be:6f:e2:1d:5b | via IP
+[14:58:07] [EXTERNO] 10.11.8.155 → 10.11.11.255 [UDP]
+[14:58:07] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:07] [SCANNER] Escaneando puertos de 10.11.8.242...
+[14:58:07] [FLUJO] 10.11.8.1 → 10.11.8.185 [ARP]
+[14:58:07] [FLUJO] 10.11.8.1 → 10.11.8.128 [ARP]
+[14:58:08] [EXTERNO] 10.11.8.27 → 239.255.255.250 [UDP]
+[14:58:08] [EXTERNO] 10.11.8.129 → 10.11.11.255 [UDP]
+[14:58:08] [EXTERNO] 10.11.8.242 → 239.255.255.250 [UDP]
+[14:58:08] [EXTERNO] 10.11.8.242 → 224.0.0.251 [UDP]
+[14:58:09] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:09] [FLUJO] 10.11.8.243 → 10.11.8.1 [ARP]
+[14:58:09] [EXTERNO] 10.11.8.243 → 224.0.0.251 [UDP]
+[14:58:09] [FLUJO] 10.11.8.24 → 10.11.8.211 [ARP]
+[14:58:10] [FLUJO] 10.11.8.31 → 10.11.8.220 [ARP]
+[14:58:10] [EXTERNO] 10.11.8.175 → 10.11.11.255 [UDP]
+[14:58:11] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:11] [FLUJO] 10.11.8.211 → 10.11.8.27 [ARP]
+[14:58:12] [FLUJO] 10.11.8.1 → 10.11.8.191 [ARP]
+[14:58:12] [EXTERNO] 10.11.8.238 → 10.11.11.255 [UDP]
+[14:58:12] [EXTERNO] 10.11.8.230 → 224.0.0.251 [UDP]
+[14:58:13] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:15] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:15] [FLUJO] 10.11.8.1 → 10.11.8.61 [ARP]
+[14:58:15] [EXTERNO] 10.11.8.121 → 224.0.0.251 [UDP]
+[14:58:15] [FLUJO] 10.11.8.1 → 10.11.8.199 [ARP]
+[14:58:15] [FLUJO] 10.11.8.120 → 10.11.8.208 [ARP]
+[14:58:16] [FLUJO] 10.11.8.211 → 10.11.8.24 [ARP]
+[14:58:17] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:17] [EXTERNO] 10.11.8.120 → 10.11.11.255 [UDP]
+[14:58:17] [FLUJO] 10.11.8.1 → 10.11.8.91 [ARP]
+[14:58:17] [EXTERNO] 10.11.8.1 → 255.255.255.255 [UDP]
+[14:58:18] [EXTERNO] 10.11.8.77 → 224.0.0.251 [UDP]
+[14:58:19] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:20] [STATS] Recálculo: 162 nodos | alertas: 5
+[14:58:20] [RED] Nuevo host: 10.11.8.244 | MAC: ea:ba:25:c5:61:78 | via IP
+[14:58:21] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:21] [EXTERNO] 10.11.8.238 → 239.255.255.250 [UDP]
+[14:58:21] [EXTERNO] 10.11.8.246 → 224.0.0.251 [UDP]
+[14:58:22] [EXTERNO] 10.11.8.44 → 224.0.0.251 [UDP]
+[14:58:22] [EXTERNO] 10.11.8.112 → 224.0.0.251 [UDP]
+[14:58:22] [SCANNER] Escaneando puertos de 10.11.8.244...
+[14:58:22] [FLUJO] 10.11.8.1 → 10.11.8.114 [ARP]
+[14:58:22] [EXTERNO] 10.11.8.189 → 224.0.0.251 [UDP]
+[14:58:23] [EXTERNO] 10.11.8.238 → 224.0.0.251 [UDP]
+[14:58:23] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:24] [EXTERNO] 10.11.8.244 → 224.0.0.251 [UDP]
+[14:58:24] [EXTERNO] 10.11.8.244 → 10.11.11.255 [UDP]
+[14:58:25] [EXTERNO] 10.11.8.155 → 224.0.0.251 [UDP]
+[14:58:25] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:27] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:27] [EXTERNO] 10.11.8.158 → 224.0.0.251 [UDP]
+[14:58:29] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:29] [FLUJO] 10.11.8.1 → 10.11.8.235 [ARP]
+[14:58:30] [FLUJO] 10.11.8.1 → 10.11.8.236 [ARP]
+[14:58:30] [FLUJO] 10.11.8.1 → 10.11.8.120 [ARP]
+[14:58:30] [EXTERNO] 10.11.8.244 → 10.11.11.65 [TCP]
+[14:58:31] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:31] [RED] Nuevo host: 10.11.8.39 | MAC: ee:8c:2a:67:a5:dd | via IP
+[14:58:31] [EXTERNO] 10.11.8.39 → 224.0.0.251 [UDP]
+[14:58:31] [EXTERNO] 10.11.8.186 → 224.0.0.251 [UDP]
+[14:58:31] [EXTERNO] 10.11.8.120 → 239.255.255.250 [UDP]
+[14:58:32] [FLUJO] 10.11.8.243 → 10.11.8.81 [ARP]
+[14:58:32] [FLUJO] 10.11.8.1 → 10.11.8.122 [ARP]
+[14:58:32] [FLUJO] 10.11.8.216 → 10.11.8.186 [ARP]
+[14:58:32] [EXTERNO] 10.11.8.208 → 224.0.0.7 [UDP]
+[14:58:33] [FLUJO] 10.11.8.1 → 10.11.8.184 [ARP]
+[14:58:33] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:33] [EXTERNO] 10.11.8.106 → 224.0.0.251 [UDP]
+[14:58:34] [FLUJO] 10.11.8.216 → 10.11.8.1 [ARP]
+[14:58:34] [SCANNER] Escaneando puertos de 10.11.8.39...
+[14:58:35] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:35] [STATS] Recálculo: 165 nodos | alertas: 5
+[14:58:36] [RED] Nuevo host: 10.11.8.150 | MAC: ee:69:4b:3d:1d:26 | via ARP
+[14:58:36] [FLUJO] 10.11.8.150 → 10.11.8.1 [ARP]
+[14:58:37] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:37] [FLUJO] 10.11.8.1 → 10.11.8.185 [ARP]
+[14:58:38] [EXTERNO] 10.11.8.39 → 10.11.11.65 [TCP]
+[14:58:38] [SCANNER] Escaneando puertos de 10.11.8.150...
+[14:58:38] [FLUJO] 10.11.8.1 → 10.11.8.101 [ARP]
+[14:58:38] [FLUJO] 10.11.8.1 → 10.11.8.187 [ARP]
+[14:58:39] [FLUJO] 10.11.8.246 → 10.11.8.81 [ARP]
+[14:58:39] [FLUJO] 10.11.8.1 → 10.11.8.194 [ARP]
+[14:58:39] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:39] [EXTERNO] 10.11.8.13 → 224.0.0.251 [UDP]
+[14:58:39] [EXTERNO] 10.11.8.31 → 224.0.0.251 [UDP]
+[14:58:40] [EXTERNO] 10.11.8.172 → 224.0.0.251 [UDP]
+[14:58:40] [EXTERNO] 10.11.8.87 → 224.0.0.251 [UDP]
+[14:58:40] [EXTERNO] 10.11.8.17 → 224.0.0.251 [UDP]
+[14:58:40] [FLUJO] 10.11.8.1 → 10.11.8.197 [ARP]
+[14:58:41] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:41] [FLUJO] 10.11.8.1 → 10.11.8.128 [ARP]
+[14:58:41] [EXTERNO] 10.11.8.93 → 224.0.0.251 [UDP]
+[14:58:41] [EXTERNO] 10.11.8.48 → 224.0.0.251 [UDP]
+[14:58:42] [FLUJO] 10.11.8.242 → 10.11.8.1 [ARP]
+[14:58:42] [FLUJO] 10.11.8.1 → 10.11.8.237 [ARP]
+[14:58:42] [FLUJO] 10.11.8.1 → 10.11.8.218 [ARP]
+[14:58:42] [FLUJO] 10.11.8.1 → 10.11.8.191 [ARP]
+[14:58:43] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:43] [FLUJO] 10.11.8.245 → 10.11.8.1 [ARP]
+[14:58:43] [EXTERNO] 10.11.8.245 → 224.0.0.251 [UDP]
+[14:58:43] [EXTERNO] 10.11.8.127 → 10.11.11.255 [UDP]
+[14:58:43] [FLUJO] 10.11.8.81 → 10.11.8.48 [ARP]
+[14:58:43] [ALERTA] 10.11.8.81 está haciendo ARP scan (≥20 ARPs a hosts desconocidos)
+[14:58:43] [FLUJO] 10.11.8.81 → 10.11.8.92 [ARP]
+[14:58:44] [FLUJO] 10.11.8.1 → 10.11.8.193 [ARP]
+[14:58:44] [FLUJO] 10.11.8.66 → 10.11.8.121 [ARP]
+[14:58:44] [EXTERNO] 10.11.8.66 → 224.0.0.251 [UDP]
+[14:58:45] [FLUJO] 10.11.8.1 → 10.11.8.202 [ARP]
+[14:58:45] [FLUJO] 10.11.8.81 → 10.11.8.66 [ARP]
+[14:58:45] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:45] [EXTERNO] 10.11.8.59 → 224.0.0.251 [UDP]
+[14:58:46] [FLUJO] 10.11.8.19 → 10.11.8.1 [ARP]
+[14:58:47] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:47] [FLUJO] 10.11.8.59 → 10.11.8.1 [ARP]
+[14:58:47] [FLUJO] 10.11.8.169 → 10.11.8.91 [ARP]
+[14:58:47] [FLUJO] 10.11.8.169 → 10.11.8.158 [ARP]
+[14:58:47] [EXTERNO] 10.11.8.154 → 224.0.0.251 [UDP]
+[14:58:48] [EXTERNO] 10.11.8.169 → 224.0.0.251 [UDP]
+[14:58:48] [EXTERNO] 10.11.8.19 → 239.255.255.250 [UDP]
+[14:58:48] [FLUJO] 10.11.8.169 → 10.11.8.1 [ARP]
+[14:58:48] [EXTERNO] 10.11.8.252 → 224.0.0.251 [UDP]
+[14:58:49] [FLUJO] 10.11.8.158 → 10.11.8.252 [ARP]
+[14:58:49] [FLUJO] 10.11.8.247 → 10.11.8.1 [ARP]
+[14:58:49] [EXTERNO] 10.11.8.247 → 224.0.0.251 [UDP]
+[14:58:49] [EXTERNO] 10.11.8.130 → 224.0.0.251 [UDP]
+[14:58:49] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:49] [EXTERNO] 10.11.8.59 → 239.255.255.250 [UDP]
+[14:58:49] [FLUJO] 10.11.8.91 → 10.11.8.1 [ARP]
+[14:58:49] [EXTERNO] 10.11.8.127 → 224.0.0.251 [UDP]
+[14:58:49] [EXTERNO] 10.11.8.127 → 224.0.0.252 [UDP]
+[14:58:50] [EXTERNO] 10.11.8.91 → 224.0.0.251 [UDP]
+[14:58:50] [FLUJO] 10.11.8.186 → 10.11.8.91 [ARP]
+[14:58:50] [FLUJO] 10.11.8.81 → 10.11.8.11 [ARP]
+[14:58:50] [EXTERNO] 10.11.8.170 → 239.255.255.250 [UDP]
+[14:58:50] [EXTERNO] 10.11.8.234 → 224.0.0.251 [UDP]
+[14:58:50] [STATS] Recálculo: 172 nodos | alertas: 5
+[14:58:51] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:52] [FLUJO] 10.11.8.187 → 10.11.8.91 [ARP]
+[14:58:52] [FLUJO] 10.11.8.187 → 10.11.8.81 [ARP]
+[14:58:52] [EXTERNO] 10.11.8.187 → 224.0.0.251 [UDP]
+[14:58:52] [FLUJO] 10.11.8.1 → 10.11.8.246 [ARP]
+[14:58:52] [FLUJO] 10.11.8.187 → 10.11.8.208 [ARP]
+[14:58:53] [FLUJO] 10.11.8.187 → 10.11.8.1 [ARP]
+[14:58:53] [EXTERNO] 10.11.8.130 → 10.11.11.255 [UDP]
+[14:58:53] [EXTERNO] 10.11.8.208 → 239.255.255.250 [UDP]
+[14:58:53] [EXTERNO] 10.11.8.120 → 224.0.0.251 [UDP]
+[14:58:53] [FLUJO] 10.11.8.1 → 10.11.8.114 [ARP]
+[14:58:53] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:54] [ALERTA] 10.11.8.187 está haciendo ARP scan (≥20 ARPs a hosts desconocidos)
+[14:58:55] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:58:55] [RED] Nuevo host: 10.11.8.253 | MAC: 3a:b8:21:31:e4:04 | via ARP
+[14:58:55] [FLUJO] 10.11.8.253 → 10.11.8.1 [ARP]
+[14:58:55] [SCANNER] Escaneando puertos de 10.11.8.253...
+[14:58:57] [FLUJO] 10.11.8.255 → 10.11.8.1 [ARP]
+[14:58:57] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[14:58:58] [FLUJO] 10.11.8.1 → 10.11.8.169 [ARP]
+[14:58:59] [EXTERNO] 10.11.8.167 → 224.0.0.251 [UDP]
+[14:58:59] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:01] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:02] [EXTERNO] 10.11.8.187 → 239.255.255.250 [UDP]
+[14:59:03] [FLUJO] 10.11.8.1 → 10.11.8.235 [ARP]
+[14:59:03] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[14:59:04] [FLUJO] 10.11.8.1 → 10.11.8.97 [ARP]
+[14:59:05] [FLUJO] 10.11.8.1 → 10.11.8.236 [ARP]
+[14:59:05] [EXTERNO] 10.11.8.92 → 224.0.0.251 [UDP]
+[14:59:05] [STATS] Recálculo: 174 nodos | alertas: 5
+[14:59:05] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[14:59:07] [EXTERNO] 10.11.8.67 → 224.0.0.251 [UDP]
+[14:59:07] [EXTERNO] 10.11.8.22 → 224.0.0.251 [UDP]
+[14:59:07] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[14:59:08] [EXTERNO] 10.11.8.81 → 224.0.0.251 [UDP]
+[14:59:08] [FLUJO] 10.11.8.1 → 10.11.8.185 [ARP]
+[14:59:08] [EXTERNO] 10.11.8.162 → 224.0.0.251 [UDP]
+[14:59:08] [EXTERNO] 10.11.8.208 → 10.11.11.255 [UDP]
+[14:59:09] [EXTERNO] 10.11.8.190 → 224.0.0.251 [UDP]
+[14:59:09] [FLUJO] 10.11.8.246 → 10.11.8.1 [ARP]
+[14:59:09] [FLUJO] 10.11.8.1 → 10.11.8.194 [ARP]
+[14:59:09] [RED] Nuevo host: 10.11.8.206 | MAC: fa:5b:85:a1:86:55 | via ARP
+[14:59:09] [FLUJO] 10.11.8.206 → 10.11.8.1 [ARP]
+[14:59:09] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[14:59:10] [EXTERNO] 10.11.8.206 → 239.255.255.250 [UDP]
+[14:59:11] [FLUJO] 10.11.8.162 → 10.11.8.81 [ARP]
+[14:59:11] [SCANNER] Escaneando puertos de 10.11.8.206...
+[14:59:11] [FLUJO] 10.11.8.1 → 10.11.8.197 [ARP]
+[14:59:11] [FLUJO] 10.11.8.187 → 10.11.8.121 [ARP]
+[14:59:11] [FLUJO] 10.11.8.1 → 10.11.8.88 [ARP]
+[14:59:11] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[14:59:12] [EXTERNO] 10.11.8.240 → 224.0.0.251 [UDP]
+[14:59:12] [EXTERNO] 10.11.8.138 → 224.0.0.251 [UDP]
+[14:59:12] [EXTERNO] 10.11.8.206 → 10.11.11.65 [TCP]
+[14:59:13] [FLUJO] 10.11.8.1 → 10.11.8.237 [ARP]
+[14:59:13] [FLUJO] 10.11.8.1 → 10.11.8.128 [ARP]
+[14:59:13] [ALERTA] 10.11.8.25 está haciendo ARP scan (≥20 ARPs a hosts desconocidos)
+[14:59:13] [EXTERNO] 10.11.8.25 → 10.11.11.65 [TCP]
+[14:59:13] [EXTERNO] 10.11.8.175 → 224.0.0.251 [UDP]
+[14:59:13] [EXTERNO] 10.11.8.11 → 224.0.0.251 [UDP]
+[14:59:13] [EXTERNO] 10.11.8.181 → 224.0.0.251 [UDP]
+[14:59:13] [EXTERNO] 10.11.8.15 → 10.11.11.65 [TCP]
+[14:59:13] [EXTERNO] 10.11.8.13 → 10.11.11.65 [TCP]
+[14:59:13] [EXTERNO] 10.11.8.22 → 10.11.11.65 [TCP]
+[14:59:13] [EXTERNO] 10.11.8.17 → 10.11.11.65 [TCP]
+[14:59:13] [EXTERNO] 10.11.8.26 → 10.11.11.65 [TCP]
+[14:59:13] [EXTERNO] 10.11.8.44 → 10.11.11.65 [TCP]
+[14:59:13] [FLUJO] 10.11.8.247 → 10.11.8.158 [ARP]
+[14:59:13] [FLUJO] 10.11.8.247 → 10.11.8.81 [ARP]
+[14:59:13] [FLUJO] 10.11.8.247 → 10.11.8.121 [ARP]
+[14:59:13] [EXTERNO] 10.11.8.35 → 10.11.11.65 [TCP]
+[14:59:13] [EXTERNO] 10.11.8.98 → 10.11.11.65 [TCP]
+[14:59:13] [EVENTO] 10 hosts se conectaron a 10.11.11.65 [TCP] en <10s — posible autenticación masiva
+[14:59:13] [EXTERNO] 10.11.8.93 → 10.11.11.65 [TCP]
+[14:59:13] [EXTERNO] 10.11.8.124 → 10.11.11.65 [TCP]
+[14:59:13] [EXTERNO] 10.11.8.72 → 10.11.11.65 [TCP]
+[14:59:13] [EXTERNO] 10.11.8.108 → 10.11.11.65 [TCP]
+[14:59:13] [EXTERNO] 10.11.8.19 → 10.11.11.65 [TCP]
+[14:59:13] [EXTERNO] 10.11.8.137 → 10.11.11.65 [TCP]
+[14:59:13] [EXTERNO] 10.11.8.1 → 10.11.11.65 [TCP]
+[14:59:13] [EXTERNO] 10.11.8.175 → 10.11.11.65 [TCP]
+[14:59:13] [EXTERNO] 10.11.8.172 → 10.11.11.65 [TCP]
+[14:59:14] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[14:59:14] [EXTERNO] 10.11.8.71 → 10.11.11.65 [TCP]
+[14:59:14] [EXTERNO] 10.11.8.158 → 10.11.11.65 [TCP]
+[14:59:14] [EXTERNO] 10.11.8.106 → 10.11.11.65 [TCP]
+[14:59:14] [EXTERNO] 10.11.8.181 → 10.11.11.65 [TCP]
+[14:59:14] [EXTERNO] 10.11.8.171 → 10.11.11.65 [TCP]
+[14:59:14] [EXTERNO] 10.11.8.30 → 10.11.11.65 [TCP]
+[14:59:14] [EXTERNO] 10.11.8.31 → 10.11.11.65 [TCP]
+[14:59:14] [EXTERNO] 10.11.8.57 → 10.11.11.65 [TCP]
+[14:59:14] [EXTERNO] 10.11.8.154 → 10.11.11.65 [TCP]
+[14:59:14] [EXTERNO] 10.11.8.130 → 10.11.11.65 [TCP]
+[14:59:14] [EXTERNO] 10.11.8.67 → 10.11.11.65 [TCP]
+[14:59:14] [EXTERNO] 10.11.8.109 → 10.11.11.65 [TCP]
+[14:59:14] [EXTERNO] 10.11.8.160 → 10.11.11.65 [TCP]
+[14:59:14] [EXTERNO] 10.11.8.159 → 10.11.11.65 [TCP]
+[14:59:14] [EXTERNO] 10.11.8.145 → 10.11.11.65 [TCP]
+[14:59:14] [EXTERNO] 10.11.8.139 → 10.11.11.65 [TCP]
+[14:59:14] [EXTERNO] 10.11.8.45 → 10.11.11.65 [TCP]
+[14:59:14] [EXTERNO] 10.11.8.20 → 10.11.11.65 [TCP]
+[14:59:14] [FLUJO] 10.11.8.1 → 10.11.8.199 [ARP]
+[14:59:14] [EXTERNO] 10.11.8.107 → 10.11.11.65 [TCP]
+[14:59:14] [EXTERNO] 10.11.8.112 → 10.11.11.65 [TCP]
+[14:59:14] [EXTERNO] 10.11.8.129 → 10.11.11.65 [TCP]
+[14:59:14] [EXTERNO] 10.11.8.192 → 224.0.0.251 [UDP]
+[14:59:14] [FLUJO] 10.11.8.1 → 10.11.8.193 [ARP]
+[14:59:14] [EXTERNO] 10.11.8.87 → 10.11.11.65 [TCP]
+[14:59:14] [EXTERNO] 10.11.8.32 → 10.11.11.65 [TCP]
+[14:59:15] [EXTERNO] 10.11.8.186 → 10.11.11.65 [TCP]
+[14:59:15] [FLUJO] 10.11.8.1 → 10.11.8.202 [ARP]
+[14:59:15] [FLUJO] 10.11.8.1 → 10.11.8.191 [ARP]
+[14:59:15] [EXTERNO] 10.11.8.60 → 10.11.11.65 [TCP]
+[14:59:15] [FLUJO] 10.11.8.1 → 10.11.8.61 [ARP]
+[14:59:15] [EXTERNO] 10.11.8.176 → 10.11.11.65 [TCP]
+[14:59:15] [FLUJO] 10.11.8.245 → 10.11.8.121 [ARP]
+[14:59:15] [FLUJO] 10.11.8.245 → 10.11.8.158 [ARP]
+[14:59:15] [FLUJO] 10.11.8.245 → 10.11.8.81 [ARP]
+[14:59:16] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:16] [EXTERNO] 10.11.8.165 → 10.11.11.65 [TCP]
+[14:59:16] [EXTERNO] 10.11.8.143 → 10.11.11.65 [TCP]
+[14:59:16] [EXTERNO] 10.11.8.74 → 10.11.11.65 [TCP]
+[14:59:16] [EXTERNO] 10.11.8.170 → 10.11.11.65 [TCP]
+[14:59:17] [EXTERNO] 10.11.8.84 → 10.11.11.65 [TCP]
+[14:59:17] [EXTERNO] 10.11.8.104 → 10.11.11.65 [TCP]
+[14:59:18] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:18] [EXTERNO] 10.11.8.73 → 10.11.11.65 [TCP]
+[14:59:18] [FLUJO] 10.11.8.1 → 10.11.8.91 [ARP]
+[14:59:18] [EXTERNO] 10.11.8.23 → 10.11.11.65 [TCP]
+[14:59:18] [FLUJO] 10.11.8.1 → 10.11.8.232 [ARP]
+[14:59:18] [EXTERNO] 10.11.8.230 → 224.0.0.251 [UDP]
+[14:59:19] [EXTERNO] 10.11.8.1 → 255.255.255.255 [UDP]
+[14:59:19] [EXTERNO] 10.11.8.250 → 224.0.0.251 [UDP]
+[14:59:20] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:20] [FLUJO] 10.11.8.130 → 10.11.8.1 [ARP]
+[14:59:20] [STATS] Recálculo: 175 nodos | alertas: 5
+[14:59:20] [FLUJO] 10.11.8.1 → 10.11.8.150 [ARP]
+[14:59:21] [EXTERNO] 10.11.8.77 → 10.11.11.65 [TCP]
+[14:59:22] [EXTERNO] 10.11.8.175 → 10.11.11.255 [UDP]
+[14:59:22] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:22] [FLUJO] 10.11.8.1 → 10.11.8.184 [ARP]
+[14:59:22] [EXTERNO] 10.11.8.104 → 239.255.255.250 [UDP]
+[14:59:22] [EXTERNO] 10.11.8.250 → 239.255.255.250 [UDP]
+[14:59:23] [FLUJO] 10.11.8.81 → 10.11.8.67 [ARP]
+[14:59:24] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:25] [FLUJO] 10.11.8.224 → 10.11.8.1 [ARP]
+[14:59:25] [EXTERNO] 10.11.8.215 → 10.11.11.65 [TCP]
+[14:59:25] [EXTERNO] 10.11.8.219 → 10.11.11.65 [TCP]
+[14:59:25] [FLUJO] 10.11.8.1 → 10.11.8.114 [ARP]
+[14:59:25] [EXTERNO] 10.11.8.230 → 10.11.11.65 [TCP]
+[14:59:25] [EXTERNO] 10.11.8.223 → 10.11.11.65 [TCP]
+[14:59:25] [EXTERNO] 10.11.8.250 → 10.11.11.65 [TCP]
+[14:59:25] [EXTERNO] 10.11.8.253 → 10.11.11.65 [TCP]
+[14:59:25] [EXTERNO] 10.11.8.199 → 10.11.11.65 [TCP]
+[14:59:25] [EXTERNO] 10.11.8.214 → 10.11.11.65 [TCP]
+[14:59:26] [EXTERNO] 10.11.8.129 → 10.11.11.255 [UDP]
+[14:59:26] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:26] [EXTERNO] 10.11.8.59 → 10.11.11.65 [TCP]
+[14:59:26] [EXTERNO] 10.11.8.221 → 10.11.11.65 [TCP]
+[14:59:26] [EXTERNO] 10.11.8.192 → 10.11.11.65 [TCP]
+[14:59:26] [EXTERNO] 10.11.8.190 → 10.11.11.65 [TCP]
+[14:59:27] [EXTERNO] 10.11.8.240 → 10.11.11.65 [TCP]
+[14:59:27] [EXTERNO] 10.11.8.155 → 239.255.255.250 [UDP]
+[14:59:27] [EXTERNO] 10.11.8.238 → 10.11.11.65 [TCP]
+[14:59:28] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:28] [FLUJO] 10.11.8.1 → 10.11.8.251 [ARP]
+[14:59:28] [EXTERNO] 10.11.8.233 → 10.11.11.65 [TCP]
+[14:59:28] [EXTERNO] 10.11.8.224 → 10.11.11.65 [TCP]
+[14:59:29] [FLUJO] 10.11.8.1 → 10.11.8.169 [ARP]
+[14:59:30] [EXTERNO] 10.11.8.222 → 10.11.11.65 [TCP]
+[14:59:30] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:31] [FLUJO] 10.11.8.1 → 10.11.8.242 [ARP]
+[14:59:32] [FLUJO] 10.11.8.1 → 10.11.8.153 [ARP]
+[14:59:32] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:32] [EXTERNO] 10.11.8.220 → 10.11.11.65 [TCP]
+[14:59:32] [EXTERNO] 10.11.8.233 → 10.11.11.255 [UDP]
+[14:59:32] [EXTERNO] 10.11.8.233 → 224.0.0.251 [UDP]
+[14:59:32] [EXTERNO] 10.11.8.195 → 239.255.255.250 [UDP]
+[14:59:33] [FLUJO] 10.11.8.1 → 10.11.8.133 [ARP]
+[14:59:33] [EXTERNO] 10.11.8.39 → 224.0.0.251 [UDP]
+[14:59:33] [EXTERNO] 10.11.8.239 → 10.11.11.65 [TCP]
+[14:59:33] [FLUJO] 10.11.8.242 → 10.11.8.1 [ARP]
+[14:59:34] [EXTERNO] 10.11.8.242 → 10.11.11.65 [TCP]
+[14:59:34] [FLUJO] 10.11.8.1 → 10.11.8.235 [ARP]
+[14:59:34] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:34] [EXTERNO] 10.11.8.125 → 224.0.0.251 [UDP]
+[14:59:34] [FLUJO] 10.11.8.125 → 10.11.8.158 [ARP]
+[14:59:34] [FLUJO] 10.11.8.125 → 10.11.8.91 [ARP]
+[14:59:34] [FLUJO] 10.11.8.125 → 10.11.8.121 [ARP]
+[14:59:34] [EXTERNO] 10.11.8.158 → 224.0.0.251 [UDP]
+[14:59:34] [EXTERNO] 10.11.8.208 → 224.0.0.7 [UDP]
+[14:59:34] [FLUJO] 10.11.8.81 → 10.11.8.125 [ARP]
+[14:59:35] [FLUJO] 10.11.8.1 → 10.11.8.231 [ARP]
+[14:59:35] [STATS] Recálculo: 175 nodos | alertas: 5
+[14:59:35] [EXTERNO] 10.11.8.242 → 239.255.255.250 [UDP]
+[14:59:35] [FLUJO] 10.11.8.1 → 10.11.8.234 [ARP]
+[14:59:36] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:36] [FLUJO] 10.11.8.1 → 10.11.8.97 [ARP]
+[14:59:37] [EXTERNO] 10.11.8.211 → 239.255.255.250 [UDP]
+[14:59:38] [FLUJO] 10.11.8.1 → 10.11.8.216 [ARP]
+[14:59:38] [FLUJO] 10.11.8.213 → 10.11.8.1 [ARP]
+[14:59:38] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:39] [EXTERNO] 10.11.8.213 → 239.255.255.250 [UDP]
+[14:59:40] [FLUJO] 10.11.8.1 → 10.11.8.194 [ARP]
+[14:59:40] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:41] [EXTERNO] 10.11.8.213 → 224.0.0.252 [UDP]
+[14:59:41] [EXTERNO] 10.11.8.93 → 224.0.0.251 [UDP]
+[14:59:42] [FLUJO] 10.11.8.1 → 10.11.8.88 [ARP]
+[14:59:42] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:42] [FLUJO] 10.11.8.1 → 10.11.8.197 [ARP]
+[14:59:43] [EXTERNO] 10.11.8.159 → 224.0.0.251 [UDP]
+[14:59:43] [FLUJO] 10.11.8.1 → 10.11.8.237 [ARP]
+[14:59:44] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:44] [FLUJO] 10.11.8.1 → 10.11.8.193 [ARP]
+[14:59:44] [EXTERNO] 10.11.8.87 → 224.0.0.251 [UDP]
+[14:59:46] [FLUJO] 10.11.8.1 → 10.11.8.202 [ARP]
+[14:59:46] [FLUJO] 10.11.8.1 → 10.11.8.128 [ARP]
+[14:59:46] [FLUJO] 10.11.8.245 → 10.11.8.158 [ARP]
+[14:59:46] [EXTERNO] 10.11.8.245 → 224.0.0.251 [UDP]
+[14:59:46] [FLUJO] 10.11.8.1 → 10.11.8.191 [ARP]
+[14:59:46] [EXTERNO] 10.11.8.59 → 224.0.0.251 [UDP]
+[14:59:46] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:46] [EXTERNO] 10.11.8.100 → 224.0.0.251 [UDP]
+[14:59:48] [EXTERNO] 10.11.8.188 → 239.255.255.250 [UDP]
+[14:59:48] [EXTERNO] 10.11.8.201 → 239.255.255.250 [UDP]
+[14:59:48] [FLUJO] 10.11.8.1 → 10.11.8.91 [ARP]
+[14:59:48] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:49] [FLUJO] 10.11.8.200 → 10.11.8.91 [ARP]
+[14:59:49] [FLUJO] 10.11.8.200 → 10.11.8.158 [ARP]
+[14:59:49] [FLUJO] 10.11.8.200 → 10.11.8.121 [ARP]
+[14:59:49] [EXTERNO] 10.11.8.200 → 224.0.0.251 [UDP]
+[14:59:49] [EXTERNO] 10.11.8.213 → 224.0.0.251 [UDP]
+[14:59:49] [FLUJO] 10.11.8.104 → 10.11.8.210 [ARP]
+[14:59:50] [EXTERNO] 10.11.8.119 → 224.0.0.251 [UDP]
+[14:59:50] [EXTERNO] 10.11.8.244 → 224.0.0.251 [UDP]
+[14:59:50] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:50] [EXTERNO] 10.11.8.244 → 10.11.11.255 [UDP]
+[14:59:50] [FLUJO] 10.11.8.244 → 10.11.8.1 [ARP]
+[14:59:50] [FLUJO] 10.11.8.246 → 10.11.8.81 [ARP]
+[14:59:50] [STATS] Recálculo: 176 nodos | alertas: 5
+[14:59:50] [EXTERNO] 10.11.8.130 → 224.0.0.251 [UDP]
+[14:59:51] [FLUJO] 10.11.8.1 → 10.11.8.120 [ARP]
+[14:59:51] [SCANNER] Re-escaneo profundo cancelado por timeout
+[14:59:51] [SCANNER] Re-escaneo profundo completado
+[14:59:52] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:52] [EXTERNO] 10.11.8.130 → 239.255.255.250 [UDP]
+[14:59:53] [EXTERNO] 10.11.8.230 → 10.11.11.255 [UDP]
+[14:59:53] [FLUJO] 10.11.8.1 → 10.11.8.185 [ARP]
+[14:59:53] [EXTERNO] 10.11.8.24 → 224.0.0.251 [UDP]
+[14:59:53] [EXTERNO] 10.11.8.160 → 224.0.0.251 [UDP]
+[14:59:53] [EXTERNO] 10.11.8.208 → 239.255.255.250 [UDP]
+[14:59:53] [EXTERNO] 10.11.8.247 → 224.0.0.251 [UDP]
+[14:59:54] [FLUJO] 10.11.8.1 → 10.11.8.39 [ARP]
+[14:59:54] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:56] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:56] [EXTERNO] 10.11.8.212 → 224.0.0.251 [UDP]
+[14:59:58] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[14:59:59] [EXTERNO] 10.11.8.94 → 224.0.0.251 [UDP]
+[14:59:59] [FLUJO] 10.11.8.1 → 10.11.8.114 [ARP]
+[14:59:59] [EXTERNO] 10.11.8.66 → 224.0.0.251 [UDP]
+[14:59:59] [EXTERNO] 10.11.8.63 → 224.0.0.251 [UDP]
+[15:00:00] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:01] [FLUJO] 10.11.8.61 → 10.11.8.1 [ARP]
+[15:00:02] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:04] [FLUJO] 10.11.8.1 → 10.11.8.133 [ARP]
+[15:00:04] [RED] Nuevo host: 10.11.8.177 | MAC: 1e:cf:82:a0:2d:e2 | via UDP
+[15:00:04] [EXTERNO] 10.11.8.177 → 224.0.0.251 [UDP]
+[15:00:04] [EXTERNO] 10.11.8.120 → 224.0.0.251 [UDP]
+[15:00:04] [SCANNER] Escaneando puertos de 10.11.8.177...
+[15:00:04] [EXTERNO] 10.11.8.61 → 239.255.255.250 [UDP]
+[15:00:04] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:04] [EXTERNO] 10.11.8.61 → 224.0.0.252 [UDP]
+[15:00:04] [EXTERNO] 10.11.8.44 → 224.0.0.251 [UDP]
+[15:00:05] [EXTERNO] 10.11.8.61 → 10.11.11.255 [UDP]
+[15:00:05] [FLUJO] 10.11.8.1 → 10.11.8.235 [ARP]
+[15:00:05] [FLUJO] 10.11.8.1 → 10.11.8.214 [ARP]
+[15:00:05] [STATS] Recálculo: 177 nodos | alertas: 5
+[15:00:05] [FLUJO] 10.11.8.81 → 10.11.8.94 [ARP]
+[15:00:06] [FLUJO] 10.11.8.1 → 10.11.8.169 [ARP]
+[15:00:06] [ALERTA] 10.11.8.146 está haciendo ARP scan (≥20 ARPs a hosts desconocidos)
+[15:00:06] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:06] [FLUJO] 10.11.8.1 → 10.11.8.97 [ARP]
+[15:00:07] [EXTERNO] 10.11.8.192 → 239.255.255.250 [UDP]
+[15:00:07] [ALERTA] 10.11.8.120 está haciendo ARP scan (≥20 ARPs a hosts desconocidos)
+[15:00:07] [FLUJO] 10.11.8.120 → 10.11.8.208 [ARP]
+[15:00:07] [EXTERNO] 10.11.8.177 → 10.11.11.65 [TCP]
+[15:00:08] [EXTERNO] 10.11.8.27 → 239.255.255.250 [UDP]
+[15:00:08] [EXTERNO] 10.11.8.23 → 239.255.255.250 [UDP]
+[15:00:08] [FLUJO] 10.11.8.1 → 10.11.8.216 [ARP]
+[15:00:08] [FLUJO] 10.11.8.1 → 10.11.8.234 [ARP]
+[15:00:08] [EXTERNO] 10.11.8.120 → 239.255.255.250 [UDP]
+[15:00:08] [EXTERNO] 10.11.8.120 → 10.11.11.255 [UDP]
+[15:00:08] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:09] [EXTERNO] 10.11.8.25 → 224.0.0.252 [UDP]
+[15:00:09] [EXTERNO] 10.11.8.230 → 239.255.255.250 [UDP]
+[15:00:10] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:12] [EXTERNO] 10.11.8.199 → 224.0.0.251 [UDP]
+[15:00:12] [FLUJO] 10.11.8.1 → 10.11.8.194 [ARP]
+[15:00:12] [EXTERNO] 10.11.8.146 → 10.11.11.255 [UDP]
+[15:00:12] [FLUJO] 10.11.8.1 → 10.11.8.184 [ARP]
+[15:00:12] [FLUJO] 10.11.8.91 → 10.11.8.1 [ARP]
+[15:00:12] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:13] [EXTERNO] 10.11.8.81 → 224.0.0.251 [UDP]
+[15:00:13] [FLUJO] 10.11.8.1 → 10.11.8.88 [ARP]
+[15:00:13] [FLUJO] 10.11.8.1 → 10.11.8.237 [ARP]
+[15:00:13] [EXTERNO] 10.11.8.61 → 224.0.0.251 [UDP]
+[15:00:13] [FLUJO] 10.11.8.242 → 10.11.8.1 [ARP]
+[15:00:13] [FLUJO] 10.11.8.59 → 10.11.8.1 [ARP]
+[15:00:14] [FLUJO] 10.11.8.1 → 10.11.8.197 [ARP]
+[15:00:14] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:16] [FLUJO] 10.11.8.207 → 10.11.8.1 [ARP]
+[15:00:16] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:18] [FLUJO] 10.11.8.1 → 10.11.8.182 [ARP]
+[15:00:18] [EXTERNO] 10.11.8.192 → 224.0.0.251 [UDP]
+[15:00:18] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:20] [FLUJO] 10.11.8.1 → 10.11.8.202 [ARP]
+[15:00:20] [EXTERNO] 10.11.8.63 → 239.255.255.250 [UDP]
+[15:00:20] [STATS] Recálculo: 178 nodos | alertas: 5
+[15:00:20] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:21] [FLUJO] 10.11.8.1 → 10.11.8.218 [ARP]
+[15:00:21] [FLUJO] 10.11.8.1 → 10.11.8.71 [ARP]
+[15:00:21] [FLUJO] 10.11.8.1 → 10.11.8.91 [ARP]
+[15:00:22] [EXTERNO] 10.11.8.194 → 224.0.0.251 [UDP]
+[15:00:22] [FLUJO] 10.11.8.1 → 10.11.8.251 [ARP]
+[15:00:22] [EXTERNO] 10.11.8.190 → 224.0.0.251 [UDP]
+[15:00:23] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:23] [EXTERNO] 10.11.8.27 → 224.0.0.252 [UDP]
+[15:00:23] [FLUJO] 10.11.8.1 → 10.11.8.185 [ARP]
+[15:00:24] [FLUJO] 10.11.8.1 → 10.11.8.191 [ARP]
+[15:00:24] [EXTERNO] 10.11.8.230 → 224.0.0.251 [UDP]
+[15:00:25] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:25] [EXTERNO] 10.11.8.189 → 224.0.0.251 [UDP]
+[15:00:25] [EXTERNO] 10.11.8.155 → 224.0.0.251 [UDP]
+[15:00:26] [EXTERNO] 10.11.8.208 → 10.11.11.255 [UDP]
+[15:00:27] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:27] [EXTERNO] 10.11.8.221 → 239.255.255.250 [UDP]
+[15:00:27] [EXTERNO] 10.11.8.221 → 224.0.0.251 [UDP]
+[15:00:29] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:29] [EXTERNO] 10.11.8.129 → 239.255.255.250 [UDP]
+[15:00:31] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:31] [EXTERNO] 10.11.8.1 → 255.255.255.255 [UDP]
+[15:00:31] [EXTERNO] 10.11.8.145 → 224.0.0.251 [UDP]
+[15:00:31] [FLUJO] 10.11.8.1 → 10.11.8.153 [ARP]
+[15:00:33] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:34] [EXTERNO] 10.11.8.208 → 224.0.0.7 [UDP]
+[15:00:35] [EXTERNO] 10.11.8.158 → 224.0.0.251 [UDP]
+[15:00:35] [FLUJO] 10.11.8.1 → 10.11.8.133 [ARP]
+[15:00:35] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:35] [FLUJO] 10.11.8.1 → 10.11.8.137 [ARP]
+[15:00:35] [FLUJO] 10.11.8.25 → 10.11.8.51 [ARP]
+[15:00:35] [STATS] Recálculo: 178 nodos | alertas: 5
+[15:00:36] [FLUJO] 10.11.8.1 → 10.11.8.114 [ARP]
+[15:00:36] [FLUJO] 10.11.8.1 → 10.11.8.198 [ARP]
+[15:00:36] [FLUJO] 10.11.8.1 → 10.11.8.235 [ARP]
+[15:00:36] [EXTERNO] 10.11.8.162 → 224.0.0.251 [UDP]
+[15:00:37] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:38] [EXTERNO] 10.11.8.175 → 10.11.11.255 [UDP]
+[15:00:39] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:39] [EXTERNO] 10.11.8.167 → 224.0.0.251 [UDP]
+[15:00:41] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:41] [EXTERNO] 10.11.8.124 → 224.0.0.251 [UDP]
+[15:00:42] [EXTERNO] 10.11.8.241 → 224.0.0.251 [UDP]
+[15:00:42] [FLUJO] 10.11.8.1 → 10.11.8.97 [ARP]
+[15:00:42] [FLUJO] 10.11.8.1 → 10.11.8.150 [ARP]
+[15:00:42] [FLUJO] 10.11.8.1 → 10.11.8.216 [ARP]
+[15:00:43] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:43] [FLUJO] 10.11.8.1 → 10.11.8.237 [ARP]
+[15:00:45] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:45] [EXTERNO] 10.11.8.48 → 224.0.0.251 [UDP]
+[15:00:46] [FLUJO] 10.11.8.1 → 10.11.8.236 [ARP]
+[15:00:47] [FLUJO] 10.11.8.1 → 10.11.8.239 [ARP]
+[15:00:47] [EXTERNO] 10.11.8.187 → 224.0.0.251 [UDP]
+[15:00:47] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:47] [FLUJO] 10.11.8.214 → 10.11.8.1 [ARP]
+[15:00:47] [EXTERNO] 10.11.8.186 → 224.0.0.251 [UDP]
+[15:00:49] [EXTERNO] 10.11.8.112 → 224.0.0.251 [UDP]
+[15:00:49] [FLUJO] 10.11.8.242 → 10.11.8.1 [ARP]
+[15:00:49] [EXTERNO] 10.11.8.242 → 224.0.0.251 [UDP]
+[15:00:49] [EXTERNO] 10.11.8.225 → 224.0.0.251 [UDP]
+[15:00:49] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:50] [FLUJO] 10.11.8.211 → 10.11.8.212 [ARP]
+[15:00:50] [FLUJO] 10.11.8.211 → 10.11.8.59 [ARP]
+[15:00:50] [FLUJO] 10.11.8.177 → 10.11.8.1 [ARP]
+[15:00:50] [STATS] Recálculo: 178 nodos | alertas: 5
+[15:00:51] [EXTERNO] 10.11.8.23 → 10.11.11.255 [UDP]
+[15:00:51] [EXTERNO] 10.11.8.127 → 10.11.11.255 [UDP]
+[15:00:51] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:51] [FLUJO] 10.11.8.1 → 10.11.8.218 [ARP]
+[15:00:51] [FLUJO] 10.11.8.1 → 10.11.8.128 [ARP]
+[15:00:51] [EXTERNO] 10.11.8.211 → 239.255.255.250 [UDP]
+[15:00:52] [EXTERNO] 10.11.8.211 → 224.0.0.251 [UDP]
+[15:00:52] [FLUJO] 10.11.8.1 → 10.11.8.91 [ARP]
+[15:00:53] [FLUJO] 10.11.8.144 → 10.11.8.1 [ARP]
+[15:00:53] [EXTERNO] 10.11.8.144 → 239.255.255.250 [UDP]
+[15:00:53] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:54] [EXTERNO] 10.11.8.214 → 224.0.0.251 [UDP]
+[15:00:54] [EXTERNO] 10.11.8.59 → 224.0.0.251 [UDP]
+[15:00:54] [FLUJO] 10.11.8.1 → 10.11.8.185 [ARP]
+[15:00:55] [FLUJO] 10.11.8.1 → 10.11.8.191 [ARP]
+[15:00:55] [FLUJO] 10.11.8.59 → 10.11.8.1 [ARP]
+[15:00:55] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:56] [FLUJO] 10.11.8.200 → 10.11.8.158 [ARP]
+[15:00:56] [EXTERNO] 10.11.8.200 → 224.0.0.251 [UDP]
+[15:00:56] [EXTERNO] 10.11.8.130 → 224.0.0.251 [UDP]
+[15:00:57] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:00:58] [FLUJO] 10.11.8.1 → 10.11.8.202 [ARP]
+[15:00:58] [EXTERNO] 10.11.8.233 → 224.0.0.251 [UDP]
+[15:00:58] [FLUJO] 10.11.8.162 → 10.11.8.81 [ARP]
+[15:00:58] [FLUJO] 10.11.8.162 → 10.11.8.158 [ARP]
+[15:00:59] [EXTERNO] 10.11.8.125 → 224.0.0.251 [UDP]
+[15:00:59] [EXTERNO] 10.11.8.208 → 239.255.255.250 [UDP]
+[15:00:59] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:00] [FLUJO] 10.11.8.1 → 10.11.8.184 [ARP]
+[15:01:00] [EXTERNO] 10.11.8.24 → 224.0.0.251 [UDP]
+[15:01:01] [FLUJO] 10.11.8.211 → 10.11.8.156 [ARP]
+[15:01:01] [FLUJO] 10.11.8.1 → 10.11.8.231 [ARP]
+[15:01:01] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:01] [EXTERNO] 10.11.8.93 → 224.0.0.251 [UDP]
+[15:01:02] [FLUJO] 10.11.8.1 → 10.11.8.153 [ARP]
+[15:01:02] [EXTERNO] 10.11.8.63 → 224.0.0.251 [UDP]
+[15:01:03] [FLUJO] 10.11.8.87 → 10.11.8.1 [ARP]
+[15:01:03] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:04] [EXTERNO] 10.11.8.177 → 224.0.0.251 [UDP]
+[15:01:05] [STATS] Recálculo: 179 nodos | alertas: 5
+[15:01:05] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:05] [FLUJO] 10.11.8.158 → 10.11.8.124 [ARP]
+[15:01:05] [FLUJO] 10.11.8.1 → 10.11.8.137 [ARP]
+[15:01:06] [FLUJO] 10.11.8.213 → 10.11.8.1 [ARP]
+[15:01:06] [EXTERNO] 10.11.8.11 → 224.0.0.251 [UDP]
+[15:01:06] [EXTERNO] 10.11.8.213 → 239.255.255.250 [UDP]
+[15:01:07] [EXTERNO] 10.11.8.166 → 224.0.0.252 [UDP]
+[15:01:07] [EXTERNO] 10.11.8.213 → 224.0.0.252 [UDP]
+[15:01:07] [FLUJO] 10.11.8.1 → 10.11.8.235 [ARP]
+[15:01:07] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:08] [EXTERNO] 10.11.8.154 → 224.0.0.251 [UDP]
+[15:01:08] [FLUJO] 10.11.8.1 → 10.11.8.114 [ARP]
+[15:01:08] [EXTERNO] 10.11.8.44 → 224.0.0.251 [UDP]
+[15:01:08] [EXTERNO] 10.11.8.166 → 239.255.255.250 [UDP]
+[15:01:08] [FLUJO] 10.11.8.224 → 10.11.8.1 [ARP]
+[15:01:09] [EXTERNO] 10.11.8.238 → 224.0.0.251 [UDP]
+[15:01:09] [EXTERNO] 10.11.8.110 → 224.0.0.251 [UDP]
+[15:01:09] [FLUJO] 10.11.8.1 → 10.11.8.234 [ARP]
+[15:01:09] [EXTERNO] 10.11.8.246 → 224.0.0.251 [UDP]
+[15:01:09] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:10] [EXTERNO] 10.11.8.244 → 224.0.0.251 [UDP]
+[15:01:11] [FLUJO] 10.11.8.1 → 10.11.8.252 [ARP]
+[15:01:11] [EXTERNO] 10.11.8.213 → 224.0.0.251 [UDP]
+[15:01:11] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:13] [FLUJO] 10.11.8.1 → 10.11.8.150 [ARP]
+[15:01:13] [FLUJO] 10.11.8.1 → 10.11.8.198 [ARP]
+[15:01:13] [FLUJO] 10.11.8.1 → 10.11.8.216 [ARP]
+[15:01:13] [EXTERNO] 10.11.8.211 → 10.11.11.255 [UDP]
+[15:01:13] [EXTERNO] 10.11.8.120 → 224.0.0.251 [UDP]
+[15:01:13] [FLUJO] 10.11.8.1 → 10.11.8.232 [ARP]
+[15:01:13] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:14] [FLUJO] 10.11.8.1 → 10.11.8.237 [ARP]
+[15:01:15] [FLUJO] 10.11.8.1 → 10.11.8.97 [ARP]
+[15:01:15] [EXTERNO] 10.11.8.233 → 10.11.11.255 [UDP]
+[15:01:15] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:16] [FLUJO] 10.11.8.1 → 10.11.8.187 [ARP]
+[15:01:16] [FLUJO] 10.11.8.247 → 10.11.8.217 [ARP]
+[15:01:16] [FLUJO] 10.11.8.247 → 10.11.8.216 [ARP]
+[15:01:16] [EXTERNO] 10.11.8.247 → 224.0.0.251 [UDP]
+[15:01:16] [EXTERNO] 10.11.8.87 → 224.0.0.251 [UDP]
+[15:01:17] [EXTERNO] 10.11.8.212 → 224.0.0.251 [UDP]
+[15:01:17] [EXTERNO] 10.11.8.244 → 10.11.11.255 [UDP]
+[15:01:17] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:19] [FLUJO] 10.11.8.1 → 10.11.8.147 [ARP]
+[15:01:19] [EXTERNO] 10.11.8.250 → 224.0.0.251 [UDP]
+[15:01:19] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:20] [STATS] Recálculo: 179 nodos | alertas: 5
+[15:01:21] [FLUJO] 10.11.8.1 → 10.11.8.120 [ARP]
+[15:01:21] [SCANNER] ARP timeout
+[15:01:21] [EXTERNO] 10.11.8.63 → 239.255.255.250 [UDP]
+[15:01:21] [FLUJO] 10.11.8.1 → 10.11.8.218 [ARP]
+[15:01:21] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:22] [EXTERNO] 10.11.8.250 → 239.255.255.250 [UDP]
+[15:01:23] [FLUJO] 10.11.8.1 → 10.11.8.91 [ARP]
+[15:01:23] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:26] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:26] [FLUJO] 10.11.8.1 → 10.11.8.195 [ARP]
+[15:01:26] [FLUJO] 10.11.8.1 → 10.11.8.128 [ARP]
+[15:01:26] [FLUJO] 10.11.8.203 → 10.11.8.53 [ARP]
+[15:01:26] [EXTERNO] 10.11.8.208 → 10.11.11.255 [UDP]
+[15:01:27] [EXTERNO] 10.11.8.245 → 224.0.0.251 [UDP]
+[15:01:27] [EXTERNO] 10.11.8.155 → 239.255.255.250 [UDP]
+[15:01:28] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:29] [FLUJO] 10.11.8.1 → 10.11.8.77 [ARP]
+[15:01:29] [FLUJO] 10.11.8.1 → 10.11.8.191 [ARP]
+[15:01:30] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:32] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:34] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:34] [EXTERNO] 10.11.8.1 → 10.11.11.65 [UDP]
+[15:01:35] [EXTERNO] 10.11.8.192 → 224.0.0.251 [UDP]
+[15:01:35] [STATS] Recálculo: 179 nodos | alertas: 5
+[15:01:36] [EXTERNO] 10.11.8.81 → 224.0.0.251 [UDP]
+[15:01:36] [FLUJO] 10.11.8.108 → 10.11.8.1 [ARP]
+[15:01:36] [FLUJO] 10.11.8.1 → 10.11.8.251 [ARP]
+[15:01:36] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:37] [FLUJO] 10.11.8.1 → 10.11.8.153 [ARP]
+[15:01:38] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:40] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:41] [FLUJO] 10.11.8.1 → 10.11.8.137 [ARP]
+[15:01:42] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:42] [FLUJO] 10.11.8.1 → 10.11.8.197 [ARP]
+[15:01:42] [EXTERNO] 10.11.8.1 → 255.255.255.255 [UDP]
+[15:01:42] [FLUJO] 10.11.8.1 → 10.11.8.234 [ARP]
+[15:01:43] [FLUJO] 10.11.8.1 → 10.11.8.150 [ARP]
+[15:01:43] [FLUJO] 10.11.8.1 → 10.11.8.232 [ARP]
+[15:01:44] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:45] [FLUJO] 10.11.8.255 → 10.11.8.1 [ARP]
+[15:01:45] [EXTERNO] 10.11.8.127 → 224.0.0.251 [UDP]
+[15:01:45] [FLUJO] 10.11.8.1 → 10.11.8.202 [ARP]
+[15:01:45] [FLUJO] 10.11.8.1 → 10.11.8.216 [ARP]
+[15:01:45] [FLUJO] 10.11.8.1 → 10.11.8.97 [ARP]
+[15:01:46] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:47] [EXTERNO] 10.11.8.208 → 224.0.0.7 [UDP]
+[15:01:48] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:48] [EXTERNO] 10.11.8.201 → 239.255.255.250 [UDP]
+[15:01:49] [EXTERNO] 10.11.8.219 → 224.0.0.251 [UDP]
+[15:01:50] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:50] [FLUJO] 10.11.8.1 → 10.11.8.237 [ARP]
+[15:01:50] [FLUJO] 10.11.8.1 → 10.11.8.198 [ARP]
+[15:01:50] [STATS] Recálculo: 179 nodos | alertas: 5
+[15:01:50] [FLUJO] 10.11.8.1 → 10.11.8.184 [ARP]
+[15:01:51] [FLUJO] 10.11.8.1 → 10.11.8.114 [ARP]
+[15:01:52] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:52] [FLUJO] 10.11.8.1 → 10.11.8.120 [ARP]
+[15:01:53] [FLUJO] 10.11.8.1 → 10.11.8.235 [ARP]
+[15:01:54] [EXTERNO] 10.11.8.170 → 224.0.0.251 [UDP]
+[15:01:54] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:55] [EXTERNO] 10.11.8.214 → 224.0.0.251 [UDP]
+[15:01:56] [FLUJO] 10.11.8.162 → 10.11.8.1 [ARP]
+[15:01:56] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:57] [FLUJO] 10.11.8.1 → 10.11.8.218 [ARP]
+[15:01:57] [EXTERNO] 10.11.8.112 → 224.0.0.251 [UDP]
+[15:01:57] [FLUJO] 10.11.8.81 → 10.11.8.121 [ARP]
+[15:01:58] [FLUJO] 10.11.8.224 → 10.11.8.1 [ARP]
+[15:01:58] [FLUJO] 10.11.8.1 → 10.11.8.128 [ARP]
+[15:01:58] [FLUJO] 10.11.8.1 → 10.11.8.91 [ARP]
+[15:01:58] [FLUJO] 10.11.8.1 → 10.11.8.195 [ARP]
+[15:01:58] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:01:58] [FLUJO] 10.11.8.25 → 10.11.8.213 [ARP]
+[15:02:00] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:02] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:03] [EXTERNO] 10.11.8.59 → 224.0.0.251 [UDP]
+[15:02:03] [FLUJO] 10.11.8.1 → 10.11.8.191 [ARP]
+[15:02:03] [EXTERNO] 10.11.8.186 → 224.0.0.251 [UDP]
+[15:02:04] [EXTERNO] 10.11.8.200 → 224.0.0.251 [UDP]
+[15:02:04] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:04] [EXTERNO] 10.11.8.48 → 224.0.0.251 [UDP]
+[15:02:04] [EXTERNO] 10.11.8.24 → 224.0.0.251 [UDP]
+[15:02:05] [FLUJO] 10.11.8.1 → 10.11.8.147 [ARP]
+[15:02:05] [FLUJO] 10.11.8.187 → 10.11.8.81 [ARP]
+[15:02:05] [EXTERNO] 10.11.8.208 → 239.255.255.250 [UDP]
+[15:02:05] [STATS] Recálculo: 179 nodos | alertas: 5
+[15:02:06] [FLUJO] 10.11.8.144 → 10.11.8.1 [ARP]
+[15:02:06] [EXTERNO] 10.11.8.144 → 224.0.0.252 [UDP]
+[15:02:06] [EXTERNO] 10.11.8.211 → 224.0.0.251 [UDP]
+[15:02:06] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:06] [EXTERNO] 10.11.8.144 → 224.0.0.251 [UDP]
+[15:02:06] [FLUJO] 10.11.8.1 → 10.11.8.41 [ARP]
+[15:02:06] [FLUJO] 10.11.8.1 → 10.11.8.190 [ARP]
+[15:02:07] [EXTERNO] 10.11.8.63 → 224.0.0.251 [UDP]
+[15:02:07] [FLUJO] 10.11.8.1 → 10.11.8.73 [ARP]
+[15:02:07] [EXTERNO] 10.11.8.175 → 10.11.11.255 [UDP]
+[15:02:07] [FLUJO] 10.11.8.1 → 10.11.8.153 [ARP]
+[15:02:08] [EXTERNO] 10.11.8.27 → 239.255.255.250 [UDP]
+[15:02:08] [EXTERNO] 10.11.8.158 → 224.0.0.251 [UDP]
+[15:02:08] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:09] [FLUJO] 10.11.8.1 → 10.11.8.231 [ARP]
+[15:02:09] [EXTERNO] 10.11.8.155 → 10.11.11.255 [UDP]
+[15:02:10] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:12] [FLUJO] 10.11.8.1 → 10.11.8.242 [ARP]
+[15:02:12] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:13] [FLUJO] 10.11.8.1 → 10.11.8.197 [ARP]
+[15:02:13] [FLUJO] 10.11.8.1 → 10.11.8.150 [ARP]
+[15:02:13] [FLUJO] 10.11.8.1 → 10.11.8.251 [ARP]
+[15:02:13] [FLUJO] 10.11.8.1 → 10.11.8.137 [ARP]
+[15:02:14] [FLUJO] 10.11.8.1 → 10.11.8.232 [ARP]
+[15:02:14] [EXTERNO] 10.11.8.233 → 224.0.0.251 [UDP]
+[15:02:14] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:14] [EXTERNO] 10.11.8.239 → 224.0.0.251 [UDP]
+[15:02:15] [FLUJO] 10.11.8.242 → 10.11.8.1 [ARP]
+[15:02:15] [EXTERNO] 10.11.8.233 → 10.11.11.255 [UDP]
+[15:02:16] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:18] [EXTERNO] 10.11.8.225 → 224.0.0.251 [UDP]
+[15:02:18] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:18] [FLUJO] 10.11.8.1 → 10.11.8.71 [ARP]
+[15:02:19] [EXTERNO] 10.11.8.169 → 224.0.0.251 [UDP]
+[15:02:19] [FLUJO] 10.11.8.1 → 10.11.8.216 [ARP]
+[15:02:19] [FLUJO] 10.11.8.1 → 10.11.8.202 [ARP]
+[15:02:19] [FLUJO] 10.11.8.1 → 10.11.8.219 [ARP]
+[15:02:20] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:20] [STATS] Recálculo: 179 nodos | alertas: 5
+[15:02:22] [EXTERNO] 10.11.8.167 → 224.0.0.251 [UDP]
+[15:02:22] [FLUJO] 10.11.8.1 → 10.11.8.237 [ARP]
+[15:02:22] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:22] [FLUJO] 10.11.8.1 → 10.11.8.198 [ARP]
+[15:02:22] [FLUJO] 10.11.8.1 → 10.11.8.120 [ARP]
+[15:02:22] [FLUJO] 10.11.8.1 → 10.11.8.187 [ARP]
+[15:02:23] [EXTERNO] 10.11.8.190 → 224.0.0.251 [UDP]
+[15:02:23] [FLUJO] 10.11.8.1 → 10.11.8.235 [ARP]
+[15:02:24] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:26] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:28] [EXTERNO] 10.11.8.92 → 224.0.0.251 [UDP]
+[15:02:28] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:30] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:30] [FLUJO] 10.11.8.1 → 10.11.8.128 [ARP]
+[15:02:32] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:33] [EXTERNO] 10.11.8.66 → 224.0.0.251 [UDP]
+[15:02:33] [FLUJO] 10.11.8.1 → 10.11.8.166 [ARP]
+[15:02:34] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:35] [STATS] Recálculo: 179 nodos | alertas: 5
+[15:02:35] [FLUJO] 10.11.8.1 → 10.11.8.91 [ARP]
+[15:02:36] [FLUJO] 10.11.8.1 → 10.11.8.195 [ARP]
+[15:02:36] [EXTERNO] 10.11.8.144 → 239.255.255.250 [UDP]
+[15:02:36] [EXTERNO] 10.11.8.81 → 224.0.0.251 [UDP]
+[15:02:36] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:36] [FLUJO] 10.11.8.1 → 10.11.8.147 [ARP]
+[15:02:36] [FLUJO] 10.11.8.1 → 10.11.8.191 [ARP]
+[15:02:36] [FLUJO] 10.11.8.225 → 10.11.8.81 [ARP]
+[15:02:37] [EXTERNO] 10.11.8.130 → 224.0.0.251 [UDP]
+[15:02:37] [FLUJO] 10.11.8.81 → 10.11.8.225 [ARP]
+[15:02:37] [FLUJO] 10.11.8.1 → 10.11.8.97 [ARP]
+[15:02:38] [FLUJO] 10.11.8.1 → 10.11.8.153 [ARP]
+[15:02:38] [FLUJO] 10.11.8.225 → 10.11.8.1 [ARP]
+[15:02:38] [EXTERNO] 10.11.8.242 → 224.0.0.251 [UDP]
+[15:02:38] [FLUJO] 10.11.8.1 → 10.11.8.184 [ARP]
+[15:02:38] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:40] [FLUJO] 10.11.8.1 → 10.11.8.223 [ARP]
+[15:02:40] [EXTERNO] 10.11.8.243 → 224.0.0.251 [UDP]
+[15:02:40] [EXTERNO] 10.11.8.67 → 224.0.0.251 [UDP]
+[15:02:40] [FLUJO] 10.11.8.243 → 10.11.8.1 [ARP]
+[15:02:40] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:41] [EXTERNO] 10.11.8.93 → 224.0.0.251 [UDP]
+[15:02:42] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:43] [EXTERNO] 10.11.8.162 → 224.0.0.251 [UDP]
+[15:02:45] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:47] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:49] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:49] [FLUJO] 10.11.8.1 → 10.11.8.150 [ARP]
+[15:02:50] [EXTERNO] 10.11.8.219 → 224.0.0.251 [UDP]
+[15:02:50] [EXTERNO] 10.11.8.208 → 10.11.11.255 [UDP]
+[15:02:50] [FLUJO] 10.11.8.1 → 10.11.8.200 [ARP]
+[15:02:50] [STATS] Recálculo: 179 nodos | alertas: 5
+[15:02:51] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:51] [EXTERNO] 10.11.8.44 → 224.0.0.251 [UDP]
+[15:02:51] [FLUJO] 10.11.8.1 → 10.11.8.197 [ARP]
+[15:02:52] [FLUJO] 10.11.8.1 → 10.11.8.137 [ARP]
+[15:02:52] [FLUJO] 10.11.8.1 → 10.11.8.216 [ARP]
+[15:02:52] [FLUJO] 10.11.8.1 → 10.11.8.202 [ARP]
+[15:02:52] [FLUJO] 10.11.8.1 → 10.11.8.237 [ARP]
+[15:02:52] [FLUJO] 10.11.8.1 → 10.11.8.198 [ARP]
+[15:02:53] [FLUJO] 10.11.8.1 → 10.11.8.120 [ARP]
+[15:02:53] [EXTERNO] 10.11.8.208 → 224.0.0.7 [UDP]
+[15:02:53] [FLUJO] 10.11.8.1 → 10.11.8.187 [ARP]
+[15:02:53] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:53] [EXTERNO] 10.11.8.177 → 224.0.0.251 [UDP]
+[15:02:53] [EXTERNO] 10.11.8.71 → 224.0.0.251 [UDP]
+[15:02:54] [FLUJO] 10.11.8.149 → 10.11.8.1 [ARP]
+[15:02:54] [EXTERNO] 10.11.8.27 → 224.0.0.251 [UDP]
+[15:02:54] [EXTERNO] 10.11.8.149 → 224.0.0.251 [UDP]
+[15:02:54] [FLUJO] 10.11.8.1 → 10.11.8.235 [ARP]
+[15:02:55] [EXTERNO] 10.11.8.244 → 224.0.0.251 [UDP]
+[15:02:55] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:55] [EXTERNO] 10.11.8.214 → 224.0.0.251 [UDP]
+[15:02:55] [EXTERNO] 10.11.8.211 → 10.11.11.255 [UDP]
+[15:02:55] [EXTERNO] 10.11.8.1 → 255.255.255.255 [UDP]
+[15:02:56] [FLUJO] 10.11.8.123 → 10.11.8.1 [ARP]
+[15:02:56] [EXTERNO] 10.11.8.94 → 224.0.0.251 [UDP]
+[15:02:57] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:02:59] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:03:01] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:03:01] [FLUJO] 10.11.8.1 → 10.11.8.242 [ARP]
+[15:03:02] [EXTERNO] 10.11.8.211 → 239.255.255.250 [UDP]
+[15:03:03] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:03:03] [FLUJO] 10.11.8.1 → 10.11.8.128 [ARP]
+[15:03:03] [FLUJO] 10.11.8.177 → 10.11.8.1 [ARP]
+[15:03:04] [FLUJO] 10.11.8.1 → 10.11.8.166 [ARP]
+[15:03:04] [EXTERNO] 10.11.8.59 → 224.0.0.251 [UDP]
+[15:03:05] [FLUJO] 10.11.8.62 → 10.11.8.114 [ARP]
+[15:03:05] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:03:05] [EXTERNO] 10.11.8.208 → 239.255.255.250 [UDP]
+[15:03:05] [STATS] Recálculo: 180 nodos | alertas: 5
+[15:03:05] [EXTERNO] 10.11.8.24 → 224.0.0.251 [UDP]
+[15:03:06] [FLUJO] 10.11.8.1 → 10.11.8.91 [ARP]
+[15:03:07] [FLUJO] 10.11.8.1 → 10.11.8.195 [ARP]
+[15:03:07] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:03:07] [FLUJO] 10.11.8.1 → 10.11.8.191 [ARP]
+[15:03:08] [FLUJO] 10.11.8.1 → 10.11.8.153 [ARP]
+[15:03:08] [FLUJO] 10.11.8.1 → 10.11.8.245 [ARP]
+[15:03:08] [FLUJO] 10.11.8.255 → 10.11.8.1 [ARP]
+[15:03:08] [APP] Tráfico lateral: activado
+[15:03:09] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:03:09] [FLUJO] 10.11.8.1 → 10.11.8.97 [ARP]
+[15:03:11] [FLUJO] 10.11.8.238 → 10.11.8.1 [ARP]
+[15:03:11] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:03:13] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:03:14] [APP] Tráfico lateral: desactivado
+[15:03:15] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:03:15] [EXTERNO] 10.11.8.158 → 224.0.0.251 [UDP]
+[15:03:17] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:03:17] [APP] Tráfico lateral: activado
+[15:03:18] [FLUJO] 10.11.8.1 → 10.11.8.251 [ARP]
+[15:03:19] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:03:20] [STATS] Recálculo: 180 nodos | alertas: 5
+[15:03:21] [FLUJO] 10.11.8.1 → 10.11.8.88 [ARP]
+[15:03:21] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:03:23] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:03:25] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:03:25] [EXTERNO] 10.11.8.233 → 224.0.0.251 [UDP]
+[15:03:26] [EXTERNO] 10.11.8.91 → 224.0.0.251 [UDP]
+[15:03:26] [FLUJO] 10.11.8.1 → 10.11.8.231 [ARP]
+[15:03:26] [EXTERNO] 10.11.8.192 → 224.0.0.251 [UDP]
+[15:03:26] [EXTERNO] 10.11.8.186 → 224.0.0.251 [UDP]
+[15:03:26] [FLUJO] 10.11.8.1 → 10.11.8.200 [ARP]
+[15:03:26] [FLUJO] 10.11.8.91 → 10.11.8.1 [ARP]
+[15:03:26] [FLUJO] 10.11.8.1 → 10.11.8.198 [ARP]
+[15:03:26] [FLUJO] 10.11.8.91 → 10.11.8.186 [ARP]
+[15:03:26] [FLUJO] 10.11.8.1 → 10.11.8.120 [ARP]
+[15:03:26] [FLUJO] 10.11.8.1 → 10.11.8.187 [ARP]
+[15:03:26] [FLUJO] 10.11.8.1 → 10.11.8.202 [ARP]
+[15:03:27] [FLUJO] 10.11.8.1 → 10.11.8.237 [ARP]
+[15:03:27] [EXTERNO] 10.11.8.203 → 239.255.255.250 [UDP]
+[15:03:27] [EXTERNO] 10.11.8.155 → 239.255.255.250 [UDP]
+[15:03:27] [FLUJO] 10.11.8.1 → 10.11.8.73 [ARP]
+[15:03:27] [FLUJO] 10.11.8.1 → 10.11.8.150 [ARP]
+[15:03:27] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:03:27] [FLUJO] 10.11.8.1 → 10.11.8.156 [ARP]
+[15:03:28] [FLUJO] 10.11.8.1 → 10.11.8.184 [ARP]
+[15:03:28] [FLUJO] 10.11.8.1 → 10.11.8.177 [ARP]
+[15:03:28] [FLUJO] 10.11.8.1 → 10.11.8.186 [ARP]
+[15:03:28] [FLUJO] 10.11.8.1 → 10.11.8.147 [ARP]
+[15:03:29] [EXTERNO] 10.11.8.189 → 224.0.0.251 [UDP]
+[15:03:29] [EXTERNO] 10.11.8.91 → 10.11.11.255 [UDP]
+[15:03:29] [EXTERNO] 10.11.8.175 → 10.11.11.255 [UDP]
+[15:03:29] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:03:31] [FLUJO] 10.11.8.1 → 10.11.8.235 [ARP]
+[15:03:31] [EXTERNO] 10.11.8.110 → 224.0.0.251 [UDP]
+[15:03:31] [FLUJO] 10.11.8.1 → 10.11.8.74 [ARP]
+[15:03:31] [APP] Error en ciclo: '<' not supported between instances of 'NoneType' and 'str'
+[15:03:32] [EXTERNO] 10.11.8.51 → 224.0.0.252 [UDP]
+[15:03:32] [FLUJO] 10.11.8.225 → 10.11.8.217 [ARP]
+[15:03:32] [FLUJO] 10.11.8.225 → 10.11.8.91 [ARP]
+[15:03:32] [EXTERNO] 10.11.8.225 → 224.0.0.251 [UDP]
+[15:03:32] [FLUJO] 10.11.8.1 → 10.11.8.199 [ARP]
+[15:03:32] [EXTERNO] 10.11.8.92 → 224.0.0.251 [UDP]
+[15:03:33] [FLUJO] 10.11.8.1 → 10.11.8.236 [ARP]
+[15:03:33] [EXTERNO] 10.11.8.59 → 239.255.255.250 [UDP]
+[15:03:33] [EXTERNO] 10.11.8.77 → 224.0.0.251 [UDP]
+[15:03:33] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[15:03:33] [EXTERNO] 10.11.8.124 → 224.0.0.251 [UDP]
+[15:03:34] [FLUJO] 10.11.8.1 → 10.11.8.166 [ARP]
+[15:03:34] [FLUJO] 10.11.8.1 → 10.11.8.206 [ARP]
+[15:03:35] [FLUJO] 10.11.8.1 → 10.11.8.247 [ARP]
+[15:03:35] [FLUJO] 10.11.8.1 → 10.11.8.128 [ARP]
+[15:03:35] [STATS] Recálculo: 180 nodos | alertas: 5
+[15:03:35] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[15:03:36] [EXTERNO] 10.11.8.233 → 10.11.11.255 [UDP]
+[15:03:37] [EXTERNO] 10.11.8.130 → 224.0.0.251 [UDP]
+[15:03:37] [FLUJO] 10.11.8.91 → 10.11.8.225 [ARP]
+[15:03:37] [EXTERNO] 10.11.8.144 → 239.255.255.250 [UDP]
+[15:03:37] [EXTERNO] 10.11.8.112 → 224.0.0.251 [UDP]
+[15:03:38] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[15:03:38] [FLUJO] 10.11.8.1 → 10.11.8.188 [ARP]
+[15:03:39] [FLUJO] 10.11.8.102 → 10.11.8.1 [ARP]
+[15:03:40] [FLUJO] 10.11.8.1 → 10.11.8.194 [ARP]
+[15:03:40] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[15:03:40] [FLUJO] 10.11.8.1 → 10.11.8.97 [ARP]
+[15:03:40] [FLUJO] 10.11.8.1 → 10.11.8.191 [ARP]
+[15:03:41] [EXTERNO] 10.11.8.145 → 224.0.0.251 [UDP]
+[15:03:42] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[15:03:42] [APP] Tráfico lateral: desactivado
+[15:03:42] [EXTERNO] 10.11.8.65 → 224.0.0.251 [UDP]
+[15:03:43] [EXTERNO] 10.11.8.125 → 224.0.0.251 [UDP]
+[15:03:44] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[15:03:44] [EXTERNO] 10.11.8.27 → 10.11.11.255 [UDP]
+[15:03:44] [FLUJO] 10.11.8.211 → 10.11.8.27 [ARP]
+[15:03:44] [FLUJO] 10.11.8.129 → 10.11.8.208 [ARP]
+[15:03:44] [FLUJO] 10.11.8.233 → 10.11.8.208 [ARP]
+[15:03:44] [EXTERNO] 10.11.8.27 → 239.255.255.250 [UDP]
+[15:03:45] [EXTERNO] 10.11.8.250 → 224.0.0.251 [UDP]
+[15:03:46] [FLUJO] 10.11.8.162 → 10.11.8.81 [ARP]
+[15:03:46] [FLUJO] 10.11.8.162 → 10.11.8.158 [ARP]
+[15:03:46] [FLUJO] 10.11.8.91 → 10.11.8.124 [ARP]
+[15:03:46] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[15:03:46] [EXTERNO] 10.11.8.81 → 224.0.0.251 [UDP]
+[15:03:47] [FLUJO] 10.11.8.1 → 10.11.8.149 [ARP]
+[15:03:48] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[15:03:48] [FLUJO] 10.11.8.1 → 10.11.8.87 [ARP]
+[15:03:48] [EXTERNO] 10.11.8.126 → 224.0.0.251 [UDP]
+[15:03:48] [EXTERNO] 10.11.8.211 → 224.0.0.251 [UDP]
+[15:03:48] [EXTERNO] 10.11.8.201 → 239.255.255.250 [UDP]
+[15:03:48] [EXTERNO] 10.11.8.242 → 224.0.0.251 [UDP]
+[15:03:48] [EXTERNO] 10.11.8.66 → 224.0.0.251 [UDP]
+[15:03:48] [FLUJO] 10.11.8.126 → 10.11.8.1 [ARP]
+[15:03:49] [FLUJO] 10.11.8.1 → 10.11.8.251 [ARP]
+[15:03:49] [EXTERNO] 10.11.8.63 → 224.0.0.251 [UDP]
+[15:03:49] [FLUJO] 10.11.8.59 → 10.11.8.1 [ARP]
+[15:03:49] [EXTERNO] 10.11.8.190 → 224.0.0.251 [UDP]
+[15:03:50] [APP] Error en ciclo: '<' not supported between instances of 'str' and 'NoneType'
+[15:03:50] [EXTERNO] 10.11.8.219 → 224.0.0.251 [UDP]
+[15:03:50] [EXTERNO] 10.11.8.170 → 10.11.11.255 [UDP]
+[15:03:50] [EXTERNO] 10.11.8.208 → 10.11.11.255 [UDP]
+[15:03:50] [FLUJO] 10.11.8.162 → 10.11.8.1 [ARP]
+[15:03:50] [STATS] Recálculo: 181 nodos | alertas: 5
+[15:03:51] [APP] Botón Salir presionado — cerrando...

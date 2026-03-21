@@ -1,0 +1,127 @@
+TopoReveal — Log de sesion
+Generado: 2026-03-20 20:58:58
+Total lineas de evento: 100
+============================================================
+
+RESUMEN DE RED — 5 hosts activos, 0 en lobby
+Gateway: 192.168.1.254 | Subred: 192.168.1.x
+ARP Scanners detectados: 0
+------------------------------------------------------------
+
+HOSTS ACTIVOS:
+  IP                 MAC                  TIPO           OS           ESTADO         PKTs  PROTOCOLOS
+  ------------------------------------------------------------------------------------------
+  192.168.1.3        66:07:9D:FE:1A:73    desconocido    Desconocido  confirmado        3  —
+  192.168.1.4        68:6D:BC:D4:6B:8A    servidor       Linux        confirmado      168  DNS,TCP,UDP
+  192.168.1.7        94:08:53:53:98:43    pc             Linux        confirmado        3  —
+  192.168.1.252      00:00:CA:01:02:03    wired_generic  Desconocido  confirmado        3  —
+  192.168.1.254      60:D2:48:7A:A3:2C    router         Ubiquiti     sospechoso       10  IGMP
+
+CONEXIONES EXTERNAS POR HOST:
+  192.168.1.254 → 224.0.0.1
+  192.168.1.4 → 1.178.32.127, 1.178.32.230, 1.178.33.237, 200.24.51.144, 1.178.33.219, 148.153.195.152, 255.255.255.255
+
+============================================================
+
+LOG DE EVENTOS:
+
+[20:54:10] [APP] GeoIP disponible — base de datos local cargada
+[20:54:17] [APP] Arranque automático en wlan0
+[20:54:17] [APP] Gateway: 192.168.1.254 | Subred: 192.168.1.x
+[20:54:17] [APP] Nodo propio: 192.168.1.7 | MAC: 94:08:53:53:98:43
+[20:54:17] [APP] Iniciando escaneo en wlan0
+[20:54:17] [SCANNER] Pipeline de 3 Fases activo en wlan0 (5 hilos workers)
+[20:54:17] [CAPTURE] Modo promiscuo activado en wlan0
+[20:54:17] [CAPTURE] Hilo iniciado (id=1)
+[20:54:17] [CAPTURE] Iniciado en wlan0 (promiscuo + watchdog)
+[20:54:22] [SCANNER] Fase 1 (ARP) completado en 4s
+[20:54:22] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.252...
+[20:54:22] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.3...
+[20:54:22] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.4...
+[20:54:24] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[20:54:25] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.7...
+[20:54:26] [HALLAZGO] 192.168.1.4:80 HTTP [INFO]
+[20:54:26] [HALLAZGO] 192.168.1.4:554 RTSP [MEDIO]
+[20:54:26] [HALLAZGO] 192.168.1.4:8000 Hikvision [MEDIO]
+[20:54:26] [HALLAZGO] 192.168.1.4:9010 Hikvision-SDR [MEDIO]
+[20:54:26] [HALLAZGO] 192.168.1.4:0 Cámara IP [MEDIO]
+[20:54:26] [SCANNER] Fase 3: Analizando web en 192.168.1.4
+[20:54:26] [SCANNER] Fase 3: SSL/TLS en 192.168.1.4:8000
+[20:54:26] [STATS] Recálculo: 5 nodos | alertas: 6
+[20:54:27] [SCANNER] SSL 192.168.1.4:8000 [MEDIO] Cert autofirmado — emisor: ?
+[20:54:27] [HALLAZGO] 192.168.1.4:8000 SSL Autofirmado [MEDIO] — Cert autofirmado — emisor: ?
+[20:54:29] [HALLAZGO] 192.168.1.254:80 HTTP [INFO]
+[20:54:29] [HALLAZGO] 192.168.1.254:443 HTTPS [INFO]
+[20:54:29] [SCANNER] Fase 3: Analizando web en 192.168.1.254
+[20:54:29] [SCANNER] Fase 3: SSL/TLS en 192.168.1.254:443
+[20:54:32] [APP] Lanzando interceptor | gateway: 192.168.1.254 (60:D2:48:7A:A3:2C) | 3 hosts
+[20:54:32] [INTERCEPTOR] Iniciando | iface: wlan0 | gateway: 192.168.1.254 | 3 hosts | BSSID: 60:D2:48:7A:A3:2C
+[20:54:32] [SPOOFER] IP forwarding activado
+[20:54:32] [SPOOFER] Sniff MITM iniciado
+[20:54:32] [SPOOFER] Activo | Mi MAC: 94:08:53:53:98:43 | Gateway: 192.168.1.254 | Hosts: 3
+[20:54:32] [INTERCEPTOR] Una tarjeta (wlan0) — modo monitor no disponible, captura virtual activa
+[20:54:32] [MONITOR] Captura virtual (macvlan) en wlan0_mitm
+[20:54:34] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[20:54:34] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[20:54:38] [EXTERNO] 192.168.1.4 → 1.178.33.237 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[20:54:41] [SCANNER] SSL 192.168.1.254:443 [MEDIO] Cert autofirmado — emisor: localhost.localdomain
+[20:54:41] [HALLAZGO] 192.168.1.254:443 SSL Autofirmado [MEDIO] — Cert autofirmado — emisor: localhost.localdomain
+[20:54:41] [STATS] Recálculo: 5 nodos | alertas: 10
+[20:54:47] [SCANNER] Re-escaneo profundo masivo de 192.168.1.7/24...
+[20:54:56] [STATS] Recálculo: 5 nodos | alertas: 10
+[20:54:59] [SCANNER] Re-escaneo masivo completado
+[20:54:59] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.4...
+[20:54:59] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[20:55:01] [EXTERNO] 192.168.1.254 → 224.0.0.1 [IGMP]
+[20:55:02] [SCANNER] Fase 3: SSL/TLS en 192.168.1.254:443
+[20:55:02] [SCANNER] Fase 3: Analizando web en 192.168.1.254
+[20:55:08] [SCANNER] Fase 3: Analizando web en 192.168.1.4
+[20:55:11] [STATS] Recálculo: 5 nodos | alertas: 11
+[20:55:12] [SCANNER] Fase 3: SSL/TLS en 192.168.1.4:8000
+[20:55:13] [SCANNER] SSL 192.168.1.4:8000 [MEDIO] Cert autofirmado — emisor: ?
+[20:55:14] [SCANNER] SSL 192.168.1.254:443 [MEDIO] Cert autofirmado — emisor: localhost.localdomain
+[20:55:26] [STATS] Recálculo: 5 nodos | alertas: 11
+[20:55:40] [EXTERNO] 192.168.1.4 → 1.178.33.237 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[20:55:41] [STATS] Recálculo: 5 nodos | alertas: 11
+[20:55:49] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[20:55:49] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[20:55:56] [STATS] Recálculo: 5 nodos | alertas: 11
+[20:55:58] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[20:56:03] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[20:56:08] [EXTERNO] 192.168.1.4 → 148.153.195.152 [UDP] [US] CDS Global Cloud C… · USA
+[20:56:11] [STATS] Recálculo: 5 nodos | alertas: 11
+[20:56:26] [STATS] Recálculo: 5 nodos | alertas: 11
+[20:56:41] [STATS] Recálculo: 5 nodos | alertas: 11
+[20:56:55] [EXTERNO] 192.168.1.4 → 255.255.255.255 [UDP]
+[20:56:56] [STATS] Recálculo: 5 nodos | alertas: 11
+[20:56:59] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[20:57:04] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[20:57:04] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[20:57:04] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[20:57:06] [EXTERNO] 192.168.1.254 → 224.0.0.1 [IGMP]
+[20:57:11] [STATS] Recálculo: 5 nodos | alertas: 11
+[20:57:26] [STATS] Recálculo: 5 nodos | alertas: 11
+[20:57:41] [STATS] Recálculo: 5 nodos | alertas: 11
+[20:57:56] [STATS] Recálculo: 5 nodos | alertas: 11
+[20:57:59] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[20:58:05] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[20:58:11] [STATS] Recálculo: 5 nodos | alertas: 11
+[20:58:19] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[20:58:19] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[20:58:26] [STATS] Recálculo: 5 nodos | alertas: 11
+[20:58:41] [LOBBY] Verificación manual — 2 nodo(s)
+[20:58:41] [STATS] Recálculo: 5 nodos | alertas: 11
+[20:58:42] [LOBBY] 192.168.1.3: responde → vuelve a activo
+[20:58:42] [LOBBY] 192.168.1.252: responde → vuelve a activo
+[20:58:51] [APP] Tráfico lateral: activado
+[20:58:56] [APP] Botón Salir presionado — cerrando...
+[20:58:56] [STATS] Recálculo: 5 nodos | alertas: 11
+[20:58:58] [CAPTURE] Detenido
+[20:58:58] [SCANNER] Hilos detenidos
+[20:58:58] [INTERCEPTOR] Deteniendo...
+[20:58:58] [SPOOFER] Restaurando ARP para 3 hosts...
+[20:58:58] [INTERCEPTOR] Hilo despacho terminado
+[20:58:58] [SPOOFER] IP forwarding restaurado a 1
+[20:58:58] [SPOOFER] ARP restaurado — tráfico normal
+[20:58:58] [MONITOR] Detenido — wlan0 restaurada
+[20:58:58] [INTERCEPTOR] Detenido — red restaurada

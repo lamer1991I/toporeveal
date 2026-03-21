@@ -1,0 +1,163 @@
+TopoReveal — Log de sesion
+Generado: 2026-03-18 17:30:55
+Total lineas de evento: 131
+============================================================
+
+RESUMEN DE RED — 5 hosts activos, 1 en lobby
+Gateway: 192.168.1.254 | Subred: 192.168.1.x
+ARP Scanners detectados: 0
+------------------------------------------------------------
+
+HOSTS ACTIVOS:
+  IP                 MAC                  TIPO           OS           ESTADO         PKTs  PROTOCOLOS
+  ------------------------------------------------------------------------------------------
+  192.168.1.1        68:6D:BC:D4:6B:8A    servidor       Linux        confirmado      108  —
+  192.168.1.2        DA:58:3D:72:C5:E4    smartphone     Linux/Mac    confirmado       99  —
+  192.168.1.3        66:07:9D:FE:1A:73    smartphone     Linux/Mac    confirmado       29  —
+  192.168.1.7        —                    desconocido    Desconocido  confirmado        2  —
+  192.168.1.254      60:D2:48:7A:A3:2C    router         Ubiquiti     confirmado       14  —
+
+HOSTS EN LOBBY (sin actividad reciente):
+  192.168.1.252      00:00:CA:01:02:03
+
+CONEXIONES EXTERNAS POR HOST:
+  192.168.1.1 → 255.255.255.255, 1.178.33.93, 1.178.32.127, 1.178.32.230, 200.24.51.144, 1.178.33.219
+  192.168.1.2 → 3.84.158.172, 8.219.60.249, 100.30.110.101, 163.70.152.1, 57.144.114.141, 32.193.30.165, 52.1.202.35, 54.225.233.13, 34.234.183.213, 34.195.162.99
+  192.168.1.254 → 224.0.0.1, 239.255.255.250, 224.0.0.251
+  192.168.1.3 → 190.102.205.10, 200.24.51.144, 190.240.115.151
+
+============================================================
+
+LOG DE EVENTOS:
+
+[17:24:01] [APP] Arranque automático en wlan0
+[17:24:01] [APP] Gateway: 192.168.1.254 | Subred: 192.168.1.x
+[17:24:01] [APP] Iniciando escaneo en wlan0
+[17:24:01] [SCANNER] Pipeline de 3 Fases activo en wlan0 (5 hilos workers)
+[17:24:01] [CAPTURE] Modo promiscuo activado en wlan0
+[17:24:01] [CAPTURE] Hilo iniciado (id=1)
+[17:24:01] [CAPTURE] Iniciado en wlan0 (promiscuo + watchdog)
+[17:24:08] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.1...
+[17:24:08] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.2...
+[17:24:08] [SCANNER] Fase 1 (ARP) completado en 6s
+[17:24:08] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.3...
+[17:24:09] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.252...
+[17:24:10] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[17:24:10] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.7...
+[17:24:11] [HALLAZGO] 192.168.1.1:80 HTTP [INFO]
+[17:24:11] [HALLAZGO] 192.168.1.1:554 RTSP [MEDIO]
+[17:24:11] [HALLAZGO] 192.168.1.1:8000 Hikvision [MEDIO]
+[17:24:11] [HALLAZGO] 192.168.1.1:9010 Hikvision-SDR [MEDIO]
+[17:24:11] [HALLAZGO] 192.168.1.1:0 Cámara IP [MEDIO]
+[17:24:11] [SCANNER] Fase 3: Analizando web en 192.168.1.1
+[17:24:15] [STATS] Recálculo: 6 nodos | alertas: 7
+[17:24:15] [HALLAZGO] 192.168.1.254:80 HTTP [INFO]
+[17:24:15] [HALLAZGO] 192.168.1.254:443 HTTPS [INFO]
+[17:24:15] [SCANNER] Fase 3: Analizando web en 192.168.1.254
+[17:24:16] [APP] Lanzando interceptor | gateway: 192.168.1.254 (60:D2:48:7A:A3:2C) | 4 hosts
+[17:24:16] [INTERCEPTOR] Iniciando intercepción en wlan0 | gateway: 192.168.1.254 | 4 hosts
+[17:24:16] [SPOOFER] IP forwarding activado
+[17:24:16] [SPOOFER] Sniff MITM iniciado
+[17:24:16] [SPOOFER] Activo | Mi MAC: 94:08:53:53:98:43 | Gateway: 192.168.1.254 | Hosts: 4
+[17:24:16] [INTERCEPTOR] Una sola tarjeta activa (wlan0) — ARP spoof activo, modo monitor no disponible
+[17:24:16] [EXTERNO] 192.168.1.2 → 3.84.158.172 [HTTPS]
+[17:24:22] [EXTERNO] 192.168.1.2 → 8.219.60.249 [HTTPS]
+[17:24:26] [EXTERNO] 192.168.1.2 → 100.30.110.101 [HTTPS]
+[17:24:27] [EXTERNO] 192.168.1.1 → 255.255.255.255 [UDP]
+[17:24:30] [EXTERNO] 192.168.1.1 → 1.178.33.93 [TCP]
+[17:24:30] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:24:31] [SCANNER] Re-escaneo profundo masivo de 192.168.1.7/24...
+[17:24:33] [EXTERNO] 192.168.1.1 → 1.178.32.127 [UDP]
+[17:24:33] [EXTERNO] 192.168.1.1 → 1.178.32.230 [UDP]
+[17:24:36] [EXTERNO] 192.168.1.2 → 163.70.152.1 [QUIC]
+[17:24:36] [EXTERNO] 192.168.1.2 → 57.144.114.141 [HTTPS]
+[17:24:37] [EXTERNO] 192.168.1.2 → 32.193.30.165 [HTTPS]
+[17:24:43] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.1...
+[17:24:43] [SCANNER] Re-escaneo masivo completado
+[17:24:43] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[17:24:45] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:24:46] [SCANNER] Fase 3: Analizando web en 192.168.1.1
+[17:24:47] [EXTERNO] 192.168.1.2 → 52.1.202.35 [HTTPS]
+[17:24:49] [SCANNER] Fase 3: Analizando web en 192.168.1.254
+[17:24:58] [EXTERNO] 192.168.1.2 → 54.225.233.13 [HTTPS]
+[17:25:00] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:25:07] [EXTERNO] 192.168.1.2 → 34.234.183.213 [HTTPS]
+[17:25:15] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:25:17] [EXTERNO] 192.168.1.2 → 34.195.162.99 [HTTPS]
+[17:25:27] [EXTERNO] 192.168.1.254 → 224.0.0.1 [IGMP]
+[17:25:27] [EXTERNO] 192.168.1.2 → 54.165.67.37 [HTTPS]
+[17:25:30] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:25:31] [EXTERNO] 192.168.1.1 → 1.178.33.93 [TCP]
+[17:25:33] [EXTERNO] 192.168.1.2 → 104.18.39.68 [HTTPS]
+[17:25:42] [EXTERNO] 192.168.1.2 → 57.144.115.32 [HTTPS]
+[17:25:45] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:25:48] [EXTERNO] 192.168.1.2 → 190.130.112.54 [UDP]
+[17:25:48] [EXTERNO] 192.168.1.1 → 1.178.32.127 [UDP]
+[17:25:48] [EXTERNO] 192.168.1.1 → 1.178.32.230 [UDP]
+[17:25:48] [EXTERNO] 192.168.1.2 → 172.64.148.188 [HTTPS]
+[17:25:52] [EXTERNO] 192.168.1.2 → 57.144.114.3 [HTTPS]
+[17:26:00] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:26:10] [EXTERNO] 192.168.1.3 → 190.102.205.10 [UDP]
+[17:26:10] [EXTERNO] 192.168.1.1 → 200.24.51.144 [DNS]
+[17:26:15] [EXTERNO] 192.168.1.1 → 1.178.33.219 [TCP]
+[17:26:15] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:26:17] [EXTERNO] 192.168.1.3 → 200.24.51.144 [DNS]
+[17:26:17] [EXTERNO] 192.168.1.3 → 190.240.115.151 [DNS]
+[17:26:30] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:26:39] [EXTERNO] 192.168.1.254 → 224.0.0.1 [IGMP]
+[17:26:39] [EXTERNO] 192.168.1.254 → 239.255.255.250 [IGMP]
+[17:26:45] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:27:00] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:27:10] [EXTERNO] 192.168.1.1 → 200.24.51.144 [DNS]
+[17:27:11] [EXTERNO] 192.168.1.2 → 47.236.37.170 [HTTPS]
+[17:27:11] [EXTERNO] 192.168.1.2 → 57.144.79.33 [XMPP]
+[17:27:15] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:27:15] [EXTERNO] 192.168.1.1 → 1.178.33.219 [TCP]
+[17:27:18] [EXTERNO] 192.168.1.2 → 4.153.25.230 [HTTPS]
+[17:27:23] [EXTERNO] 192.168.1.254 → 224.0.0.251 [IGMP]
+[17:27:26] [EXTERNO] 192.168.1.2 → 47.236.82.106 [HTTPS]
+[17:27:28] [EXTERNO] 192.168.1.1 → 1.178.32.127 [UDP]
+[17:27:28] [EXTERNO] 192.168.1.1 → 1.178.32.230 [UDP]
+[17:27:28] [EXTERNO] 192.168.1.1 → 255.255.255.255 [UDP]
+[17:27:30] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:27:45] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:27:56] [EXTERNO] 192.168.1.2 → 47.236.98.34 [HTTPS]
+[17:28:00] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:28:15] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:28:30] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:28:45] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:29:00] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:29:15] [SCANNER] Sin red (1), reintento en 30s
+[17:29:15] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:29:30] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:29:43] [SCANNER] Re-escaneo profundo masivo de 192.168.1.7/24...
+[17:29:45] [SCANNER] Sin red (2), reintento en 60s
+[17:29:45] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:29:53] [SCANNER] Re-escaneo masivo completado
+[17:29:53] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.1...
+[17:29:53] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[17:29:59] [SCANNER] Fase 3: Analizando web en 192.168.1.1
+[17:30:00] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:30:01] [SCANNER] Fase 3: Analizando web en 192.168.1.254
+[17:30:15] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:30:30] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:30:33] [ARSENAL] CMD: nmap -sn -Pn --host-timeout 3s 192.168.1.2
+[17:30:33] [ARSENAL] Iniciando 🟢 Ping Check en 192.168.1.2...
+[17:30:33] [ARSENAL] 🟢 Ping Check en 192.168.1.2 completado (4 líneas)
+[17:30:33] [ARSENAL] Resultado: 🟢 Ping Check en 192.168.1.2
+[17:30:33] [ARSENAL] Ping 192.168.1.2: ACTIVO → confirmado
+[17:30:38] [ARSENAL] CMD: nmap -sn -Pn --host-timeout 3s 192.168.1.3
+[17:30:38] [ARSENAL] Iniciando 🟢 Ping Check en 192.168.1.3...
+[17:30:39] [ARSENAL] 🟢 Ping Check en 192.168.1.3 completado (4 líneas)
+[17:30:39] [ARSENAL] Resultado: 🟢 Ping Check en 192.168.1.3
+[17:30:39] [ARSENAL] Ping 192.168.1.3: ACTIVO → confirmado
+[17:30:45] [SCANNER] Sin red (3), reintento en 90s
+[17:30:45] [STATS] Recálculo: 6 nodos | alertas: 11
+[17:30:55] [APP] Botón Salir presionado — cerrando...
+[17:30:55] [CAPTURE] Detenido
+[17:30:55] [SCANNER] Hilos detenidos
+[17:30:55] [INTERCEPTOR] Deteniendo...
+[17:30:55] [SPOOFER] Restaurando ARP para 4 hosts...
+[17:30:55] [SPOOFER] IP forwarding restaurado a 1
+[17:30:55] [SPOOFER] ARP restaurado — tráfico normal
+[17:30:55] [INTERCEPTOR] Detenido — ARP restaurado

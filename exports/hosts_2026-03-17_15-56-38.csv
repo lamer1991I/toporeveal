@@ -1,0 +1,8 @@
+IP,MAC,Tipo,Fabricante,Sistema,Estado,Paquetes,Puertos,RiskScore,Severidad,Perfiles,Alertas
+192.168.1.1,68:6d:bc:d4:6b:8a,servidor,Hikvision,Linux,sospechoso,266,80 554 8000 9010,35,medio,Cámara IP,7
+192.168.1.2,da:58:3d:72:c5:e4,smartphone,Privada/Aleatoria,Linux/Mac,sospechoso,151,,0,—,,0
+192.168.1.3,66:07:9d:fe:1a:73,smartphone,Privada/Aleatoria,Linux/Mac,sospechoso,110,,0,—,,0
+192.168.1.5,8e:63:f4:86:1e:ed,smartphone,Privada/Aleatoria,Linux/Mac,confirmado,111,,0,—,,0
+192.168.1.7,94:08:53:53:98:43,pc,Samsung,Linux/Mac,confirmado,6331,,0,—,,0
+192.168.1.252,00:00:ca:01:02:03,wired_generic,Attachmate,Linux/Mac,sospechoso,140,,0,—,,0
+192.168.1.254,60:d2:48:7a:a3:2c,router,Tenda,Ubiquiti,confirmado,318,80 443,8,info,,5

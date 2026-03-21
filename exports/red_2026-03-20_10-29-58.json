@@ -1,0 +1,300 @@
+{
+  "generado": "2026-03-20T10:29:58.611648",
+  "gateway": "192.168.1.254",
+  "subred": "192.168.1",
+  "ip_local": "192.168.1.7",
+  "hosts": [
+    {
+      "ip": "192.168.1.7",
+      "mac": "94:08:53:53:98:43",
+      "tipo": "pc",
+      "fabricante": "Samsung",
+      "sistema_op": "Linux",
+      "estado": "confirmado",
+      "en_lobby": false,
+      "paquetes": 7,
+      "puertos": [],
+      "risk_score": 0,
+      "severidad_max": null,
+      "perfiles": [],
+      "hallazgos": []
+    },
+    {
+      "ip": "192.168.1.1",
+      "mac": "DA:58:3D:72:C5:E4",
+      "tipo": "smartphone",
+      "fabricante": "Privada/Aleatoria",
+      "sistema_op": "Linux/Mac",
+      "estado": "confirmado",
+      "en_lobby": false,
+      "paquetes": 1559,
+      "puertos": [],
+      "risk_score": 0,
+      "severidad_max": null,
+      "perfiles": [],
+      "hallazgos": []
+    },
+    {
+      "ip": "192.168.1.2",
+      "mac": "8E:63:F4:86:1E:ED",
+      "tipo": "smartphone",
+      "fabricante": "Privada/Aleatoria",
+      "sistema_op": "Linux/Mac",
+      "estado": "confirmado",
+      "en_lobby": false,
+      "paquetes": 154,
+      "puertos": [],
+      "risk_score": 0,
+      "severidad_max": null,
+      "perfiles": [],
+      "hallazgos": []
+    },
+    {
+      "ip": "192.168.1.3",
+      "mac": "66:07:9D:FE:1A:73",
+      "tipo": "smartphone",
+      "fabricante": "Privada/Aleatoria",
+      "sistema_op": "Linux/Mac",
+      "estado": "confirmado",
+      "en_lobby": false,
+      "paquetes": 102,
+      "puertos": [],
+      "risk_score": 0,
+      "severidad_max": null,
+      "perfiles": [],
+      "hallazgos": []
+    },
+    {
+      "ip": "192.168.1.4",
+      "mac": "68:6D:BC:D4:6B:8A",
+      "tipo": "servidor",
+      "fabricante": "Hikvision",
+      "sistema_op": "Linux",
+      "estado": "confirmado",
+      "en_lobby": false,
+      "paquetes": 372,
+      "puertos": [
+        80,
+        554,
+        8000,
+        9010
+      ],
+      "risk_score": 35,
+      "severidad_max": "medio",
+      "perfiles": [
+        "Cámara IP"
+      ],
+      "hallazgos": [
+        {
+          "puerto": 0,
+          "servicio": "OS: Linux 2.6.32 - 3.10",
+          "severidad": "info",
+          "detalle": "OS: Linux 2.6.32 - 3.10",
+          "timestamp": "10:18:43"
+        },
+        {
+          "puerto": 80,
+          "servicio": "HTTP",
+          "severidad": "info",
+          "detalle": "Verificar si necesita exposición",
+          "timestamp": "10:18:43"
+        },
+        {
+          "puerto": 554,
+          "servicio": "RTSP",
+          "severidad": "medio",
+          "detalle": "Proteger stream con autenticación",
+          "timestamp": "10:18:43"
+        },
+        {
+          "puerto": 8000,
+          "servicio": "Hikvision",
+          "severidad": "medio",
+          "detalle": "Cambiar contraseña por defecto",
+          "timestamp": "10:18:43"
+        },
+        {
+          "puerto": 9010,
+          "servicio": "Hikvision-SDR",
+          "severidad": "medio",
+          "detalle": "Revisar configuración del servicio",
+          "timestamp": "10:18:43"
+        },
+        {
+          "puerto": 0,
+          "servicio": "Cámara IP",
+          "severidad": "medio",
+          "detalle": "Revisar configuración del servicio",
+          "timestamp": "10:18:43"
+        },
+        {
+          "puerto": 0,
+          "servicio": "Web: Country[RESERVED][ZZ], HT",
+          "severidad": "info",
+          "detalle": "Web: Country[RESERVED][ZZ], HTML5, HTTPServer[Webs], IP[192.168.1",
+          "timestamp": "10:18:47"
+        }
+      ]
+    },
+    {
+      "ip": "192.168.1.252",
+      "mac": "00:00:CA:01:02:03",
+      "tipo": "wired_generic",
+      "fabricante": "Attachmate",
+      "sistema_op": "Desconocido",
+      "estado": "confirmado",
+      "en_lobby": false,
+      "paquetes": 6,
+      "puertos": [],
+      "risk_score": 0,
+      "severidad_max": null,
+      "perfiles": [],
+      "hallazgos": []
+    },
+    {
+      "ip": "192.168.1.254",
+      "mac": "60:D2:48:7A:A3:2C",
+      "tipo": "router",
+      "fabricante": "Tenda",
+      "sistema_op": "Ubiquiti",
+      "estado": "confirmado",
+      "en_lobby": false,
+      "paquetes": 56,
+      "puertos": [
+        80,
+        443
+      ],
+      "risk_score": 8,
+      "severidad_max": "info",
+      "perfiles": [],
+      "hallazgos": [
+        {
+          "puerto": 80,
+          "servicio": "HTTP",
+          "severidad": "info",
+          "detalle": "Verificar si necesita exposición",
+          "timestamp": "10:18:46"
+        },
+        {
+          "puerto": 443,
+          "servicio": "HTTPS",
+          "severidad": "info",
+          "detalle": "Revisar configuración del servicio",
+          "timestamp": "10:18:46"
+        },
+        {
+          "puerto": 0,
+          "servicio": "Web: Country[RESERVED][ZZ], HT",
+          "severidad": "info",
+          "detalle": "Web: Country[RESERVED][ZZ], HTTPServer[lighttpd], IP[192.168.1.25",
+          "timestamp": "10:18:50"
+        },
+        {
+          "puerto": 443,
+          "servicio": "SSL/TLS",
+          "severidad": "info",
+          "detalle": "Emisor: ?",
+          "timestamp": "10:19:03"
+        },
+        {
+          "puerto": 0,
+          "servicio": "OS: Ubiquiti webcam (Linux 2.6",
+          "severidad": "info",
+          "detalle": "OS: Ubiquiti webcam (Linux 2.6.38)",
+          "timestamp": "10:19:20"
+        }
+      ]
+    }
+  ],
+  "alertas": [
+    {
+      "ip": "192.168.1.4",
+      "puerto": 0,
+      "servicio": "OS: Linux 2.6.32 - 3.10",
+      "severidad": "info",
+      "detalle": "OS: Linux 2.6.32 - 3.10",
+      "timestamp": "10:18:43"
+    },
+    {
+      "ip": "192.168.1.4",
+      "puerto": 80,
+      "servicio": "HTTP",
+      "severidad": "info",
+      "detalle": "Verificar si necesita exposición",
+      "timestamp": "10:18:43"
+    },
+    {
+      "ip": "192.168.1.4",
+      "puerto": 554,
+      "servicio": "RTSP",
+      "severidad": "medio",
+      "detalle": "Proteger stream con autenticación",
+      "timestamp": "10:18:43"
+    },
+    {
+      "ip": "192.168.1.4",
+      "puerto": 8000,
+      "servicio": "Hikvision",
+      "severidad": "medio",
+      "detalle": "Cambiar contraseña por defecto",
+      "timestamp": "10:18:43"
+    },
+    {
+      "ip": "192.168.1.4",
+      "puerto": 9010,
+      "servicio": "Hikvision-SDR",
+      "severidad": "medio",
+      "detalle": "Revisar configuración del servicio",
+      "timestamp": "10:18:43"
+    },
+    {
+      "ip": "192.168.1.4",
+      "puerto": 0,
+      "servicio": "Cámara IP",
+      "severidad": "medio",
+      "detalle": "Revisar configuración del servicio",
+      "timestamp": "10:18:43"
+    },
+    {
+      "ip": "192.168.1.254",
+      "puerto": 80,
+      "servicio": "HTTP",
+      "severidad": "info",
+      "detalle": "Verificar si necesita exposición",
+      "timestamp": "10:18:46"
+    },
+    {
+      "ip": "192.168.1.254",
+      "puerto": 443,
+      "servicio": "HTTPS",
+      "severidad": "info",
+      "detalle": "Revisar configuración del servicio",
+      "timestamp": "10:18:46"
+    },
+    {
+      "ip": "192.168.1.4",
+      "puerto": 0,
+      "servicio": "Web: Country[RESERVED][ZZ], HT",
+      "severidad": "info",
+      "detalle": "Web: Country[RESERVED][ZZ], HTML5, HTTPServer[Webs], IP[192.168.1",
+      "timestamp": "10:18:47"
+    },
+    {
+      "ip": "192.168.1.254",
+      "puerto": 0,
+      "servicio": "Web: Country[RESERVED][ZZ], HT",
+      "severidad": "info",
+      "detalle": "Web: Country[RESERVED][ZZ], HTTPServer[lighttpd], IP[192.168.1.25",
+      "timestamp": "10:18:50"
+    },
+    {
+      "ip": "192.168.1.254",
+      "puerto": 0,
+      "servicio": "OS: Ubiquiti webcam (Linux 2.6",
+      "severidad": "info",
+      "detalle": "OS: Ubiquiti webcam (Linux 2.6.38)",
+      "timestamp": "10:19:20"
+    }
+  ],
+  "subredes_secundarias": []
+}

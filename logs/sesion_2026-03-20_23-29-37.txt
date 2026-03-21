@@ -1,0 +1,51 @@
+TopoReveal — Log de sesion
+Generado: 2026-03-20 23:29:37
+Total lineas de evento: 376
+============================================================
+
+RESUMEN DE RED — 6 hosts activos, 0 en lobby
+Gateway: 192.168.1.254 | Subred: 192.168.1.x
+ARP Scanners detectados: 0
+------------------------------------------------------------
+
+HOSTS ACTIVOS:
+  IP                 MAC                  TIPO           OS           ESTADO         PKTs  PROTOCOLOS
+  ------------------------------------------------------------------------------------------
+  192.168.1.1        DA:58:3D:72:C5:E4    smartphone     Linux/Mac    confirmado      674  DNS,HTTPS,TCP,XMPP
+  192.168.1.3        66:07:9D:FE:1A:73    smartphone     Desconocido  confirmado        7  —
+  192.168.1.4        68:6D:BC:D4:6B:8A    servidor       Linux        confirmado      333  DNS,TCP,UDP
+  192.168.1.7        94:08:53:53:98:43    servidor       Linux        confirmado        9  —
+  192.168.1.252      00:00:CA:01:02:03    wired_generic  Desconocido  confirmado        7  —
+  192.168.1.254      60:D2:48:7A:A3:2C    router         Ubiquiti     confirmado       23  IGMP
+
+CONEXIONES EXTERNAS POR HOST:
+  192.168.1.1 → 2.22.20.210, 34.128.182.103, 54.147.216.70, 3.163.60.82, 3.163.60.71, 34.36.192.126, 23.218.213.95, 54.243.119.156, 52.202.243.148, 18.233.56.66
+  192.168.1.254 → 224.0.0.1
+  192.168.1.4 → 1.178.33.144, 1.178.32.127, 1.178.32.230, 200.24.51.144, 1.178.33.219, 255.255.255.255
+
+============================================================
+
+RESUMEN DE CAPACIDADES — QUÉ DETECTÓ ESTA SESIÓN:
+------------------------------------------------------------
+
+[DESCUBRIMIENTO]
+  ✓  Hosts descubiertos (ARP)  →  6 hosts activos
+  ✓  Gateway identificado  →  192.168.1.254
+  ✓  Puertos TCP escaneados  →  7 puertos abiertos en total
+  ✓  Tráfico externo capturado  →  3 hosts con conexiones externas
+  ○  Flujos internos detectados
+
+[ANÁLISIS DE PROTOCOLOS]
+  ✓  HTTP detectado
+  ✓  SSL/TLS analizado  →  autofirmado detectado
+  ○  DHCP capturado
+  ○  DNS interno
+  ✓  Protocolos aplicación (XMPP/QUIC)
+  ✓  IGMP/multicast
+  ○  NTP detectado
+  ✓  RTSP (cámara/stream)
+
+[FINGERPRINTING E IDENTIFICACIÓN]
+  ✓  Tipos de dispositivo identificados  →  router, servidor, smartphone, wired_generic
+  ✓  Fabricantes identificados  →  Tenda, Attachmate, Samsung, Hikvision
+  ✓  OS detectados  →  Linux, Ubiquiti, Linux/Mac

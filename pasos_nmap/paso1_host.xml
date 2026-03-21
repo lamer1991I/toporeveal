@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.98 scan initiated Fri Mar  6 12:50:19 2026 as: /usr/lib/nmap/nmap -&#45;privileged -sn -oA paso1_host 192.168.43.1/24 -->
+<nmaprun scanner="nmap" args="/usr/lib/nmap/nmap -&#45;privileged -sn -oA paso1_host 192.168.43.1/24" start="1772819419" startstr="Fri Mar  6 12:50:19 2026" version="7.98" xmloutputversion="1.05">
+<verbose level="0"/>
+<debugging level="0"/>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.43.1" addrtype="ipv4"/>
+<address addr="46:D9:8A:A2:22:F5" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<times srtt="11187" rttvar="11187" to="100000"/>
+</host>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.43.23" addrtype="ipv4"/>
+<address addr="32:91:E3:2B:05:41" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<times srtt="33132" rttvar="22913" to="124784"/>
+</host>
+<host><status state="up" reason="localhost-response" reason_ttl="0"/>
+<address addr="192.168.43.29" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+</host>
+<host><status state="up" reason="localhost-response" reason_ttl="0"/>
+<address addr="192.168.43.171" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+</host>
+<runstats><finished time="1772819425" timestr="Fri Mar  6 12:50:25 2026" summary="Nmap done at Fri Mar  6 12:50:25 2026; 256 IP addresses (4 hosts up) scanned in 5.81 seconds" elapsed="5.81" exit="success"/><hosts up="4" down="252" total="256"/>
+</runstats>
+</nmaprun>

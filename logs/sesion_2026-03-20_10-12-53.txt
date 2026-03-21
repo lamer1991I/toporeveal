@@ -1,0 +1,204 @@
+TopoReveal — Log de sesion
+Generado: 2026-03-20 10:12:53
+Total lineas de evento: 172
+============================================================
+
+RESUMEN DE RED — 7 hosts activos, 0 en lobby
+Gateway: 192.168.1.254 | Subred: 192.168.1.x
+ARP Scanners detectados: 0
+------------------------------------------------------------
+
+HOSTS ACTIVOS:
+  IP                 MAC                  TIPO           OS           ESTADO         PKTs  PROTOCOLOS
+  ------------------------------------------------------------------------------------------
+  192.168.1.1        DA:58:3D:72:C5:E4    smartphone     Linux/Mac    confirmado      244  HTTPS,UDP,XMPP
+  192.168.1.2        8E:63:F4:86:1E:ED    smartphone     Linux/Mac    confirmado       40  HTTPS,UDP
+  192.168.1.3        66:07:9D:FE:1A:73    smartphone     Linux/Mac    confirmado       65  DNS,HTTPS
+  192.168.1.4        68:6D:BC:D4:6B:8A    servidor       Linux        confirmado      152  DNS,TCP,UDP
+  192.168.1.7        94:08:53:53:98:43    pc             Linux        confirmado        5  —
+  192.168.1.252      00:00:CA:01:02:03    wired_generic  Desconocido  confirmado        4  —
+  192.168.1.254      60:D2:48:7A:A3:2C    router         Ubiquiti     confirmado      121  IGMP
+
+CONEXIONES EXTERNAS POR HOST:
+  192.168.1.1 → 8.219.142.233, 224.0.0.251, 8.222.169.127, 8.222.189.142, 8.222.222.54, 98.90.143.15, 4.153.25.145, 8.222.225.69, 98.95.104.222, 47.241.59.87
+  192.168.1.2 → 190.102.205.20, 141.226.224.48, 163.70.152.1
+  192.168.1.254 → 239.255.255.250, 224.0.0.1
+  192.168.1.3 → 200.24.51.144, 190.240.115.151, 57.144.115.32, 200.114.57.161, 57.144.197.32, 34.107.165.5, 3.163.60.125, 3.163.60.118, 3.163.60.31, 3.163.60.106
+  192.168.1.4 → 200.24.51.144, 1.178.32.127, 1.178.32.230, 1.178.33.219, 1.178.33.237, 255.255.255.255
+
+============================================================
+
+LOG DE EVENTOS:
+
+[10:07:23] [APP] GeoIP disponible — base de datos local cargada
+[10:07:24] [APP] Arranque automático en wlan0
+[10:07:24] [APP] Gateway: 192.168.1.254 | Subred: 192.168.1.x
+[10:07:24] [APP] Nodo propio: 192.168.1.7 | MAC: 94:08:53:53:98:43
+[10:07:24] [APP] Iniciando escaneo en wlan0
+[10:07:24] [SCANNER] Pipeline de 3 Fases activo en wlan0 (5 hilos workers)
+[10:07:24] [CAPTURE] Modo promiscuo activado en wlan0
+[10:07:24] [CAPTURE] Hilo iniciado (id=1)
+[10:07:24] [CAPTURE] Iniciado en wlan0 (promiscuo + watchdog)
+[10:07:27] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.1...
+[10:07:27] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.2...
+[10:07:27] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.3...
+[10:07:27] [DNS] 192.168.1.254 → _gateway
+[10:07:27] [SCANNER] Fase 1 (ARP) completado en 3s
+[10:07:28] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.4...
+[10:07:28] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.252...
+[10:07:29] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[10:07:29] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.7...
+[10:07:31] [HALLAZGO] 192.168.1.4:80 HTTP [INFO]
+[10:07:31] [HALLAZGO] 192.168.1.4:554 RTSP [MEDIO]
+[10:07:31] [HALLAZGO] 192.168.1.4:8000 Hikvision [MEDIO]
+[10:07:31] [HALLAZGO] 192.168.1.4:9010 Hikvision-SDR [MEDIO]
+[10:07:31] [HALLAZGO] 192.168.1.4:0 Cámara IP [MEDIO]
+[10:07:31] [SCANNER] Fase 3: Analizando web en 192.168.1.4
+[10:07:32] [HALLAZGO] 192.168.1.254:80 HTTP [INFO]
+[10:07:32] [HALLAZGO] 192.168.1.254:443 HTTPS [INFO]
+[10:07:32] [SCANNER] Fase 3: Analizando web en 192.168.1.254
+[10:07:35] [APP] Abriendo análisis de tráfico...
+[10:07:35] [SCANNER] Fase 3: SSL/TLS en 192.168.1.254
+[10:07:38] [STATS] Recálculo: 7 nodos | alertas: 11
+[10:07:39] [APP] Lanzando interceptor | gateway: 192.168.1.254 (60:D2:48:7A:A3:2C) | 5 hosts
+[10:07:39] [INTERCEPTOR] Iniciando | iface: wlan0 | gateway: 192.168.1.254 | 5 hosts | BSSID: 60:D2:48:7A:A3:2C
+[10:07:39] [SPOOFER] IP forwarding activado
+[10:07:39] [SPOOFER] Sniff MITM iniciado
+[10:07:39] [SPOOFER] Activo | Mi MAC: 94:08:53:53:98:43 | Gateway: 192.168.1.254 | Hosts: 5
+[10:07:39] [INTERCEPTOR] Una tarjeta (wlan0) — modo monitor no disponible, captura virtual activa
+[10:07:39] [MONITOR] Captura virtual (macvlan) en wlan0_mitm
+[10:07:40] [EXTERNO] 192.168.1.254 → 239.255.255.250 [IGMP]
+[10:07:48] [EXTERNO] 192.168.1.1 → 8.219.142.233 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[10:07:51] [SCANNER] SSL error en 192.168.1.254: 'Hallazgo' object has no attribute 'desc'
+[10:07:53] [STATS] Recálculo: 7 nodos | alertas: 11
+[10:07:54] [SCANNER] Re-escaneo profundo masivo de 192.168.1.7/24...
+[10:07:54] [EXTERNO] 192.168.1.1 → 224.0.0.251 [UDP]
+[10:07:54] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[10:07:58] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[10:07:58] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[10:07:59] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[10:08:05] [SCANNER] Re-escaneo masivo completado
+[10:08:05] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.4...
+[10:08:05] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[10:08:06] [EXTERNO] 192.168.1.4 → 1.178.33.237 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[10:08:08] [SCANNER] Fase 3: Analizando web en 192.168.1.254
+[10:08:08] [SCANNER] Fase 3: SSL/TLS en 192.168.1.254
+[10:08:08] [EXTERNO] 192.168.1.3 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[10:08:08] [EXTERNO] 192.168.1.3 → 190.240.115.151 [DNS] [CO] UNE EPM TELECOMUNI… · Ibagué
+[10:08:08] [STATS] Recálculo: 7 nodos | alertas: 12
+[10:08:15] [SCANNER] Fase 3: Analizando web en 192.168.1.4
+[10:08:18] [EXTERNO] 192.168.1.1 → 8.222.169.127 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[10:08:22] [APP] Abriendo dashboard de analíticas...
+[10:08:23] [STATS] Recálculo: 7 nodos | alertas: 12
+[10:08:24] [SCANNER] SSL 192.168.1.254: OK — Emisor: ?
+[10:08:38] [STATS] Recálculo: 7 nodos | alertas: 12
+[10:08:48] [EXTERNO] 192.168.1.1 → 8.222.189.142 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[10:08:53] [STATS] Recálculo: 7 nodos | alertas: 12
+[10:08:54] [EXTERNO] 192.168.1.1 → 224.0.0.251 [UDP]
+[10:09:01] [EXTERNO] 192.168.1.3 → 57.144.115.32 [HTTPS] [CO] Facebook, Inc. · Bogotá
+[10:09:03] [EXTERNO] 192.168.1.3 → 200.114.57.161 [HTTPS] [CO] UNE EPM TELECOMUNI… · Colombia
+[10:09:07] [EXTERNO] 192.168.1.4 → 1.178.33.237 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[10:09:08] [EXTERNO] 192.168.1.3 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[10:09:08] [EXTERNO] 192.168.1.3 → 190.240.115.151 [DNS] [CO] UNE EPM TELECOMUNI… · Ibagué
+[10:09:08] [STATS] Recálculo: 7 nodos | alertas: 12
+[10:09:11] [EXTERNO] 192.168.1.254 → 224.0.0.1 [IGMP]
+[10:09:13] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[10:09:13] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[10:09:18] [EXTERNO] 192.168.1.1 → 8.222.222.54 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[10:09:19] [EXTERNO] 192.168.1.1 → 98.90.143.15 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[10:09:23] [STATS] Recálculo: 7 nodos | alertas: 12
+[10:09:24] [EXTERNO] 192.168.1.2 → 190.102.205.20 [UDP] [CO] Colombia Movil · Colombia
+[10:09:33] [EXTERNO] 192.168.1.4 → 255.255.255.255 [UDP]
+[10:09:38] [STATS] Recálculo: 7 nodos | alertas: 12
+[10:09:42] [EXTERNO] 192.168.1.1 → 4.153.25.145 [HTTPS] [US] Microsoft Corporat… · Boydton
+[10:09:46] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[10:09:48] [EXTERNO] 192.168.1.1 → 8.222.225.69 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[10:09:51] [EXTERNO] 192.168.1.1 → 98.95.104.222 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[10:09:51] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[10:09:53] [STATS] Recálculo: 7 nodos | alertas: 12
+[10:09:54] [EXTERNO] 192.168.1.1 → 224.0.0.251 [UDP]
+[10:09:55] [EXTERNO] 192.168.1.1 → 47.241.59.87 [XMPP] [SG] Alibaba US Technol… · Singapore
+[10:10:03] [EXTERNO] 192.168.1.3 → 57.144.115.32 [HTTPS] [CO] Facebook, Inc. · Bogotá
+[10:10:04] [EXTERNO] 192.168.1.1 → 47.235.21.45 [HTTPS] [US] Alibaba US Technol… · USA
+[10:10:05] [EXTERNO] 192.168.1.1 → 47.74.170.157 [XMPP] [SG] Alibaba US Technol… · Singapore
+[10:10:06] [EXTERNO] 192.168.1.1 → 34.36.192.126 [HTTPS] [US] Google LLC · Kansas City
+[10:10:08] [EXTERNO] 192.168.1.3 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[10:10:08] [EXTERNO] 192.168.1.3 → 190.240.115.151 [DNS] [CO] UNE EPM TELECOMUNI… · Ibagué
+[10:10:08] [STATS] Recálculo: 7 nodos | alertas: 12
+[10:10:13] [EXTERNO] 192.168.1.1 → 47.241.67.137 [XMPP] [SG] Alibaba US Technol… · Singapore
+[10:10:16] [EXTERNO] 192.168.1.1 → 47.241.174.254 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[10:10:18] [EXTERNO] 192.168.1.1 → 8.222.235.244 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[10:10:21] [EXTERNO] 192.168.1.1 → 8.219.240.180 [XMPP] [SG] Alibaba US Technol… · Singapur
+[10:10:22] [EXTERNO] 192.168.1.1 → 100.50.114.215 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[10:10:23] [STATS] Recálculo: 7 nodos | alertas: 12
+[10:10:25] [EXTERNO] 192.168.1.1 → 47.241.56.51 [HTTPS] [SG] Alibaba US Technol… · Singapore
+[10:10:28] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[10:10:28] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[10:10:30] [EXTERNO] 192.168.1.254 → 239.255.255.250 [IGMP]
+[10:10:32] [EXTERNO] 192.168.1.3 → 57.144.197.32 [HTTPS] [US] Facebook, Inc. · Miami
+[10:10:38] [STATS] Recálculo: 7 nodos | alertas: 12
+[10:10:40] [EXTERNO] 192.168.1.2 → 141.226.224.48 [HTTPS] [US] Taboola.com ltd · Newark
+[10:10:48] [EXTERNO] 192.168.1.2 → 163.70.152.1 [HTTPS] [CO] Facebook, Inc. · Bogotá
+[10:10:48] [EXTERNO] 192.168.1.1 → 8.222.240.90 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[10:10:51] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[10:10:53] [STATS] Recálculo: 7 nodos | alertas: 12
+[10:10:54] [EXTERNO] 192.168.1.1 → 3.86.134.225 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[10:10:54] [EXTERNO] 192.168.1.1 → 224.0.0.251 [UDP]
+[10:10:56] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[10:10:57] [EXTERNO] 192.168.1.1 → 47.241.59.87 [XMPP] [SG] Alibaba US Technol… · Singapore
+[10:11:08] [STATS] Recálculo: 7 nodos | alertas: 12
+[10:11:10] [EXTERNO] 192.168.1.1 → 47.74.170.157 [XMPP] [SG] Alibaba US Technol… · Singapore
+[10:11:10] [EXTERNO] 192.168.1.3 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[10:11:10] [EXTERNO] 192.168.1.3 → 190.240.115.151 [DNS] [CO] UNE EPM TELECOMUNI… · Ibagué
+[10:11:16] [EXTERNO] 192.168.1.254 → 224.0.0.1 [IGMP]
+[10:11:18] [EXTERNO] 192.168.1.1 → 47.236.80.247 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[10:11:18] [EXTERNO] 192.168.1.1 → 47.241.67.137 [XMPP] [SG] Alibaba US Technol… · Singapore
+[10:11:23] [EXTERNO] 192.168.1.3 → 34.107.165.5 [HTTPS] [US] Google LLC · Kansas City
+[10:11:23] [STATS] Recálculo: 7 nodos | alertas: 12
+[10:11:26] [EXTERNO] 192.168.1.1 → 8.219.240.180 [XMPP] [SG] Alibaba US Technol… · Singapur
+[10:11:38] [STATS] Recálculo: 7 nodos | alertas: 12
+[10:11:44] [EXTERNO] 192.168.1.1 → 47.235.21.45 [HTTPS] [US] Alibaba US Technol… · USA
+[10:11:48] [EXTERNO] 192.168.1.1 → 47.236.166.75 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[10:11:52] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[10:11:53] [STATS] Recálculo: 7 nodos | alertas: 12
+[10:11:57] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[10:12:00] [APP] Tráfico lateral: activado
+[10:12:02] [EXTERNO] 192.168.1.2 → 141.226.224.48 [HTTPS] [US] Taboola.com ltd · Newark
+[10:12:08] [STATS] Recálculo: 7 nodos | alertas: 12
+[10:12:08] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[10:12:08] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[10:12:10] [EXTERNO] 192.168.1.3 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[10:12:10] [EXTERNO] 192.168.1.3 → 190.240.115.151 [DNS] [CO] UNE EPM TELECOMUNI… · Ibagué
+[10:12:14] [EXTERNO] 192.168.1.1 → 224.0.0.251 [UDP]
+[10:12:18] [EXTERNO] 192.168.1.1 → 47.236.194.71 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[10:12:23] [STATS] Recálculo: 7 nodos | alertas: 12
+[10:12:26] [EXTERNO] 192.168.1.1 → 47.236.82.106 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[10:12:28] [EXTERNO] 192.168.1.1 → 8.222.197.94 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[10:12:29] [EXTERNO] 192.168.1.1 → 47.236.195.109 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[10:12:30] [EXTERNO] 192.168.1.3 → 3.163.60.125 [HTTPS] [US] Amazon.com, Inc. · USA
+[10:12:31] [EXTERNO] 192.168.1.254 → 239.255.255.250 [IGMP]
+[10:12:32] [EXTERNO] 192.168.1.3 → 3.163.60.118 [HTTPS] [US] Amazon.com, Inc. · USA
+[10:12:33] [EXTERNO] 192.168.1.4 → 255.255.255.255 [UDP]
+[10:12:36] [EXTERNO] 192.168.1.3 → 3.163.60.31 [HTTPS] [US] Amazon.com, Inc. · USA
+[10:12:37] [EXTERNO] 192.168.1.3 → 34.107.165.5 [HTTPS] [US] Google LLC · Kansas City
+[10:12:37] [EXTERNO] 192.168.1.3 → 3.163.60.106 [HTTPS] [US] Amazon.com, Inc. · USA
+[10:12:38] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.1...
+[10:12:38] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.2...
+[10:12:38] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.3...
+[10:12:38] [SCANNER] Fase 1 (ARP) completado en 3s
+[10:12:38] [STATS] Recálculo: 7 nodos | alertas: 12
+[10:12:39] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.252...
+[10:12:39] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.7...
+[10:12:39] [EXTERNO] 192.168.1.1 → 47.74.170.157 [XMPP] [SG] Alibaba US Technol… · Singapore
+[10:12:47] [EXTERNO] 192.168.1.1 → 47.241.67.137 [XMPP] [SG] Alibaba US Technol… · Singapore
+[10:12:48] [EXTERNO] 192.168.1.1 → 47.236.203.28 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[10:12:52] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[10:12:52] [APP] Botón Salir presionado — cerrando...
+[10:12:52] [CAPTURE] Detenido
+[10:12:52] [SCANNER] Hilos detenidos
+[10:12:52] [INTERCEPTOR] Deteniendo...
+[10:12:52] [SPOOFER] Restaurando ARP para 5 hosts...
+[10:12:53] [SPOOFER] IP forwarding restaurado a 1
+[10:12:53] [SPOOFER] ARP restaurado — tráfico normal
+[10:12:53] [MONITOR] Detenido — wlan0 restaurada
+[10:12:53] [INTERCEPTOR] Detenido — red restaurada

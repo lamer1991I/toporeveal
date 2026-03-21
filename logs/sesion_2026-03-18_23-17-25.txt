@@ -1,0 +1,360 @@
+TopoReveal — Log de sesion
+Generado: 2026-03-18 23:17:25
+Total lineas de evento: 328
+============================================================
+
+RESUMEN DE RED — 4 hosts activos, 2 en lobby
+Gateway: 192.168.1.254 | Subred: 192.168.1.x
+ARP Scanners detectados: 0
+------------------------------------------------------------
+
+HOSTS ACTIVOS:
+  IP                 MAC                  TIPO           OS           ESTADO         PKTs  PROTOCOLOS
+  ------------------------------------------------------------------------------------------
+  192.168.1.1        68:6D:BC:D4:6B:8A    servidor       Linux        confirmado      460  —
+  192.168.1.2        DA:58:3D:72:C5:E4    smartphone     Linux/Mac    confirmado     1326  —
+  192.168.1.7        —                    desconocido    Desconocido  confirmado        6  —
+  192.168.1.254      60:D2:48:7A:A3:2C    router         Ubiquiti     confirmado       45  —
+
+HOSTS EN LOBBY (sin actividad reciente):
+  192.168.1.3        66:07:9D:FE:1A:73
+  192.168.1.252      00:00:CA:01:02:03
+
+CONEXIONES EXTERNAS POR HOST:
+  192.168.1.1 → 1.178.32.127, 1.178.32.230, 1.178.32.24, 255.255.255.255, 200.24.51.144, 1.178.33.219, 98.98.182.242
+  192.168.1.2 → 47.236.99.77, 200.114.56.163, 8.222.208.136, 199.232.176.84, 163.70.152.62, 157.240.14.51, 34.128.128.0, 172.64.149.149, 18.156.169.107, 239.255.255.250
+  192.168.1.254 → 224.0.0.1, 239.255.255.250
+  192.168.1.3 → 190.102.205.10, 200.24.51.144, 190.240.115.151
+
+============================================================
+
+LOG DE EVENTOS:
+
+[23:02:31] [APP] Botón Escanear presionado — interfaz: wlan0
+[23:02:31] [APP] Gateway: 192.168.1.254 | Subred: 192.168.1.x
+[23:02:31] [APP] Iniciando escaneo en wlan0
+[23:02:31] [SCANNER] Pipeline de 3 Fases activo en wlan0 (5 hilos workers)
+[23:02:31] [CAPTURE] Modo promiscuo activado en wlan0
+[23:02:31] [CAPTURE] Hilo iniciado (id=1)
+[23:02:31] [CAPTURE] Iniciado en wlan0 (promiscuo + watchdog)
+[23:02:34] [STATS] Recálculo: 0 nodos | alertas: 0
+[23:02:36] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.1...
+[23:02:36] [SCANNER] Fase 1 (ARP) completado en 4s
+[23:02:36] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.3...
+[23:02:36] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.2...
+[23:02:36] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.252...
+[23:02:37] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[23:02:38] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.7...
+[23:02:39] [HALLAZGO] 192.168.1.1:80 HTTP [INFO]
+[23:02:39] [HALLAZGO] 192.168.1.1:554 RTSP [MEDIO]
+[23:02:39] [HALLAZGO] 192.168.1.1:8000 Hikvision [MEDIO]
+[23:02:39] [HALLAZGO] 192.168.1.1:9010 Hikvision-SDR [MEDIO]
+[23:02:39] [HALLAZGO] 192.168.1.1:0 Cámara IP [MEDIO]
+[23:02:39] [SCANNER] Fase 3: Analizando web en 192.168.1.1
+[23:02:40] [HALLAZGO] 192.168.1.254:80 HTTP [INFO]
+[23:02:40] [HALLAZGO] 192.168.1.254:443 HTTPS [INFO]
+[23:02:40] [SCANNER] Fase 3: Analizando web en 192.168.1.254
+[23:02:41] [APP] Abriendo WiFi Scope...
+[23:02:46] [APP] Lanzando interceptor | gateway: 192.168.1.254 (60:D2:48:7A:A3:2C) | 4 hosts
+[23:02:46] [INTERCEPTOR] Iniciando | iface: wlan0 | gateway: 192.168.1.254 | 4 hosts | BSSID: 60:D2:48:7A:A3:2C
+[23:02:46] [SPOOFER] IP forwarding activado
+[23:02:46] [SPOOFER] Sniff MITM iniciado
+[23:02:46] [SPOOFER] Activo | Mi MAC: 94:08:53:53:98:43 | Gateway: 192.168.1.254 | Hosts: 4
+[23:02:46] [INTERCEPTOR] Una tarjeta (wlan0) — modo monitor no disponible, captura virtual activa
+[23:02:46] [MONITOR] Captura virtual (macvlan) en wlan0_mitm
+[23:02:46] [EXTERNO] 192.168.1.2 → 47.236.99.77 [HTTPS]
+[23:02:47] [EXTERNO] 192.168.1.2 → 200.114.56.163 [UDP]
+[23:02:47] [EXTERNO] 192.168.1.2 → 8.222.208.136 [HTTPS]
+[23:02:48] [EXTERNO] 192.168.1.2 → 199.232.176.84 [HTTPS]
+[23:02:49] [STATS] Recálculo: 6 nodos | alertas: 11
+[23:02:49] [EXTERNO] 192.168.1.2 → 163.70.152.62 [UDP]
+[23:02:49] [EXTERNO] 192.168.1.2 → 157.240.14.51 [UDP]
+[23:02:51] [EXTERNO] 192.168.1.2 → 34.128.128.0 [HTTPS]
+[23:02:51] [EXTERNO] 192.168.1.2 → 172.64.149.149 [HTTPS]
+[23:02:51] [EXTERNO] 192.168.1.2 → 18.156.169.107 [HTTPS]
+[23:02:53] [EXTERNO] 192.168.1.2 → 239.255.255.250 [UDP]
+[23:02:54] [EXTERNO] 192.168.1.2 → 224.0.0.251 [UDP]
+[23:02:56] [EXTERNO] 192.168.1.1 → 1.178.32.127 [UDP]
+[23:02:56] [EXTERNO] 192.168.1.1 → 1.178.32.230 [UDP]
+[23:02:57] [EXTERNO] 192.168.1.254 → 224.0.0.1 [IGMP]
+[23:02:59] [EXTERNO] 192.168.1.2 → 3.174.238.61 [HTTPS]
+[23:03:01] [SCANNER] Re-escaneo profundo masivo de 192.168.1.7/24...
+[23:03:04] [STATS] Recálculo: 6 nodos | alertas: 11
+[23:03:06] [EXTERNO] 192.168.1.2 → 47.236.12.19 [HTTPS]
+[23:03:06] [EXTERNO] 192.168.1.2 → 20.185.80.217 [HTTPS]
+[23:03:11] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.1...
+[23:03:11] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[23:03:11] [SCANNER] Re-escaneo masivo completado
+[23:03:14] [SCANNER] Fase 3: Analizando web en 192.168.1.1
+[23:03:14] [SCANNER] Fase 3: Analizando web en 192.168.1.254
+[23:03:16] [EXTERNO] 192.168.1.1 → 1.178.32.24 [TCP]
+[23:03:16] [EXTERNO] 192.168.1.2 → 47.236.114.141 [HTTPS]
+[23:03:17] [EXTERNO] 192.168.1.3 → 190.102.205.10 [UDP]
+[23:03:19] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:03:20] [EXTERNO] 192.168.1.2 → 47.236.98.34 [HTTPS]
+[23:03:21] [EXTERNO] 192.168.1.2 → 8.219.255.83 [HTTPS]
+[23:03:22] [EXTERNO] 192.168.1.2 → 190.248.95.139 [HTTPS]
+[23:03:22] [EXTERNO] 192.168.1.2 → 2.22.20.132 [HTTPS]
+[23:03:23] [EXTERNO] 192.168.1.2 → 224.0.0.2 [IGMP]
+[23:03:24] [APP] Abriendo WiFi Scope...
+[23:03:24] [EXTERNO] 192.168.1.3 → 200.24.51.144 [DNS]
+[23:03:24] [EXTERNO] 192.168.1.3 → 190.240.115.151 [DNS]
+[23:03:34] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:03:47] [EXTERNO] 192.168.1.2 → 47.236.99.77 [HTTPS]
+[23:03:49] [EXTERNO] 192.168.1.2 → 8.222.208.136 [HTTPS]
+[23:03:49] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:03:51] [EXTERNO] 192.168.1.2 → 199.232.176.84 [HTTPS]
+[23:04:04] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:04:09] [EXTERNO] 192.168.1.2 → 34.128.128.0 [HTTPS]
+[23:04:09] [EXTERNO] 192.168.1.2 → 172.64.149.149 [HTTPS]
+[23:04:11] [EXTERNO] 192.168.1.1 → 1.178.32.127 [UDP]
+[23:04:11] [EXTERNO] 192.168.1.1 → 1.178.32.230 [UDP]
+[23:04:13] [EXTERNO] 192.168.1.2 → 8.219.91.229 [HTTPS]
+[23:04:17] [EXTERNO] 192.168.1.1 → 1.178.32.24 [TCP]
+[23:04:19] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:04:24] [EXTERNO] 192.168.1.2 → 190.248.95.139 [HTTPS]
+[23:04:26] [EXTERNO] 192.168.1.2 → 2.22.20.132 [HTTPS]
+[23:04:26] [EXTERNO] 192.168.1.2 → 20.185.80.217 [HTTPS]
+[23:04:34] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:04:43] [EXTERNO] 192.168.1.2 → 8.219.141.49 [HTTPS]
+[23:04:43] [EXTERNO] 192.168.1.1 → 255.255.255.255 [UDP]
+[23:04:49] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:04:54] [EXTERNO] 192.168.1.2 → 47.236.98.34 [HTTPS]
+[23:04:56] [EXTERNO] 192.168.1.1 → 200.24.51.144 [DNS]
+[23:05:01] [EXTERNO] 192.168.1.1 → 1.178.33.219 [TCP]
+[23:05:02] [EXTERNO] 192.168.1.254 → 224.0.0.1 [IGMP]
+[23:05:04] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:05:09] [EXTERNO] 192.168.1.2 → 57.144.115.32 [HTTPS]
+[23:05:10] [EXTERNO] 192.168.1.1 → 98.98.182.242 [UDP]
+[23:05:13] [EXTERNO] 192.168.1.2 → 8.219.185.130 [HTTPS]
+[23:05:19] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:05:26] [EXTERNO] 192.168.1.1 → 1.178.32.127 [UDP]
+[23:05:26] [EXTERNO] 192.168.1.1 → 1.178.32.230 [UDP]
+[23:05:34] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:05:40] [EXTERNO] 192.168.1.2 → 57.144.197.32 [HTTPS]
+[23:05:43] [EXTERNO] 192.168.1.2 → 8.219.255.83 [HTTPS]
+[23:05:49] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:05:57] [EXTERNO] 192.168.1.1 → 200.24.51.144 [DNS]
+[23:06:03] [EXTERNO] 192.168.1.1 → 1.178.33.219 [TCP]
+[23:06:04] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:06:13] [EXTERNO] 192.168.1.2 → 47.236.37.170 [HTTPS]
+[23:06:19] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:06:27] [EXTERNO] 192.168.1.2 → 20.185.80.217 [HTTPS]
+[23:06:34] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:06:41] [EXTERNO] 192.168.1.1 → 1.178.32.127 [UDP]
+[23:06:41] [EXTERNO] 192.168.1.1 → 1.178.32.230 [UDP]
+[23:06:43] [EXTERNO] 192.168.1.2 → 47.236.82.106 [HTTPS]
+[23:06:49] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:06:56] [EXTERNO] 192.168.1.254 → 224.0.0.1 [IGMP]
+[23:06:56] [EXTERNO] 192.168.1.254 → 239.255.255.250 [IGMP]
+[23:06:57] [EXTERNO] 192.168.1.2 → 34.128.128.0 [HTTPS]
+[23:06:57] [EXTERNO] 192.168.1.1 → 200.24.51.144 [DNS]
+[23:07:03] [EXTERNO] 192.168.1.1 → 1.178.33.219 [TCP]
+[23:07:04] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:07:13] [EXTERNO] 192.168.1.2 → 47.236.98.34 [HTTPS]
+[23:07:19] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:07:27] [EXTERNO] 192.168.1.2 → 3.91.112.207 [HTTPS]
+[23:07:34] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:07:43] [EXTERNO] 192.168.1.2 → 47.236.155.236 [HTTPS]
+[23:07:43] [EXTERNO] 192.168.1.1 → 255.255.255.255 [UDP]
+[23:07:48] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.252...
+[23:07:48] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.2...
+[23:07:48] [SCANNER] Fase 1 (ARP) completado en 5s
+[23:07:48] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.3...
+[23:07:49] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.7...
+[23:07:49] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:07:56] [EXTERNO] 192.168.1.1 → 1.178.32.127 [UDP]
+[23:07:56] [EXTERNO] 192.168.1.1 → 1.178.32.230 [UDP]
+[23:07:58] [EXTERNO] 192.168.1.1 → 200.24.51.144 [DNS]
+[23:08:03] [EXTERNO] 192.168.1.1 → 1.178.33.219 [TCP]
+[23:08:04] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:08:11] [SCANNER] Re-escaneo profundo masivo de 192.168.1.7/24...
+[23:08:11] [EXTERNO] 192.168.1.2 → 34.128.128.0 [HTTPS]
+[23:08:19] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:08:25] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.1...
+[23:08:25] [SCANNER] Re-escaneo masivo completado
+[23:08:25] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[23:08:28] [SCANNER] Fase 3: Analizando web en 192.168.1.1
+[23:08:30] [SCANNER] Fase 3: Analizando web en 192.168.1.254
+[23:08:34] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:08:46] [EXTERNO] 192.168.1.2 → 3.91.112.207 [HTTPS]
+[23:08:49] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:08:58] [EXTERNO] 192.168.1.1 → 200.24.51.144 [DNS]
+[23:09:04] [EXTERNO] 192.168.1.1 → 1.178.33.219 [TCP]
+[23:09:04] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:09:11] [EXTERNO] 192.168.1.1 → 1.178.32.127 [UDP]
+[23:09:11] [EXTERNO] 192.168.1.1 → 1.178.32.230 [UDP]
+[23:09:12] [EXTERNO] 192.168.1.254 → 224.0.0.1 [IGMP]
+[23:09:19] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:09:34] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:09:43] [EXTERNO] 192.168.1.2 → 200.25.3.11 [NTP]
+[23:09:43] [EXTERNO] 192.168.1.2 → 216.239.35.0 [NTP]
+[23:09:44] [EXTERNO] 192.168.1.2 → 34.128.128.0 [HTTPS]
+[23:09:44] [EXTERNO] 192.168.1.2 → 3.77.78.237 [HTTPS]
+[23:09:44] [EXTERNO] 192.168.1.2 → 52.86.58.219 [HTTPS]
+[23:09:44] [EXTERNO] 192.168.1.2 → 18.158.7.239 [HTTPS]
+[23:09:44] [EXTERNO] 192.168.1.2 → 100.48.158.55 [HTTPS]
+[23:09:44] [EXTERNO] 192.168.1.2 → 172.64.149.149 [HTTPS]
+[23:09:44] [EXTERNO] 192.168.1.2 → 18.156.169.107 [HTTPS]
+[23:09:44] [EXTERNO] 192.168.1.2 → 52.21.190.192 [HTTPS]
+[23:09:49] [EXTERNO] 192.168.1.2 → 188.190.13.104 [NTP]
+[23:09:49] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:09:55] [EXTERNO] 192.168.1.2 → 47.241.67.137 [XMPP]
+[23:09:58] [EXTERNO] 192.168.1.1 → 200.24.51.144 [DNS]
+[23:09:59] [EXTERNO] 192.168.1.2 → 104.18.38.107 [HTTPS]
+[23:10:04] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:10:04] [EXTERNO] 192.168.1.1 → 1.178.33.219 [TCP]
+[23:10:05] [EXTERNO] 192.168.1.2 → 47.74.170.157 [XMPP]
+[23:10:05] [EXTERNO] 192.168.1.2 → 34.36.192.126 [HTTPS]
+[23:10:05] [EXTERNO] 192.168.1.2 → 20.57.103.21 [HTTPS]
+[23:10:14] [EXTERNO] 192.168.1.2 → 57.144.115.32 [HTTPS]
+[23:10:15] [EXTERNO] 192.168.1.2 → 47.241.174.254 [HTTPS]
+[23:10:19] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:10:21] [EXTERNO] 192.168.1.2 → 4.153.25.145 [HTTPS]
+[23:10:21] [EXTERNO] 192.168.1.2 → 47.241.218.182 [XMPP]
+[23:10:25] [EXTERNO] 192.168.1.2 → 47.241.56.51 [HTTPS]
+[23:10:26] [EXTERNO] 192.168.1.1 → 1.178.32.127 [UDP]
+[23:10:26] [EXTERNO] 192.168.1.1 → 1.178.32.230 [UDP]
+[23:10:27] [EXTERNO] 192.168.1.2 → 20.185.80.217 [HTTPS]
+[23:10:34] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:10:43] [EXTERNO] 192.168.1.2 → 216.239.35.0 [NTP]
+[23:10:44] [EXTERNO] 192.168.1.2 → 98.91.43.215 [HTTPS]
+[23:10:46] [EXTERNO] 192.168.1.2 → 57.144.197.32 [HTTPS]
+[23:10:47] [EXTERNO] 192.168.1.2 → 34.128.128.0 [HTTPS]
+[23:10:49] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:10:55] [EXTERNO] 192.168.1.2 → 34.200.100.188 [HTTPS]
+[23:10:57] [EXTERNO] 192.168.1.2 → 172.64.149.149 [HTTPS]
+[23:10:59] [EXTERNO] 192.168.1.1 → 200.24.51.144 [DNS]
+[23:11:04] [EXTERNO] 192.168.1.2 → 34.225.71.119 [HTTPS]
+[23:11:04] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:11:05] [EXTERNO] 192.168.1.1 → 1.178.33.219 [TCP]
+[23:11:06] [EXTERNO] 192.168.1.2 → 47.74.170.157 [XMPP]
+[23:11:12] [EXTERNO] 192.168.1.2 → 104.18.38.107 [HTTPS]
+[23:11:14] [EXTERNO] 192.168.1.2 → 98.87.219.169 [HTTPS]
+[23:11:14] [EXTERNO] 192.168.1.2 → 47.241.67.137 [XMPP]
+[23:11:17] [EXTERNO] 192.168.1.254 → 224.0.0.1 [IGMP]
+[23:11:17] [EXTERNO] 192.168.1.254 → 239.255.255.250 [IGMP]
+[23:11:19] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:11:23] [EXTERNO] 192.168.1.2 → 47.241.218.182 [XMPP]
+[23:11:24] [EXTERNO] 192.168.1.2 → 3.211.150.203 [HTTPS]
+[23:11:34] [EXTERNO] 192.168.1.2 → 54.210.125.2 [HTTPS]
+[23:11:34] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:11:41] [EXTERNO] 192.168.1.1 → 1.178.32.127 [UDP]
+[23:11:41] [EXTERNO] 192.168.1.1 → 1.178.32.230 [UDP]
+[23:11:43] [EXTERNO] 192.168.1.2 → 216.239.35.0 [NTP]
+[23:11:44] [EXTERNO] 192.168.1.2 → 100.29.101.222 [HTTPS]
+[23:11:49] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:11:54] [EXTERNO] 192.168.1.2 → 52.6.250.36 [HTTPS]
+[23:11:59] [EXTERNO] 192.168.1.1 → 200.24.51.144 [DNS]
+[23:12:04] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:12:05] [EXTERNO] 192.168.1.1 → 1.178.33.219 [TCP]
+[23:12:05] [EXTERNO] 192.168.1.2 → 34.128.128.0 [HTTPS]
+[23:12:13] [EXTERNO] 192.168.1.2 → 141.226.224.48 [HTTPS]
+[23:12:19] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:12:34] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:12:38] [EXTERNO] 192.168.1.2 → 47.74.170.157 [XMPP]
+[23:12:43] [EXTERNO] 192.168.1.2 → 216.239.35.0 [NTP]
+[23:12:47] [EXTERNO] 192.168.1.2 → 47.241.67.137 [XMPP]
+[23:12:49] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:12:54] [EXTERNO] 192.168.1.2 → 47.241.218.182 [XMPP]
+[23:12:55] [EXTERNO] 192.168.1.2 → 57.144.115.32 [HTTPS]
+[23:12:56] [EXTERNO] 192.168.1.1 → 1.178.32.127 [UDP]
+[23:12:56] [EXTERNO] 192.168.1.1 → 1.178.32.230 [UDP]
+[23:12:57] [EXTERNO] 192.168.1.2 → 100.30.110.101 [HTTPS]
+[23:12:58] [SCANNER] Fase 1 (ARP) completado en 3s
+[23:12:58] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.2...
+[23:12:58] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.252...
+[23:12:58] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.7...
+[23:12:59] [EXTERNO] 192.168.1.1 → 200.24.51.144 [DNS]
+[23:13:04] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:13:05] [EXTERNO] 192.168.1.1 → 1.178.33.219 [TCP]
+[23:13:07] [EXTERNO] 192.168.1.2 → 54.166.98.79 [HTTPS]
+[23:13:17] [EXTERNO] 192.168.1.2 → 54.165.67.37 [HTTPS]
+[23:13:19] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:13:22] [EXTERNO] 192.168.1.254 → 224.0.0.1 [IGMP]
+[23:13:23] [EXTERNO] 192.168.1.2 → 172.64.149.149 [HTTPS]
+[23:13:25] [SCANNER] Re-escaneo profundo masivo de 192.168.1.7/24...
+[23:13:26] [EXTERNO] 192.168.1.2 → 57.144.197.32 [HTTPS]
+[23:13:27] [EXTERNO] 192.168.1.2 → 13.219.145.23 [HTTPS]
+[23:13:34] [STATS] Recálculo: 6 nodos | alertas: 12
+[23:13:37] [EXTERNO] 192.168.1.2 → 18.214.142.75 [HTTPS]
+[23:13:38] [EXTERNO] 192.168.1.2 → 104.18.38.107 [HTTPS]
+[23:13:39] [EXTERNO] 192.168.1.2 → 34.128.128.0 [HTTPS]
+[23:13:39] [SCANNER] Re-escaneo masivo completado
+[23:13:39] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.1...
+[23:13:39] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[23:13:42] [SCANNER] Fase 3: Analizando web en 192.168.1.1
+[23:13:42] [SCANNER] Fase 3: Analizando web en 192.168.1.254
+[23:13:45] [EXTERNO] 192.168.1.1 → 255.255.255.255 [UDP]
+[23:13:47] [EXTERNO] 192.168.1.2 → 3.214.83.138 [HTTPS]
+[23:13:49] [STATS] Recálculo: 6 nodos | alertas: 13
+[23:13:57] [EXTERNO] 192.168.1.2 → 98.90.241.134 [HTTPS]
+[23:14:00] [EXTERNO] 192.168.1.1 → 200.24.51.144 [DNS]
+[23:14:04] [STATS] Recálculo: 6 nodos | alertas: 13
+[23:14:06] [EXTERNO] 192.168.1.1 → 1.178.33.219 [TCP]
+[23:14:07] [EXTERNO] 192.168.1.2 → 34.205.185.117 [HTTPS]
+[23:14:11] [EXTERNO] 192.168.1.1 → 1.178.32.127 [UDP]
+[23:14:11] [EXTERNO] 192.168.1.1 → 1.178.32.230 [UDP]
+[23:14:16] [EXTERNO] 192.168.1.2 → 57.144.115.32 [HTTPS]
+[23:14:19] [STATS] Recálculo: 6 nodos | alertas: 13
+[23:14:34] [STATS] Recálculo: 6 nodos | alertas: 13
+[23:14:45] [EXTERNO] 192.168.1.254 → 239.255.255.250 [IGMP]
+[23:14:47] [EXTERNO] 192.168.1.2 → 57.144.197.32 [HTTPS]
+[23:14:49] [STATS] Recálculo: 6 nodos | alertas: 13
+[23:14:57] [EXTERNO] 192.168.1.2 → 4.153.25.230 [HTTPS]
+[23:15:00] [EXTERNO] 192.168.1.1 → 200.24.51.144 [DNS]
+[23:15:04] [STATS] Recálculo: 6 nodos | alertas: 13
+[23:15:06] [EXTERNO] 192.168.1.1 → 1.178.33.219 [TCP]
+[23:15:19] [STATS] Recálculo: 6 nodos | alertas: 13
+[23:15:21] [EXTERNO] 192.168.1.2 → 20.42.65.90 [HTTPS]
+[23:15:26] [EXTERNO] 192.168.1.1 → 1.178.32.127 [UDP]
+[23:15:26] [EXTERNO] 192.168.1.1 → 1.178.32.230 [UDP]
+[23:15:34] [STATS] Recálculo: 6 nodos | alertas: 13
+[23:15:37] [EXTERNO] 192.168.1.254 → 224.0.0.1 [IGMP]
+[23:15:49] [STATS] Recálculo: 6 nodos | alertas: 13
+[23:15:51] [APP] Abriendo WiFi Scope...
+[23:15:53] [EXTERNO] 192.168.1.2 → 47.74.170.157 [XMPP]
+[23:16:00] [EXTERNO] 192.168.1.1 → 200.24.51.144 [DNS]
+[23:16:01] [EXTERNO] 192.168.1.2 → 52.168.117.175 [HTTPS]
+[23:16:01] [EXTERNO] 192.168.1.2 → 47.241.67.137 [XMPP]
+[23:16:04] [STATS] Recálculo: 6 nodos | alertas: 13
+[23:16:06] [EXTERNO] 192.168.1.1 → 1.178.33.219 [TCP]
+[23:16:09] [EXTERNO] 192.168.1.2 → 47.241.218.182 [XMPP]
+[23:16:19] [STATS] Recálculo: 6 nodos | alertas: 13
+[23:16:34] [STATS] Recálculo: 6 nodos | alertas: 13
+[23:16:39] [EXTERNO] 192.168.1.2 → 51.132.193.104 [HTTPS]
+[23:16:42] [EXTERNO] 192.168.1.1 → 1.178.32.127 [UDP]
+[23:16:42] [EXTERNO] 192.168.1.1 → 1.178.32.230 [UDP]
+[23:16:45] [EXTERNO] 192.168.1.1 → 255.255.255.255 [UDP]
+[23:16:49] [STATS] Recálculo: 6 nodos | alertas: 13
+[23:16:59] [EXTERNO] 192.168.1.2 → 200.25.3.11 [NTP]
+[23:16:59] [EXTERNO] 192.168.1.2 → 216.239.35.0 [NTP]
+[23:16:59] [EXTERNO] 192.168.1.2 → 34.128.128.0 [HTTPS]
+[23:16:59] [EXTERNO] 192.168.1.2 → 18.158.7.239 [HTTPS]
+[23:16:59] [EXTERNO] 192.168.1.2 → 100.48.158.55 [HTTPS]
+[23:17:00] [EXTERNO] 192.168.1.2 → 3.77.78.237 [HTTPS]
+[23:17:00] [EXTERNO] 192.168.1.2 → 52.86.58.219 [HTTPS]
+[23:17:00] [EXTERNO] 192.168.1.2 → 172.64.149.149 [HTTPS]
+[23:17:00] [EXTERNO] 192.168.1.2 → 18.156.169.107 [HTTPS]
+[23:17:00] [EXTERNO] 192.168.1.2 → 52.21.190.192 [HTTPS]
+[23:17:01] [EXTERNO] 192.168.1.1 → 200.24.51.144 [DNS]
+[23:17:04] [STATS] Recálculo: 6 nodos | alertas: 13
+[23:17:05] [EXTERNO] 192.168.1.2 → 188.190.13.104 [NTP]
+[23:17:07] [EXTERNO] 192.168.1.1 → 1.178.33.219 [TCP]
+[23:17:11] [EXTERNO] 192.168.1.2 → 2.22.20.144 [HTTPS]
+[23:17:12] [EXTERNO] 192.168.1.2 → 2.22.20.136 [HTTPS]
+[23:17:13] [EXTERNO] 192.168.1.254 → 239.255.255.250 [IGMP]
+[23:17:15] [EXTERNO] 192.168.1.2 → 104.18.38.107 [HTTPS]
+[23:17:17] [EXTERNO] 192.168.1.2 → 104.46.162.224 [HTTPS]
+[23:17:19] [STATS] Recálculo: 6 nodos | alertas: 13
+[23:17:25] [APP] Botón Salir presionado — cerrando...
+[23:17:25] [CAPTURE] Detenido
+[23:17:25] [SCANNER] Hilos detenidos
+[23:17:25] [INTERCEPTOR] Deteniendo...
+[23:17:25] [SPOOFER] Restaurando ARP para 4 hosts...
+[23:17:25] [INTERCEPTOR] Hilo despacho terminado
+[23:17:25] [CAPTURE] Hilo terminado (id=1)
+[23:17:25] [SPOOFER] IP forwarding restaurado a 1
+[23:17:25] [SPOOFER] ARP restaurado — tráfico normal
+[23:17:25] [MONITOR] Detenido — wlan0 restaurada
+[23:17:25] [INTERCEPTOR] Detenido — red restaurada

@@ -1,0 +1,470 @@
+TopoReveal — Log de sesion
+Generado: 2026-03-20 21:10:27
+Total lineas de evento: 443
+============================================================
+
+RESUMEN DE RED — 4 hosts activos, 0 en lobby
+Gateway: 192.168.1.254 | Subred: 192.168.1.x
+ARP Scanners detectados: 0
+------------------------------------------------------------
+
+HOSTS ACTIVOS:
+  IP                 MAC                  TIPO           OS           ESTADO         PKTs  PROTOCOLOS
+  ------------------------------------------------------------------------------------------
+  192.168.1.1        DA:58:3D:72:C5:E4    smartphone     Linux/Mac    confirmado      931  HTTPS,NTP
+  192.168.1.4        68:6D:BC:D4:6B:8A    camara         Linux/Mac    confirmado      174  DNS,TCP,UDP
+  192.168.1.7        94:08:53:53:98:43    pc             Linux        confirmado        1  —
+  192.168.1.254      —                    servidor       Android      confirmado        6  IGMP
+
+CONEXIONES EXTERNAS POR HOST:
+  192.168.1.1 → 34.128.182.103, 52.54.152.89, 2.22.20.140, 3.228.45.27, 3.220.173.97, 2.22.20.149, 52.4.254.234, 98.87.103.121, 34.117.147.68, 2.22.20.144
+  192.168.1.254 → 224.0.0.1, 239.255.255.250
+  192.168.1.4 → 1.178.32.67, 1.178.32.127, 1.178.32.230, 255.255.255.255, 200.24.51.144, 1.178.33.219, 148.153.195.152
+
+============================================================
+
+LOG DE EVENTOS:
+
+[21:04:25] [APP] GeoIP disponible — base de datos local cargada
+[21:04:32] [APP] Arranque automático en wlan0
+[21:04:32] [APP] Gateway: 192.168.1.254 | Subred: 192.168.1.x
+[21:04:32] [APP] Nodo propio: 192.168.1.7 | MAC: 94:08:53:53:98:43
+[21:04:32] [APP] Iniciando escaneo en wlan0
+[21:04:32] [SCANNER] Pipeline de 3 Fases activo en wlan0 (5 hilos workers)
+[21:04:32] [CAPTURE] Modo promiscuo activado en wlan0
+[21:04:32] [CAPTURE] Hilo iniciado (id=1)
+[21:04:32] [CAPTURE] Iniciado en wlan0 (promiscuo + watchdog)
+[21:04:36] [SCANNER] Error Fase 1 (ARP): 'DetectorAnomalias' object has no attribute 'analizar_nodo'
+[21:04:38] [APP] Abriendo WiFi Scope...
+[21:04:41] [STATS] Recálculo: 2 nodos | alertas: 0
+[21:04:47] [APP] Lanzando interceptor | gateway: 192.168.1.254 (60:d2:48:7a:a3:2c) | 1 hosts
+[21:04:47] [INTERCEPTOR] Iniciando | iface: wlan0 | gateway: 192.168.1.254 | 1 hosts | BSSID: 60:d2:48:7a:a3:2c
+[21:04:47] [SPOOFER] IP forwarding activado
+[21:04:47] [SPOOFER] Sniff MITM iniciado
+[21:04:47] [SPOOFER] Activo | Mi MAC: 94:08:53:53:98:43 | Gateway: 192.168.1.254 | Hosts: 1
+[21:04:47] [INTERCEPTOR] Tarjeta física detectada: wlan1
+[21:04:47] [INTERCEPTOR] Segunda tarjeta física: wlan1 → activando modo monitor 802.11
+[21:04:48] [EXTERNO] 192.168.1.1 → 34.128.182.103 [HTTPS] [US] Google LLC · Kansas City
+[21:04:48] [EXTERNO] 192.168.1.1 → 52.54.152.89 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:04:49] [MONITOR] airmon-ng → wlan1mon
+[21:04:50] [EXTERNO] 192.168.1.1 → 2.22.20.140 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:04:50] [EXTERNO] 192.168.1.1 → 3.228.45.27 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:04:51] [EXTERNO] 192.168.1.1 → 3.220.173.97 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:04:52] [MONITOR] Sniff 802.11 iniciado en wlan1mon
+[21:04:52] [MONITOR] Channel hopping iniciado en wlan1mon (38 canales)
+[21:04:52] [MONITOR] 802.11 activo en wlan1mon | filtro BSSID: 60:d2:48:7a:a3:2c | channel hopping activo
+[21:04:56] [STATS] Recálculo: 2 nodos | alertas: 0
+[21:05:02] [SCANNER] Re-escaneo profundo masivo de 192.168.1.7/24...
+[21:05:06] [APP] Abriendo dashboard de analíticas...
+[21:05:10] [APP] Abriendo análisis de tráfico...
+[21:05:11] [STATS] Recálculo: 2 nodos | alertas: 0
+[21:05:13] [SCANNER] Error re-escaneo: 'DetectorAnomalias' object has no attribute 'analizar_nodo'
+[21:05:15] [SPOOFER] Host agregado al pool: 192.168.1.4
+[21:05:20] [EXTERNO] 192.168.1.1 → 2.22.20.149 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:05:21] [EXTERNO] 192.168.1.1 → 52.4.254.234 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:05:22] [EXTERNO] 192.168.1.1 → 98.87.103.121 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:05:23] [EXTERNO] 192.168.1.1 → 34.117.147.68 [HTTPS] [US] Google LLC · Kansas City
+[21:05:26] [STATS] Recálculo: 3 nodos | alertas: 0
+[21:05:26] [RED] Nuevo host: 192.168.1.254 | MAC: 60:d2:48:7a:a3:2c | via IGMP
+[21:05:26] [EXTERNO] 192.168.1.254 → 224.0.0.1 [IGMP]
+[21:05:26] [SCANNER] Fase 2: Perfilando OS y puertos de 192.168.1.254...
+[21:05:31] [SCANNER] Fase 2 error en 192.168.1.254: 'DetectorAnomalias' object has no attribute 'analizar_nodo'
+[21:05:38] [EXTERNO] 192.168.1.4 → 1.178.32.67 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[21:05:41] [STATS] Recálculo: 4 nodos | alertas: 2
+[21:05:43] [EXTERNO] 192.168.1.1 → 2.22.20.144 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:05:51] [EXTERNO] 192.168.1.1 → 2.22.20.148 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:05:52] [EXTERNO] 192.168.1.1 → 54.144.240.178 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:05:53] [EXTERNO] 192.168.1.1 → 2.22.20.140 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:05:54] [EXTERNO] 192.168.1.1 → 3.227.106.224 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:05:55] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[21:05:55] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[21:05:56] [STATS] Recálculo: 4 nodos | alertas: 2
+[21:05:57] [EXTERNO] 192.168.1.4 → 255.255.255.255 [UDP]
+[21:06:03] [EXTERNO] 192.168.1.1 → 34.128.182.103 [HTTPS] [US] Google LLC · Kansas City
+[21:06:05] [EXTERNO] 192.168.1.1 → 52.54.152.89 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:06:10] [EXTERNO] 192.168.1.1 → 2.22.20.132 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:06:11] [EXTERNO] 192.168.1.1 → 44.210.225.37 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:06:11] [STATS] Recálculo: 4 nodos | alertas: 2
+[21:06:23] [EXTERNO] 192.168.1.1 → 2.22.20.139 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:06:24] [EXTERNO] 192.168.1.1 → 18.209.140.234 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:06:25] [EXTERNO] 192.168.1.1 → 54.243.119.156 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:06:25] [EXTERNO] 192.168.1.1 → 34.117.147.68 [HTTPS] [US] Google LLC · Kansas City
+[21:06:26] [STATS] Recálculo: 4 nodos | alertas: 2
+[21:06:27] [EXTERNO] 192.168.1.1 → 34.111.80.193 [HTTPS] [US] Google LLC · Kansas City
+[21:06:37] [EXTERNO] 192.168.1.1 → 200.25.20.50 [NTP] [CL] EDGEUNO S.A.S · Santiago
+[21:06:37] [EXTERNO] 192.168.1.1 → 216.239.35.0 [NTP] [US] Google LLC · USA
+[21:06:37] [EXTERNO] 192.168.1.1 → 52.203.119.186 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:06:38] [EXTERNO] 192.168.1.1 → 18.156.169.107 [HTTPS] [DE] Amazon.com, Inc. · Frankfurt am Main
+[21:06:38] [EXTERNO] 192.168.1.1 → 34.128.128.0 [HTTPS] [US] Google LLC · Kansas City
+[21:06:38] [EXTERNO] 192.168.1.1 → 3.223.110.57 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:06:38] [EXTERNO] 192.168.1.1 → 3.77.78.237 [HTTPS] [DE] Amazon.com, Inc. · Frankfurt am Main
+[21:06:38] [EXTERNO] 192.168.1.1 → 3.217.191.213 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:06:38] [EXTERNO] 192.168.1.1 → 18.158.7.239 [HTTPS] [DE] Amazon.com, Inc. · Frankfurt am Main
+[21:06:38] [EXTERNO] 192.168.1.1 → 104.18.38.107 [HTTPS] [??] Cloudflare, Inc.
+[21:06:38] [EXTERNO] 192.168.1.1 → 44.216.157.17 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:06:39] [EXTERNO] 192.168.1.4 → 1.178.32.67 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[21:06:41] [STATS] Recálculo: 4 nodos | alertas: 2
+[21:06:41] [EXTERNO] 192.168.1.1 → 2.22.20.152 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:06:42] [EXTERNO] 192.168.1.1 → 54.172.191.155 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:06:45] [EXTERNO] 192.168.1.1 → 100.50.114.215 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:06:46] [EXTERNO] 192.168.1.1 → 2.22.20.131 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:06:53] [EXTERNO] 192.168.1.1 → 172.64.149.149 [HTTPS] [??] Cloudflare, Inc.
+[21:06:54] [EXTERNO] 192.168.1.1 → 2.22.20.155 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:06:55] [EXTERNO] 192.168.1.1 → 35.172.37.92 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:06:56] [STATS] Recálculo: 4 nodos | alertas: 2
+[21:06:56] [EXTERNO] 192.168.1.1 → 2.22.20.140 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:06:56] [EXTERNO] 192.168.1.1 → 54.144.240.178 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:06:56] [EXTERNO] 192.168.1.1 → 34.206.236.190 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:07:02] [EXTERNO] 192.168.1.1 → 2.22.20.134 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:07:04] [EXTERNO] 192.168.1.1 → 34.128.182.103 [HTTPS] [US] Google LLC · Kansas City
+[21:07:05] [EXTERNO] 192.168.1.1 → 3.163.60.118 [HTTPS] [US] Amazon.com, Inc. · USA
+[21:07:06] [EXTERNO] 192.168.1.1 → 54.88.140.181 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:07:09] [EXTERNO] 192.168.1.1 → 3.227.195.38 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:07:10] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[21:07:10] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[21:07:11] [STATS] Recálculo: 4 nodos | alertas: 2
+[21:07:11] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:11] [EXTERNO] 192.168.1.254 → 239.255.255.250 [IGMP]
+[21:07:11] [EXTERNO] 192.168.1.1 → 3.163.60.71 [HTTPS] [US] Amazon.com, Inc. · USA
+[21:07:12] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:13] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:14] [EXTERNO] 192.168.1.1 → 34.200.203.75 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:07:14] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:15] [EXTERNO] 192.168.1.1 → 54.157.188.214 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:07:15] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:16] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:16] [EXTERNO] 192.168.1.1 → 98.90.143.15 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:07:17] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:17] [EXTERNO] 192.168.1.1 → 2.22.20.147 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:07:18] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:18] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[21:07:19] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:20] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:21] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:22] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:23] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:23] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[21:07:24] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:25] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:26] [EXTERNO] 192.168.1.1 → 2.22.20.154 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:07:26] [STATS] Recálculo: 4 nodos | alertas: 2
+[21:07:26] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:27] [EXTERNO] 192.168.1.1 → 52.206.107.150 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:07:27] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:28] [EXTERNO] 192.168.1.1 → 34.197.43.70 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:07:28] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:29] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:30] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:31] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:31] [EXTERNO] 192.168.1.254 → 224.0.0.1 [IGMP]
+[21:07:32] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:33] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:34] [EXTERNO] 192.168.1.1 → 2.22.20.150 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:07:34] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:35] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:36] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:37] [EXTERNO] 192.168.1.1 → 163.181.204.178 [HTTPS] [US] Zhejiang Taobao Ne… · USA
+[21:07:37] [EXTERNO] 192.168.1.1 → 161.117.125.37 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[21:07:37] [EXTERNO] 192.168.1.1 → 47.88.198.69 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[21:07:37] [EXTERNO] 192.168.1.1 → 174.129.95.181 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:07:37] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:38] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:39] [EXTERNO] 192.168.1.1 → 23.218.213.72 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:07:39] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:40] [EXTERNO] 192.168.1.1 → 54.204.47.112 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:07:40] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:41] [STATS] Recálculo: 4 nodos | alertas: 2
+[21:07:41] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:42] [EXTERNO] 192.168.1.1 → 47.88.251.189 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[21:07:42] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:43] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:44] [EXTERNO] 192.168.1.1 → 104.18.38.107 [HTTPS] [??] Cloudflare, Inc.
+[21:07:44] [EXTERNO] 192.168.1.1 → 2.22.20.153 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:07:44] [EXTERNO] 192.168.1.1 → 47.74.138.66 [HTTPS] [SG] Alibaba US Technol… · Singapore
+[21:07:45] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:45] [EXTERNO] 192.168.1.1 → 18.213.227.236 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:07:46] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:46] [EXTERNO] 192.168.1.1 → 47.88.128.4 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[21:07:46] [EXTERNO] 192.168.1.1 → 47.88.198.68 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[21:07:46] [EXTERNO] 192.168.1.1 → 44.221.14.2 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:07:47] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:48] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:48] [EXTERNO] 192.168.1.1 → 98.95.104.222 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:07:49] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:49] [EXTERNO] 192.168.1.1 → 161.117.125.216 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[21:07:50] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:51] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:51] [EXTERNO] 192.168.1.1 → 34.117.147.68 [HTTPS] [US] Google LLC · Kansas City
+[21:07:52] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:53] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:54] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:54] [EXTERNO] 192.168.1.1 → 161.117.125.182 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[21:07:55] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:56] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:56] [STATS] Recálculo: 4 nodos | alertas: 2
+[21:07:56] [EXTERNO] 192.168.1.1 → 161.117.125.94 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[21:07:57] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:57] [EXTERNO] 192.168.1.1 → 2.22.20.138 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:07:57] [EXTERNO] 192.168.1.1 → 161.117.125.72 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[21:07:58] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:58] [EXTERNO] 192.168.1.1 → 161.117.125.44 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[21:07:59] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:07:59] [EXTERNO] 192.168.1.1 → 54.90.88.152 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:08:00] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:01] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:02] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:03] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:04] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:05] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:05] [EXTERNO] 192.168.1.1 → 2.22.20.133 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:08:06] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:07] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:08] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:09] [EXTERNO] 192.168.1.1 → 44.215.223.155 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:08:09] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:10] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:10] [EXTERNO] 192.168.1.1 → 3.163.60.118 [HTTPS] [US] Amazon.com, Inc. · USA
+[21:08:10] [EXTERNO] 192.168.1.1 → 23.218.213.94 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:08:11] [STATS] Recálculo: 4 nodos | alertas: 2
+[21:08:11] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:12] [EXTERNO] 192.168.1.1 → 54.145.62.141 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:08:12] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:13] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:14] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:15] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:16] [EXTERNO] 192.168.1.1 → 2.22.20.151 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:08:16] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:17] [EXTERNO] 192.168.1.1 → 184.72.169.215 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:08:17] [EXTERNO] 192.168.1.1 → 57.144.115.32 [HTTPS] [CO] Facebook, Inc. · Bogotá
+[21:08:17] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:18] [EXTERNO] 192.168.1.1 → 54.144.240.178 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:08:18] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:18] [EXTERNO] 192.168.1.1 → 54.157.188.214 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:08:19] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[21:08:19] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:19] [EXTERNO] 192.168.1.1 → 3.86.134.225 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:08:20] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:20] [EXTERNO] 192.168.1.1 → 2.22.20.145 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:08:21] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:22] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:23] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:24] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[21:08:24] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:25] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:26] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[21:08:26] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[21:08:26] [EXTERNO] 192.168.1.1 → 2.22.20.211 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:08:26] [STATS] Recálculo: 4 nodos | alertas: 2
+[21:08:26] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:27] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:28] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:29] [EXTERNO] 192.168.1.1 → 2.22.20.137 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:08:29] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:30] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:31] [EXTERNO] 192.168.1.1 → 52.202.243.148 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:08:31] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:32] [EXTERNO] 192.168.1.1 → 34.128.128.0 [HTTPS] [US] Google LLC · Kansas City
+[21:08:32] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:33] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:34] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:35] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:36] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:37] [EXTERNO] 192.168.1.1 → 2.22.20.146 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:08:37] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:38] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:39] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:40] [EXTERNO] 192.168.1.1 → 161.117.125.37 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[21:08:40] [EXTERNO] 192.168.1.1 → 54.235.156.62 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:08:40] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:41] [EXTERNO] 192.168.1.1 → 163.181.204.178 [HTTPS] [US] Zhejiang Taobao Ne… · USA
+[21:08:41] [STATS] Recálculo: 4 nodos | alertas: 2
+[21:08:41] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:42] [EXTERNO] 192.168.1.1 → 23.218.213.70 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:08:43] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:43] [EXTERNO] 192.168.1.1 → 35.172.37.92 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:08:44] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:45] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:46] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:47] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:47] [EXTERNO] 192.168.1.1 → 2.22.20.134 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:08:48] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:48] [EXTERNO] 192.168.1.1 → 13.219.144.193 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:08:49] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:49] [EXTERNO] 192.168.1.1 → 54.144.232.63 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:08:49] [EXTERNO] 192.168.1.1 → 52.22.117.203 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:08:50] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:50] [EXTERNO] 192.168.1.4 → 148.153.195.152 [UDP] [US] CDS Global Cloud C… · USA
+[21:08:51] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:52] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:52] [EXTERNO] 192.168.1.1 → 161.117.125.33 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[21:08:53] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:54] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:55] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:56] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:56] [STATS] Recálculo: 4 nodos | alertas: 2
+[21:08:57] [EXTERNO] 192.168.1.1 → 47.88.128.3 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[21:08:57] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:57] [EXTERNO] 192.168.1.1 → 2.22.20.140 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:08:57] [EXTERNO] 192.168.1.1 → 2.22.20.194 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:08:57] [EXTERNO] 192.168.1.1 → 34.117.147.68 [HTTPS] [US] Google LLC · Kansas City
+[21:08:58] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:58] [EXTERNO] 192.168.1.4 → 255.255.255.255 [UDP]
+[21:08:59] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:08:59] [EXTERNO] 192.168.1.1 → 161.117.125.216 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[21:09:00] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:00] [EXTERNO] 192.168.1.1 → 2.22.20.141 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:09:00] [EXTERNO] 192.168.1.1 → 161.117.125.182 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[21:09:01] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:01] [EXTERNO] 192.168.1.1 → 161.117.125.94 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[21:09:01] [EXTERNO] 192.168.1.1 → 161.117.125.72 [HTTPS] [SG] Alibaba US Technol… · Singapur
+[21:09:02] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:02] [EXTERNO] 192.168.1.1 → 34.197.43.70 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:09:03] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:04] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:05] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:06] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:07] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:08] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:08] [EXTERNO] 192.168.1.1 → 2.22.20.136 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:09:09] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:10] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:11] [STATS] Recálculo: 4 nodos | alertas: 2
+[21:09:11] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:12] [EXTERNO] 192.168.1.1 → 54.85.163.120 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:09:12] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:13] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:13] [EXTERNO] 192.168.1.1 → 23.218.213.71 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:09:14] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:15] [EXTERNO] 192.168.1.1 → 44.221.14.2 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:09:15] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:16] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:17] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:18] [EXTERNO] 192.168.1.1 → 190.248.95.139 [HTTPS] [CO] UNE EPM TELECOMUNI… · Medellín
+[21:09:18] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:19] [EXTERNO] 192.168.1.1 → 2.22.20.131 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:09:19] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[21:09:19] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:20] [EXTERNO] 192.168.1.1 → 34.232.108.122 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:09:20] [EXTERNO] 192.168.1.1 → 54.172.160.121 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:09:20] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:21] [EXTERNO] 192.168.1.1 → 3.213.207.253 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:09:21] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:22] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:23] [EXTERNO] 192.168.1.1 → 2.22.20.132 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:09:23] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:24] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[21:09:24] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:25] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:26] [STATS] Recálculo: 4 nodos | alertas: 2
+[21:09:26] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:27] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:28] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:29] [EXTERNO] 192.168.1.1 → 2.22.20.219 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:09:29] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:30] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:31] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:32] [EXTERNO] 192.168.1.1 → 2.22.20.153 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:09:32] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:33] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:34] [EXTERNO] 192.168.1.1 → 52.70.84.75 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:09:34] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:36] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:36] [EXTERNO] 192.168.1.254 → 224.0.0.1 [IGMP]
+[21:09:37] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:38] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:38] [EXTERNO] 192.168.1.1 → 3.163.60.71 [HTTPS] [US] Amazon.com, Inc. · USA
+[21:09:39] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:40] [EXTERNO] 192.168.1.1 → 2.22.20.152 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:09:40] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:40] [EXTERNO] 192.168.1.1 → 199.232.179.52 [HTTPS] [CO] Fastly, Inc. · Colombia
+[21:09:41] [EXTERNO] 192.168.1.4 → 1.178.32.127 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[21:09:41] [EXTERNO] 192.168.1.4 → 1.178.32.230 [UDP] [BR] HUAWEI CLOUDS · São Paulo
+[21:09:41] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:41] [STATS] Recálculo: 4 nodos | alertas: 2
+[21:09:42] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:43] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:43] [EXTERNO] 192.168.1.1 → 100.26.79.83 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:09:44] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:45] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:45] [EXTERNO] 192.168.1.1 → 23.218.213.68 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:09:46] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:46] [EXTERNO] 192.168.1.1 → 34.128.128.0 [HTTPS] [US] Google LLC · Kansas City
+[21:09:47] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:47] [SCANNER] Error Fase 1 (ARP): 'DetectorAnomalias' object has no attribute 'analizar_nodo'
+[21:09:48] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:49] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:50] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:50] [EXTERNO] 192.168.1.1 → 2.22.20.133 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:09:51] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:51] [EXTERNO] 192.168.1.1 → 23.22.8.0 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:09:52] [EXTERNO] 192.168.1.1 → 54.227.89.134 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:09:52] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:52] [EXTERNO] 192.168.1.1 → 52.4.254.234 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:09:53] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:54] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:55] [EXTERNO] 192.168.1.1 → 2.22.20.151 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:09:55] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:56] [STATS] Recálculo: 4 nodos | alertas: 2
+[21:09:56] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:57] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:58] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:09:59] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:00] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:00] [EXTERNO] 192.168.1.1 → 2.22.20.202 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:10:01] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:02] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:03] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:04] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:05] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:05] [EXTERNO] 192.168.1.1 → 3.223.243.234 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:10:06] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:07] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:08] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:09] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:10] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:11] [STATS] Recálculo: 4 nodos | alertas: 2
+[21:10:11] [EXTERNO] 192.168.1.1 → 2.22.20.144 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:10:11] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:12] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:13] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:13] [SCANNER] Re-escaneo profundo masivo de 192.168.1.7/24...
+[21:10:14] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:15] [EXTERNO] 192.168.1.1 → 44.207.65.131 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:10:15] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:16] [EXTERNO] 192.168.1.1 → 23.218.213.96 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:10:16] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:17] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:18] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:19] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:20] [EXTERNO] 192.168.1.4 → 200.24.51.144 [DNS] [CO] UNE EPM TELECOMUNI… · Medellín
+[21:10:20] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:21] [EXTERNO] 192.168.1.1 → 23.218.213.7 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:10:21] [EXTERNO] 192.168.1.1 → 190.248.95.139 [HTTPS] [CO] UNE EPM TELECOMUNI… · Medellín
+[21:10:21] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:22] [EXTERNO] 192.168.1.1 → 3.213.207.253 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:10:22] [EXTERNO] 192.168.1.1 → 2.22.20.154 [HTTPS] [CO] Akamai Internation… · Bogotá
+[21:10:22] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:23] [EXTERNO] 192.168.1.1 → 54.89.124.217 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:10:23] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:23] [EXTERNO] 192.168.1.1 → 35.173.56.249 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:10:23] [APP] Botón Salir presionado — cerrando...
+[21:10:24] [SCANNER] Error re-escaneo: 'DetectorAnomalias' object has no attribute 'analizar_nodo'
+[21:10:24] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:25] [EXTERNO] 192.168.1.4 → 1.178.33.219 [TCP] [BR] HUAWEI CLOUDS · São Paulo
+[21:10:25] [MONITOR] OSError 802.11: [Errno 19] No such device
+[21:10:25] [EXTERNO] 192.168.1.1 → 34.195.182.178 [HTTPS] [US] Amazon.com, Inc. · Ashburn
+[21:10:25] [CAPTURE] Detenido
+[21:10:25] [SCANNER] Hilos detenidos
+[21:10:26] [INTERCEPTOR] Deteniendo...
+[21:10:26] [SPOOFER] Restaurando ARP para 2 hosts...
+[21:10:26] [MONITOR] Channel hopping terminado
+[21:10:26] [INTERCEPTOR] Hilo despacho terminado
+[21:10:26] [SPOOFER] IP forwarding restaurado a 1
+[21:10:26] [SPOOFER] ARP restaurado — tráfico normal
+[21:10:26] [MONITOR] Restaurando wlan1mon → managed
+[21:10:26] [CAPTURE] Hilo terminado (id=1)
+[21:10:26] [STATS] Recálculo: 4 nodos | alertas: 2
+[21:10:26] [SPOOFER] Sniff MITM terminado
+[21:10:26] [MONITOR] Sniff 802.11 terminado
+[21:10:27] [MONITOR] Detenido — wlan1 restaurada
+[21:10:27] [INTERCEPTOR] Detenido — red restaurada
