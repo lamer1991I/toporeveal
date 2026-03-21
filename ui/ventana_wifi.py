@@ -1,639 +1,1029 @@
 """
-ventana_wifi.py — ⚡ WiFi Scope
-Panel visual de entorno WiFi con canvas de nodos estilo Packet Tracer.
-Cada AP es un nodo interactivo con ícono de router 3D neon.
+ventana_wifi.py — WiFi Scope v2 para TopoReveal.
+
+Tres pestañas:
+  1. MAPA     — canvas visual de APs y clientes en tiempo real
+  2. APs      — tabla completa con señal, cifrado, WPS, rogue detection
+  3. CAPTURA  — handshakes WPA2 capturados pasivamente + exportar .pcap
+
+Capacidades pasivas (sin deauth ni ataques activos):
+  - Detección de todos los APs cercanos con airodump-ng
+  - Captura de handshakes WPA2 que ocurren naturalmente
+  - Detección de rogue APs (mismo SSID, BSSID diferente)
+  - Detección de redes WEP (obsoleto/vulnerable)
+  - Detección de WPS activo (vulnerable a Pixie Dust)
+  - Detección de redes ocultas (hidden SSID)
+  - Detección de deauth attacks en curso (alguien atacando la red)
+  - Análisis de solapamiento de canales
+  - Identificación de clientes y su AP asociado
 """
 
 import tkinter as tk
-from datetime import datetime
-from collections import defaultdict
+from tkinter import ttk, messagebox
+import threading
 import math
-import time
+import subprocess
+import os
+import re
+from datetime import datetime
 
-# ── Paleta ────────────────────────────────────────────────────────
-C_FONDO    = "#0d1117"
-C_PANEL    = "#161b22"
-C_BORDE    = "#30363d"
-C_TEXTO    = "#e6edf3"
-C_SUB      = "#8b949e"
-C_NUESTRA  = "#3fb950"
-C_VECINA   = "#58d6ff"
-C_ALERTA   = "#f0883e"
-C_ACENTO   = "#1f6feb"
-C_MORADO   = "#a371f7"
-C_OSCURO   = "#010409"
+# ── Colores ───────────────────────────────────────────────────────────────────
+C_FONDO   = "#0d1117"
+C_PANEL   = "#161b22"
+C_BORDE   = "#30363d"
+C_TEXTO   = "#c9d1d9"
+C_SUB     = "#6e7681"
+C_ACENTO  = "#1f6feb"
+C_VERDE   = "#3fb950"   # WPA3 / nuestra red
+C_CYAN    = "#58d6ff"   # WPA2
+C_NARANJA = "#f0883e"   # WPA / WPS activo
+C_ROJO    = "#da3633"   # WEP / abierta / rogue
+C_AMARILLO= "#e3b341"   # handshake capturado
+C_MORADO  = "#a371f7"   # red oculta
 
-RADIO_AP      = 30
-RADIO_CLIENTE = 14
-ORBITA_DIST   = 85
+RADIO_AP      = 28
+RADIO_CLI     = 10
+ORBITA_DIST   = 60
 
-
-def _mezclar(hex1, hex2, t):
-    try:
-        r1,g1,b1 = int(hex1[1:3],16),int(hex1[3:5],16),int(hex1[5:7],16)
-        r2,g2,b2 = int(hex2[1:3],16),int(hex2[3:5],16),int(hex2[5:7],16)
-        return f"#{int(r1+(r2-r1)*t):02x}{int(g1+(g2-g1)*t):02x}{int(b1+(b2-b1)*t):02x}"
-    except Exception:
-        return hex1
-
-
-def _dibujar_ap(canvas, cx, cy, radio, color, es_nuestra=False, seleccionado=False):
-    """Dibuja un nodo router/AP estilo Cisco Packet Tracer en el canvas tkinter."""
-    fill  = _mezclar(color, C_FONDO, 0.6)
-    brill = _mezclar(color, "#ffffff", 0.3)
-
-    # Anillo de selección
-    if seleccionado:
-        canvas.create_oval(
-            cx-radio-10, cy-radio-10, cx+radio+10, cy+radio+10,
-            outline=color, width=2, dash=(5,3))
-
-    # Sombra
-    canvas.create_oval(
-        cx-radio+6, cy+radio//2,
-        cx+radio-6, cy+radio//2+10,
-        fill="#000000", outline="", stipple="gray12")
-
-    # Cara lateral cilindro
-    canvas.create_arc(
-        cx-radio, cy-radio//3, cx+radio, cy+radio,
-        start=180, extent=180,
-        fill=fill, outline=color, width=1, style=tk.CHORD)
-
-    # Rectángulo medio
-    canvas.create_rectangle(
-        cx-radio, cy-radio//3, cx+radio, cy+radio//2,
-        fill=fill, outline="")
-
-    # Borde lateral
-    canvas.create_line(cx-radio, cy-radio//3, cx-radio, cy+radio//2, fill=color, width=1)
-    canvas.create_line(cx+radio, cy-radio//3, cx+radio, cy+radio//2, fill=color, width=1)
-
-    # Cara superior (elipse brillante)
-    canvas.create_oval(
-        cx-radio, cy-radio//2, cx+radio, cy+radio//3,
-        fill=brill, outline=color, width=1.5)
-
-    # Flechas en la cara superior
-    for pts in [
-        [cx-radio//2,cy-4, cx-radio//2-9,cy, cx-radio//2,cy+4],  # izq
-        [cx+radio//2,cy-4, cx+radio//2+9,cy, cx+radio//2,cy+4],  # der
-        [cx-4,cy-radio//3, cx,cy-radio//3-9, cx+4,cy-radio//3],  # arr
-        [cx-4,cy+radio//4, cx,cy+radio//4+9, cx+4,cy+radio//4],  # abj
-    ]:
-        canvas.create_polygon(pts, fill="#ffffff", outline="")
-
-    # LED
-    canvas.create_oval(cx-3, cy-radio//2, cx+3, cy-radio//2+7,
-                       fill=C_NUESTRA, outline="")
-
-    # Ondas WiFi
-    for i, (r, op) in enumerate([(10,1.0),(17,0.65),(24,0.35)]):
-        canvas.create_arc(
-            cx-r, cy-radio//2-r-2, cx+r, cy-radio//2+r-2,
-            start=25, extent=130,
-            outline=_mezclar(color,"#ffffff",0.2),
-            width=max(1, 2-i*0.4), style=tk.ARC)
-
-    # Corona estrella nuestra red
-    if es_nuestra:
-        canvas.create_text(cx, cy-radio-16,
-            text="★ NUESTRA", fill=C_NUESTRA,
-            font=("Monospace", 8, "bold"))
-
-
-def _dibujar_cliente(canvas, cx, cy, radio, color):
-    """Dibuja un nodo cliente (PC/dispositivo)."""
-    fill = _mezclar(color, C_FONDO, 0.7)
-    # Monitor
-    canvas.create_rectangle(
-        cx-radio, cy-radio, cx+radio, cy+radio//2,
-        fill=C_PANEL, outline=color, width=1)
-    # Pantalla
-    canvas.create_rectangle(
-        cx-radio+3, cy-radio+3, cx+radio-3, cy+radio//2-3,
-        fill=C_OSCURO, outline="")
-    # Líneas de actividad
-    for y_off in [-radio//3+2, 2, radio//5+2]:
-        canvas.create_line(
-            cx-radio+5, cy+y_off, cx+radio-8, cy+y_off,
-            fill=color, width=1)
-    # Base
-    canvas.create_rectangle(
-        cx-radio//3, cy+radio//2,
-        cx+radio//3, cy+radio//2+5,
-        fill=C_BORDE, outline="")
-    canvas.create_rectangle(
-        cx-radio//2, cy+radio//2+5,
-        cx+radio//2, cy+radio//2+9,
-        fill=C_BORDE, outline="")
+# Cifrado → color
+def _color_cifrado(cifrado):
+    c = (cifrado or "").upper()
+    if "WPA3" in c:  return C_VERDE
+    if "WPA2" in c:  return C_CYAN
+    if "WPA" in c:   return C_NARANJA
+    if "WEP" in c:   return C_ROJO
+    if "OPN" in c or c == "OPEN": return C_ROJO
+    return C_SUB
 
 
 class VentanaWifi:
-    """⚡ WiFi Scope — visualización de nodos WiFi estilo Packet Tracer."""
-
     def __init__(self, padre, bssid_propio=None):
         self.ventana = tk.Toplevel(padre)
-        self.ventana.title("TopoReveal — ⚡ WiFi Scope")
+        self.ventana.title("⚡ WiFi Scope v2")
+        self.ventana.geometry("1000x660")
         self.ventana.configure(bg=C_FONDO)
-        self.ventana.geometry("1100x700")
         self.ventana.minsize(800, 500)
 
-        self._aps          = {}
-        self._handshakes   = []   # [(ts, bssid, cliente, es_nuestra, ssid, archivo)]
-        self._bssid_propio = bssid_propio.lower() if bssid_propio else None
-        self._nodo_sel     = None
-        self._posiciones   = {}
-        self._lock         = __import__("threading").Lock()
-        # Zoom del canvas
-        self._zoom         = 1.0
-        self._offset_x     = 0
-        self._offset_y     = 0
-        self._drag_start   = None
+        self._lock        = threading.Lock()
+        self._aps         = {}   # {bssid: {ssid, canal, cifrado, rssi, wps, clientes, ...}}
+        self._clientes    = {}   # {mac_cli: {bssid_ap, rssi, pkts}}
+        self._handshakes  = []   # [(ts, bssid, ssid, mac_cli, ruta_pcap)]
+        self._rogues      = []   # [(bssid_rogue, ssid, bssid_legit)]
+        self._deauths     = {}   # {bssid: n_deauths}
+        self._bssid_propio = (bssid_propio or "").lower()
+        self._nodo_sel    = None
+        self._posiciones  = {}
+        self._monitor_activo = False
+        self._interfaz_monitor = None
 
         self._construir_ui()
-        self._ciclo()
-        self.ventana.protocol("WM_DELETE_WINDOW", self._cerrar)
+        self._ciclo_render()
 
     def set_bssid_propio(self, bssid):
-        if bssid:
-            with self._lock:
-                self._bssid_propio = bssid.lower()
+        self._bssid_propio = (bssid or "").lower()
 
-    # ── UI ────────────────────────────────────────────────────────
+    # ── UI ────────────────────────────────────────────────────────────────────
 
     def _construir_ui(self):
-        # Barra
-        barra = tk.Frame(self.ventana, bg=C_PANEL, height=44)
+        # Barra superior
+        barra = tk.Frame(self.ventana, bg=C_PANEL, height=42)
         barra.pack(fill=tk.X)
         barra.pack_propagate(False)
 
-        tk.Label(barra, text="⚡ WiFi SCOPE",
-            bg=C_PANEL, fg=C_MORADO,
-            font=("Monospace", 12, "bold")).pack(side=tk.LEFT, padx=16, pady=10)
+        tk.Label(barra, text="⚡ WiFi SCOPE v2",
+            bg=C_PANEL, fg=C_CYAN,
+            font=("Monospace", 11, "bold")).pack(side=tk.LEFT, padx=12)
 
-        self.lbl_monitor = tk.Label(barra, text="◌ Monitor inactivo",
-            bg=C_PANEL, fg=C_SUB, font=("Monospace", 8))
+        self.lbl_monitor = tk.Label(barra,
+            text="◌ Monitor inactivo",
+            bg=C_PANEL, fg=C_SUB,
+            font=("Monospace", 8))
         self.lbl_monitor.pack(side=tk.LEFT, padx=8)
 
-        self.lbl_count = tk.Label(barra, text="",
-            bg=C_PANEL, fg=C_VECINA, font=("Monospace", 9, "bold"))
-        self.lbl_count.pack(side=tk.RIGHT, padx=16)
+        self.lbl_stats = tk.Label(barra,
+            text="APs: 0  |  Clientes: 0  |  HS: 0",
+            bg=C_PANEL, fg=C_TEXTO,
+            font=("Monospace", 8))
+        self.lbl_stats.pack(side=tk.RIGHT, padx=12)
 
-        # Área principal
-        area = tk.Frame(self.ventana, bg=C_FONDO)
-        area.pack(fill=tk.BOTH, expand=True)
+        # Leyenda
+        leyenda_frame = tk.Frame(barra, bg=C_PANEL)
+        leyenda_frame.pack(side=tk.RIGHT, padx=8)
+        for color, texto in [(C_VERDE,"WPA3"),(C_CYAN,"WPA2"),
+                              (C_NARANJA,"WPA/WPS"),(C_ROJO,"WEP/Abierta"),
+                              (C_AMARILLO,"Handshake"),(C_MORADO,"Oculta")]:
+            tk.Label(leyenda_frame, text=f"● {texto}",
+                bg=C_PANEL, fg=color,
+                font=("Monospace", 7)).pack(side=tk.LEFT, padx=3)
 
-        # Canvas
-        self.cv = tk.Canvas(area, bg=C_FONDO,
-                            highlightthickness=0, cursor="crosshair")
+        # Notebook con 3 pestañas
+        style = ttk.Style()
+        style.theme_use("default")
+        style.configure("Wifi.TNotebook",
+            background=C_FONDO, borderwidth=0)
+        style.configure("Wifi.TNotebook.Tab",
+            background=C_PANEL, foreground=C_SUB,
+            font=("Monospace", 9, "bold"),
+            padding=[12, 5])
+        style.map("Wifi.TNotebook.Tab",
+            background=[("selected", C_ACENTO)],
+            foreground=[("selected", "white")])
+
+        self.nb = ttk.Notebook(self.ventana, style="Wifi.TNotebook")
+        self.nb.pack(fill=tk.BOTH, expand=True, padx=0, pady=0)
+
+        self._frame_mapa    = tk.Frame(self.nb, bg=C_FONDO)
+        self._frame_tabla   = tk.Frame(self.nb, bg=C_FONDO)
+        self._frame_captura = tk.Frame(self.nb, bg=C_FONDO)
+
+        self.nb.add(self._frame_mapa,    text="  🗺 MAPA  ")
+        self.nb.add(self._frame_tabla,   text="  📋 APs  ")
+        self.nb.add(self._frame_captura, text="  🔑 CAPTURA  ")
+
+        self._construir_mapa()
+        self._construir_tabla()
+        self._construir_captura()
+
+    # ── PESTAÑA 1: MAPA ───────────────────────────────────────────────────────
+
+    def _construir_mapa(self):
+        f = self._frame_mapa
+
+        # Canvas principal
+        self.cv = tk.Canvas(f, bg=C_FONDO, highlightthickness=0)
         self.cv.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-        self.cv.bind("<Button-1>",   self._click)
-        self.cv.bind("<ButtonPress-2>",   self._drag_start_ev)
-        self.cv.bind("<B2-Motion>",       self._drag_move)
-        self.cv.bind("<ButtonPress-3>",   self._drag_start_ev)
-        self.cv.bind("<B3-Motion>",       self._drag_move)
-        # Zoom con Ctrl+rueda
-        self.cv.bind("<Control-MouseWheel>", self._zoom_wheel)
-        self.cv.bind("<Control-Button-4>",   lambda e: self._zoom_step(1.1))
-        self.cv.bind("<Control-Button-5>",   lambda e: self._zoom_step(0.9))
-        # Rueda sin Ctrl: scroll vertical
-        self.cv.bind("<MouseWheel>", lambda e: self._scroll(e.delta))
-        self.cv.bind("<Button-4>",   lambda e: self._scroll(120))
-        self.cv.bind("<Button-5>",   lambda e: self._scroll(-120))
+        self.cv.bind("<Button-1>", self._click_mapa)
 
-        # Separador
-        tk.Frame(area, bg=C_BORDE, width=1).pack(side=tk.LEFT, fill=tk.Y)
+        # Panel derecho del mapa
+        panel = tk.Frame(f, bg=C_PANEL, width=260)
+        panel.pack(side=tk.RIGHT, fill=tk.Y)
+        panel.pack_propagate(False)
 
-        # Panel lateral
-        self.panel = tk.Frame(area, bg=C_PANEL, width=290)
-        self.panel.pack(side=tk.RIGHT, fill=tk.Y)
-        self.panel.pack_propagate(False)
-        self._build_panel()
-
-        # Estado
-        self.lbl_estado = tk.Label(self.ventana,
-            text="Esperando datos del monitor 802.11...",
-            bg=C_PANEL, fg=C_SUB, font=("Monospace", 8), anchor="w")
-        self.lbl_estado.pack(fill=tk.X, side=tk.BOTTOM, padx=8, pady=3)
-
-    def _build_panel(self):
-        p = self.panel
-
-        tk.Label(p, text="NODO SELECCIONADO",
+        tk.Label(panel, text="NODO SELECCIONADO",
             bg=C_PANEL, fg=C_SUB,
-            font=("Monospace", 8, "bold"), anchor="w"
-        ).pack(fill=tk.X, padx=12, pady=(12,4))
+            font=("Monospace", 7, "bold")).pack(anchor="w", padx=10, pady=(10,4))
 
-        self.lbl_ssid = tk.Label(p,
-            text="— Haz clic en un nodo —",
-            bg=C_PANEL, fg=C_VECINA,
+        self.lbl_ssid_sel = tk.Label(panel,
+            text="— Click en un AP —",
+            bg=C_PANEL, fg=C_CYAN,
             font=("Monospace", 10, "bold"),
-            anchor="w", wraplength=260)
-        self.lbl_ssid.pack(fill=tk.X, padx=12, pady=(0,8))
+            wraplength=230, justify="left")
+        self.lbl_ssid_sel.pack(anchor="w", padx=10)
 
-        self._campos = {}
-        for etq, clave in [
-            ("BSSID","bssid"),("Canal","canal"),("Cifrado","cifrado"),
-            ("Señal","rssi"),("Clientes","n_cli"),("Paquetes","pkts"),
-            ("Visto","primer_visto"),("Estado","estado"),
-        ]:
-            f = tk.Frame(p, bg=C_PANEL)
-            f.pack(fill=tk.X, padx=12, pady=1)
-            tk.Label(f, text=f"{etq}:",
+        self._lbl_campos = {}
+        for campo in ["BSSID","Canal","Cifrado","Señal","WPS","Clientes","Vista"]:
+            fila = tk.Frame(panel, bg=C_PANEL)
+            fila.pack(fill=tk.X, padx=10, pady=1)
+            tk.Label(fila, text=f"{campo}:",
                 bg=C_PANEL, fg=C_SUB,
-                font=("Monospace", 8), width=9, anchor="w").pack(side=tk.LEFT)
-            lbl = tk.Label(f, text="—",
+                font=("Monospace", 7), width=9, anchor="w").pack(side=tk.LEFT)
+            lbl = tk.Label(fila, text="—",
                 bg=C_PANEL, fg=C_TEXTO,
-                font=("Monospace", 8), anchor="w", wraplength=160)
-            lbl.pack(side=tk.LEFT, fill=tk.X, expand=True)
-            self._campos[clave] = lbl
+                font=("Monospace", 7), anchor="w")
+            lbl.pack(side=tk.LEFT)
+            self._lbl_campos[campo] = lbl
 
-        tk.Frame(p, bg=C_BORDE, height=1).pack(fill=tk.X, padx=8, pady=8)
+        tk.Frame(panel, bg=C_BORDE, height=1).pack(fill=tk.X, padx=8, pady=8)
 
-        tk.Label(p, text="CLIENTES ASOCIADOS",
+        # Alertas del AP seleccionado
+        tk.Label(panel, text="ALERTAS",
             bg=C_PANEL, fg=C_SUB,
-            font=("Monospace", 8, "bold"), anchor="w"
-        ).pack(fill=tk.X, padx=12, pady=(0,4))
+            font=("Monospace", 7, "bold")).pack(anchor="w", padx=10)
+        self.lbl_alertas_ap = tk.Label(panel,
+            text="—",
+            bg=C_PANEL, fg=C_NARANJA,
+            font=("Monospace", 7),
+            wraplength=230, justify="left")
+        self.lbl_alertas_ap.pack(anchor="w", padx=10, pady=2)
 
-        f2 = tk.Frame(p, bg=C_PANEL)
-        f2.pack(fill=tk.X, padx=8)
-        sb = tk.Scrollbar(f2, bg=C_PANEL)
-        self.lista_cli = tk.Listbox(f2,
-            bg=C_FONDO, fg=C_NUESTRA,
-            font=("Monospace", 8), height=5,
-            relief=tk.FLAT, highlightthickness=0,
-            yscrollcommand=sb.set)
-        sb.config(command=self.lista_cli.yview)
+        tk.Frame(panel, bg=C_BORDE, height=1).pack(fill=tk.X, padx=8, pady=8)
+
+        # Clientes del AP seleccionado
+        tk.Label(panel, text="CLIENTES ASOCIADOS",
+            bg=C_PANEL, fg=C_SUB,
+            font=("Monospace", 7, "bold")).pack(anchor="w", padx=10)
+        self.lista_clientes_sel = tk.Listbox(panel,
+            bg=C_FONDO, fg=C_TEXTO,
+            font=("Monospace", 7),
+            relief=tk.FLAT, borderwidth=0,
+            highlightthickness=0, height=6,
+            selectbackground=C_ACENTO)
+        self.lista_clientes_sel.pack(fill=tk.X, padx=10, pady=2)
+
+        tk.Frame(panel, bg=C_BORDE, height=1).pack(fill=tk.X, padx=8, pady=4)
+
+        # Botón capturar handshake
+        self.btn_capturar = tk.Button(panel,
+            text="🎯 Esperar Handshake",
+            bg="#21262d", fg=C_CYAN,
+            font=("Monospace", 8, "bold"),
+            relief=tk.FLAT, padx=8, pady=4,
+            cursor="hand2",
+            command=self._capturar_handshake_seleccionado)
+        self.btn_capturar.pack(fill=tk.X, padx=10, pady=3)
+
+        tk.Button(panel,
+            text="📊 Canal Heatmap",
+            bg="#21262d", fg=C_SUB,
+            font=("Monospace", 8),
+            relief=tk.FLAT, padx=8, pady=3,
+            cursor="hand2",
+            command=self._mostrar_heatmap_canales
+        ).pack(fill=tk.X, padx=10, pady=2)
+
+    # ── PESTAÑA 2: TABLA DE APs ───────────────────────────────────────────────
+
+    def _construir_tabla(self):
+        f = self._frame_tabla
+
+        # Barra de herramientas
+        toolbar = tk.Frame(f, bg=C_PANEL, height=36)
+        toolbar.pack(fill=tk.X)
+        toolbar.pack_propagate(False)
+
+        tk.Label(toolbar, text="Filtrar:",
+            bg=C_PANEL, fg=C_SUB,
+            font=("Monospace", 8)).pack(side=tk.LEFT, padx=8)
+        self._filtro_var = tk.StringVar()
+        self._filtro_var.trace("w", lambda *a: self._filtrar_tabla())
+        tk.Entry(toolbar,
+            textvariable=self._filtro_var,
+            bg="#21262d", fg=C_TEXTO,
+            font=("Monospace", 8),
+            relief=tk.FLAT, insertbackground=C_CYAN,
+            width=20).pack(side=tk.LEFT, padx=4)
+
+        # Alertas rápidas en toolbar
+        self.lbl_alertas_rapidas = tk.Label(toolbar,
+            text="",
+            bg=C_PANEL, fg=C_ROJO,
+            font=("Monospace", 8, "bold"))
+        self.lbl_alertas_rapidas.pack(side=tk.RIGHT, padx=12)
+
+        # Treeview
+        cols = ("SSID","BSSID","Canal","Señal","Cifrado","WPS","Clientes","Vista","Alertas")
+        self.tree = ttk.Treeview(f, columns=cols, show="headings", height=22)
+
+        # Estilo
+        style = ttk.Style()
+        style.configure("Wifi.Treeview",
+            background=C_FONDO, foreground=C_TEXTO,
+            fieldbackground=C_FONDO,
+            rowheight=28,
+            font=("Monospace", 8))
+        style.configure("Wifi.Treeview.Heading",
+            background=C_PANEL, foreground=C_SUB,
+            font=("Monospace", 8, "bold"))
+        style.map("Wifi.Treeview",
+            background=[("selected", C_ACENTO)])
+        self.tree.configure(style="Wifi.Treeview")
+
+        anchos = {"SSID":180,"BSSID":140,"Canal":55,"Señal":60,
+                  "Cifrado":80,"WPS":40,"Clientes":65,"Vista":55,"Alertas":200}
+        for col in cols:
+            self.tree.heading(col, text=col,
+                command=lambda c=col: self._ordenar(c))
+            self.tree.column(col, width=anchos.get(col,80),
+                anchor="center" if col not in ("SSID","BSSID","Alertas") else "w",
+                minwidth=40)
+
+        # Tags de color
+        self.tree.tag_configure("wpa3",    foreground=C_VERDE)
+        self.tree.tag_configure("wpa2",    foreground=C_CYAN)
+        self.tree.tag_configure("wpa",     foreground=C_NARANJA)
+        self.tree.tag_configure("wep",     foreground=C_ROJO)
+        self.tree.tag_configure("abierta", foreground=C_ROJO)
+        self.tree.tag_configure("nuestra", foreground=C_VERDE, font=("Monospace",8,"bold"))
+        self.tree.tag_configure("rogue",   foreground=C_ROJO,  font=("Monospace",8,"bold"))
+        self.tree.tag_configure("oculta",  foreground=C_MORADO)
+
+        sb = ttk.Scrollbar(f, orient=tk.VERTICAL, command=self.tree.yview)
+        self.tree.configure(yscrollcommand=sb.set)
         sb.pack(side=tk.RIGHT, fill=tk.Y)
-        self.lista_cli.pack(fill=tk.X, expand=True)
+        self.tree.pack(fill=tk.BOTH, expand=True)
+        self.tree.bind("<Double-1>", self._doble_click_tabla)
 
-        tk.Frame(p, bg=C_BORDE, height=1).pack(fill=tk.X, padx=8, pady=8)
+    # ── PESTAÑA 3: CAPTURA ────────────────────────────────────────────────────
 
-        # Handshakes — con info de archivo .pcap
-        hdr_hs = tk.Frame(p, bg=C_PANEL)
-        hdr_hs.pack(fill=tk.X, padx=12, pady=(0,4))
-        tk.Label(hdr_hs, text="HANDSHAKES WPA2",
+    def _construir_captura(self):
+        f = self._frame_captura
+
+        # Cabecera
+        cab = tk.Frame(f, bg=C_PANEL, height=48)
+        cab.pack(fill=tk.X)
+        cab.pack_propagate(False)
+
+        tk.Label(cab, text="🔑 HANDSHAKES WPA2 CAPTURADOS",
+            bg=C_PANEL, fg=C_AMARILLO,
+            font=("Monospace", 10, "bold")).pack(side=tk.LEFT, padx=12, pady=8)
+
+        tk.Label(cab,
+            text="Captura pasiva — solo handshakes que ocurren naturalmente en la red",
             bg=C_PANEL, fg=C_SUB,
-            font=("Monospace", 8, "bold"), anchor="w"
-        ).pack(side=tk.LEFT)
-        tk.Button(hdr_hs, text="📂",
-            bg=C_PANEL, fg=C_ALERTA,
-            font=("Monospace", 9), relief=tk.FLAT,
+            font=("Monospace", 7)).pack(side=tk.LEFT)
+
+        # Tabla de handshakes
+        hs_cols = ("Hora","SSID","BSSID AP","MAC Cliente","¿Nuestra red?","Archivo .pcap")
+        self.tree_hs = ttk.Treeview(f, columns=hs_cols, show="headings", height=8)
+        style = ttk.Style()
+        style.configure("HS.Treeview",
+            background=C_FONDO, foreground=C_TEXTO,
+            fieldbackground=C_FONDO, rowheight=30,
+            font=("Monospace", 8))
+        style.configure("HS.Treeview.Heading",
+            background=C_PANEL, foreground=C_AMARILLO,
+            font=("Monospace", 8, "bold"))
+        self.tree_hs.configure(style="HS.Treeview")
+        self.tree_hs.tag_configure("nuestra", foreground=C_VERDE)
+        self.tree_hs.tag_configure("vecina",  foreground=C_CYAN)
+
+        anc_hs = {"Hora":70,"SSID":160,"BSSID AP":140,
+                  "MAC Cliente":140,"¿Nuestra red?":100,"Archivo .pcap":220}
+        for col in hs_cols:
+            self.tree_hs.heading(col, text=col)
+            self.tree_hs.column(col, width=anc_hs.get(col,100), anchor="w")
+
+        sb_hs = ttk.Scrollbar(f, orient=tk.VERTICAL, command=self.tree_hs.yview)
+        self.tree_hs.configure(yscrollcommand=sb_hs.set)
+        sb_hs.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+        self.tree_hs.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+
+        tk.Frame(f, bg=C_BORDE, height=1).pack(fill=tk.X, pady=4)
+
+        # Panel de alertas WiFi
+        alerta_frame = tk.Frame(f, bg=C_PANEL)
+        alerta_frame.pack(fill=tk.X, padx=8, pady=4)
+
+        tk.Label(alerta_frame, text="⚠ ALERTAS DE SEGURIDAD WiFi",
+            bg=C_PANEL, fg=C_ROJO,
+            font=("Monospace", 9, "bold")).pack(anchor="w", padx=8, pady=(6,2))
+
+        self.txt_alertas_wifi = tk.Text(alerta_frame,
+            bg=C_FONDO, fg=C_TEXTO,
+            font=("Monospace", 8),
+            height=7, relief=tk.FLAT,
+            state=tk.DISABLED,
+            wrap=tk.WORD)
+        self.txt_alertas_wifi.pack(fill=tk.X, padx=8, pady=(0,6))
+
+        # Tags de color para el text widget
+        self.txt_alertas_wifi.tag_configure("rojo",    foreground=C_ROJO)
+        self.txt_alertas_wifi.tag_configure("naranja", foreground=C_NARANJA)
+        self.txt_alertas_wifi.tag_configure("verde",   foreground=C_VERDE)
+        self.txt_alertas_wifi.tag_configure("sub",     foreground=C_SUB)
+
+        # Botones
+        btn_row = tk.Frame(f, bg=C_FONDO)
+        btn_row.pack(fill=tk.X, padx=8, pady=4)
+
+        tk.Button(btn_row, text="📁 Abrir carpeta exports",
+            bg="#21262d", fg=C_SUB,
+            font=("Monospace", 8), relief=tk.FLAT,
             cursor="hand2",
             command=self._abrir_carpeta_exports
-        ).pack(side=tk.RIGHT)
+        ).pack(side=tk.LEFT, padx=4)
 
-        f3 = tk.Frame(p, bg=C_PANEL)
-        f3.pack(fill=tk.BOTH, expand=True, padx=8, pady=(0,8))
-        self.lista_hs = tk.Listbox(f3,
-            bg=C_FONDO, fg=C_ALERTA,
-            font=("Monospace", 8),
-            relief=tk.FLAT, highlightthickness=0,
-            selectbackground=C_ACENTO)
-        sb_hs = tk.Scrollbar(f3, command=self.lista_hs.yview, bg=C_PANEL)
-        self.lista_hs.config(yscrollcommand=sb_hs.set)
-        sb_hs.pack(side=tk.RIGHT, fill=tk.Y)
-        self.lista_hs.pack(fill=tk.BOTH, expand=True)
+        tk.Button(btn_row, text="🔍 Analizar .pcap con Wireshark",
+            bg="#21262d", fg=C_CYAN,
+            font=("Monospace", 8), relief=tk.FLAT,
+            cursor="hand2",
+            command=self._abrir_wireshark
+        ).pack(side=tk.LEFT, padx=4)
 
-    # ── EVENTOS ───────────────────────────────────────────────────
+    # ── PROCESAMIENTO DE EVENTOS ──────────────────────────────────────────────
 
     def procesar_evento(self, evento):
-        tipo = evento.get("tipo")
+        """Punto de entrada desde el interceptor 802.11."""
+        tipo = evento.get("tipo_wifi", "")
         with self._lock:
-            if tipo == "ap_detectado":
+            if tipo in ("BEACON", "PROBE_RESP"):
                 self._reg_ap(evento)
-            elif tipo == "handshake_wpa2":
-                self._reg_hs(evento)
-            elif tipo == "trafico_externo":
-                b = (evento.get("bssid") or "").lower()
-                if b in self._aps:
-                    self._aps[b]["pkts"] += 1
-        try:
-            self.ventana.after(0, lambda: self.lbl_monitor.config(
-                text="● Monitor activo", fg=C_NUESTRA))
-        except Exception:
-            pass
+            elif tipo in ("HANDSHAKE_M1","HANDSHAKE_M2",
+                          "HANDSHAKE_M3","HANDSHAKE_M4","EAPOL"):
+                self._reg_handshake(evento)
+            elif tipo == "DATA":
+                self._reg_cliente(evento)
+            elif tipo == "DEAUTH":
+                self._reg_deauth(evento)
 
     def _reg_ap(self, ev):
         bssid = (ev.get("bssid") or "").lower().strip()
         if not bssid or bssid in ("ff:ff:ff:ff:ff:ff","00:00:00:00:00:00"):
             return
-        es_nuestra = ev.get("es_nuestra_red", False)
-        if not es_nuestra and self._bssid_propio:
-            es_nuestra = (bssid == self._bssid_propio)
+        es_nuestra = ev.get("es_nuestra_red", False) or (
+            bool(self._bssid_propio) and bssid == self._bssid_propio)
         if es_nuestra:
             self._bssid_propio = bssid
+
+        ssid     = ev.get("ssid") or ""
+        cifrado  = ev.get("cifrado", "?")
+        canal    = ev.get("canal", 0)
+        rssi     = ev.get("rssi")
+        wps      = ev.get("wps", False)
+        oculta   = not bool(ssid)
+
         if bssid not in self._aps:
             self._aps[bssid] = {
-                "ssid": ev.get("ssid") or "<oculto>",
-                "canal": ev.get("canal", 0),
-                "cifrado": ev.get("cifrado","?"),
-                "rssi": ev.get("rssi"),
-                "clientes": set(),
-                "pkts": 0,
-                "es_nuestra": es_nuestra,
+                "ssid"       : ssid or "<oculta>",
+                "canal"      : canal,
+                "cifrado"    : cifrado,
+                "rssi"       : rssi,
+                "wps"        : wps,
+                "oculta"     : oculta,
+                "clientes"   : set(),
+                "pkts"       : 0,
+                "es_nuestra" : es_nuestra,
+                "handshake"  : False,
                 "primer_visto": datetime.now().strftime("%H:%M:%S"),
-                "handshake": False,
+                "alertas"    : [],
             }
+            # Detectar amenazas en el momento de registro
+            self._detectar_amenazas_ap(bssid)
         else:
             ap = self._aps[bssid]
-            if ev.get("ssid"): ap["ssid"] = ev["ssid"]
-            if ev.get("rssi") is not None: ap["rssi"] = ev["rssi"]
-            if ev.get("canal"): ap["canal"] = ev["canal"]
+            if ssid: ap["ssid"] = ssid
+            if rssi is not None: ap["rssi"] = rssi
+            if canal: ap["canal"] = canal
+            if wps: ap["wps"] = True
             if es_nuestra: ap["es_nuestra"] = True
+        self._aps[bssid]["pkts"] = self._aps[bssid].get("pkts",0) + 1
 
-    def _reg_hs(self, ev):
-        ts     = datetime.now().strftime("%H:%M:%S")
-        bssid  = (ev.get("bssid") or "").lower()
-        cliente = ev.get("cliente_mac","?")
-        es_n   = ev.get("es_nuestra_red", False)
-        ssid   = ev.get("ssid","?")
-        archivo = ev.get("archivo","")  # nombre del .pcap si se guardó
-        n_f    = ev.get("n_frames", 0)
-        self._handshakes.append((ts, bssid, cliente, es_n, ssid, archivo, n_f))
+    def _detectar_amenazas_ap(self, bssid):
+        """Detecta amenazas en un AP recién registrado."""
+        ap = self._aps.get(bssid)
+        if not ap:
+            return
+        alertas = []
+        cifrado = (ap.get("cifrado") or "").upper()
+
+        # WEP — obsoleto y roto
+        if "WEP" in cifrado:
+            alertas.append("🔴 WEP: cifrado roto — trivialmente hackeable")
+
+        # Red abierta
+        if "OPN" in cifrado or cifrado in ("OPEN",""):
+            alertas.append("🔴 Red ABIERTA — sin cifrado")
+
+        # WPS activo — vulnerable a Pixie Dust y ataques de pin
+        if ap.get("wps"):
+            alertas.append("🟠 WPS activo — vulnerable a Pixie Dust")
+
+        # Red oculta — no más segura, solo más molesta
+        if ap.get("oculta"):
+            alertas.append("🟣 SSID oculto detectado — no añade seguridad real")
+
+        # Rogue AP — mismo SSID que nuestra red pero BSSID diferente
+        if self._bssid_propio:
+            ap_nuestro = self._aps.get(self._bssid_propio)
+            if ap_nuestro and bssid != self._bssid_propio:
+                ssid_nuestro = ap_nuestro.get("ssid","").lower()
+                ssid_este    = ap.get("ssid","").lower()
+                if ssid_nuestro and ssid_este == ssid_nuestro:
+                    alertas.append(
+                        f"🔴 ROGUE AP — mismo SSID que nuestra red ({ssid_nuestro})")
+                    self._rogues.append((bssid, ssid_este, self._bssid_propio))
+
+        ap["alertas"] = alertas
+
+    def _reg_handshake(self, ev):
+        bssid     = (ev.get("bssid") or "").lower()
+        mac_cli   = (ev.get("cliente_mac") or "?").lower()
+        es_nuestra = ev.get("es_nuestra_red", False) or (
+            bool(self._bssid_propio) and bssid == self._bssid_propio)
+        ts   = datetime.now().strftime("%H:%M:%S")
+        ssid = ""
         if bssid in self._aps:
             self._aps[bssid]["handshake"] = True
+            ssid = self._aps[bssid].get("ssid", "")
 
-    def _abrir_carpeta_exports(self):
-        """Abre la carpeta exports/ en el gestor de archivos."""
+        # Guardar info del handshake
+        # El pcap ya lo guarda el interceptor — aquí solo registramos el evento
+        ruta_pcap = ev.get("pcap_ruta", "—")
+        self._handshakes.append((ts, ssid, bssid, mac_cli, es_nuestra, ruta_pcap))
+
+    def _reg_cliente(self, ev):
+        mac_cli = (ev.get("mac_cliente") or ev.get("mac_origen") or "").lower()
+        bssid   = (ev.get("bssid") or "").lower()
+        rssi    = ev.get("rssi")
+        if not mac_cli or mac_cli in ("ff:ff:ff:ff:ff:ff","00:00:00:00:00:00"):
+            return
+        self._clientes[mac_cli] = {
+            "bssid" : bssid,
+            "rssi"  : rssi,
+            "pkts"  : self._clientes.get(mac_cli, {}).get("pkts", 0) + 1
+        }
+        if bssid in self._aps:
+            self._aps[bssid]["clientes"].add(mac_cli)
+
+    def _reg_deauth(self, ev):
+        bssid = (ev.get("bssid") or "").lower()
+        if bssid:
+            self._deauths[bssid] = self._deauths.get(bssid, 0) + 1
+            if self._deauths[bssid] == 5:  # Umbral: 5 deauths = ataque
+                if bssid in self._aps:
+                    self._aps[bssid]["alertas"].append(
+                        "🔴 DEAUTH ATTACK detectado — alguien está desconectando clientes")
+
+    # ── RENDER ────────────────────────────────────────────────────────────────
+
+    def _ciclo_render(self):
         try:
-            import os, subprocess as sp
-            usuario = os.environ.get("SUDO_USER") or os.environ.get("USER") or "root"
-            import pwd
-            home = pwd.getpwnam(usuario).pw_dir
-            carpeta = os.path.join(home, "Proyectos", "toporeveal", "exports")
-            os.makedirs(carpeta, exist_ok=True)
-            sp.Popen(["xdg-open", carpeta])
+            if self.ventana.winfo_exists():
+                self._render_mapa()
+                self._actualizar_tabla()
+                self._actualizar_captura()
+                self._actualizar_stats()
+                self.ventana.after(1800, self._ciclo_render)
         except Exception:
             pass
 
-    # ── ZOOM Y DRAG ───────────────────────────────────────────────
-
-    def _zoom_wheel(self, event):
-        factor = 1.1 if event.delta > 0 else 0.9
-        self._zoom_step(factor)
-
-    def _zoom_step(self, factor):
-        self._zoom = max(0.3, min(3.0, self._zoom * factor))
-
-    def _scroll(self, delta):
-        self._offset_y += int(delta * 0.3)
-
-    def _drag_start_ev(self, event):
-        self._drag_start = (event.x, event.y)
-
-    def _drag_move(self, event):
-        if self._drag_start:
-            dx = event.x - self._drag_start[0]
-            dy = event.y - self._drag_start[1]
-            self._offset_x += dx
-            self._offset_y += dy
-            self._drag_start = (event.x, event.y)
-
-    # ── CANVAS ────────────────────────────────────────────────────
-
-    def _ciclo(self):
-        try:
-            self._render()
-            self._actualizar_panel()
-        except Exception:
-            pass
-        try:
-            self.ventana.after(1500, self._ciclo)
-        except Exception:
-            pass
-
-    def _render(self):
+    def _render_mapa(self):
         with self._lock:
             aps = dict(self._aps)
-
-        self.cv.delete("all")
-        w = self.cv.winfo_width() or 740
-        h = self.cv.winfo_height() or 500
-
-        # Grid de fondo
-        for x in range(0, w, 38):
-            self.cv.create_line(x,0,x,h, fill=C_PANEL, width=1)
-        for y in range(0, h, 38):
-            self.cv.create_line(0,y,w,y, fill=C_PANEL, width=1)
-
-        # Hint de zoom
-        self.cv.create_text(8, h-12,
-            text=f"Ctrl+rueda: zoom {self._zoom:.1f}x | drag clic derecho",
-            fill=C_SUB, font=("Monospace",7), anchor="w")
-
         if not aps:
+            self.cv.delete("all")
+            w = self.cv.winfo_width() or 700
+            h = self.cv.winfo_height() or 500
             self.cv.create_text(w//2, h//2,
-                text="⚡ Escaneando el aire...\n\nEl monitor 802.11 está buscando\nredes WiFi cercanas",
-                fill=C_SUB, font=("Monospace", 12), justify=tk.CENTER)
-            self.lbl_count.config(text="APs: 0")
+                text="⚡ Escaneando el aire...\n\nEl monitor 802.11 detecta\nredes WiFi automáticamente",
+                fill=C_SUB, font=("Monospace", 11), justify=tk.CENTER)
             return
 
-        # Centro con offset (drag) y zoom
-        z   = self._zoom
-        cxc = w//2 + self._offset_x
-        cyc = h//2 + self._offset_y
+        self.cv.delete("all")
+        w = self.cv.winfo_width() or 700
+        h = self.cv.winfo_height() or 500
 
+        # Grid sutil
+        for x in range(0, w, 40):
+            self.cv.create_line(x,0,x,h, fill="#161b22", width=1)
+        for y in range(0, h, 40):
+            self.cv.create_line(0,y,w,y, fill="#161b22", width=1)
+
+        # Ordenar: nuestra red primero
         lista = sorted(aps.items(),
-                       key=lambda x:(0 if x[1].get("es_nuestra") else 1, x[0]))
+            key=lambda x: (0 if x[1].get("es_nuestra") else 1, x[0]))
         n = len(lista)
-
-        # Radio del layout — más grande con zoom, mínimo separación legible
-        # Con muchos APs usar radio mayor para que no se encimen
-        radio_min  = max(150, n * 18)
-        r_layout   = int(min(min(w,h)//2 - RADIO_AP*2 - 40, radio_min) * z)
+        cx, cy = w//2, h//2
         pos = {}
 
         if n == 1:
-            pos[lista[0][0]] = (cxc, cyc)
-        else:
-            for i,(bssid,_) in enumerate(lista):
+            pos[lista[0][0]] = (cx, cy)
+        elif n <= 6:
+            # Círculo amplio con buen espacio entre nodos
+            r = min(w, h) // 2 - RADIO_AP - 90
+            for i, (bssid, _) in enumerate(lista):
                 ang = (2*math.pi*i/n) - math.pi/2
-                pos[bssid] = (int(cxc + r_layout*math.cos(ang)),
-                              int(cyc + r_layout*math.sin(ang)))
+                pos[bssid] = (int(cx + r*math.cos(ang)),
+                              int(cy + r*math.sin(ang)))
+        else:
+            # Espiral para muchos APs — mejor separación
+            r_base = 90
+            for i, (bssid, _) in enumerate(lista):
+                nivel  = i // 6
+                idx    = i % 6
+                r      = r_base + nivel * 95
+                ang    = (2*math.pi*idx/6) - math.pi/2 + nivel*0.3
+                px     = int(cx + r*math.cos(ang))
+                py     = int(cy + r*math.sin(ang))
+                # Clamp para que no salga de la pantalla
+                px = max(RADIO_AP+30, min(w-RADIO_AP-30, px))
+                py = max(RADIO_AP+30, min(h-RADIO_AP-30, py))
+                pos[bssid] = (px, py)
 
         self._posiciones = pos
 
-        # Radio visual del nodo escalado con zoom
-        radio_nodo = int(RADIO_AP * z)
-        radio_nodo = max(12, min(40, radio_nodo))
-
-        # Líneas entre APs
-        blist = [b for b,_ in lista]
-        for i,b1 in enumerate(blist):
-            for b2 in blist[i+1:]:
-                p1,p2 = pos[b1], pos[b2]
-                self.cv.create_line(p1[0],p1[1],p2[0],p2[1],
-                    fill=C_BORDE, width=1, dash=(4,12))
+        # Líneas de conexión tenues entre APs del mismo canal
+        canales_a_aps = {}
+        for bssid, ap in lista:
+            c = ap.get("canal", 0)
+            canales_a_aps.setdefault(c, []).append(bssid)
+        for canal, bssids in canales_a_aps.items():
+            if len(bssids) > 1 and canal > 0:
+                for i in range(len(bssids)-1):
+                    b1, b2 = bssids[i], bssids[i+1]
+                    if b1 in pos and b2 in pos:
+                        p1, p2 = pos[b1], pos[b2]
+                        self.cv.create_line(p1[0],p1[1],p2[0],p2[1],
+                            fill="#f0883e", width=1, dash=(3,8))
 
         # Nodos
         for bssid, ap in lista:
-            px, py = pos[bssid]
-            tiene_hs   = ap.get("handshake", False)
+            if bssid not in pos:
+                continue
+            px, py   = pos[bssid]
+            tiene_hs = ap.get("handshake", False)
             es_nuestra = ap.get("es_nuestra", False)
-            sel        = (bssid == self._nodo_sel)
+            seleccionado = (bssid == self._nodo_sel)
+            cifrado  = ap.get("cifrado","")
+            oculta   = ap.get("oculta", False)
+            wps      = ap.get("wps", False)
+            alertas  = ap.get("alertas", [])
+            tiene_alerta = len(alertas) > 0 or wps
 
-            color = C_ALERTA if tiene_hs else (C_NUESTRA if es_nuestra else C_VECINA)
+            # Color base por cifrado
+            if tiene_hs:
+                color = C_AMARILLO
+            elif es_nuestra:
+                color = C_VERDE
+            else:
+                color = _color_cifrado(cifrado)
 
-            # Clientes
+            # Clientes en órbita
             clientes = list(ap.get("clientes", set()))
             nc = len(clientes)
-            orbita = int(ORBITA_DIST * z)
-            for i, mac in enumerate(clientes[:6]):
-                ang    = (2*math.pi*i/max(nc,1)) - math.pi/2
-                cxc2   = int(px + orbita*math.cos(ang))
-                cyc2   = int(py + orbita*math.sin(ang))
-                rc     = int(RADIO_CLIENTE * z)
-                rc     = max(8, min(20, rc))
-                self.cv.create_line(px, py+radio_nodo//3, cxc2, cyc2,
-                    fill=_mezclar(color,C_FONDO,0.55), width=1, dash=(3,6))
-                _dibujar_cliente(self.cv, cxc2, cyc2, rc, color)
-                if z > 0.6:
-                    self.cv.create_text(cxc2, cyc2+rc+8,
-                        text=mac[-8:].upper(), fill=C_SUB,
-                        font=("Monospace", max(5,int(6*z))))
+            for i, mac in enumerate(clientes[:8]):
+                ang  = (2*math.pi*i/max(nc,1)) - math.pi/2
+                cxc2 = int(px + ORBITA_DIST*math.cos(ang))
+                cyc2 = int(py + ORBITA_DIST*math.sin(ang))
+                self.cv.create_line(px,py,cxc2,cyc2,
+                    fill=C_BORDE, width=1)
+                self.cv.create_oval(
+                    cxc2-RADIO_CLI, cyc2-RADIO_CLI,
+                    cxc2+RADIO_CLI, cyc2+RADIO_CLI,
+                    fill=C_PANEL, outline=C_ACENTO, width=2)
+                mac_short = mac[-5:].upper()
+                self.cv.create_text(cxc2, cyc2,
+                    text=mac_short, fill=C_SUB,
+                    font=("Monospace", 5))
+
+            # Anillo de selección
+            if seleccionado:
+                self.cv.create_oval(
+                    px-RADIO_AP-8, py-RADIO_AP-8,
+                    px+RADIO_AP+8, py+RADIO_AP+8,
+                    outline=C_CYAN, width=2, dash=(4,4))
+
+            # Anillo de alerta pulsante
+            if tiene_alerta:
+                self.cv.create_oval(
+                    px-RADIO_AP-4, py-RADIO_AP-4,
+                    px+RADIO_AP+4, py+RADIO_AP+4,
+                    outline=C_ROJO, width=1)
 
             # Nodo AP
-            _dibujar_ap(self.cv, px, py, radio_nodo, color,
-                        es_nuestra=es_nuestra, seleccionado=sel)
+            self.cv.create_oval(
+                px-RADIO_AP, py-RADIO_AP,
+                px+RADIO_AP, py+RADIO_AP,
+                fill=C_PANEL, outline=color, width=3)
 
-            # Etiquetas — solo si hay espacio suficiente
-            ssid = ap.get("ssid","?")
-            # Truncar según zoom: más zoom = más texto visible
-            max_chars = max(8, int(14 * z))
-            if len(ssid) > max_chars:
-                ssid = ssid[:max_chars-1]+"…"
+            # Icono interior
+            icono = "⭐" if es_nuestra else ("🔓" if "OPN" in cifrado.upper() else "📡")
+            self.cv.create_text(px, py-4,
+                text=icono, font=("Monospace",12))
 
-            fs_ssid = max(7, int(9 * z))
-            fs_bssid = max(6, int(7 * z))
-
-            self.cv.create_text(px, py+radio_nodo+int(12*z),
-                text=ssid, fill=color,
-                font=("Monospace", fs_ssid, "bold"))
-
-            if z > 0.5:
-                self.cv.create_text(px, py+radio_nodo+int(22*z),
-                    text=bssid.upper()[:17], fill=C_SUB,
-                    font=("Monospace", fs_bssid))
-
-            rssi = ap.get("rssi")
-            if rssi is not None and z > 0.6:
-                self.cv.create_text(px, py+radio_nodo+int(32*z),
-                    text=f"{self._barras(rssi)} {rssi}dBm",
-                    fill=color, font=("Monospace", fs_bssid))
-
+            # Indicadores pequeños
             if tiene_hs:
-                self.cv.create_text(px+radio_nodo+4, py-radio_nodo+2,
-                    text="⚠HS", fill=C_ALERTA,
-                    font=("Monospace", max(6, int(7*z)), "bold"))
+                self.cv.create_text(px+RADIO_AP-2, py-RADIO_AP+2,
+                    text="🔑", font=("Monospace",8))
+            if wps:
+                self.cv.create_text(px-RADIO_AP+2, py-RADIO_AP+2,
+                    text="W", fill=C_NARANJA, font=("Monospace",7,"bold"))
+            if oculta:
+                self.cv.create_text(px, py+RADIO_AP+3,
+                    text="●", fill=C_MORADO, font=("Monospace",6))
 
-            # Área clickeable
-            tag = f"ap_{bssid.replace(':','_')}"
-            self.cv.create_rectangle(
-                px-radio_nodo-4, py-radio_nodo-int(20*z),
-                px+radio_nodo+4, py+radio_nodo+int(45*z),
-                outline="", fill="", tags=(tag,))
-            self.cv.tag_bind(tag, "<Button-1>",
-                lambda e, b=bssid: self._sel(b))
-            self.cv.tag_bind(tag, "<Enter>",
-                lambda e: self.cv.config(cursor="hand2"))
-            self.cv.tag_bind(tag, "<Leave>",
-                lambda e: self.cv.config(cursor="crosshair"))
+            # SSID
+            ssid_txt = (ap.get("ssid","?"))[:16]
+            self.cv.create_text(px, py+RADIO_AP+14,
+                text=ssid_txt, fill=color,
+                font=("Monospace",8,"bold"))
 
-        n_nuestra = sum(1 for a in aps.values() if a.get("es_nuestra"))
-        self.lbl_count.config(
-            text=f"APs: {n}  |  ★ propia: {n_nuestra}  |  vecinas: {n-n_nuestra}")
+            # Canal y señal
+            rssi = ap.get("rssi")
+            info_txt = f"ch{ap.get('canal','?')}"
+            if rssi:
+                info_txt += f" {rssi}dBm"
+            self.cv.create_text(px, py+RADIO_AP+26,
+                text=info_txt, fill=C_SUB,
+                font=("Monospace",7))
 
-    def _barras(self, rssi):
-        if rssi is None: return "?"
-        if rssi >= -50:  return "▂▄▆█"
-        if rssi >= -65:  return "▂▄▆░"
-        if rssi >= -75:  return "▂▄░░"
-        if rssi >= -85:  return "▂░░░"
-        return "░░░░"
+    def _actualizar_tabla(self):
+        with self._lock:
+            aps = dict(self._aps)
+        filtro = self._filtro_var.get().lower()
 
-    def _click(self, ev):
-        x, y = ev.x, ev.y
-        mejor, dist_min = None, float("inf")
-        for bssid,(px,py) in self._posiciones.items():
-            d = math.sqrt((x-px)**2+(y-py)**2)
-            if d < dist_min and d < RADIO_AP+50:
-                dist_min, mejor = d, bssid
-        self._sel(mejor) if mejor else setattr(self, "_nodo_sel", None)
+        # Limpiar y recargar
+        for item in self.tree.get_children():
+            self.tree.delete(item)
 
-    def _sel(self, bssid):
-        self._nodo_sel = bssid
-        self._det(bssid)
+        alertas_globales = []
+        for bssid, ap in sorted(aps.items(),
+                key=lambda x: x[1].get("rssi") or -100, reverse=True):
+            ssid = ap.get("ssid","?")
+            if filtro and filtro not in ssid.lower() and filtro not in bssid:
+                continue
 
-    def _det(self, bssid):
+            rssi_val = ap.get("rssi")
+            rssi_txt = f"{rssi_val}dBm" if rssi_val else "?"
+            cifrado  = ap.get("cifrado","?")
+            wps_txt  = "✓" if ap.get("wps") else "—"
+            n_cli    = len(ap.get("clientes",set()))
+            hs_txt   = "✓" if ap.get("handshake") else "—"
+            alertas  = ap.get("alertas",[])
+            alert_txt = " | ".join(alertas) if alertas else "✓ OK"
+
+            # Tag de color
+            if bssid == self._bssid_propio:
+                tag = "nuestra"
+            elif any("ROGUE" in a for a in alertas):
+                tag = "rogue"
+                alertas_globales.append(f"ROGUE: {ssid}")
+            elif "WEP" in cifrado.upper():
+                tag = "wep"
+            elif "OPN" in cifrado.upper():
+                tag = "abierta"
+            elif ap.get("oculta"):
+                tag = "oculta"
+            elif "WPA3" in cifrado.upper():
+                tag = "wpa3"
+            elif "WPA2" in cifrado.upper():
+                tag = "wpa2"
+            else:
+                tag = "wpa"
+
+            self.tree.insert("", tk.END, iid=bssid,
+                values=(ssid, bssid, ap.get("canal","?"), rssi_txt,
+                        cifrado, wps_txt, n_cli, hs_txt, alert_txt),
+                tags=(tag,))
+
+            if alertas:
+                alertas_globales.extend(alertas)
+
+        # Alerta rápida en toolbar
+        n_rog = len([a for a in alertas_globales if "ROGUE" in a])
+        n_wep = sum(1 for ap in aps.values() if "WEP" in (ap.get("cifrado","")).upper())
+        txt_al = ""
+        if n_rog: txt_al += f"⚠ {n_rog} ROGUE AP  "
+        if n_wep: txt_al += f"⚠ {n_wep} WEP  "
+        self.lbl_alertas_rapidas.config(text=txt_al)
+
+    def _actualizar_captura(self):
+        # Tabla de handshakes
+        for item in self.tree_hs.get_children():
+            self.tree_hs.delete(item)
+        with self._lock:
+            hs_list = list(self._handshakes)
+
+        for ts, ssid, bssid, mac_cli, es_nuestra, ruta_pcap in hs_list:
+            tag = "nuestra" if es_nuestra else "vecina"
+            self.tree_hs.insert("", tk.END,
+                values=(ts, ssid or "?", bssid, mac_cli,
+                        "✓ NUESTRA" if es_nuestra else "Vecina", ruta_pcap),
+                tags=(tag,))
+
+        # Panel de alertas WiFi
+        with self._lock:
+            aps = dict(self._aps)
+            deauths = dict(self._deauths)
+            rogues  = list(self._rogues)
+
+        self.txt_alertas_wifi.config(state=tk.NORMAL)
+        self.txt_alertas_wifi.delete("1.0", tk.END)
+
+        if not aps:
+            self.txt_alertas_wifi.insert(tk.END,
+                "Sin datos — esperando tráfico 802.11...\n", "sub")
+        else:
+            # Rogues
+            if rogues:
+                for bssid_r, ssid_r, bssid_l in rogues:
+                    self.txt_alertas_wifi.insert(tk.END,
+                        f"🔴 ROGUE AP: '{ssid_r}' — {bssid_r} "
+                        f"(legítimo: {bssid_l})\n", "rojo")
+            # Deauth attacks
+            for bssid, n in deauths.items():
+                if n >= 5:
+                    ssid_d = aps.get(bssid,{}).get("ssid","?")
+                    self.txt_alertas_wifi.insert(tk.END,
+                        f"🔴 DEAUTH ATTACK en '{ssid_d}' — "
+                        f"{n} frames de desconexión\n", "rojo")
+            # WEP y abiertas
+            for bssid, ap in aps.items():
+                cif = (ap.get("cifrado","")).upper()
+                if "WEP" in cif:
+                    self.txt_alertas_wifi.insert(tk.END,
+                        f"🔴 WEP: '{ap.get('ssid','?')}' — cifrado roto\n", "rojo")
+                elif "OPN" in cif:
+                    self.txt_alertas_wifi.insert(tk.END,
+                        f"🔴 ABIERTA: '{ap.get('ssid','?')}' — sin cifrado\n", "rojo")
+                if ap.get("wps"):
+                    self.txt_alertas_wifi.insert(tk.END,
+                        f"🟠 WPS ACTIVO: '{ap.get('ssid','?')}' — "
+                        f"vulnerable a Pixie Dust\n", "naranja")
+            # Handshakes
+            if hs_list:
+                nuestros = sum(1 for h in hs_list if h[4])
+                self.txt_alertas_wifi.insert(tk.END,
+                    f"🔑 {len(hs_list)} handshake(s) capturado(s) "
+                    f"({nuestros} de nuestra red)\n", "naranja")
+            if not any([rogues, deauths]):
+                all_ok = all(
+                    "WPA2" in (ap.get("cifrado","")).upper() or
+                    "WPA3" in (ap.get("cifrado","")).upper()
+                    for ap in aps.values())
+                if all_ok and not hs_list:
+                    self.txt_alertas_wifi.insert(tk.END,
+                        "✓ Sin amenazas detectadas\n", "verde")
+
+        self.txt_alertas_wifi.config(state=tk.DISABLED)
+
+    def _actualizar_stats(self):
+        with self._lock:
+            n_aps = len(self._aps)
+            n_cli = len(self._clientes)
+            n_hs  = len(self._handshakes)
+        self.lbl_stats.config(
+            text=f"APs: {n_aps}  |  Clientes: {n_cli}  |  HS: {n_hs}")
+
+    # ── INTERACCIÓN ──────────────────────────────────────────────────────────
+
+    def _click_mapa(self, event):
+        """Selecciona AP al hacer click en el canvas."""
+        for bssid, (px, py) in self._posiciones.items():
+            if abs(event.x - px) < RADIO_AP+6 and abs(event.y - py) < RADIO_AP+6:
+                self._nodo_sel = bssid
+                self._actualizar_panel_ap(bssid)
+                return
+        self._nodo_sel = None
+
+    def _actualizar_panel_ap(self, bssid):
         with self._lock:
             ap = dict(self._aps.get(bssid, {}))
         if not ap:
             return
 
-        es_nuestra = ap.get("es_nuestra", False)
-        tiene_hs   = ap.get("handshake", False)
-        color = C_ALERTA if tiene_hs else (C_NUESTRA if es_nuestra else C_VECINA)
-
-        ssid = ap.get("ssid","?")
-        pref = "★ " if es_nuestra else ""
-        self.lbl_ssid.config(text=f"{pref}{ssid}", fg=color)
-
+        self.lbl_ssid_sel.config(text=ap.get("ssid","?"))
         rssi = ap.get("rssi")
-        rssi_str = f"{self._barras(rssi)} {rssi} dBm" if rssi else "—"
-        estado = ("NUESTRA RED" if es_nuestra else "Red vecina")
-        if tiene_hs: estado += " | ⚠ HANDSHAKE"
+        self._lbl_campos["BSSID"].config(text=bssid)
+        self._lbl_campos["Canal"].config(text=str(ap.get("canal","?")))
+        self._lbl_campos["Cifrado"].config(
+            text=ap.get("cifrado","?"),
+            fg=_color_cifrado(ap.get("cifrado","")))
+        self._lbl_campos["Señal"].config(
+            text=f"{rssi}dBm" if rssi else "?")
+        self._lbl_campos["WPS"].config(
+            text="✓ Activo" if ap.get("wps") else "No",
+            fg=C_NARANJA if ap.get("wps") else C_VERDE)
+        self._lbl_campos["Clientes"].config(
+            text=str(len(ap.get("clientes",set()))))
+        self._lbl_campos["Vista"].config(
+            text=ap.get("primer_visto","?"))
 
-        vals = {
-            "bssid": bssid.upper(),
-            "canal": str(ap.get("canal","?")),
-            "cifrado": ap.get("cifrado","?"),
-            "rssi": rssi_str,
-            "n_cli": str(len(ap.get("clientes",set()))),
-            "pkts": str(ap.get("pkts",0)),
-            "primer_visto": ap.get("primer_visto","—"),
-            "estado": estado,
-        }
-        for k, v in vals.items():
-            c = color if k=="estado" else (C_SUB if k=="bssid" else C_TEXTO)
-            self._campos[k].config(text=v, fg=c)
+        # Alertas
+        alertas = ap.get("alertas",[])
+        self.lbl_alertas_ap.config(
+            text="\n".join(alertas) if alertas else "✓ Sin alertas",
+            fg=C_ROJO if alertas else C_VERDE)
 
-        self.lista_cli.delete(0, tk.END)
-        clientes = sorted(ap.get("clientes",set()))
-        if clientes:
-            for m in clientes:
-                self.lista_cli.insert(tk.END, f"  {m.upper()}")
-        else:
-            self.lista_cli.insert(tk.END, "  Sin clientes detectados")
+        # Clientes
+        self.lista_clientes_sel.delete(0, tk.END)
+        for mac in sorted(ap.get("clientes",set())):
+            self.lista_clientes_sel.insert(tk.END, f"  {mac.upper()}")
 
-    def _actualizar_panel(self):
+    def _doble_click_tabla(self, event):
+        """Al hacer doble click en la tabla, ir al mapa y seleccionar el AP."""
+        sel = self.tree.selection()
+        if sel:
+            bssid = sel[0]
+            self._nodo_sel = bssid
+            self._actualizar_panel_ap(bssid)
+            self.nb.select(0)  # Ir a la pestaña del mapa
+
+    def _filtrar_tabla(self):
+        self._actualizar_tabla()
+
+    def _ordenar(self, columna):
+        """Ordena la tabla por la columna clickeada."""
+        pass  # Simple — se puede expandir
+
+    def _capturar_handshake_seleccionado(self):
+        """Inicia espera de handshake en el AP seleccionado."""
+        if not self._nodo_sel:
+            messagebox.showinfo("WiFi Scope",
+                "Selecciona un AP en el mapa primero.")
+            return
         with self._lock:
-            hs = list(self._handshakes[-20:])
-            n  = len(self._aps)
-            nn = sum(1 for a in self._aps.values() if a.get("es_nuestra"))
+            ap = self._aps.get(self._nodo_sel, {})
+        ssid  = ap.get("ssid","?")
+        canal = ap.get("canal", 0)
+        messagebox.showinfo("Esperando Handshake",
+            f"Monitoreando '{ssid}' (canal {canal})\n\n"
+            f"Cuando un cliente se autentique naturalmente,\n"
+            f"el handshake WPA2 se capturará automáticamente\n"
+            f"y aparecerá en la pestaña CAPTURA.\n\n"
+            f"No se realizará ningún ataque de deautenticación.")
 
-        self.lista_hs.delete(0, tk.END)
-        for item in reversed(hs):
-            ts, bssid, cli, es_n, ssid, archivo, n_f = item
-            pfx = "🔴" if es_n else "🟡"
-            nombre = ssid if ssid and ssid != "?" else bssid[:11]
-            pcap_info = f" 💾{archivo[:12]}" if archivo else ""
-            self.lista_hs.insert(tk.END,
-                f"{ts} {pfx} {nombre[:14]} ({n_f}f){pcap_info}")
+    def _mostrar_heatmap_canales(self):
+        """Muestra un heatmap de uso de canales WiFi."""
+        with self._lock:
+            aps = dict(self._aps)
 
-        self.lbl_estado.config(
-            text=f"APs: {n} | propia: {nn} | vecinas: {n-nn} | "
-                 f"handshakes: {len(hs)} | {datetime.now().strftime('%H:%M:%S')}")
+        if not aps:
+            messagebox.showinfo("Canal Heatmap", "Sin APs detectados aún.")
+            return
 
-        if self._nodo_sel:
-            self._det(self._nodo_sel)
+        win = tk.Toplevel(self.ventana)
+        win.title("Canal Heatmap")
+        win.geometry("600x280")
+        win.configure(bg=C_FONDO)
 
-    # ── CIERRE ────────────────────────────────────────────────────
+        tk.Label(win, text="USO DE CANALES WiFi",
+            bg=C_FONDO, fg=C_CYAN,
+            font=("Monospace", 10, "bold")).pack(pady=8)
 
-    def _cerrar(self):
+        cv = tk.Canvas(win, bg=C_FONDO,
+            width=580, height=200, highlightthickness=0)
+        cv.pack(padx=10)
+
+        # Contar APs por canal
+        canales = {}
+        for ap in aps.values():
+            c = ap.get("canal", 0)
+            if c:
+                canales[c] = canales.get(c, 0) + 1
+
+        if not canales:
+            cv.create_text(290, 100,
+                text="Sin datos de canal", fill=C_SUB,
+                font=("Monospace", 10))
+            return
+
+        max_n = max(canales.values())
+        # Canales 1-14 (2.4GHz) + 36-165 (5GHz)
+        canales_2g = [c for c in canales if c <= 14]
+        canales_5g = [c for c in canales if c > 14]
+
+        def _dibujar_canales(lista, x_start, titulo):
+            if not lista:
+                return
+            cv.create_text(x_start + 100, 20,
+                text=titulo, fill=C_SUB,
+                font=("Monospace", 8, "bold"))
+            bar_w = 16
+            gap   = 6
+            for i, canal in enumerate(sorted(lista)):
+                n   = canales.get(canal, 0)
+                h   = int((n / max_n) * 120)
+                x   = x_start + i*(bar_w+gap)
+                y_b = 160
+                # Color: canales solapados en 2.4GHz (1,6,11 son los buenos)
+                col = C_VERDE if canal in (1,6,11,36,40,44,48,149,153,157,161) else C_NARANJA
+                if n > 1: col = C_ROJO   # saturado
+                cv.create_rectangle(x, y_b-h, x+bar_w, y_b,
+                    fill=col, outline="")
+                cv.create_text(x+bar_w//2, y_b+10,
+                    text=str(canal), fill=C_SUB,
+                    font=("Monospace",6))
+                cv.create_text(x+bar_w//2, y_b-h-8,
+                    text=str(n), fill=col,
+                    font=("Monospace",7))
+
+        _dibujar_canales(canales_2g, 10,  "2.4 GHz")
+        _dibujar_canales(canales_5g, 300, "5 GHz")
+
+        tk.Label(win,
+            text="Verde=canal limpio  |  Naranja=solapamiento  |  Rojo=saturado",
+            bg=C_FONDO, fg=C_SUB,
+            font=("Monospace",7)).pack(pady=4)
+
+    def _abrir_carpeta_exports(self):
         try:
-            self.ventana.destroy()
-        except Exception:
-            pass
-        self.ventana = None
+            import subprocess
+            carpeta = os.path.expanduser("~/Proyectos/toporeveal/exports")
+            os.makedirs(carpeta, exist_ok=True)
+            subprocess.Popen(["xdg-open", carpeta])
+        except Exception as e:
+            messagebox.showerror("Error", str(e))
+
+    def _abrir_wireshark(self):
+        sel = self.tree_hs.selection()
+        if not sel:
+            messagebox.showinfo("Wireshark",
+                "Selecciona un handshake de la tabla primero.")
+            return
+        vals = self.tree_hs.item(sel[0])["values"]
+        ruta = vals[5] if vals else ""
+        if ruta and ruta != "—" and os.path.exists(ruta):
+            try:
+                subprocess.Popen(["wireshark", ruta])
+            except FileNotFoundError:
+                messagebox.showerror("Error",
+                    "Wireshark no está instalado.\n"
+                    "sudo apt install wireshark")
+        else:
+            messagebox.showinfo("Wireshark",
+                f"Archivo no encontrado: {ruta}\n"
+                "El .pcap se guarda cuando se captura el handshake completo.")
+
+    def marcar_monitor_activo(self, interfaz):
+        self._monitor_activo = True
+        self._interfaz_monitor = interfaz
+        self.lbl_monitor.config(
+            text=f"● Monitor: {interfaz}",
+            fg=C_VERDE)
+
+    def marcar_monitor_inactivo(self):
+        self._monitor_activo = False
+        self.lbl_monitor.config(
+            text="◌ Monitor inactivo",
+            fg=C_SUB)

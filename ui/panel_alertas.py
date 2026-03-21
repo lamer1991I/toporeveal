@@ -349,12 +349,36 @@ class PanelAlertas:
         self.lbl_alertas_titulo.config(
             fg=COLOR_SEV_CRITICO if n_crit else COLOR_TEXTO_SUB)
 
-        # Reconstruir tarjetas solo si cambió la cantidad o el filtro
-        n_actual = len(self._frame_tarjetas.winfo_children())
-        n_nuevo  = len(alertas_filtradas[:60])
-        if n_actual != n_nuevo or self._n_alertas_prev != n_alertas:
-            self._n_alertas_prev = n_alertas
-            self._rebuild_tarjetas(alertas_filtradas[:60])
+        # Hash de contenido real — reconstruir SOLO si cambió algo
+        alertas_lim = alertas_filtradas[:60]
+        hash_nuevo  = hash(tuple(
+            (h.ip, h.servicio, h.puerto, h.severidad)
+            for h in alertas_lim))
+        if hash_nuevo != getattr(self, '_hash_alertas', None):
+            self._hash_alertas = hash_nuevo
+            self._rebuild_tarjetas_incremental(alertas_lim)
+
+    def _rebuild_tarjetas_incremental(self, alertas):
+        """
+        Actualización incremental — solo agrega tarjetas nuevas.
+        No destruye las existentes → sin parpadeo.
+        Si el orden cambió o hay eliminaciones, hace rebuild completo.
+        """
+        claves_nuevas  = [f"{h.ip}_{h.servicio}_{h.puerto}" for h in alertas]
+        claves_actuales = list(self._tarjetas.keys())
+
+        # Si el orden es idéntico excepto por adiciones al final → incremental
+        if (claves_actuales == claves_nuevas[:len(claves_actuales)] and
+                len(claves_nuevas) >= len(claves_actuales)):
+            # Solo agregar las nuevas al final
+            for h in alertas[len(claves_actuales):]:
+                self._hacer_tarjeta(h)
+        else:
+            # Cambio de orden o eliminación → rebuild completo pero rápido
+            self._rebuild_tarjetas(alertas)
+
+        self._cv.update_idletasks()
+        self._cv.configure(scrollregion=self._cv.bbox("all"))
 
     def _rebuild_tarjetas(self, alertas):
         """Reconstruye todas las tarjetas desde cero."""

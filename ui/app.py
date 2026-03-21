@@ -46,12 +46,12 @@ def log(msg):
     _LOG_BUFFER.append(linea)
 
 
-def guardar_log(topologia=None):
-    import os
+def guardar_log(topologia=None, hora_inicio=None):
+    import os, hashlib, socket, platform
     from datetime import datetime as dt
+    from collections import defaultdict
     if not _LOG_BUFFER:
         return
-    # Usar home del usuario real aunque se ejecute con sudo
     import pwd
     usuario_real = os.environ.get("SUDO_USER") or os.environ.get("USER") or "root"
     try:
@@ -60,102 +60,268 @@ def guardar_log(topologia=None):
         home_real = os.path.expanduser("~")
     carpeta = os.path.join(home_real, "Proyectos", "toporeveal", "logs")
     os.makedirs(carpeta, exist_ok=True)
-    nombre = dt.now().strftime("sesion_%Y-%m-%d_%H-%M-%S.txt")
+    hora_fin = dt.now()
+    if not hora_inicio:
+        hora_inicio = hora_fin
+    nombre = hora_fin.strftime("sesion_%Y-%m-%d_%H-%M-%S.txt")
     ruta = os.path.join(carpeta, nombre)
     try:
-        with open(ruta, "w", encoding="utf-8") as f:
-            f.write("TopoReveal — Log de sesion\n")
-            f.write(f"Generado: {dt.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-            f.write(f"Total lineas de evento: {len(_LOG_BUFFER)}\n")
-            f.write("=" * 60 + "\n\n")
+        buf = "\n".join(str(l) for l in _LOG_BUFFER)
+        # Pre-procesar datos del log para estadísticas
+        proto_por_host = defaultdict(set)
+        ext_por_host   = defaultdict(list)
+        bytes_ext      = 0
+        for linea in _LOG_BUFFER:
+            if "[FLUJO]" in linea:
+                try:
+                    partes = linea.split("] ", 2)[-1]
+                    ip_o   = partes.split(" → ")[0].strip()
+                    proto  = partes.split("[")[1].split("]")[0]
+                    proto_por_host[ip_o].add(proto)
+                except: pass
+            if "[EXTERNO]" in linea:
+                try:
+                    partes  = linea.split("] ", 2)[-1]
+                    ip_o    = partes.split(" → ")[0].strip()
+                    ip_ext  = partes.split(" → ")[1].split(" ")[0]
+                    proto   = partes.split("[")[1].split("]")[0]
+                    ext_por_host[ip_o].append(ip_ext)
+                    proto_por_host[ip_o].add(proto)
+                    bytes_ext += 1500  # estimado por paquete
+                except: pass
 
-            # ── RESUMEN POR HOST ──────────────────────────────────────────
+        with open(ruta, "w", encoding="utf-8") as f:
+            SEP  = "=" * 70
+            SEP2 = "-" * 70
+
+            # ── CABECERA ──────────────────────────────────────────────────
+            f.write(SEP + "\n")
+            f.write("  TopoReveal — Informe de Auditoría de Red\n")
+            f.write(f"  Versión: 1.0 | Kali Linux\n")
+            f.write(SEP + "\n\n")
+
+            duracion = int((hora_fin - hora_inicio).total_seconds())
+            f.write(f"  Inicio    : {hora_inicio.strftime('%Y-%m-%d %H:%M:%S')}\n")
+            f.write(f"  Fin       : {hora_fin.strftime('%Y-%m-%d %H:%M:%S')}\n")
+            f.write(f"  Duración  : {duracion//60}m {duracion%60}s\n")
+            try:
+                mi_host = socket.gethostname()
+            except: mi_host = "desconocido"
+            f.write(f"  Agente    : {mi_host} | {usuario_real}\n")
+            f.write(f"  Líneas    : {len(_LOG_BUFFER)} eventos capturados\n")
+            # Hash SHA-256 del log para cadena de custodia
+            sha256 = hashlib.sha256(buf.encode()).hexdigest()
+            f.write(f"  SHA-256   : {sha256}\n")
+            f.write("\n" + SEP + "\n\n")
+
             if topologia:
-                nodos = list(topologia.todos_los_nodos())
+                nodos    = list(topologia.todos_los_nodos())
                 scanners = [n for n in nodos if n.tipo == "arp-scanner"]
                 en_lobby = [n for n in nodos if n.en_lobby]
                 visibles = [n for n in nodos if not n.en_lobby]
+                alertas  = list(getattr(topologia, 'alertas', []))
+                externos = getattr(topologia, 'externos', {})
+                gw       = topologia.router or topologia.gateway or "?"
+                subred   = getattr(topologia, 'subred', '?')
+                n_puertos_total = sum(len(n.puertos_abiertos) for n in nodos)
 
-                f.write(f"RESUMEN DE RED — {len(visibles)} hosts activos, "
-                        f"{len(en_lobby)} en lobby\n")
-                gw = topologia.router or topologia.gateway or "Desconocido"
-                f.write(f"Gateway: {gw} | Subred: {topologia.subred}.x\n")
-                f.write(f"ARP Scanners detectados: {len(scanners)}\n")
-                f.write("-" * 60 + "\n\n")
+                # ── 1. RESUMEN EJECUTIVO ──────────────────────────────────
+                f.write("1. RESUMEN EJECUTIVO\n")
+                f.write(SEP2 + "\n")
+                f.write(f"  Hosts activos        : {len(visibles)}\n")
+                f.write(f"  Hosts en lobby       : {len(en_lobby)}\n")
+                f.write(f"  Total sesión         : {len(nodos)}\n")
+                f.write(f"  Gateway              : {gw}\n")
+                f.write(f"  Subred               : {subred}.x\n")
+                f.write(f"  Puertos abiertos     : {n_puertos_total}\n")
+                f.write(f"  Conexiones externas  : {sum(len(v) for v in ext_por_host.values())} eventos\n")
+                f.write(f"  Tráfico ext estimado : ~{bytes_ext//1024} KB\n")
+                f.write(f"  ARP Scanners         : {len(scanners)}\n")
+                sev_c = {h.severidad: 0 for h in alertas}
+                for h in alertas: sev_c[h.severidad] = sev_c.get(h.severidad,0)+1
+                f.write(f"  Alertas CRITICO      : {sev_c.get('critico',0)}\n")
+                f.write(f"  Alertas ALTO         : {sev_c.get('alto',0)}\n")
+                f.write(f"  Alertas MEDIO        : {sev_c.get('medio',0)}\n")
+                f.write(f"  Alertas INFO         : {sev_c.get('info',0)}\n")
 
-                f.write("HOSTS ACTIVOS:\n")
-                f.write(f"  {'IP':<18} {'MAC':<20} {'TIPO':<14} {'OS':<12} "
-                        f"{'ESTADO':<12} {'PKTs':>6}  PROTOCOLOS\n")
-                f.write("  " + "-" * 90 + "\n")
+                # Score de riesgo global (0-10)
+                score = 0
+                if sev_c.get('critico',0): score += min(4, sev_c['critico'])
+                if sev_c.get('alto',0):    score += min(3, sev_c['alto'])
+                if sev_c.get('medio',0):   score += min(2, sev_c['medio'])
+                if any("Beacon" in (h.servicio or "") for h in alertas): score += 2
+                score = min(10, score)
+                bar = "█" * score + "░" * (10-score)
+                f.write(f"\n  RIESGO GLOBAL: {score}/10  [{bar}]\n")
+                if score >= 8:   nivel_r = "CRÍTICO — acción inmediata requerida"
+                elif score >= 5: nivel_r = "ALTO — revisar hallazgos prioritarios"
+                elif score >= 3: nivel_r = "MEDIO — monitorear y planificar"
+                else:            nivel_r = "BAJO — red en estado aceptable"
+                f.write(f"  Nivel: {nivel_r}\n")
+                f.write("\n" + SEP + "\n\n")
 
-                # Contar protocolos por host desde el log
-                # Fuentes: [FLUJO] para tráfico local, [EXTERNO] para salida
-                from collections import defaultdict
-                proto_por_host = defaultdict(set)
-                ext_por_host = defaultdict(list)
-                for linea in _LOG_BUFFER:
-                    if "[FLUJO]" in linea:
-                        try:
-                            partes = linea.split("] ", 2)[-1]
-                            ip_o = partes.split(" → ")[0].strip()
-                            resto = partes.split(" → ")[1]
-                            proto = resto.split("[")[1].split("]")[0]
-                            proto_por_host[ip_o].add(proto)
-                        except:
-                            pass
-                    if "[EXTERNO]" in linea:
-                        try:
-                            partes = linea.split("] ", 2)[-1]
-                            ip_o = partes.split(" → ")[0].strip()
-                            ip_ext = partes.split(" → ")[1].split(" ")[0]
-                            proto = partes.split("[")[1].split("]")[0]
-                            ext_por_host[ip_o].append(ip_ext)
-                            # También registrar el protocolo de conexiones externas
-                            proto_por_host[ip_o].add(proto)
-                        except:
-                            pass
+                # ── 2. INVENTARIO DE HOSTS ────────────────────────────────
+                f.write("2. INVENTARIO DE HOSTS\n")
+                f.write(SEP2 + "\n")
+                f.write(f"  {'IP':<18} {'MAC':<19} {'TIPO':<13} {'OS':<13} "
+                        f"{'ESTADO':<11} {'PKTs':>5}  {'PUERTOS'}\n")
+                f.write("  " + "-" * 100 + "\n")
+                for nodo in sorted(visibles, key=lambda n:
+                        [int(x) for x in n.ip.split(".")]):
+                    puertos_str = ",".join(str(p) for p in
+                        sorted(nodo.puertos_abiertos)[:6]) or "—"
+                    f.write(f"  {nodo.ip:<18} {(nodo.mac or '—'):<19} "
+                            f"{(nodo.tipo or '—'):<13} {(nodo.sistema_op or '—'):<13} "
+                            f"{nodo.estado:<11} {nodo.paquetes:>5}  {puertos_str}\n")
 
-                for nodo in sorted(visibles, key=lambda n: (
-                    [int(x) for x in n.ip.split(".")]
-                )):
-                    protos = ",".join(sorted(proto_por_host.get(nodo.ip, set()))) or "—"
-                    f.write(f"  {nodo.ip:<18} {(nodo.mac or '—'):<20} "
-                            f"{nodo.tipo:<14} {nodo.sistema_op:<12} "
-                            f"{nodo.estado:<12} {nodo.paquetes:>6}  {protos}\n")
-
-                if scanners:
-                    f.write("\nARP SCANNERS DETECTADOS:\n")
-                    for n in scanners:
-                        f.write(f"  {n.ip:<18} {(n.mac or '—'):<20} "
-                                f"OS: {n.sistema_op}\n")
+                tipos_ids    = {n.tipo for n in visibles if n.tipo and n.tipo!="desconocido"}
+                fabricantes_ = {n.fabricante for n in visibles
+                                if n.fabricante and "Privada" not in n.fabricante}
+                sistemas_    = {n.sistema_op for n in visibles
+                                if n.sistema_op and n.sistema_op!="Desconocido"}
+                f.write(f"\n  Tipos       : {', '.join(sorted(tipos_ids)) or '—'}\n")
+                f.write(f"  Fabricantes : {', '.join(list(fabricantes_)[:6]) or '—'}\n")
+                f.write(f"  Sistemas OS : {', '.join(sistemas_) or '—'}\n")
 
                 if en_lobby:
-                    f.write("\nHOSTS EN LOBBY (sin actividad reciente):\n")
+                    f.write(f"\n  LOBBY ({len(en_lobby)} inactivos):\n")
                     for n in en_lobby:
-                        f.write(f"  {n.ip:<18} {(n.mac or '—')}\n")
+                        f.write(f"    {n.ip:<18} {n.mac or '—'}\n")
+                if scanners:
+                    f.write(f"\n  ARP SCANNERS ({len(scanners)}):\n")
+                    for n in scanners:
+                        f.write(f"    {n.ip:<18} {n.mac or '—'}\n")
+                f.write("\n" + SEP + "\n\n")
 
-                # Conexiones externas por host
+                # ── 3. HALLAZGOS POR HOST ─────────────────────────────────
+                f.write("3. HALLAZGOS POR HOST\n")
+                f.write(SEP2 + "\n")
+                hallazgos_por_ip = defaultdict(list)
+                for h in alertas:
+                    hallazgos_por_ip[h.ip].append(h)
+                for ip, hs in sorted(hallazgos_por_ip.items()):
+                    nodo_h = next((n for n in nodos if n.ip == ip), None)
+                    tipo_h = nodo_h.tipo if nodo_h else "?"
+                    f.write(f"\n  [{ip}] — {tipo_h} | Risk: "
+                            f"{getattr(nodo_h,'risk_score',0) or 0}/100\n")
+                    for h in sorted(hs, key=lambda x:
+                            {"critico":0,"alto":1,"medio":2,"info":3}.get(x.severidad,4)):
+                        sev_tag = h.severidad.upper()[:4]
+                        det = getattr(h,'detalle',getattr(h,'desc','')) or ''
+                        f.write(f"    [{sev_tag}] {h.puerto:>5} | {(h.servicio or '?'):<22} "
+                                f"| {det[:55]}\n")
+                if not hallazgos_por_ip:
+                    f.write("  Sin hallazgos registrados\n")
+                f.write("\n" + SEP + "\n\n")
+
+                # ── 4. CONEXIONES EXTERNAS ────────────────────────────────
+                f.write("4. CONEXIONES EXTERNAS\n")
+                f.write(SEP2 + "\n")
                 if ext_por_host:
-                    f.write("\nCONEXIONES EXTERNAS POR HOST:\n")
                     for ip, ips_ext in sorted(ext_por_host.items()):
-                        unicas = list(dict.fromkeys(ips_ext))[:10]
-                        f.write(f"  {ip} → {', '.join(unicas)}\n")
+                        unicas = list(dict.fromkeys(ips_ext))
+                        f.write(f"  {ip} ({len(unicas)} destinos):\n")
+                        for ip_e in unicas[:12]:
+                            f.write(f"    → {ip_e}\n")
+                    if any("HUAWEI" in l or "Beacon" in l for l in _LOG_BUFFER):
+                        beacons_ = [h for h in alertas if "Beacon" in (h.servicio or "")]
+                        if beacons_:
+                            f.write("\n  BEACONS C2 CONFIRMADOS:\n")
+                            for b in beacons_:
+                                f.write(f"    {b.ip} — {getattr(b,'detalle','')}\n")
+                else:
+                    f.write("  Sin conexiones externas registradas\n")
+                f.write("\n" + SEP + "\n\n")
 
-                # Subredes secundarias detectadas
+                # ── 5. COBERTURA POR NIVEL ────────────────────────────────
+                f.write("5. COBERTURA DE HERRAMIENTAS (Iceberg de Seguridad)\n")
+                f.write(SEP2 + "\n")
+
+                def chk(cond, nombre, detalle=""):
+                    s = "✓" if cond else "○"
+                    ln = f"  {s}  {nombre}"
+                    if detalle: ln += f"  →  {detalle}"
+                    f.write(ln + "\n")
+                    return cond
+
+                f.write("\n  NIVEL 1 — Descubrimiento básico\n")
+                chk(len(visibles)>0,       "Hosts vivos (ARP/ping)",      f"{len(visibles)} hosts")
+                chk(bool(gw),              "Gateway identificado",         gw)
+                chk(n_puertos_total>0,     "Puertos TCP escaneados",       f"{n_puertos_total} puertos")
+                chk("[EXTERNO]" in buf,    "Tráfico externo capturado",    f"{sum(len(v) for v in ext_por_host.values())} eventos")
+                chk("[FLUJO]" in buf,      "Flujos internos detectados")
+                chk(bool(sistemas_),       "OS fingerprinting",            ", ".join(sistemas_))
+
+                f.write("\n  NIVEL 2 — Estándar\n")
+                chk("HTTP" in buf,                              "HTTP detectado")
+                chk("SSL Autofirmado" in buf or "SSL" in buf,  "SSL/TLS analizado")
+                chk("DHCP" in buf,                              "DHCP capturado")
+                chk("DNS" in buf,                               "DNS interno")
+                chk("XMPP" in buf or "QUIC" in buf,            "Protocolos app (XMPP/QUIC)")
+                chk("IGMP" in buf,                              "IGMP/multicast")
+                chk("NTP" in buf,                               "NTP detectado")
+                chk("RTSP" in buf,                              "RTSP (cámara/stream)")
+                chk("FTP" in buf,                               "FTP analizado")
+                chk("SNMP" in buf,                              "SNMP enumerado")
+                chk(any("Network Shares" in (h.servicio or "") for h in alertas), "SMB Shares")
+                chk(any("Cred. por Defecto" in (h.servicio or "") for h in alertas), "Credenciales default")
+
+                f.write("\n  NIVEL 3 — Persistencia\n")
+                chk(any("DC/" in (h.servicio or "") for h in alertas),    "Active Directory/DC")
+                chk(any("LDAP" in (h.servicio or "") for h in alertas),   "LDAP enumerado")
+                chk(any("Kerberos" in (h.servicio or "") for h in alertas),"Kerberos SPN")
+                chk(any("SSL" in (h.servicio or "") for h in alertas),    "Certificados SSL")
+                chk(any("NFS" in (h.servicio or "") for h in alertas),    "NFS exportaciones")
+                chk("IKE" in buf or "IPSec" in buf or "VPN" in buf,       "VPN/túneles detectados")
+
+                f.write("\n  NIVEL 4 — Avanzado\n")
+                chk("[IPv6]" in buf,    "IPv6 completo",
+                    "hosts encontrados" if "Host respondió" in buf else "activo/sin hosts")
+                chk("[LLMNR]" in buf or "[NBT-NS]" in buf, "LLMNR/NBT-NS poisoning")
+                chk("[WPAD]" in buf,   "WPAD spoofing")
+                chk("[VLAN]" in buf,   "VLAN hopping")
+                chk("[CDP]" in buf or "[LLDP]" in buf, "CDP/LLDP")
+                chk(any("Anomalía" in (h.servicio or "") for h in alertas), "Shadow IT / anomalías")
+
+                f.write("\n  NIVEL 5 — Elite\n")
+                chk(any("IPMI" in (h.servicio or "") for h in alertas),   "IPMI/iDRAC/iLO")
+                chk("[BEACON] CONFIRMADO" in buf, "Beacon C2 detection",
+                    f"{buf.count('[BEACON] CONFIRMADO')//max(1,buf.count('[BEACON] CONFIRMADO'))} confirmados")
+                chk("[JA3]" in buf,    "JA3/JA3S TLS fingerprinting")
+                chk(any("DHCP Rogue" in (h.servicio or "") for h in alertas), "DHCP Rogue")
+
+                f.write("\n  NIVEL 6 — Capa invisible\n")
+                chk("[NTP]" in buf and "offset" in buf.lower(), "NTP drift medido")
+                chk("[JA3]" in buf and "Malware" not in buf,    "JA3 fingerprinting activo")
+
+                f.write("\n  NO DISPARADAS (red no las tiene):\n")
+                no_disp = []
+                if "[CDP]" not in buf and "[LLDP]" not in buf:
+                    no_disp.append("CDP/LLDP — sin switches Cisco/LLDP")
+                if "DHCP Rogue" not in buf:
+                    no_disp.append("DHCP Rogue — un solo servidor DHCP")
+                if "[IPv6] Host respondió" not in buf:
+                    no_disp.append("IPv6 hosts — red sin IPv6 activo")
+                if "DC/Active Directory" not in buf:
+                    no_disp.append("AD/DC — sin controlador de dominio")
+                if "[IPMI]" not in buf:
+                    no_disp.append("IPMI — sin servidores con BMC expuesto")
+                for nd in no_disp:
+                    f.write(f"    -  {nd}\n")
+
+                f.write("\n" + SEP + "\n\n")
+
+                # ── 6. SUBREDES ───────────────────────────────────────────
                 if hasattr(topologia, 'obtener_subredes'):
                     subredes = topologia.obtener_subredes()
                     if subredes:
-                        f.write("\nSUBREDES SECUNDARIAS DETECTADAS:\n")
+                        f.write("6. SUBREDES SECUNDARIAS\n")
+                        f.write(SEP2 + "\n")
                         for sub in subredes:
-                            f.write(f"  {sub.prefijo}.x  [{sub.tipo}]  "
-                                    f"{sub.desc}  |  "
-                                    f"{len(sub.nodos)} host(s)  |  "
-                                    f"{sub.n_paquetes} paquetes  |  "
+                            f.write(f"  {sub.prefijo}.x [{sub.tipo}] {sub.desc} | "
+                                    f"{len(sub.nodos)} host(s) | "
                                     f"detectada {sub.primer_visto}\n")
-                            for ip_s, n_s in list(sub.nodos.items())[:10]:
-                                f.write(f"    {ip_s:<18} paquetes: {n_s.paquetes}\n")
-
-                f.write("\n" + "=" * 60 + "\n\n")
+                        f.write("\n" + SEP + "\n\n")
 
             # ── RESUMEN DE CAPACIDADES ────────────────────────────────────
             if topologia:
@@ -165,7 +331,7 @@ def guardar_log(topologia=None):
                 nodos_todos = list(topologia.todos_los_nodos())
                 alertas     = list(getattr(topologia, 'alertas', []))
                 externos    = getattr(topologia, 'externos', {})
-                buf         = "\n".join(_LOG_BUFFER)
+                buf         = "\n".join(str(l) for l in _LOG_BUFFER)
 
                 def check(condicion, nombre, detalle=""):
                     simbolo = "✓" if condicion else "○"
@@ -281,7 +447,7 @@ def guardar_log(topologia=None):
 
                 f.write("\n" + "=" * 60 + "\n\n")
             f.write("LOG DE EVENTOS:\n\n")
-            f.write("\n".join(_LOG_BUFFER))
+            f.write("\n".join(str(l) for l in _LOG_BUFFER))
 
         print(f"[LOG] Sesion guardada en: {ruta}")
     except Exception as e:
@@ -448,7 +614,7 @@ class App:
             side=tk.LEFT, fill=tk.Y, pady=6)
 
         # Checkbox tráfico lateral — más compacto
-        self.var_lateral = tk.BooleanVar(value=False)
+        self.var_lateral = tk.BooleanVar(value=True)
         tk.Checkbutton(barra, text="Lateral",
             variable=self.var_lateral,
             bg=COLOR_PANEL, fg=COLOR_TEXTO,
@@ -686,6 +852,7 @@ class App:
             self.capture.iniciar(interfaz)
         else:
             log("[APP] Captura ya estaba corriendo")
+        self._hora_inicio = __import__("datetime").datetime.now()
         # IPv6 — arranca 10s después del ARP sweep inicial
         self.ventana.after(10000, lambda: self._ipv6.iniciar(interfaz))
         # Lanzar interceptor 15s después — el scanner necesita tiempo
@@ -1726,6 +1893,19 @@ class App:
         """Callback del monitor 802.11 — hilo secundario → usar after()."""
         tipo = evento.get("tipo")
 
+        # ── Traducir formato interceptor → formato WiFi Scope ────────────────
+        # El interceptor usa "tipo": "ap_detectado"/"handshake_wpa2"/"cliente"
+        # El WiFi Scope v2 usa "tipo_wifi": "BEACON"/"HANDSHAKE_M1"/"DATA"
+        if "tipo_wifi" not in evento:
+            if tipo == "ap_detectado":
+                evento = dict(evento, tipo_wifi="BEACON")
+            elif tipo == "handshake_wpa2":
+                evento = dict(evento, tipo_wifi="EAPOL")
+            elif tipo in ("cliente", "cliente_detectado"):
+                evento = dict(evento, tipo_wifi="DATA")
+            elif tipo == "deauth":
+                evento = dict(evento, tipo_wifi="DEAUTH")
+
         if tipo == "handshake_wpa2":
             cliente    = evento.get("cliente_mac", "?")
             bssid      = evento.get("bssid", "?")
@@ -1837,7 +2017,8 @@ class App:
                 pass
             try:
                 cierre.set_estado("Guardando sesión y log...")
-                guardar_log(topologia=self.topologia)
+                guardar_log(topologia=self.topologia,
+                            hora_inicio=getattr(self, '_hora_inicio', None))
                 log("[APP] Guardando historial diferencial...")
             except Exception:
                 pass
@@ -1983,15 +2164,19 @@ class App:
 
     def _exportar_json(self):
         try:
-            ruta = exportar_json(self.topologia)
-            self._mostrar_toast(f"JSON guardado en exports/")
+            ruta = exportar_json(self.topologia,
+                                 log_buffer=_LOG_BUFFER,
+                                 hora_inicio=getattr(self,'_hora_inicio',None))
+            self._mostrar_toast("JSON guardado en exports/")
         except Exception as e:
             log(f"[EXPORT] Error JSON: {e}")
 
     def _exportar_csv(self):
         try:
-            ruta = exportar_csv(self.topologia)
-            self._mostrar_toast(f"CSV guardado en exports/")
+            rutas = exportar_csv(self.topologia,
+                                 log_buffer=_LOG_BUFFER,
+                                 hora_inicio=getattr(self,'_hora_inicio',None))
+            self._mostrar_toast(f"CSV guardado ({len(rutas)} archivos)")
         except Exception as e:
             log(f"[EXPORT] Error CSV: {e}")
 
@@ -2004,7 +2189,10 @@ class App:
         def _generar():
             try:
                 from tools.generar_pdf import generar_informe
-                ruta = generar_informe(self.topologia)
+                ruta = generar_informe(
+                    self.topologia,
+                    log_buffer=_LOG_BUFFER,
+                    hora_inicio=getattr(self, '_hora_inicio', None))
                 log(f"[EXPORT] PDF guardado: {ruta}")
                 nombre = ruta.split("/")[-1] if ruta else "informe.pdf"
                 self.ventana.after(0, lambda: self._mostrar_toast(

@@ -204,16 +204,12 @@ class PlantillaPagina:
 
 # ── GENERACIÓN DEL DOCUMENTO ──────────────────────────────────────────────────
 
-def generar_informe(topologia, ruta_salida=None):
+def generar_informe(topologia, ruta_salida=None, log_buffer=None, hora_inicio=None):
     """
-    Genera el informe PDF completo.
-
-    topologia  — objeto Topologia de core/topology.py
-    ruta_salida — ruta del archivo. Si None, guarda en exports/
+    Genera el informe PDF completo con estructura de iceberg de seguridad.
     """
-    # Determinar ruta
+    import hashlib, socket
     if not ruta_salida:
-        import subprocess
         usuario = os.environ.get("SUDO_USER") or os.environ.get("USER") or "root"
         try:
             import pwd
@@ -225,9 +221,10 @@ def generar_informe(topologia, ruta_salida=None):
         ts = datetime.now().strftime("%Y-%m-%d_%H-%M")
         ruta_salida = os.path.join(carpeta, f"informe_{ts}.pdf")
 
-    fecha_str = datetime.now().strftime("%d/%m/%Y %H:%M")
-    estilos   = _estilos()
-    plantilla = PlantillaPagina("Informe de Auditoría de Red", fecha_str)
+    fecha_str   = datetime.now().strftime("%d/%m/%Y %H:%M")
+    hora_fin    = datetime.now()
+    estilos     = _estilos()
+    plantilla   = PlantillaPagina("Informe de Auditoría de Red", fecha_str)
 
     doc = SimpleDocTemplate(
         ruta_salida,
@@ -238,41 +235,32 @@ def generar_informe(topologia, ruta_salida=None):
         author="TopoReveal Security Suite",
     )
 
+    buf_str = "\n".join(str(l) for l in (log_buffer or []))
+
     historia = []
-
-    # ── PORTADA ───────────────────────────────────────────────────
-    historia += _portada(topologia, estilos, fecha_str)
-
-    # ── RESUMEN EJECUTIVO ─────────────────────────────────────────
+    historia += _portada(topologia, estilos, fecha_str,
+                         hora_inicio, hora_fin, buf_str)
     historia.append(PageBreak())
-    historia += _resumen_ejecutivo(topologia, estilos)
-
-    # ── TABLA DE HOSTS ────────────────────────────────────────────
+    historia += _resumen_ejecutivo(topologia, estilos, buf_str)
     historia.append(PageBreak())
     historia += _tabla_hosts(topologia, estilos)
-
-    # ── HALLAZGOS Y ALERTAS ───────────────────────────────────────
     historia += _hallazgos(topologia, estilos)
-
-    # ── CONEXIONES EXTERNAS ───────────────────────────────────────
     historia += _conexiones_externas(topologia, estilos)
-
-    # ── APÉNDICE ──────────────────────────────────────────────────
+    historia.append(PageBreak())
+    historia += _cobertura_niveles(topologia, estilos, buf_str)
     historia += _apendice(topologia, estilos, fecha_str)
 
-    # Construir
     doc.build(
         historia,
         onFirstPage=plantilla.primera_pagina,
         onLaterPages=plantilla.paginas_siguientes,
     )
-
     return ruta_salida
 
 
 # ── SECCIÓN: PORTADA ──────────────────────────────────────────────────────────
 
-def _portada(topologia, estilos, fecha):
+def _portada(topologia, estilos, fecha, hora_inicio=None, hora_fin=None, buf_str=""):
     """Portada de una página completa."""
     w, h = A4
     items = []
@@ -317,29 +305,66 @@ def _portada(topologia, estilos, fecha):
     items.append(Spacer(1, 2*cm))
 
     # Caja de metadata
-    gw    = topologia.gateway or "—"
-    subred= f"{topologia.subred}.x" if topologia.subred else "—"
-    n_hosts = len([n for n in topologia.nodos.values() if not n.en_lobby])
+    import hashlib, socket
+    gw     = topologia.gateway or "—"
+    subred = f"{topologia.subred}.x" if topologia.subred else "—"
+    nodos_todos = list(topologia.nodos.values())
+    n_hosts   = len([n for n in nodos_todos if not n.en_lobby])
+    n_lobby   = len([n for n in nodos_todos if n.en_lobby])
     n_alertas = len(topologia.alertas) if hasattr(topologia, 'alertas') else 0
+    alertas   = list(getattr(topologia, 'alertas', []))
+
+    # Score de riesgo
+    sev_c = {}
+    for h in alertas:
+        sev_c[h.severidad] = sev_c.get(h.severidad, 0) + 1
+    score = 0
+    if sev_c.get('critico',0): score += min(4, sev_c['critico'])
+    if sev_c.get('alto',0):    score += min(3, sev_c['alto'])
+    if sev_c.get('medio',0):   score += min(2, sev_c['medio'])
+    if "[BEACON] CONFIRMADO" in buf_str: score += 2
+    score = min(10, score)
+    if score >= 8:   nivel_r = "CRÍTICO"
+    elif score >= 5: nivel_r = "ALTO"
+    elif score >= 3: nivel_r = "MEDIO"
+    else:            nivel_r = "BAJO"
 
     sev_max = "—"
-    sevs = [n.severidad_max for n in topologia.nodos.values()
-            if n.severidad_max]
-    orden = ["critico","alto","medio","info"]
-    for s in orden:
+    sevs = [n.severidad_max for n in nodos_todos if n.severidad_max]
+    for s in ["critico","alto","medio","info"]:
         if s in sevs:
             sev_max = s.upper()
             break
 
+    # Duración
+    duracion_str = "—"
+    if hora_inicio and hora_fin:
+        seg = int((hora_fin - hora_inicio).total_seconds())
+        duracion_str = f"{seg//60}m {seg%60}s"
+
+    # SHA-256 del log para cadena de custodia
+    sha256_str = hashlib.sha256(buf_str.encode()).hexdigest()[:32] + "..."
+
+    try:
+        mi_host = socket.gethostname()
+    except Exception:
+        mi_host = "desconocido"
+
     metadata = [
-        ["Fecha de generación",   fecha],
-        ["Gateway detectado",      gw],
-        ["Subred analizada",       subred],
-        ["Hosts activos",          str(n_hosts)],
-        ["Total alertas",          str(n_alertas)],
-        ["Gravedad máxima",        sev_max],
-        ["Herramienta",            "TopoReveal v2.0"],
-        ["Clasificación",          "CONFIDENCIAL"],
+        ["Fecha inicio",      hora_inicio.strftime("%Y-%m-%d %H:%M:%S") if hora_inicio else fecha],
+        ["Fecha fin",         hora_fin.strftime("%Y-%m-%d %H:%M:%S") if hora_fin else fecha],
+        ["Duración",          duracion_str],
+        ["Agente",            mi_host],
+        ["Gateway",           gw],
+        ["Subred",            subred],
+        ["Hosts activos",     str(n_hosts)],
+        ["Hosts en lobby",    str(n_lobby)],
+        ["Total alertas",     str(n_alertas)],
+        ["Riesgo global",     f"{score}/10 — {nivel_r}"],
+        ["Gravedad máxima",   sev_max],
+        ["SHA-256 log",       sha256_str],
+        ["Herramienta",       "TopoReveal v2.0"],
+        ["Clasificación",     "CONFIDENCIAL"],
     ]
 
     tabla_meta = Table(metadata,
@@ -372,16 +397,136 @@ def _portada(topologia, estilos, fecha):
 
 # ── SECCIÓN: RESUMEN EJECUTIVO ────────────────────────────────────────────────
 
-def _resumen_ejecutivo(topologia, estilos):
+def _resumen_ejecutivo(topologia, estilos, buf_str=""):
     items = []
     items.append(SeccionTitulo("Resumen Ejecutivo", AZUL_OSC))
     items.append(Spacer(1, 0.3*cm))
 
-    nodos = list(topologia.nodos.values())
+    nodos    = list(topologia.nodos.values())
     activos  = [n for n in nodos if not n.en_lobby]
-    n_critico = sum(1 for n in activos if n.severidad_max == "critico")
-    n_alto    = sum(1 for n in activos if n.severidad_max == "alto")
-    n_medio   = sum(1 for n in activos if n.severidad_max == "medio")
+    alertas  = list(getattr(topologia, 'alertas', []))
+    externos = getattr(topologia, 'externos', {})
+
+    sev_c = {}
+    for h in alertas:
+        sev_c[h.severidad] = sev_c.get(h.severidad, 0) + 1
+    n_critico = sev_c.get('critico', 0)
+    n_alto    = sev_c.get('alto', 0)
+    n_medio   = sev_c.get('medio', 0)
+
+    # Score de riesgo
+    score = 0
+    if n_critico: score += min(4, n_critico)
+    if n_alto:    score += min(3, n_alto)
+    if n_medio:   score += min(2, n_medio)
+    if "[BEACON] CONFIRMADO" in buf_str: score += 2
+    score = min(10, score)
+    color_score = ROJO if score >= 7 else NARANJA if score >= 4 else AMARILLO if score >= 2 else AZUL_OSC
+    nivel_r = "CRÍTICO" if score >= 8 else "ALTO" if score >= 5 else "MEDIO" if score >= 3 else "BAJO"
+
+    n_puertos = sum(len(n.puertos_abiertos) for n in activos)
+    n_externos = sum(len(v) for v in externos.values())
+
+    # Tarjetas de estadísticas
+    stats = [
+        [_tarjeta_stat("HOSTS\nACTIVOS",   str(len(activos)), AZUL_OSC),
+         _tarjeta_stat("PUERTOS\nABIERTOS", str(n_puertos),  AZUL_MED),
+         _tarjeta_stat("ALERTAS",           str(len(alertas)), GRIS_MED),
+         _tarjeta_stat("CRÍTICO",           str(n_critico),  ROJO),
+         _tarjeta_stat("ALTO",              str(n_alto),     NARANJA)],
+    ]
+    tabla_stats = Table(stats, colWidths=[3.2*cm]*5)
+    tabla_stats.setStyle(TableStyle([
+        ("ALIGN",       (0,0),(-1,-1), "CENTER"),
+        ("VALIGN",      (0,0),(-1,-1), "MIDDLE"),
+        ("TOPPADDING",  (0,0),(-1,-1), 4),
+        ("BOTTOMPADDING",(0,0),(-1,-1), 4),
+    ]))
+    items.append(tabla_stats)
+    items.append(Spacer(1, 0.4*cm))
+
+    # Barra de riesgo visual
+    items.append(Paragraph("Nivel de Riesgo Global",
+        ParagraphStyle("riesgo_lbl", fontName="Helvetica-Bold",
+            fontSize=9, textColor=GRIS_TEXTO)))
+    barra = "█" * score + "░" * (10 - score)
+    items.append(Paragraph(
+        f'<font color="#{_hex(color_score)}">{barra}</font>  '
+        f'<b>{score}/10 — {nivel_r}</b>',
+        ParagraphStyle("barra", fontName="Courier", fontSize=12,
+            textColor=color_score, spaceAfter=6)))
+    items.append(Spacer(1, 0.3*cm))
+
+    # Texto resumen
+    gw     = topologia.gateway or "desconocido"
+    subred = f"{topologia.subred}.0/24" if topologia.subred else "desconocida"
+    resumen_texto = (
+        f"El análisis de la red <b>{subred}</b> (gateway <b>{gw}</b>) detectó "
+        f"<b>{len(activos)} hosts activos</b> con <b>{n_puertos} puertos abiertos</b> "
+        f"y <b>{n_externos} conexiones externas</b>. "
+        f"Se registraron {len(alertas)} hallazgos de seguridad — "
+        f"{n_critico} críticos, {n_alto} altos, {n_medio} medios. "
+    )
+    beacons = [h for h in alertas if "Beacon" in (h.servicio or "")]
+    if beacons:
+        ips_c2 = {h.ip for h in beacons}
+        resumen_texto += (
+            f"<b>Alerta C2:</b> se detectaron {len(beacons)} patrón(es) de "
+            f"beacon en {', '.join(ips_c2)}. "
+        )
+    items.append(Paragraph(resumen_texto,
+        ParagraphStyle("resumen", fontName="Helvetica", fontSize=9,
+            textColor=GRIS_TEXTO, leading=14, spaceAfter=8)))
+
+    # Top 5 hallazgos críticos/altos
+    top = sorted(alertas,
+        key=lambda h: {"critico":0,"alto":1,"medio":2,"info":3}.get(h.severidad,4))[:5]
+    if top:
+        items.append(Spacer(1, 0.3*cm))
+        items.append(SeccionTitulo("Top Hallazgos Prioritarios", AZUL_MED))
+        filas = [["#","IP","Servicio","Severidad","Detalle"]]
+        for i, h in enumerate(top, 1):
+            filas.append([
+                str(i),
+                h.ip or "—",
+                h.servicio or "—",
+                (h.severidad or "—").upper(),
+                (getattr(h,'detalle','') or "")[:55],
+            ])
+        t = Table(filas, colWidths=[0.6*cm,2.5*cm,3*cm,2*cm,8.2*cm], repeatRows=1)
+        t.setStyle(_estilo_tabla_base())
+        items.append(t)
+
+    # Distribución por tipo
+    items.append(Spacer(1, 0.4*cm))
+    items.append(SeccionTitulo("Distribución por Tipo de Dispositivo", AZUL_MED))
+    tipos = {}
+    for n in activos:
+        t = n.tipo or "desconocido"
+        tipos[t] = tipos.get(t, 0) + 1
+    tipo_rows = [["Tipo","Cantidad","% Total","Fabricantes"]]
+    for tipo, cnt in sorted(tipos.items(), key=lambda x: x[1], reverse=True):
+        pct  = f"{cnt/max(len(activos),1)*100:.0f}%"
+        fabs = {n.fabricante for n in activos
+                if n.tipo == tipo and n.fabricante and "Privada" not in n.fabricante}
+        tipo_rows.append([tipo.capitalize(), str(cnt), pct,
+                          ", ".join(list(fabs)[:3]) or "—"])
+    tabla_tipos = Table(tipo_rows, colWidths=[4*cm,2.5*cm,2*cm,8*cm])
+    tabla_tipos.setStyle(_estilo_tabla_base())
+    items.append(tabla_tipos)
+
+    return items
+
+
+def _hex(color):
+    """Convierte HexColor a string hex para f-strings."""
+    try:
+        r = int(color.red * 255)
+        g = int(color.green * 255)
+        b = int(color.blue * 255)
+        return f"{r:02x}{g:02x}{b:02x}"
+    except Exception:
+        return "ffffff"
 
     # Estadísticas en tarjetas
     stats = [
@@ -679,6 +824,141 @@ def _conexiones_externas(topologia, estilos):
 
 
 # ── SECCIÓN: APÉNDICE ─────────────────────────────────────────────────────────
+
+def _cobertura_niveles(topologia, estilos, buf_str=""):
+    """Sección de cobertura por niveles del iceberg de seguridad."""
+    items = []
+    items.append(SeccionTitulo("Cobertura de Herramientas — Iceberg de Seguridad", AZUL_OSC))
+    items.append(Spacer(1, 0.2*cm))
+    items.append(Paragraph(
+        "Cobertura de cada nivel de análisis durante esta sesión. "
+        "✓ = detectado/activo  ○ = activo pero sin hallazgos en esta red.",
+        ParagraphStyle("cob_desc", fontName="Helvetica", fontSize=8,
+            textColor=GRIS_TEXTO, spaceAfter=8)))
+
+    alertas = list(getattr(topologia, 'alertas', []))
+    nodos   = list(topologia.nodos.values())
+    activos = [n for n in nodos if not n.en_lobby]
+    n_puertos = sum(len(n.puertos_abiertos) for n in activos)
+
+    def fila(cond, nombre, detalle=""):
+        s   = "✓" if cond else "○"
+        col = AZUL_OSC if cond else GRIS_MED
+        return [
+            Paragraph(s, ParagraphStyle("s", fontName="Helvetica-Bold",
+                fontSize=9, textColor=col)),
+            Paragraph(nombre, ParagraphStyle("n", fontName="Helvetica",
+                fontSize=8, textColor=NEGRO if cond else GRIS_MED)),
+            Paragraph(detalle[:60],
+                ParagraphStyle("d", fontName="Helvetica", fontSize=7,
+                    textColor=GRIS_TEXTO)),
+        ]
+
+    def cabecera_nivel(texto, color):
+        return Table(
+            [[Paragraph(texto, ParagraphStyle("nh", fontName="Helvetica-Bold",
+                fontSize=9, textColor=BLANCO))]],
+            colWidths=[A4[0]-4*cm],
+            style=TableStyle([
+                ("BACKGROUND",(0,0),(-1,-1), color),
+                ("TOPPADDING",(0,0),(-1,-1), 4),
+                ("BOTTOMPADDING",(0,0),(-1,-1), 4),
+                ("LEFTPADDING",(0,0),(-1,-1), 8),
+            ]))
+
+    col_w = [0.8*cm, 6*cm, 9.5*cm]
+    estilo_t = TableStyle([
+        ("VALIGN",(0,0),(-1,-1),"MIDDLE"),
+        ("TOPPADDING",(0,0),(-1,-1),3),
+        ("BOTTOMPADDING",(0,0),(-1,-1),3),
+        ("LINEBELOW",(0,0),(-1,-1),0.3,GRIS_MED),
+        ("LEFTPADDING",(0,0),(-1,-1),4),
+    ])
+
+    # Nivel 1
+    items.append(cabecera_nivel("NIVEL 1 — Descubrimiento básico (Lo Inevitable)", AZUL_OSC))
+    filas1 = [
+        fila(len(activos)>0, "Hosts vivos (ARP/ping)", f"{len(activos)} hosts"),
+        fila(bool(topologia.gateway), "Gateway identificado", topologia.gateway or ""),
+        fila(n_puertos>0, "Puertos TCP escaneados", f"{n_puertos} puertos abiertos"),
+        fila("[EXTERNO]" in buf_str, "Tráfico externo capturado"),
+        fila("[FLUJO]" in buf_str, "Flujos internos detectados"),
+        fila(any(n.sistema_op and n.sistema_op!="Desconocido" for n in activos), "OS fingerprinting"),
+        fila(any(n.fabricante for n in activos), "Identificación de fabricantes"),
+    ]
+    t1 = Table(filas1, colWidths=col_w)
+    t1.setStyle(estilo_t)
+    items.append(t1)
+    items.append(Spacer(1, 0.3*cm))
+
+    # Nivel 2
+    items.append(cabecera_nivel("NIVEL 2 — Estándar (75–90%)", AZUL_MED))
+    filas2 = [
+        fila("HTTP" in buf_str, "HTTP detectado"),
+        fila("SSL Autofirmado" in buf_str, "SSL/TLS analizado",
+             "autofirmado detectado" if "SSL Autofirmado" in buf_str else ""),
+        fila("DHCP" in buf_str, "DHCP capturado"),
+        fila("DNS" in buf_str, "DNS interno"),
+        fila("XMPP" in buf_str or "QUIC" in buf_str, "Protocolos aplicación (XMPP/QUIC)"),
+        fila("NTP" in buf_str, "NTP detectado"),
+        fila("RTSP" in buf_str, "RTSP (cámara/stream)"),
+        fila("FTP" in buf_str, "FTP analizado"),
+        fila(any("Network Shares" in (h.servicio or "") for h in alertas), "SMB Shares"),
+        fila(any("Cred. por Defecto" in (h.servicio or "") for h in alertas),
+             "Credenciales por defecto"),
+    ]
+    t2 = Table(filas2, colWidths=col_w)
+    t2.setStyle(estilo_t)
+    items.append(t2)
+    items.append(Spacer(1, 0.3*cm))
+
+    # Nivel 3
+    items.append(cabecera_nivel("NIVEL 3 — Persistencia y vectores (40–70%)", NARANJA))
+    filas3 = [
+        fila(any("DC/" in (h.servicio or "") for h in alertas), "Active Directory/DC"),
+        fila(any("LDAP" in (h.servicio or "") for h in alertas), "LDAP enumerado"),
+        fila(any("Kerberos" in (h.servicio or "") for h in alertas), "Kerberos SPN"),
+        fila(any("SSL" in (h.servicio or "") for h in alertas), "Certificados SSL analizados"),
+        fila(any("NFS" in (h.servicio or "") for h in alertas), "NFS exportaciones"),
+        fila("IPSec" in buf_str or "VPN" in buf_str or "IKE" in buf_str, "VPN/túneles"),
+    ]
+    t3 = Table(filas3, colWidths=col_w)
+    t3.setStyle(estilo_t)
+    items.append(t3)
+    items.append(Spacer(1, 0.3*cm))
+
+    # Nivel 4
+    items.append(cabecera_nivel("NIVEL 4 — Técnicas Avanzadas (10–30%)", ROJO))
+    filas4 = [
+        fila("[IPv6]" in buf_str, "IPv6 completo",
+             "hosts encontrados" if "Host respondió" in buf_str else "activo/sin hosts IPv6"),
+        fila("[LLMNR]" in buf_str or "[NBT-NS]" in buf_str, "LLMNR/NBT-NS poisoning"),
+        fila("[WPAD]" in buf_str, "WPAD spoofing"),
+        fila("[VLAN]" in buf_str, "VLAN hopping"),
+        fila("[CDP]" in buf_str or "[LLDP]" in buf_str, "CDP/LLDP discovery"),
+        fila(any("Anomalía" in (h.servicio or "") for h in alertas), "Shadow IT / anomalías"),
+        fila(any("DHCP Rogue" in (h.servicio or "") for h in alertas), "DHCP Rogue"),
+    ]
+    t4 = Table(filas4, colWidths=col_w)
+    t4.setStyle(estilo_t)
+    items.append(t4)
+    items.append(Spacer(1, 0.3*cm))
+
+    # Nivel 5
+    items.append(cabecera_nivel("NIVEL 5 — Elite (1–5%)", ROJO))
+    filas5 = [
+        fila(any("IPMI" in (h.servicio or "") for h in alertas), "IPMI/iDRAC/iLO"),
+        fila("[BEACON] CONFIRMADO" in buf_str, "Beacon C2 detection",
+             f"{buf_str.count('[BEACON] CONFIRMADO')//max(1,1)} confirmados"),
+        fila("[JA3]" in buf_str, "JA3/JA3S TLS fingerprinting"),
+        fila("[NTP]" in buf_str and "offset" in buf_str.lower(), "NTP drift medido"),
+    ]
+    t5 = Table(filas5, colWidths=col_w)
+    t5.setStyle(estilo_t)
+    items.append(t5)
+
+    return items
+
 
 def _apendice(topologia, estilos, fecha):
     items = []
