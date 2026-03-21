@@ -17,3 +17,12 @@ venv/
 *~
 .DS_Store
 data/*.mmdb
+__pycache__/
+*.pyc
+*.pyo
+pasos_nmap/
+toporeveal_history.db
+data/*.mmdb
+logs/
+exports/
+cd
