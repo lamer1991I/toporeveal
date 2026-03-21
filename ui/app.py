@@ -52,14 +52,8 @@ def guardar_log(topologia=None, hora_inicio=None):
     from collections import defaultdict
     if not _LOG_BUFFER:
         return
-    import pwd
-    usuario_real = os.environ.get("SUDO_USER") or os.environ.get("USER") or "root"
-    try:
-        home_real = pwd.getpwnam(usuario_real).pw_dir
-    except Exception:
-        home_real = os.path.expanduser("~")
-    carpeta = os.path.join(home_real, "Proyectos", "toporeveal", "logs")
-    os.makedirs(carpeta, exist_ok=True)
+    from core.rutas import logs as _logs_dir
+    carpeta = _logs_dir()
     hora_fin = dt.now()
     if not hora_inicio:
         hora_inicio = hora_fin
@@ -491,9 +485,8 @@ class App:
 
         # Detector de anomalías vs baseline histórico
         import os as _os
-        _home = _os.path.expanduser("~")
-        _db   = _os.path.join(_home, "Proyectos", "toporeveal",
-                              "toporeveal_history.db")
+        from core.rutas import historial_db as _hdb
+        _db = _hdb()
         self._anomalias = DetectorAnomalias(ruta_db=_db)
         self._anomalias.callback_anomalia = self._on_anomalia_detectada
         self._anomalias.cargar_baseline()
@@ -1960,17 +1953,9 @@ class App:
         try:
             import os
             from datetime import datetime as dt
+            from core.rutas import exports as _exp
 
-            # Carpeta exports/ relativa al proyecto
-            usuario_real = os.environ.get("SUDO_USER") or os.environ.get("USER") or "root"
-            import pwd
-            try:
-                home_real = pwd.getpwnam(usuario_real).pw_dir
-            except Exception:
-                home_real = os.path.expanduser("~")
-
-            carpeta = os.path.join(home_real, "Proyectos", "toporeveal", "exports")
-            os.makedirs(carpeta, exist_ok=True)
+            carpeta = _exp()  # detecta automáticamente dónde está instalado
 
             # Nombre: handshake_SSID_timestamp.pcap
             ssid_safe = "".join(c for c in ssid if c.isalnum() or c in "-_")[:20]
