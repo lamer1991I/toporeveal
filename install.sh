@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ═══════════════════════════════════════════════════════════════════
 #  TopoReveal — Instalador v2.0
-#  Autor: Albert (ha-king)
+#  Autor: Albert (lamer1991I)
 #  Licencia: GPL v3
 #  Uso: sudo bash install.sh
 #  Repositorio: https://github.com/lamer1991I/toporeveal
