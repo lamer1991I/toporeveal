@@ -4,7 +4,7 @@
 #  Autor: Albert (ha-king)
 #  Licencia: GPL v3
 #  Uso: sudo bash install.sh
-#  Repositorio: https://github.com/ha-king/toporeveal
+#  Repositorio: https://github.com/lamer1991I/toporeveal
 # ═══════════════════════════════════════════════════════════════════
 
 set -e
@@ -36,7 +36,7 @@ cat << 'EOF'
 EOF
 echo -e "${C_RESET}"
 echo -e "  ${C_BOLD}Network Intelligence Platform v2.0${C_RESET}"
-echo -e "  Autor: Albert (ha-king) | Licencia: GPL v3\n"
+echo -e "  Autor: Albert (lamer1991I) | Licencia: GPL v3\n"
 echo -e "  ${C_YELLOW}⚠  Solo usar en redes propias o con autorización escrita${C_RESET}\n"
 echo -e "${C_CYAN}══════════════════════════════════════════════════════════════${C_RESET}\n"
 

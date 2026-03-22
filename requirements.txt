@@ -1,0 +1,7 @@
+scapy
+reportlab
+geoip2
+matplotlib
+pillow
+requests
+python-nmap

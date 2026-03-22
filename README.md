@@ -65,7 +65,7 @@ TopoReveal es una herramienta de auditoría de seguridad de redes con interfaz g
 ## Instalación
 
 ```bash
-git clone https://github.com/ha-king/toporeveal.git
+git clone https://github.com/lamer1991I/toporeveal.git
 cd toporeveal
 sudo bash install.sh
 ```
@@ -83,7 +83,7 @@ El instalador:
 # 1. Registro gratuito en https://www.maxmind.com/en/geolite2/signup
 # 2. Descargar GeoLite2-City.mmdb y GeoLite2-ASN.mmdb
 # 3. Copiar a:
-cp GeoLite2-*.mmdb ~/Proyectos/toporeveal/data/
+cp GeoLite2-*.mmdb data/
 ```
 
 ### Dependencias mínimas
@@ -91,6 +91,7 @@ cp GeoLite2-*.mmdb ~/Proyectos/toporeveal/data/
 ```bash
 sudo apt install python3 python3-tk nmap scapy
 pip3 install scapy reportlab geoip2 matplotlib --break-system-packages
+pip3 install -r requirements.txt --break-system-packages
 ```
 
 ---
@@ -102,7 +103,7 @@ pip3 install scapy reportlab geoip2 matplotlib --break-system-packages
 toporeveal
 
 # O directamente
-sudo python3 ~/Proyectos/toporeveal/main.py
+sudo python3 main.py
 ```
 
 Al iniciar, TopoReveal detecta automáticamente la interfaz de red, el gateway y los hosts activos. El escaneo de 3 fases arranca en segundo plano sin intervención.
@@ -144,15 +145,11 @@ TopoReveal es una herramienta de auditoría de seguridad diseñada para administ
 
 GPL v3 — ver [LICENSE](LICENSE)
 
-Copyright © 2026 Albert (ha-king)
+Copyright © 2026 Albert Guarin (lamer1991I)
 # toporeveal
 # toporeveal
 
 ## Screenshots
-
-![Topología de red](screenshots/captura1.png)
-![Panel de alertas](screenshots/captura2.png)
-![WiFi Scope](screenshots/captura3.png)
 
 ## Screenshots
 
